@@ -666,7 +666,7 @@ document.getElementById('bookForm').addEventListener('submit', async function(e)
   try {
     await fetch('https://script.google.com/macros/s/AKfycbxF7BL8Kj7-Z1VTn64RK_0YaeiNsgyqmB48d71gEpNtf5Koe9qPSUW4kfKmaji-nakR/exec', {
       method: 'POST', mode: 'no-cors',
-      headers: {'Content-Type': 'application/json'},
+      headers: {'Content-Type': 'text/plain'},
       body: JSON.stringify(data)
     });
     btn.textContent = '✓ 已收到！24 小時內客服聯絡';
