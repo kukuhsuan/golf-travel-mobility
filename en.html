@@ -312,7 +312,7 @@
       <select id="qTrip"><option>Round trip</option><option>One way</option></select>
     </div>
     <div class="qb-price">
-      <span class="from">From NT$</span><span class="amt" id="qbAmt">8,800</span><span class="per">each way</span>
+      <span class="from">From USD</span><span class="amt" id="qbAmt">280</span><span class="per">each way</span>
     </div>
     <button class="btn btn-navy" onclick="goBook()">Get a Quote</button>
   </div>
@@ -421,25 +421,25 @@
         <div class="pick-badge">Most popular</div>
         <div class="dest">🇯🇵 Japan</div>
         <div class="area">Osaka · Tokyo · Hokkaido · Okinawa<br>Dense flights, our most mature route</div>
-        <div class="price"><span class="from">NT$</span><span class="amt">8,800</span><span class="from">+</span></div>
+        <div class="price"><span class="from">USD</span><span class="amt">280</span><span class="from">+</span></div>
         <div class="per">each way / per bag</div>
       </div>
       <div class="route-card">
         <div class="dest">🇲🇾 Malaysia</div>
         <div class="area">Kuala Lumpur · Johor · Genting<br>Great year-round, ideal for longer trips</div>
-        <div class="price"><span class="from">NT$</span><span class="amt">10,000</span><span class="from">+</span></div>
+        <div class="price"><span class="from">USD</span><span class="amt">313</span><span class="from">+</span></div>
         <div class="per">each way / per bag</div>
       </div>
       <div class="route-card">
         <div class="dest">🇸🇬 Singapore</div>
         <div class="area">Island-wide delivery<br>Business hosting &amp; corporate VIP trips</div>
-        <div class="price"><span class="from">NT$</span><span class="amt">10,000</span><span class="from">+</span></div>
+        <div class="price"><span class="from">USD</span><span class="amt">313</span><span class="from">+</span></div>
         <div class="per">each way / per bag</div>
       </div>
       <div class="route-card">
         <div class="dest">🇹🇭 Thailand</div>
         <div class="area">Bangkok · Chiang Mai · Hua Hin · Pattaya<br>Training camps &amp; extended golf stays</div>
-        <div class="price"><span class="from">NT$</span><span class="amt">12,500</span><span class="from">+</span></div>
+        <div class="price"><span class="from">USD</span><span class="amt">391</span><span class="from">+</span></div>
         <div class="per">each way / per bag</div>
       </div>
     </div>
@@ -497,7 +497,7 @@
     </div>
     <div>
       <details class="faq"><summary>How far in advance should I book?<span class="ico">＋</span></summary><div class="ans">7–10 days before departure is recommended; 10–14 days in peak season or for Southeast Asia routes. VIP rush service can go as short as 3–5 days &mdash; contact support to confirm.</div></details>
-      <details class="faq"><summary>How much does it cost?<span class="ico">＋</span></summary><div class="ans">Starting prices per bag, each way: Japan NT$8,800, Malaysia NT$10,000, Singapore NT$10,000, Thailand NT$12,500. Final cost depends on dates, delivery point, and insurance &mdash; quoted within 24 hours of booking.</div></details>
+      <details class="faq"><summary>How much does it cost?<span class="ico">＋</span></summary><div class="ans">Starting prices per bag, each way: Japan USD280, Malaysia USD313, Singapore USD313, Thailand USD391. Final cost depends on dates, delivery point, and insurance &mdash; quoted within 24 hours of booking.</div></details>
       <details class="faq"><summary>How is the bag packed? Will it get damaged?<span class="ico">＋</span></summary><div class="ans">Our staff checks the packaging at pickup, adds impact protection, and photographs everything. We recommend club head covers; keep small valuables with you.</div></details>
       <details class="faq"><summary>How do I track my bag?<span class="ico">＋</span></summary><div class="ans">Join our LINE updates after booking &mdash; we message you at every checkpoint: pickup, departure, customs, delivery. You also get an official tracking code.</div></details>
       <details class="faq"><summary>What if it&rsquo;s delayed or damaged?<span class="ico">＋</span></summary><div class="ans">Our support team steps in immediately: tracking the shipment, coordinating with the carrier, filing claims, or arranging backup. Compensation follows carrier terms and any added insurance.</div></details>
@@ -664,7 +664,7 @@ document.getElementById('bookForm').addEventListener('submit', async function(e)
     bagCount: this.elements.bagCount.value
   };
   try {
-    await fetch('https://script.google.com/macros/s/AKfycbwor_ByLuLAbireJpxKOZQy1VFG6r4Th2Eklv2EIbKrmjZC3Tb3LMKtc6kQIXkbodTL/exec', {
+    await fetch('https://script.google.com/macros/s/AKfycbxF7BL8Kj7-Z1VTn64RK_0YaeiNsgyqmB48d71gEpNtf5Koe9qPSUW4kfKmaji-nakR/exec', {
       method: 'POST', mode: 'no-cors',
       headers: {'Content-Type': 'text/plain'},
       body: JSON.stringify(data)
