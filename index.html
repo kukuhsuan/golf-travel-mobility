@@ -646,5 +646,38 @@
   function closeModal(){document.getElementById('modal').classList.remove('show');}
   document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 </script>
+
+<script>
+document.getElementById('bookForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('[type="submit"]');
+  const orig = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '送出中...';
+  const data = {
+    name: this.elements.name.value,
+    phone: this.elements.phone.value,
+    line: this.elements.line.value,
+    destination: this.elements.destination.value,
+    departDate: this.elements.departDate.value,
+    teeDate: this.elements.teeDate.value,
+    bagCount: this.elements.bagCount.value
+  };
+  try {
+    await fetch('https://script.google.com/macros/s/AKfycbxF7BL8Kj7-Z1VTn64RK_0YaeiNsgyqmB48d71gEpNtf5Koe9qPSUW4kfKmaji-nakR/exec', {
+      method: 'POST', mode: 'no-cors',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    btn.textContent = '✓ 已收到！24 小時內客服聯絡';
+    btn.style.background = '#22c55e';
+    this.reset();
+  } catch(err) {
+    btn.disabled = false;
+    btn.textContent = orig;
+    alert('送出失敗，請直接 LINE 客服。');
+  }
+});
+</script>
 </body>
 </html>
