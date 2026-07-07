@@ -312,7 +312,7 @@
       <select id="qTrip"><option>往復</option><option>片道</option></select>
     </div>
     <div class="qb-price">
-      <span class="from">¥</span><span class="amt" id="qbAmt">8,800</span><span class="per">〜／片道</span>
+      <span class="from">¥</span><span class="amt" id="qbAmt">44,000</span><span class="per">〜／片道</span>
     </div>
     <button class="btn btn-navy" onclick="goBook()">見積もりを取る</button>
   </div>
@@ -421,25 +421,25 @@
         <div class="pick-badge">一番人気</div>
         <div class="dest">🇯🇵 日本</div>
         <div class="area">大阪・東京・北海道・沖縄<br>便数が多く、最も成熟したルート</div>
-        <div class="price"><span class="from">¥</span><span class="amt">8,800</span><span class="from">〜</span></div>
+        <div class="price"><span class="from">¥</span><span class="amt">44,000</span><span class="from">〜</span></div>
         <div class="per">片道／1バッグ</div>
       </div>
       <div class="route-card">
         <div class="dest">🇲🇾 マレーシア</div>
         <div class="area">クアラルンプール・ジョホール・ゲンティン<br>一年中プレー可能、長期旅行に最適</div>
-        <div class="price"><span class="from">¥</span><span class="amt">10,000</span><span class="from">〜</span></div>
+        <div class="price"><span class="from">¥</span><span class="amt">50,000</span><span class="from">〜</span></div>
         <div class="per">片道／1バッグ</div>
       </div>
       <div class="route-card">
         <div class="dest">🇸🇬 シンガポール</div>
         <div class="area">島内全域に配送<br>商談・法人VIPの行程に</div>
-        <div class="price"><span class="from">¥</span><span class="amt">10,000</span><span class="from">〜</span></div>
+        <div class="price"><span class="from">¥</span><span class="amt">50,000</span><span class="from">〜</span></div>
         <div class="per">片道／1バッグ</div>
       </div>
       <div class="route-card">
         <div class="dest">🇹🇭 タイ</div>
         <div class="area">バンコク・チェンマイ・ホアヒン・パタヤ<br>合宿・長期ゴルフ旅に</div>
-        <div class="price"><span class="from">¥</span><span class="amt">12,500</span><span class="from">〜</span></div>
+        <div class="price"><span class="from">¥</span><span class="amt">63,000</span><span class="from">〜</span></div>
         <div class="per">片道／1バッグ</div>
       </div>
     </div>
@@ -599,9 +599,9 @@
   });
 
   // 報價列：依目的地更新起價
-  const priceMap={'日本':'8,800','タイ':'12,500','マレーシア':'10,000','シンガポール':'10,000','その他':'8,800'};
+  const priceMap={'日本':'44,000','タイ':'12,500','マレーシア':'10,000','シンガポール':'10,000','その他':'44,000'};
   document.getElementById('qDest').addEventListener('change',function(){
-    document.getElementById('qbAmt').textContent=priceMap[this.value]||'8,800';
+    document.getElementById('qbAmt').textContent=priceMap[this.value]||'44,000';
   });
 
   // 報價列 → 帶入表單
