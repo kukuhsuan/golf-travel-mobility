@@ -599,9 +599,9 @@
   });
 
   // 報價列：依目的地更新起價
-  const priceMap={'Japan':'8,800','Thailand':'12,500','Malaysia':'10,000','Singapore':'10,000','Other':'8,800'};
+  const priceMap={'Japan':'280','Thailand':'391','Malaysia':'313','Singapore':'313','Other':'280'};
   document.getElementById('qDest').addEventListener('change',function(){
-    document.getElementById('qbAmt').textContent=priceMap[this.value]||'8,800';
+    document.getElementById('qbAmt').textContent=priceMap[this.value]||'280';
   });
 
   // 報價列 → 帶入表單
