@@ -312,7 +312,7 @@
       <select id="qTrip"><option>왕복</option><option>편도</option></select>
     </div>
     <div class="qb-price">
-      <span class="from">₩</span><span class="amt" id="qbAmt">8,800</span><span class="per">부터／편도</span>
+      <span class="from">₩</span><span class="amt" id="qbAmt">427,000</span><span class="per">부터／편도</span>
     </div>
     <button class="btn btn-navy" onclick="goBook()">견적 받기</button>
   </div>
@@ -421,25 +421,25 @@
         <div class="pick-badge">최다 선택</div>
         <div class="dest">🇯🇵 일본</div>
         <div class="area">오사카·도쿄·홋카이도·오키나와<br>항공편이 많고 가장 성숙한 노선</div>
-        <div class="price"><span class="from">₩</span><span class="amt">8,800</span><span class="from">~</span></div>
+        <div class="price"><span class="from">₩</span><span class="amt">427,000</span><span class="from">~</span></div>
         <div class="per">편도／1백</div>
       </div>
       <div class="route-card">
         <div class="dest">🇲🇾 말레이시아</div>
         <div class="area">쿠알라룸푸르·조호르·겐팅<br>연중 라운드 가능, 장기 여행에 최적</div>
-        <div class="price"><span class="from">₩</span><span class="amt">10,000</span><span class="from">~</span></div>
+        <div class="price"><span class="from">₩</span><span class="amt">485,000</span><span class="from">~</span></div>
         <div class="per">편도／1백</div>
       </div>
       <div class="route-card">
         <div class="dest">🇸🇬 싱가포르</div>
         <div class="area">전 지역 배송<br>비즈니스 접대·기업 VIP 일정</div>
-        <div class="price"><span class="from">₩</span><span class="amt">10,000</span><span class="from">~</span></div>
+        <div class="price"><span class="from">₩</span><span class="amt">485,000</span><span class="from">~</span></div>
         <div class="per">편도／1백</div>
       </div>
       <div class="route-card">
         <div class="dest">🇹🇭 태국</div>
         <div class="area">방콕·치앙마이·후아힌·파타야<br>전지훈련과 장기 골프 여행</div>
-        <div class="price"><span class="from">₩</span><span class="amt">12,500</span><span class="from">~</span></div>
+        <div class="price"><span class="from">₩</span><span class="amt">607,000</span><span class="from">~</span></div>
         <div class="per">편도／1백</div>
       </div>
     </div>
@@ -599,9 +599,9 @@
   });
 
   // 報價列：依目的地更新起價
-  const priceMap={'일본':'8,800','태국':'12,500','말레이시아':'10,000','싱가포르':'10,000','기타':'8,800'};
+  const priceMap={'일본':'427,000','태국':'607,000','말레이시아':'485,000','싱가포르':'485,000','기타':'427,000'};
   document.getElementById('qDest').addEventListener('change',function(){
-    document.getElementById('qbAmt').textContent=priceMap[this.value]||'8,800';
+    document.getElementById('qbAmt').textContent=priceMap[this.value]||'427,000';
   });
 
   // 報價列 → 帶入表單
