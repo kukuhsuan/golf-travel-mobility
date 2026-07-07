@@ -312,7 +312,7 @@
       <select id="qTrip"><option>往復</option><option>片道</option></select>
     </div>
     <div class="qb-price">
-      <span class="from">NT$</span><span class="amt" id="qbAmt">8,800</span><span class="per">〜／片道</span>
+      <span class="from">¥</span><span class="amt" id="qbAmt">8,800</span><span class="per">〜／片道</span>
     </div>
     <button class="btn btn-navy" onclick="goBook()">見積もりを取る</button>
   </div>
@@ -421,25 +421,25 @@
         <div class="pick-badge">一番人気</div>
         <div class="dest">🇯🇵 日本</div>
         <div class="area">大阪・東京・北海道・沖縄<br>便数が多く、最も成熟したルート</div>
-        <div class="price"><span class="from">NT$</span><span class="amt">8,800</span><span class="from">〜</span></div>
+        <div class="price"><span class="from">¥</span><span class="amt">8,800</span><span class="from">〜</span></div>
         <div class="per">片道／1バッグ</div>
       </div>
       <div class="route-card">
         <div class="dest">🇲🇾 マレーシア</div>
         <div class="area">クアラルンプール・ジョホール・ゲンティン<br>一年中プレー可能、長期旅行に最適</div>
-        <div class="price"><span class="from">NT$</span><span class="amt">10,000</span><span class="from">〜</span></div>
+        <div class="price"><span class="from">¥</span><span class="amt">10,000</span><span class="from">〜</span></div>
         <div class="per">片道／1バッグ</div>
       </div>
       <div class="route-card">
         <div class="dest">🇸🇬 シンガポール</div>
         <div class="area">島内全域に配送<br>商談・法人VIPの行程に</div>
-        <div class="price"><span class="from">NT$</span><span class="amt">10,000</span><span class="from">〜</span></div>
+        <div class="price"><span class="from">¥</span><span class="amt">10,000</span><span class="from">〜</span></div>
         <div class="per">片道／1バッグ</div>
       </div>
       <div class="route-card">
         <div class="dest">🇹🇭 タイ</div>
         <div class="area">バンコク・チェンマイ・ホアヒン・パタヤ<br>合宿・長期ゴルフ旅に</div>
-        <div class="price"><span class="from">NT$</span><span class="amt">12,500</span><span class="from">〜</span></div>
+        <div class="price"><span class="from">¥</span><span class="amt">12,500</span><span class="from">〜</span></div>
         <div class="per">片道／1バッグ</div>
       </div>
     </div>
@@ -497,7 +497,7 @@
     </div>
     <div>
       <details class="faq"><summary>何日前までに予約すればいいですか？<span class="ico">＋</span></summary><div class="ans">出発の7〜10日前がおすすめです。ハイシーズンや東南アジア路線は10〜14日前を推奨。VIP特急便なら最短3〜5日も可能ですので、サポートへご相談ください。</div></details>
-      <details class="faq"><summary>料金はどのくらいですか？<span class="ico">＋</span></summary><div class="ans">片道・1バッグの目安：日本 NT$8,800、マレーシア NT$10,000、シンガポール NT$10,000、タイ NT$12,500。実際の料金は出発日・配送先・保険により確定し、ご予約後24時間以内にご案内します。</div></details>
+      <details class="faq"><summary>料金はどのくらいですか？<span class="ico">＋</span></summary><div class="ans">片道・1バッグの目安：日本 ¥44,000、マレーシア ¥50,000、シンガポール ¥50,000、タイ ¥63,000。実際の料金は出発日・配送先・保険により確定し、ご予約後24時間以内にご案内します。</div></details>
       <details class="faq"><summary>梱包はどうなりますか？破損しませんか？<span class="ico">＋</span></summary><div class="ans">集荷時にスタッフが梱包状態を確認し、衝撃対策を施した上で撮影記録します。ヘッドカバーの装着をおすすめします。小さな貴重品はご自身でお持ちください。</div></details>
       <details class="faq"><summary>バッグの追跡はどうすれば？<span class="ico">＋</span></summary><div class="ans">ご予約後にLINE通知へご登録ください。集荷・出発・通関・到着の各ポイントでご連絡します。公式追跡番号でもご自身で確認できます。</div></details>
       <details class="faq"><summary>遅延や破損があった場合は？<span class="ico">＋</span></summary><div class="ans">サポートチームがすぐに対応：貨物の追跡、物流会社との調整、保険請求や代替手配をサポートします。補償額は運送約款と追加保険によります。</div></details>
@@ -664,7 +664,7 @@ document.getElementById('bookForm').addEventListener('submit', async function(e)
     bagCount: this.elements.bagCount.value
   };
   try {
-    await fetch('https://script.google.com/macros/s/AKfycbwor_ByLuLAbireJpxKOZQy1VFG6r4Th2Eklv2EIbKrmjZC3Tb3LMKtc6kQIXkbodTL/exec', {
+    await fetch('https://script.google.com/macros/s/AKfycbxF7BL8Kj7-Z1VTn64RK_0YaeiNsgyqmB48d71gEpNtf5Koe9qPSUW4kfKmaji-nakR/exec', {
       method: 'POST', mode: 'no-cors',
       headers: {'Content-Type': 'text/plain'},
       body: JSON.stringify(data)
