@@ -9,675 +9,453 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --green:#7BC043;        /* Ship Sticks 亮綠 */
-    --green-dk:#5EA32E;
-    --navy:#16202E;         /* 深藍海軍 */
-    --navy-2:#1F2C3D;
-    --ink:#1A222E;
-    --gray:#5B6472;
-    --gray-lt:#EEF1F4;
-    --blue-lt:#A9CDEE;      /* FAQ 淺藍 */
-    --white:#FFFFFF;
-    --r:10px;
-  }
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:'Poppins','Noto Sans TC',-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:16px}
-  a{color:inherit;text-decoration:none}
-  img{display:block;max-width:100%}
-  button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
-  .container{max-width:1240px;margin:0 auto;padding:0 28px}
-
-  /* ── 按鈕 ── */
-  .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;font-size:15px;font-weight:600;border:none;cursor:pointer;border-radius:var(--r);transition:.15s;white-space:nowrap;gap:8px}
-  .btn:active{transform:scale(.97)}
-  .btn-navy{background:var(--navy);color:var(--white)}
-  .btn-navy:hover{background:var(--navy-2)}
-  .btn-green{background:var(--green);color:var(--white)}
-  .btn-green:hover{background:var(--green-dk)}
-  .btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-  .btn-outline:hover{background:var(--navy);color:var(--white)}
-  .btn-white{background:var(--white);color:var(--navy)}
-
-  /* ── 綠色促銷條 ── */
-  .promo{background:var(--green);color:var(--white);text-align:center;padding:11px 16px;font-size:14px;font-weight:500}
-  .promo strong{font-weight:700}
-  .promo u{text-decoration:underline;cursor:pointer}
-
-  /* ── Nav ── */
-  nav.top{background:var(--white);border-bottom:1px solid var(--gray-lt)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px;max-width:1240px;margin:0 auto;padding:0 28px}
-  .logo{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.5px;line-height:1.1}
-  .logo span{color:var(--green)}
-  .logo small{display:block;font-size:9px;font-weight:500;color:var(--gray);letter-spacing:4px}
-  .nav-links{display:flex;gap:34px;align-items:center;font-size:15px;font-weight:500}
-  .nav-links a{color:var(--ink)}
-  .nav-links a:hover{color:var(--green-dk)}
-  .menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:26px;color:var(--ink)}
-  @media(max-width:900px){
-    .nav-links{display:none}
-    .menu-btn{display:block}
-    .nav-links.open{display:flex;flex-direction:column;gap:18px;position:absolute;top:100%;left:0;right:0;background:var(--white);padding:26px;border-bottom:1px solid var(--gray-lt);box-shadow:0 12px 30px rgba(0,0,0,.10);z-index:300}
-  }
-  nav.top{position:relative}
-
-  /* ── 常駐報價列（Ship Sticks 招牌）── */
-  .quote-bar{position:sticky;top:0;z-index:400;background:var(--white);box-shadow:0 6px 24px rgba(0,0,0,.08);border-bottom:1px solid var(--gray-lt)}
-  .qb-inner{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:0}
-  .qb-field{flex:1;padding:4px 20px;border-right:1px solid var(--gray-lt)}
-  .qb-field label{display:block;font-size:11px;font-weight:600;color:var(--gray);letter-spacing:.5px;margin-bottom:1px}
-  .qb-field select,.qb-field input{width:100%;border:none;background:none;font-size:15px;font-weight:500;color:var(--ink);padding:2px 0;cursor:pointer}
-  .qb-field select:focus,.qb-field input:focus{outline:none}
-  .qb-price{display:flex;align-items:baseline;gap:8px;padding:0 26px;white-space:nowrap}
-  .qb-price .from{font-size:14px;color:var(--ink);font-weight:500}
-  .qb-price .amt{font-size:34px;font-weight:800;color:var(--green);letter-spacing:-1px}
-  .qb-price .per{font-size:13px;color:var(--gray)}
-  @media(max-width:900px){
-    .qb-inner{flex-wrap:wrap;gap:10px;padding:12px 16px}
-    .qb-field{flex:1 1 44%;border-right:none;border:1px solid var(--gray-lt);border-radius:8px;padding:8px 14px}
-    .qb-price{padding:0 4px;margin-left:auto}
-    .qb-price .amt{font-size:26px}
-  }
-
-  /* ── Hero：滿版照片 + 極簡大字 ── */
-  .hero{position:relative;margin:0 20px;border-radius:18px;overflow:hidden;min-height:560px;display:flex;align-items:center}
-  .hero::before{content:'';position:absolute;inset:0;background:url('imgs/hero.jpg') center/cover;z-index:0}
-  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,20,30,.45) 0%,rgba(10,20,30,.08) 65%);z-index:1}
-  .hero-content{position:relative;z-index:2;padding:80px 72px;color:var(--white)}
-  .hero h1{font-size:74px;font-weight:400;line-height:1.12;letter-spacing:-1px;text-shadow:0 2px 24px rgba(0,0,0,.25)}
-  .hero h1 b{font-weight:900}
-  .hero .sub{font-size:26px;font-weight:400;margin-top:34px;text-shadow:0 1px 12px rgba(0,0,0,.3)}
-  .hero .hero-cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
-  @media(max-width:900px){
-    .hero{margin:0 12px;min-height:420px}
-    .hero-content{padding:48px 28px}
-    .hero h1{font-size:40px}
-    .hero .sub{font-size:18px;margin-top:20px}
-  }
-
-  /* ── 數據信任條 ── */
-  .stats{padding:56px 0 30px}
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
-  .stat .num{font-size:44px;font-weight:800;color:var(--ink);letter-spacing:-1px;line-height:1}
-  .stat .num span{color:var(--green)}
-  .stat .lab{font-size:14px;color:var(--gray);margin-top:8px}
-  @media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:28px}}
-
-  /* ── 大字左右交錯區塊（Ship Sticks 核心版式）── */
-  .split{padding:90px 0}
-  .split-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;max-width:1240px;margin:0 auto;padding:0 28px}
-  .split-inner.rev .split-img{order:2}
-  .split h2{font-size:58px;font-weight:400;line-height:1.12;letter-spacing:-1px;color:var(--ink)}
-  .split h2 b{font-weight:900;display:block}
-  .split p{font-size:17px;color:var(--gray);line-height:1.9;margin-top:26px;max-width:480px}
-  .split .act{margin-top:30px}
-  .split-img img{width:100%;height:520px;object-fit:cover;border-radius:16px}
-  @media(max-width:900px){
-    .split{padding:52px 0}
-    .split-inner{grid-template-columns:1fr;gap:32px}
-    .split-inner.rev .split-img{order:0}
-    .split h2{font-size:36px}
-    .split-img img{height:300px}
-  }
-
-  /* ── 步驟 1/2/3 ── */
-  .step-num{font-size:58px;font-weight:400;line-height:1.15;letter-spacing:-1px}
-  .step-num b{font-weight:900}
-  .step-note{display:inline-block;margin-top:22px;background:#F1F8E9;border:1px solid var(--green);color:var(--green-dk);font-size:13.5px;font-weight:600;padding:6px 16px;border-radius:100px}
-
-  /* ── 適合對象 ── */
-  .who{background:var(--gray-lt);padding:90px 0}
-  .who h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
-  .who h2 b{font-weight:900}
-  .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}
-  .who-card{background:var(--white);border-radius:14px;padding:34px 26px}
-  .who-card .ico{font-size:34px;margin-bottom:14px}
-  .who-card h3{font-size:17px;font-weight:700;margin-bottom:8px}
-  .who-card p{font-size:14px;color:var(--gray);line-height:1.75}
-  @media(max-width:900px){.who h2{font-size:32px}.who-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:560px){.who-grid{grid-template-columns:1fr}}
-
-  /* ── 路線與價格 ── */
-  .routes{padding:90px 0}
-  .routes h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
-  .routes h2 b{font-weight:900}
-  .routes .lead{text-align:center;font-size:15.5px;color:var(--gray);max-width:560px;margin:16px auto 0}
-  .route-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}
-  .route-card{border:1.5px solid var(--gray-lt);border-radius:14px;padding:30px 24px;position:relative;transition:.15s}
-  .route-card:hover{box-shadow:0 14px 40px rgba(0,0,0,.10);transform:translateY(-3px)}
-  .route-card.pick{border-color:var(--green);border-width:2px}
-  .pick-badge{position:absolute;top:-13px;left:24px;background:var(--green);color:var(--white);font-size:12px;font-weight:700;padding:4px 14px;border-radius:100px}
-  .route-card .dest{font-size:19px;font-weight:800;margin-bottom:4px}
-  .route-card .area{font-size:13px;color:var(--gray);line-height:1.7;min-height:44px}
-  .route-card .price{margin-top:18px;display:flex;align-items:baseline;gap:6px}
-  .route-card .price .from{font-size:13px;color:var(--gray)}
-  .route-card .price .amt{font-size:32px;font-weight:800;color:var(--green);letter-spacing:-1px}
-  .route-card .per{font-size:12px;color:var(--gray);margin-top:2px}
-  .routes .fine{text-align:center;font-size:13px;color:var(--gray);margin-top:28px}
-  @media(max-width:900px){.routes h2{font-size:32px}.route-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:560px){.route-grid{grid-template-columns:1fr}}
-
-  /* ── 安心機制 ── */
-  .trust{background:var(--navy);color:var(--white);padding:96px 0}
-  .trust h2{font-size:52px;font-weight:400;letter-spacing:-1px;line-height:1.2}
-  .trust h2 b{font-weight:900;display:block}
-  .trust .lead{font-size:16px;color:rgba(255,255,255,.65);margin-top:20px;max-width:520px}
-  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
-  .trust-card{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:30px 26px}
-  .trust-card .ico{width:48px;height:48px;border-radius:12px;background:rgba(123,192,67,.15);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
-  .trust-card h3{font-size:16.5px;font-weight:700;margin-bottom:8px}
-  .trust-card p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.75}
-  @media(max-width:900px){.trust h2{font-size:34px}.trust-grid{grid-template-columns:1fr;gap:12px}}
-
-  /* ── 見證 ── */
-  .quotes{padding:90px 0}
-  .quotes h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
-  .quotes h2 b{font-weight:900}
-  .quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
-  .quote-card{border:1.5px solid var(--gray-lt);border-radius:14px;padding:32px 28px;display:flex;flex-direction:column}
-  .quote-card .txt{font-size:15.5px;line-height:1.9;color:var(--ink);flex:1}
-  .quote-card .name{margin-top:22px;font-weight:800;font-size:15px;display:flex;align-items:center;gap:8px}
-  .quote-card .name::before{content:'⛳'}
-  @media(max-width:900px){.quotes h2{font-size:32px}.quote-grid{grid-template-columns:1fr}}
-
-  /* ── FAQ（淺藍區塊）── */
-  .faq-sec{margin:0 20px 90px;background:var(--blue-lt);border-radius:18px;padding:80px 0}
-  .faq-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;max-width:1240px;margin:0 auto;padding:0 48px}
-  .faq-sec h2{font-size:52px;font-weight:400;line-height:1.15;letter-spacing:-1px;color:var(--navy)}
-  .faq-sec h2 b{font-weight:900;display:block}
-  details.faq{border-bottom:1.5px solid rgba(22,32,46,.18)}
-  details.faq summary{padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:16.5px;font-weight:700;color:var(--navy)}
-  details.faq summary::-webkit-details-marker{display:none}
-  details.faq summary .ico{font-size:22px;font-weight:400;transition:transform .2s}
-  details.faq[open] summary .ico{transform:rotate(45deg)}
-  details.faq .ans{padding:0 0 20px;font-size:14.5px;color:var(--navy);opacity:.85;line-height:1.9}
-  @media(max-width:900px){
-    .faq-sec{margin:0 12px 56px;padding:48px 0}
-    .faq-inner{grid-template-columns:1fr;gap:24px;padding:0 26px}
-    .faq-sec h2{font-size:32px}
-  }
-
-  /* ── 企業方案 ── */
-  .corp{padding:0 20px 90px}
-  .corp-box{position:relative;border-radius:18px;overflow:hidden;padding:88px 72px;display:flex;justify-content:space-between;align-items:center;gap:40px}
-  .corp-box::before{content:'';position:absolute;inset:0;background:url('imgs/corp.jpg') center/cover}
-  .corp-box::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,32,46,.82),rgba(22,32,46,.35))}
-  .corp-content{position:relative;z-index:2;color:var(--white)}
-  .corp-content h2{font-size:44px;font-weight:400;line-height:1.25;letter-spacing:-1px}
-  .corp-content h2 b{font-weight:900}
-  .corp-content p{font-size:15.5px;color:rgba(255,255,255,.75);margin-top:16px;max-width:520px;line-height:1.85}
-  .corp-act{position:relative;z-index:2}
-  @media(max-width:900px){
-    .corp{padding:0 12px 56px}
-    .corp-box{flex-direction:column;align-items:flex-start;padding:48px 30px}
-    .corp-content h2{font-size:30px}
-  }
-
-  /* ── 預約表單 ── */
-  .book{padding:0 0 100px}
-  .book h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
-  .book h2 b{font-weight:900}
-  .book .lead{text-align:center;font-size:15.5px;color:var(--gray);margin:14px auto 0;max-width:520px}
-  .book-wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:56px;margin-top:56px;align-items:start}
-  .line-card{background:var(--gray-lt);border-radius:16px;padding:38px 32px;text-align:center}
-  .line-card img{width:180px;height:180px;margin:0 auto 18px;border-radius:12px;background:var(--white);padding:10px}
-  .line-card h3{font-size:18px;font-weight:800;margin-bottom:6px}
-  .line-card p{font-size:13.5px;color:var(--gray);margin-bottom:18px}
-  .bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .field{display:flex;flex-direction:column}
-  .field.full{grid-column:span 2}
-  .field label{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:7px}
-  .field label .req{color:var(--green-dk)}
-  .field input,.field select,.field textarea{padding:12px 14px;border:1.5px solid #D6DBE1;border-radius:10px;background:var(--white);font-size:14.5px;transition:border .15s}
-  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
-  .form-fine{font-size:12.5px;color:var(--gray)}
-  .form-ft{grid-column:span 2;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
-  @media(max-width:900px){
-    .book h2{font-size:32px}
-    .book-wrap{grid-template-columns:1fr;gap:28px}
-    .bk-grid{grid-template-columns:1fr}
-    .field.full,.form-ft{grid-column:span 1}
-  }
-
-  /* ── Footer（深藍）── */
-  footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
-  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
-  .foot-logo{font-size:20px;font-weight:800;color:var(--white)}
-  .foot-logo span{color:var(--green)}
-  .foot-desc{font-size:13.5px;line-height:1.8;max-width:280px;margin-top:12px}
-  .foot-col h4{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--white);text-transform:uppercase;margin-bottom:16px}
-  .foot-col ul{list-style:none}
-  .foot-col li{margin-bottom:10px;font-size:13.5px}
-  .foot-col a:hover{color:var(--white)}
-  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px}
-  @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:28px}}
-
-  /* ── Modal ── */
-  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center;padding:20px}
-  .modal-overlay.show{display:flex}
-  .modal-box{background:var(--white);max-width:430px;width:100%;padding:38px;border-radius:16px}
-  .modal-check{width:54px;height:54px;border-radius:50%;background:#F1F8E9;border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--green-dk);margin-bottom:16px}
-  .modal-box h3{font-size:20px;font-weight:800;margin-bottom:10px}
-  .modal-box p{font-size:14px;color:var(--gray);line-height:1.85;margin-bottom:22px}
-  .modal-box .close-row{display:flex;justify-content:flex-end}
+:root{
+--green:#7BC043;
+--green-dk:#5EA32E;
+--navy:#16202E;
+--navy-2:#1F2C3D;
+--ink:#1A222E;
+--gray:#5B6472;
+--gray-lt:#EEF1F4;
+--blue-lt:#A9CDEE;
+--white:#FFFFFF;
+--r:10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins','Noto Sans TC',-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:16px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+.container{max-width:1240px;margin:0 auto;padding:0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;font-size:15px;font-weight:600;border:none;cursor:pointer;border-radius:var(--r);transition:.15s;white-space:nowrap;gap:8px}
+.btn:active{transform:scale(.97)}
+.btn-navy{background:var(--navy);color:var(--white)}
+.btn-navy:hover{background:var(--navy-2)}
+.btn-green{background:var(--green);color:var(--white)}
+.btn-green:hover{background:var(--green-dk)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.btn-outline:hover{background:var(--navy);color:var(--white)}
+.btn-white{background:var(--white);color:var(--navy)}
+.promo{background:var(--green);color:var(--white);text-align:center;padding:11px 16px;font-size:14px;font-weight:500}
+.promo strong{font-weight:700}
+.promo u{text-decoration:underline;cursor:pointer}
+nav.top{background:var(--white);border-bottom:1px solid var(--gray-lt)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px;max-width:1240px;margin:0 auto;padding:0 28px}
+.logo{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.5px;line-height:1.1}
+.logo span{color:var(--green)}
+.logo small{display:block;font-size:9px;font-weight:500;color:var(--gray);letter-spacing:4px}
+.nav-links{display:flex;gap:34px;align-items:center;font-size:15px;font-weight:500}
+.nav-links a{color:var(--ink)}
+.nav-links a:hover{color:var(--green-dk)}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:26px;color:var(--ink)}
+@media(max-width:900px){
+.nav-links{display:none}
+.menu-btn{display:block}
+.nav-links.open{display:flex;flex-direction:column;gap:18px;position:absolute;top:100%;left:0;right:0;background:var(--white);padding:26px;border-bottom:1px solid var(--gray-lt);box-shadow:0 12px 30px rgba(0,0,0,.10);z-index:300}
+}
+nav.top{position:relative}
+.quote-bar{position:sticky;top:0;z-index:400;background:var(--white);box-shadow:0 6px 24px rgba(0,0,0,.08);border-bottom:1px solid var(--gray-lt)}
+.qb-inner{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:0}
+.qb-field{flex:1;padding:4px 20px;border-right:1px solid var(--gray-lt)}
+.qb-field label{display:block;font-size:11px;font-weight:600;color:var(--gray);letter-spacing:.5px;margin-bottom:1px}
+.qb-field select,.qb-field input{width:100%;border:none;background:none;font-size:15px;font-weight:500;color:var(--ink);padding:2px 0;cursor:pointer}
+.qb-field select:focus,.qb-field input:focus{outline:none}
+.qb-price{display:flex;align-items:baseline;gap:8px;padding:0 26px;white-space:nowrap}
+.qb-price .from{font-size:14px;color:var(--ink);font-weight:500}
+.qb-price .amt{font-size:34px;font-weight:800;color:var(--green);letter-spacing:-1px}
+.qb-price .per{font-size:13px;color:var(--gray)}
+@media(max-width:900px){
+.qb-inner{flex-wrap:wrap;gap:10px;padding:12px 16px}
+.qb-field{flex:1 1 44%;border-right:none;border:1px solid var(--gray-lt);border-radius:8px;padding:8px 14px}
+.qb-price{padding:0 4px;margin-left:auto}
+.qb-price .amt{font-size:26px}
+}
+.hero{position:relative;margin:0 20px;border-radius:18px;overflow:hidden;min-height:560px;display:flex;align-items:center}
+.hero::before{content:'';position:absolute;inset:0;background:url('imgs/hero.jpg') center/cover;z-index:0}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,20,30,.45) 0%,rgba(10,20,30,.08) 65%);z-index:1}
+.hero-content{position:relative;z-index:2;padding:80px 72px;color:var(--white)}
+.hero h1{font-size:74px;font-weight:400;line-height:1.12;letter-spacing:-1px;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+.hero h1 b{font-weight:900}
+.hero .sub{font-size:26px;font-weight:400;margin-top:34px;text-shadow:0 1px 12px rgba(0,0,0,.3)}
+.hero .hero-cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+@media(max-width:900px){
+.hero{margin:0 12px;min-height:420px}
+.hero-content{padding:48px 28px}
+.hero h1{font-size:40px}
+.hero .sub{font-size:18px;margin-top:20px}
+}
+.stats{padding:56px 0 30px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
+.stat .num{font-size:44px;font-weight:800;color:var(--ink);letter-spacing:-1px;line-height:1}
+.stat .num span{color:var(--green)}
+.stat .lab{font-size:14px;color:var(--gray);margin-top:8px}
+@media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:28px}}
+.split{padding:90px 0}
+.split-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;max-width:1240px;margin:0 auto;padding:0 28px}
+.split-inner.rev .split-img{order:2}
+.split h2{font-size:58px;font-weight:400;line-height:1.12;letter-spacing:-1px;color:var(--ink)}
+.split h2 b{font-weight:900;display:block}
+.split p{font-size:17px;color:var(--gray);line-height:1.9;margin-top:26px;max-width:480px}
+.split .act{margin-top:30px}
+.split-img img{width:100%;height:520px;object-fit:cover;border-radius:16px}
+@media(max-width:900px){
+.split{padding:52px 0}
+.split-inner{grid-template-columns:1fr;gap:32px}
+.split-inner.rev .split-img{order:0}
+.split h2{font-size:36px}
+.split-img img{height:300px}
+}
+.step-num{font-size:58px;font-weight:400;line-height:1.15;letter-spacing:-1px}
+.step-num b{font-weight:900}
+.step-note{display:inline-block;margin-top:22px;background:#F1F8E9;border:1px solid var(--green);color:var(--green-dk);font-size:13.5px;font-weight:600;padding:6px 16px;border-radius:100px}
+.who{background:var(--gray-lt);padding:90px 0}
+.who h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
+.who h2 b{font-weight:900}
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}
+.who-card{background:var(--white);border-radius:14px;padding:34px 26px}
+.who-card .ico{font-size:34px;margin-bottom:14px}
+.who-card h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.who-card p{font-size:14px;color:var(--gray);line-height:1.75}
+@media(max-width:900px){.who h2{font-size:32px}.who-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.who-grid{grid-template-columns:1fr}}
+.routes{padding:90px 0}
+.routes h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
+.routes h2 b{font-weight:900}
+.routes .lead{text-align:center;font-size:15.5px;color:var(--gray);max-width:560px;margin:16px auto 0}
+.route-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}
+.route-card{border:1.5px solid var(--gray-lt);border-radius:14px;padding:30px 24px;position:relative;transition:.15s}
+.route-card:hover{box-shadow:0 14px 40px rgba(0,0,0,.10);transform:translateY(-3px)}
+.route-card.pick{border-color:var(--green);border-width:2px}
+.pick-badge{position:absolute;top:-13px;left:24px;background:var(--green);color:var(--white);font-size:12px;font-weight:700;padding:4px 14px;border-radius:100px}
+.route-card .dest{font-size:19px;font-weight:800;margin-bottom:4px}
+.route-card .area{font-size:13px;color:var(--gray);line-height:1.7;min-height:44px}
+.route-card .price{margin-top:18px;display:flex;align-items:baseline;gap:6px}
+.route-card .price .from{font-size:13px;color:var(--gray)}
+.route-card .price .amt{font-size:32px;font-weight:800;color:var(--green);letter-spacing:-1px}
+.route-card .per{font-size:12px;color:var(--gray);margin-top:2px}
+.routes .fine{text-align:center;font-size:13px;color:var(--gray);margin-top:28px}
+@media(max-width:900px){.routes h2{font-size:32px}.route-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.route-grid{grid-template-columns:1fr}}
+.trust{background:var(--navy);color:var(--white);padding:96px 0}
+.trust h2{font-size:52px;font-weight:400;letter-spacing:-1px;line-height:1.2}
+.trust h2 b{font-weight:900;display:block}
+.trust .lead{font-size:16px;color:rgba(255,255,255,.65);margin-top:20px;max-width:520px}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.trust-card{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:30px 26px}
+.trust-card .ico{width:48px;height:48px;border-radius:12px;background:rgba(123,192,67,.15);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+.trust-card h3{font-size:16.5px;font-weight:700;margin-bottom:8px}
+.trust-card p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.75}
+@media(max-width:900px){.trust h2{font-size:34px}.trust-grid{grid-template-columns:1fr;gap:12px}}
+.quotes{padding:90px 0}
+.quotes h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
+.quotes h2 b{font-weight:900}
+.quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+.quote-card{border:1.5px solid var(--gray-lt);border-radius:14px;padding:32px 28px;display:flex;flex-direction:column}
+.quote-card .txt{font-size:15.5px;line-height:1.9;color:var(--ink);flex:1}
+.quote-card .name{margin-top:22px;font-weight:800;font-size:15px;display:flex;align-items:center;gap:8px}
+.quote-card .name::before{content:'⛳'}
+@media(max-width:900px){.quotes h2{font-size:32px}.quote-grid{grid-template-columns:1fr}}
+.faq-sec{margin:0 20px 90px;background:var(--blue-lt);border-radius:18px;padding:80px 0}
+.faq-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;max-width:1240px;margin:0 auto;padding:0 48px}
+.faq-sec h2{font-size:52px;font-weight:400;line-height:1.15;letter-spacing:-1px;color:var(--navy)}
+.faq-sec h2 b{font-weight:900;display:block}
+details.faq{border-bottom:1.5px solid rgba(22,32,46,.18)}
+details.faq summary{padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:16.5px;font-weight:700;color:var(--navy)}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary .ico{font-size:22px;font-weight:400;transition:transform .2s}
+details.faq[open] summary .ico{transform:rotate(45deg)}
+details.faq .ans{padding:0 0 20px;font-size:14.5px;color:var(--navy);opacity:.85;line-height:1.9}
+@media(max-width:900px){
+.faq-sec{margin:0 12px 56px;padding:48px 0}
+.faq-inner{grid-template-columns:1fr;gap:24px;padding:0 26px}
+.faq-sec h2{font-size:32px}
+}
+.corp{padding:0 20px 90px}
+.corp-box{position:relative;border-radius:18px;overflow:hidden;padding:88px 72px;display:flex;justify-content:space-between;align-items:center;gap:40px}
+.corp-box::before{content:'';position:absolute;inset:0;background:url('imgs/corp.jpg') center/cover}
+.corp-box::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,32,46,.82),rgba(22,32,46,.35))}
+.corp-content{position:relative;z-index:2;color:var(--white)}
+.corp-content h2{font-size:44px;font-weight:400;line-height:1.25;letter-spacing:-1px}
+.corp-content h2 b{font-weight:900}
+.corp-content p{font-size:15.5px;color:rgba(255,255,255,.75);margin-top:16px;max-width:520px;line-height:1.85}
+.corp-act{position:relative;z-index:2}
+@media(max-width:900px){
+.corp{padding:0 12px 56px}
+.corp-box{flex-direction:column;align-items:flex-start;padding:48px 30px}
+.corp-content h2{font-size:30px}
+}
+.book{padding:0 0 100px}
+.book h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
+.book h2 b{font-weight:900}
+.book .lead{text-align:center;font-size:15.5px;color:var(--gray);margin:14px auto 0;max-width:520px}
+.book-wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:56px;margin-top:56px;align-items:start}
+.line-card{background:var(--gray-lt);border-radius:16px;padding:38px 32px;text-align:center}
+.line-card img{width:180px;height:180px;margin:0 auto 18px;border-radius:12px;background:var(--white);padding:10px}
+.line-card h3{font-size:18px;font-weight:800;margin-bottom:6px}
+.line-card p{font-size:13.5px;color:var(--gray);margin-bottom:18px}
+.bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column}
+.field.full{grid-column:span 2}
+.field label{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:7px}
+.field label .req{color:var(--green-dk)}
+.field input,.field select,.field textarea{padding:12px 14px;border:1.5px solid #D6DBE1;border-radius:10px;background:var(--white);font-size:14.5px;transition:border .15s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+.form-fine{font-size:12.5px;color:var(--gray)}
+.form-ft{grid-column:span 2;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
+@media(max-width:900px){
+.book h2{font-size:32px}
+.book-wrap{grid-template-columns:1fr;gap:28px}
+.bk-grid{grid-template-columns:1fr}
+.field.full,.form-ft{grid-column:span 1}
+}
+footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
+.foot-logo{font-size:20px;font-weight:800;color:var(--white)}
+.foot-logo span{color:var(--green)}
+.foot-desc{font-size:13.5px;line-height:1.8;max-width:280px;margin-top:12px}
+.foot-col h4{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--white);text-transform:uppercase;margin-bottom:16px}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:10px;font-size:13.5px}
+.foot-col a:hover{color:var(--white)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px}
+@media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:28px}}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.show{display:flex}
+.modal-box{background:var(--white);max-width:430px;width:100%;padding:38px;border-radius:16px}
+.modal-check{width:54px;height:54px;border-radius:50%;background:#F1F8E9;border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--green-dk);margin-bottom:16px}
+.modal-box h3{font-size:20px;font-weight:800;margin-bottom:10px}
+.modal-box p{font-size:14px;color:var(--gray);line-height:1.85;margin-bottom:22px}
+.modal-box .close-row{display:flex;justify-content:flex-end}
 </style>
 </head>
 <body id="top">
-
-<!-- 綠色促銷條 -->
 <div class="promo" id="promoBar">
-  <span id="promoDefault"><strong>Early bird</strong>: book 14+ days before departure and save <strong>10%</strong> | Code <strong>GOLF2026</strong></span>
-  <span id="promoCourse" style="display:none">Referred by <strong id="courseName">partner course</strong> | member code <strong id="promoCode">GOLF2026</strong> applied</span>
+<span id="promoDefault"><strong>Early bird</strong>: book 14+ days before departure and save <strong>10%</strong> | Code <strong>GOLF2026</strong></span>
+<span id="promoCourse" style="display:none">Referred by <strong id="courseName">partner course</strong> | member code <strong id="promoCode">GOLF2026</strong> applied</span>
 </div>
-
-<!-- Nav -->
 <nav class="top">
-  <div class="nav-inner">
-    <a href="#top" class="logo">Golf Travel <span>Mobility</span><small>G T M S</small></a>
-    <div class="nav-links" id="navLinks">
-      <a href="#how">How It Works</a>
-      <a href="#routes">Routes &amp; Pricing</a>
-      <a href="#trust">Peace of Mind</a>
-      <a href="#faq">FAQ</a>
-      <a href="#corp">Corporate</a>
-      <a href="#book" class="btn btn-navy" style="padding:10px 22px;font-size:14px;color:var(--white)">Book Now</a>
-    </div>
-    <select class="lang-sw" onchange="if(this.value)location.href=this.value" style="border:1px solid var(--gray-lt);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--white);cursor:pointer;margin-left:14px">
-      <option value="index.html">中文</option>
-      <option value="en.html" selected>English</option>
-      <option value="ja.html">日本語</option>
-      <option value="ko.html">한국어</option>
-    </select>
-    <button class="menu-btn" id="menuBtn">☰</button>
-  </div>
+<div class="nav-inner">
+<a href="#top" class="logo">Golf Travel <span>Mobility</span><small>G T M S</small></a>
+<div class="nav-links" id="navLinks">
+<a href="#how">How It Works</a>
+<a href="#routes">Routes &amp; Pricing</a>
+<a href="#trust">Peace of Mind</a>
+<a href="#faq">FAQ</a>
+<a href="#corp">Corporate</a>
+<a href="#book" class="btn btn-navy" style="padding:10px 22px;font-size:14px;color:var(--white)">Book Now</a>
+</div>
+<select class="lang-sw" onchange="if(this.value)location.href=this.value" style="border:1px solid var(--gray-lt);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--white);cursor:pointer;margin-left:14px">
+<option value="index.html">中文</option>
+<option value="en.html" selected>English</option>
+<option value="ja.html">日本語</option>
+<option value="ko.html">한국어</option>
+</select>
+<button class="menu-btn" id="menuBtn">☰</button>
+</div>
 </nav>
-
-<!-- 常駐報價列 -->
 <div class="quote-bar">
-  <div class="qb-inner">
-    <div class="qb-field">
-      <label>DESTINATION</label>
-      <select id="qDest">
-        <option value="">Where are you playing?</option>
-        <option>Japan</option><option>Thailand</option><option>Malaysia</option><option>Singapore</option><option>Other</option>
-      </select>
-    </div>
-    <div class="qb-field">
-      <label>DEPARTURE DATE</label>
-      <input type="date" id="qDate">
-    </div>
-    <div class="qb-field">
-      <label>TRIP</label>
-      <select id="qTrip"><option>Round trip</option><option>One way</option></select>
-    </div>
-    <div class="qb-price">
-      <span class="from">From USD</span><span class="amt" id="qbAmt">280</span><span class="per">each way</span>
-    </div>
-    <button class="btn btn-navy" onclick="goBook()">Get a Quote</button>
-  </div>
+<div class="qb-inner">
+<div class="qb-field"><label>DESTINATION</label><select id="qDest"><option value="">Where are you playing?</option><option>Japan</option><option>Thailand</option><option>Malaysia</option><option>Singapore</option><option>Other</option></select></div>
+<div class="qb-field"><label>DEPARTURE DATE</label><input type="date" id="qDate"></div>
+<div class="qb-field"><label>TRIP</label><select id="qTrip"><option>Round trip</option><option>One way</option></select></div>
+<div class="qb-price"><span class="from">From USD</span><span class="amt" id="qbAmt">280</span><span class="per">each way</span></div>
+<button class="btn btn-navy" onclick="goBook()">Get a Quote</button>
 </div>
-
-<!-- Hero -->
+</div>
 <section class="hero">
-  <div class="hero-content">
-    <h1>Skip the carousel<b>.</b><br><b>We&rsquo;ll take the bag.</b></h1>
-    <p class="sub">Door pickup in Taiwan, straight to the course overseas. Land and play.</p>
-    <div class="hero-cta">
-      <a href="#book" class="btn btn-green" style="padding:16px 36px;font-size:16px">Book a Pickup</a>
-      <a href="#routes" class="btn btn-white" style="padding:16px 36px;font-size:16px">See Routes &amp; Pricing</a>
-    </div>
-  </div>
-</section>
-
-<!-- 數據信任條 -->
-<div class="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat"><div class="num">60<span>+</span></div><div class="lab">Partner courses</div></div>
-      <div class="stat"><div class="num">4</div><div class="lab">Top destinations</div></div>
-      <div class="stat"><div class="num">24<span>H</span></div><div class="lab">Support response</div></div>
-      <div class="stat"><div class="num" style="color:var(--green)">LINE</div><div class="lab">Real-time tracking</div></div>
-    </div>
-  </div>
+<div class="hero-content">
+<h1>Skip the carousel<b>.</b><br><b>We&rsquo;ll take the bag.</b></h1>
+<p class="sub">Door pickup in Taiwan, straight to the course overseas. Land and play.</p>
+<div class="hero-cta">
+<a href="#book" class="btn btn-green" style="padding:16px 36px;font-size:16px">Book a Pickup</a>
+<a href="#routes" class="btn btn-white" style="padding:16px 36px;font-size:16px">See Routes &amp; Pricing</a>
 </div>
-
-<!-- 大字區塊：開場 -->
-<section class="split" id="how">
-  <div class="split-inner">
-    <div>
-      <h2>Spur-of-the-moment golf trips <b>start here.</b></h2>
-      <p>Picture your next golf trip abroad &mdash; no lugging, no lines, and no &ldquo;your bag didn&rsquo;t make the flight.&rdquo; You leave light; your clubs are already waiting at the course.</p>
-      <div class="act"><a href="#book" class="btn btn-outline">Book a Pickup</a></div>
-    </div>
-    <div class="split-img">
-      <img src="imgs/step1.jpg" alt="Golf swing">
-    </div>
-  </div>
-</section>
-
-<!-- 步驟 1 -->
-<section class="split" style="padding-top:20px">
-  <div class="split-inner rev">
-    <div>
-      <div class="step-num">1. Book <b>online.</b></div>
-      <p>Destination, departure date, bag count &mdash; or just message us on LINE. Quote and pickup time within 24 hours.</p>
-      <div class="step-note">Book 7–10 days before departure</div>
-    </div>
-    <div class="split-img">
-      <img src="imgs/step2.jpg" alt="Online booking">
-    </div>
-  </div>
-</section>
-
-<!-- 步驟 2 -->
-<section class="split" style="padding-top:20px">
-  <div class="split-inner">
-    <div>
-      <div class="step-num">2. Doorstep pickup. <b>Bags fly.</b></div>
-      <p>Pack your clubs like you always do. We collect at your door, photograph the packaging, and hand it to international express &mdash; tracking number sent straight to your phone.</p>
-      <div class="step-note">Taiwan side fully handled by our team</div>
-    </div>
-    <div class="split-img">
-      <img src="imgs/step3.jpg" alt="Bag pickup">
-    </div>
-  </div>
-</section>
-
-<!-- 步驟 3 -->
-<section class="split" style="padding-top:20px">
-  <div class="split-inner rev">
-    <div>
-      <div class="step-num">3. Land. <b>Play.</b></div>
-      <p>Your bag is already at the pro shop or hotel, confirmed on LINE. Enjoy the flight for once &mdash; baggage claim is no longer your problem.</p>
-      <div class="step-note">Return leg arranged too &mdash; ship it straight back to Taiwan</div>
-    </div>
-    <div class="split-img">
-      <img src="imgs/step4.jpg" alt="Tee off">
-    </div>
-  </div>
-</section>
-
-<!-- 適合對象 -->
-<section class="who">
-  <div class="container">
-    <h2>These golfers <b>quit lugging.</b></h2>
-    <div class="who-grid">
-      <div class="who-card"><div class="ico">✈️</div><h3>Traveling golfers</h3><p>No more hauling bags through airports. Travel light &mdash; your clubs arrive first.</p></div>
-      <div class="who-card"><div class="ico">🏢</div><h3>Corporate VIP hosting</h3><p>One coordinated shipment. Sharper hosting, lasting impressions.</p></div>
-      <div class="who-card"><div class="ico">🏌️</div><h3>Training camps</h3><p>Ship the whole team&rsquo;s bags together &mdash; less chaos, zero heavy lifting.</p></div>
-      <div class="who-card"><div class="ico">⭐</div><h3>Club members</h3><p>Set up a standing routine &mdash; never think about your bag again.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 路線與價格 -->
-<section class="routes" id="routes">
-  <div class="container">
-    <h2>Four top routes across Asia, <b>transparent pricing.</b></h2>
-    <p class="lead">Estimated starting price per bag, each way. Final cost depends on dates, delivery point, and insurance &mdash; confirmed within 24 hours of booking.</p>
-    <div class="route-grid">
-      <div class="route-card pick">
-        <div class="pick-badge">Most popular</div>
-        <div class="dest">🇯🇵 Japan</div>
-        <div class="area">Osaka · Tokyo · Hokkaido · Okinawa<br>Dense flights, our most mature route</div>
-        <div class="price"><span class="from">USD</span><span class="amt">280</span><span class="from">+</span></div>
-        <div class="per">each way / per bag</div>
-      </div>
-      <div class="route-card">
-        <div class="dest">🇲🇾 Malaysia</div>
-        <div class="area">Kuala Lumpur · Johor · Genting<br>Great year-round, ideal for longer trips</div>
-        <div class="price"><span class="from">USD</span><span class="amt">313</span><span class="from">+</span></div>
-        <div class="per">each way / per bag</div>
-      </div>
-      <div class="route-card">
-        <div class="dest">🇸🇬 Singapore</div>
-        <div class="area">Island-wide delivery<br>Business hosting &amp; corporate VIP trips</div>
-        <div class="price"><span class="from">USD</span><span class="amt">313</span><span class="from">+</span></div>
-        <div class="per">each way / per bag</div>
-      </div>
-      <div class="route-card">
-        <div class="dest">🇹🇭 Thailand</div>
-        <div class="area">Bangkok · Chiang Mai · Hua Hin · Pattaya<br>Training camps &amp; extended golf stays</div>
-        <div class="price"><span class="from">USD</span><span class="amt">391</span><span class="from">+</span></div>
-        <div class="per">each way / per bag</div>
-      </div>
-    </div>
-    <p class="fine">VIP rush service, corporate contracts, and annual plans quoted separately. Estimates only &mdash; not final amounts.</p>
-    <div style="text-align:center;margin-top:32px"><a href="#book" class="btn btn-green" style="padding:15px 36px">Book a Pickup</a></div>
-  </div>
-</section>
-
-<!-- 安心機制（深藍區塊）-->
-<section class="trust" id="trust">
-  <div class="container">
-    <h2>We don&rsquo;t just ship it &mdash; <b>we watch it all the way there.</b></h2>
-    <p class="lead">From pickup in Taiwan to course-side delivery, every checkpoint comes with a proactive update. Your clubs get first-class treatment &mdash; something the cargo hold never offered.</p>
-    <div class="trust-grid">
-      <div class="trust-card"><div class="ico">📱</div><h3>LINE updates, every step</h3><p>Pickup, departure, customs, arrival &mdash; proactive messages at every checkpoint. No tracking codes to chase.</p></div>
-      <div class="trust-card"><div class="ico">📸</div><h3>Photo documentation</h3><p>Condition checked and photographed at pickup, verified again before shipping &mdash; fewer disputes.</p></div>
-      <div class="trust-card"><div class="ico">🚚</div><h3>International express</h3><p>Official real-time tracking, with our team monitoring every leg of the journey.</p></div>
-      <div class="trust-card"><div class="ico">🛠️</div><h3>Issue response</h3><p>Delays, customs holds, or address problems &mdash; support steps in immediately.</p></div>
-      <div class="trust-card"><div class="ico">✅</div><h3>Delivery confirmation</h3><p>We contact the course or hotel directly to confirm your bag arrived safely.</p></div>
-      <div class="trust-card"><div class="ico">🔄</div><h3>Return trip included</h3><p>Ship straight back to Taiwan when the trip ends &mdash; no lugging on the flight home.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 見證 -->
-<section class="quotes">
-  <div class="container">
-    <h2>What golfers <b>say.</b></h2>
-    <div class="quote-grid">
-      <div class="quote-card"><div class="txt">&ldquo;First time I arrived in Japan lighter than my golf bag. Went straight for ramen &mdash; my clubs were already at the course.&rdquo;</div><div class="name">Mr. Chen · Taipei</div></div>
-      <div class="quote-card"><div class="txt">&ldquo;Took clients to Singapore, four bags shipped together. They walked off the plane hands-free &mdash; instant credibility.&rdquo;</div><div class="name">Director Lin · Corporate hosting</div></div>
-      <div class="quote-card"><div class="txt">&ldquo;Twelve bags shipped to our training base in Thailand. All the time and energy we saved went straight into practice.&rdquo;</div><div class="name">Coach Wang · Training camp</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 企業方案 -->
-<section class="corp" id="corp">
-  <div class="corp-box">
-    <div class="corp-content">
-      <h2>Corporate teams · VIP hosting · <b>annual contracts.</b></h2>
-      <p>Regular friendly matches, client hosting, or team training abroad &mdash; annual contracts, batch shipping, corporate invoicing, and a dedicated account manager.</p>
-    </div>
-    <div class="corp-act">
-      <a href="#book" class="btn btn-green" style="padding:16px 34px;font-size:16px">Corporate Inquiry</a>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ（淺藍區塊）-->
-<section class="faq-sec" id="faq">
-  <div class="faq-inner">
-    <div>
-      <h2>Common <b>questions.</b></h2>
-    </div>
-    <div>
-      <details class="faq"><summary>How far in advance should I book?<span class="ico">＋</span></summary><div class="ans">7–10 days before departure is recommended; 10–14 days in peak season or for Southeast Asia routes. VIP rush service can go as short as 3–5 days &mdash; contact support to confirm.</div></details>
-      <details class="faq"><summary>How much does it cost?<span class="ico">＋</span></summary><div class="ans">Starting prices per bag, each way: Japan USD280, Malaysia USD313, Singapore USD313, Thailand USD391. Final cost depends on dates, delivery point, and insurance &mdash; quoted within 24 hours of booking.</div></details>
-      <details class="faq"><summary>How is the bag packed? Will it get damaged?<span class="ico">＋</span></summary><div class="ans">Our staff checks the packaging at pickup, adds impact protection, and photographs everything. We recommend club head covers; keep small valuables with you.</div></details>
-      <details class="faq"><summary>How do I track my bag?<span class="ico">＋</span></summary><div class="ans">Join our LINE updates after booking &mdash; we message you at every checkpoint: pickup, departure, customs, delivery. You also get an official tracking code.</div></details>
-      <details class="faq"><summary>What if it&rsquo;s delayed or damaged?<span class="ico">＋</span></summary><div class="ans">Our support team steps in immediately: tracking the shipment, coordinating with the carrier, filing claims, or arranging backup. Compensation follows carrier terms and any added insurance.</div></details>
-      <details class="faq"><summary>Can you ship the return leg too?<span class="ico">＋</span></summary><div class="ans">Yes &mdash; just mention it when booking. When your trip ends, we ship your bag from the overseas course or hotel straight back to Taiwan.</div></details>
-      <details class="faq"><summary>Can I ship multiple bags (team trips)?<span class="ico">＋</span></summary><div class="ans">Yes &mdash; 3+ bags get a volume discount. Corporate teams and training camps can discuss annual contracts and custom rates.</div></details>
-    </div>
-  </div>
-</section>
-
-<!-- 預約表單 -->
-<section class="book" id="book">
-  <div class="container">
-    <h2>Book your shipment, <b>reply within 24 hours.</b></h2>
-    <p class="lead">Fill in the basics &mdash; our team will confirm the plan, pickup time, and pricing over LINE.</p>
-    <div class="book-wrap">
-      <div class="line-card">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://lin.ee/XOMWpls&margin=6&format=png" alt="LINE QR Code">
-        <h3>Or just chat with us on LINE</h3>
-        <p>Scan the QR code or tap the link below &mdash; instant replies</p>
-        <a href="https://lin.ee/XOMWpls" target="_blank" class="btn btn-green" style="width:100%">Chat on LINE</a>
-      </div>
-      <form class="bk-grid" id="bookForm">
-        <div class="field"><label>Name <span class="req">*</span></label><input type="text" name="name" required></div>
-        <div class="field"><label>Mobile <span class="req">*</span></label><input type="tel" name="phone" required></div>
-        <div class="field"><label>LINE ID</label><input type="text" name="line"></div>
-        <div class="field">
-          <label>Destination <span class="req">*</span></label>
-          <select name="destination" required>
-            <option value="">Select</option><option value="日本">Japan</option><option value="泰國">Thailand</option><option value="馬來西亞">Malaysia</option><option value="新加坡">Singapore</option><option value="其他">Other (see notes)</option>
-          </select>
-        </div>
-        <div class="field"><label>Departure date <span class="req">*</span></label><input type="date" name="departDate" required></div>
-        <div class="field"><label>Tee-off date <span class="req">*</span></label><input type="date" name="teeDate" required></div>
-        <div class="field full">
-          <label>Number of bags <span class="req">*</span></label>
-          <select name="bagCount" required>
-            <option value="">Select</option><option value="1 套">1 bag</option><option value="2 套">2 bags</option><option value="3 套">3 bags</option><option value="4 套以上（企業／球隊）">4+ (corporate/team)</option>
-          </select>
-        </div>
-        <div class="field full">
-          <p class="form-fine">Pickup address, overseas delivery point, insurance, and return arrangements will be confirmed one by one over LINE after you book &mdash; no need to enter them here.</p>
-        </div>
-        <div class="form-ft">
-          <p class="form-fine">We&rsquo;ll contact you within 24 hours via LINE or phone.</p>
-          <button type="submit" class="btn btn-navy" style="padding:15px 36px">Send Booking Request</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-logo">Golf Travel <span>Mobility</span></div>
-        <p class="foot-desc">Cross-border golf bag shipping for Asia&rsquo;s traveling golfers &mdash; golf-industry networks combined with international logistics.</p>
-      </div>
-      <div class="foot-col"><h4>Service</h4><ul><li><a href="#how">How It Works</a></li><li><a href="#routes">Routes &amp; Pricing</a></li><li><a href="#trust">Peace of Mind</a></li></ul></div>
-      <div class="foot-col"><h4>Support</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="#book">Start booking</a></li><li><a href="#corp">Corporate</a></li></ul></div>
-      <div class="foot-col"><h4>Contact</h4><ul><li><a href="https://lin.ee/XOMWpls" target="_blank">LINE：lin.ee/XOMWpls</a></li><li>Mon–Sat 09:00–21:00</li></ul></div>
-    </div>
-    <div class="foot-bottom">
-      <div>© 2026 Golf Travel Mobility Service. All rights reserved.</div>
-      <div>All prices, partnerships, and insurance terms subject to formal contract.</div>
-    </div>
-  </div>
-</footer>
-
-<!-- Modal -->
-<div class="modal-overlay" id="modal">
-  <div class="modal-box">
-    <div class="modal-check">✓</div>
-    <h3>Booking request received.</h3>
-    <p>We&rsquo;ll reach out within 24 hours via LINE or phone to confirm the details. In a hurry? Message us on LINE.</p>
-    <div class="close-row"><button class="btn btn-outline" onclick="closeModal()">Close</button></div>
-  </div>
 </div>
-
+</section>
+<div class="stats"><div class="container"><div class="stats-grid">
+<div class="stat"><div class="num">60<span>+</span></div><div class="lab">Partner courses</div></div>
+<div class="stat"><div class="num">4</div><div class="lab">Top destinations</div></div>
+<div class="stat"><div class="num">24<span>H</span></div><div class="lab">Support response</div></div>
+<div class="stat"><div class="num" style="color:var(--green)">LINE</div><div class="lab">Real-time tracking</div></div>
+</div></div></div>
+<section class="split" id="how"><div class="split-inner"><div>
+<h2>Spur-of-the-moment golf trips <b>start here.</b></h2>
+<p>Picture your next golf trip abroad &mdash; no lugging, no lines, and no &ldquo;your bag didn&rsquo;t make the flight.&rdquo; You leave light; your clubs are already waiting at the course.</p>
+<div class="act"><a href="#book" class="btn btn-outline">Book a Pickup</a></div>
+</div><div class="split-img"><img src="imgs/step1.jpg" alt="Golf swing"></div></div></section>
+<section class="split" style="padding-top:20px"><div class="split-inner rev"><div>
+<div class="step-num">1. Book <b>online.</b></div>
+<p>Destination, departure date, bag count &mdash; or just message us on LINE. Quote and pickup time within 24 hours.</p>
+<div class="step-note">Book 7&ndash;10 days before departure</div>
+</div><div class="split-img"><img src="imgs/step2.jpg" alt="Online booking"></div></div></section>
+<section class="split" style="padding-top:20px"><div class="split-inner"><div>
+<div class="step-num">2. Doorstep pickup. <b>Bags fly.</b></div>
+<p>Pack your clubs like you always do. We collect at your door, photograph the packaging, and hand it to international express &mdash; tracking number sent straight to your phone.</p>
+<div class="step-note">Taiwan side fully handled by our team</div>
+</div><div class="split-img"><img src="imgs/step3.jpg" alt="Bag pickup"></div></div></section>
+<section class="split" style="padding-top:20px"><div class="split-inner rev"><div>
+<div class="step-num">3. Land. <b>Play.</b></div>
+<p>Your bag is already at the pro shop or hotel, confirmed on LINE. Enjoy the flight for once &mdash; baggage claim is no longer your problem.</p>
+<div class="step-note">Return leg arranged too &mdash; ship it straight back to Taiwan</div>
+</div><div class="split-img"><img src="imgs/step4.jpg" alt="Tee off"></div></div></section>
+<section class="who"><div class="container">
+<h2>These golfers <b>quit lugging.</b></h2>
+<div class="who-grid">
+<div class="who-card"><div class="ico">✈️</div><h3>Traveling golfers</h3><p>No more hauling bags through airports. Travel light &mdash; your clubs arrive first.</p></div>
+<div class="who-card"><div class="ico">🏢</div><h3>Corporate VIP hosting</h3><p>One coordinated shipment. Sharper hosting, lasting impressions.</p></div>
+<div class="who-card"><div class="ico">🏌️</div><h3>Training camps</h3><p>Ship the whole team&rsquo;s bags together &mdash; less chaos, zero heavy lifting.</p></div>
+<div class="who-card"><div class="ico">⭐</div><h3>Club members</h3><p>Set up a standing routine &mdash; never think about your bag again.</p></div>
+</div></div></section>
+<section class="routes" id="routes"><div class="container">
+<h2>Four top routes across Asia, <b>transparent pricing.</b></h2>
+<p class="lead">Estimated starting price per bag, each way. Final cost depends on dates, delivery point, and insurance &mdash; confirmed within 24 hours of booking.</p>
+<div class="route-grid">
+<div class="route-card pick"><div class="pick-badge">Most popular</div><div class="dest">🇯🇵 Japan</div><div class="area">Osaka &middot; Tokyo &middot; Hokkaido &middot; Okinawa<br>Dense flights, our most mature route</div><div class="price"><span class="from">USD</span><span class="amt">280</span><span class="from">+</span></div><div class="per">each way / per bag</div></div>
+<div class="route-card"><div class="dest">🇲🇾 Malaysia</div><div class="area">Kuala Lumpur &middot; Johor &middot; Genting<br>Great year-round, ideal for longer trips</div><div class="price"><span class="from">USD</span><span class="amt">313</span><span class="from">+</span></div><div class="per">each way / per bag</div></div>
+<div class="route-card"><div class="dest">🇸🇬 Singapore</div><div class="area">Island-wide delivery<br>Business hosting &amp; corporate VIP trips</div><div class="price"><span class="from">USD</span><span class="amt">313</span><span class="from">+</span></div><div class="per">each way / per bag</div></div>
+<div class="route-card"><div class="dest">🇹🇭 Thailand</div><div class="area">Bangkok &middot; Chiang Mai &middot; Hua Hin &middot; Pattaya<br>Training camps &amp; extended golf stays</div><div class="price"><span class="from">USD</span><span class="amt">391</span><span class="from">+</span></div><div class="per">each way / per bag</div></div>
+</div>
+<p class="fine">VIP rush service, corporate contracts, and annual plans quoted separately. Estimates only &mdash; not final amounts.</p>
+<div style="text-align:center;margin-top:32px"><a href="#book" class="btn btn-green" style="padding:15px 36px">Book a Pickup</a></div>
+</div></section>
+<section class="trust" id="trust"><div class="container">
+<h2>We don&rsquo;t just ship it &mdash; <b>we watch it all the way there.</b></h2>
+<p class="lead">From pickup in Taiwan to course-side delivery, every checkpoint comes with a proactive update. Your clubs get first-class treatment &mdash; something the cargo hold never offered.</p>
+<div class="trust-grid">
+<div class="trust-card"><div class="ico">📱</div><h3>LINE updates, every step</h3><p>Pickup, departure, customs, arrival &mdash; proactive messages at every checkpoint. No tracking codes to chase.</p></div>
+<div class="trust-card"><div class="ico">📸</div><h3>Photo documentation</h3><p>Condition checked and photographed at pickup, verified again before shipping &mdash; fewer disputes.</p></div>
+<div class="trust-card"><div class="ico">🚚</div><h3>International express</h3><p>Official real-time tracking, with our team monitoring every leg of the journey.</p></div>
+<div class="trust-card"><div class="ico">🛠️</div><h3>Issue response</h3><p>Delays, customs holds, or address problems &mdash; support steps in immediately.</p></div>
+<div class="trust-card"><div class="ico">✅</div><h3>Delivery confirmation</h3><p>We contact the course or hotel directly to confirm your bag arrived safely.</p></div>
+<div class="trust-card"><div class="ico">🔄</div><h3>Return trip included</h3><p>Ship straight back to Taiwan when the trip ends &mdash; no lugging on the flight home.</p></div>
+</div></div></section>
+<section class="quotes"><div class="container">
+<h2>What golfers <b>say.</b></h2>
+<div class="quote-grid">
+<div class="quote-card"><div class="txt">&ldquo;First time I arrived in Japan lighter than my golf bag. Went straight for ramen &mdash; my clubs were already at the course.&rdquo;</div><div class="name">Mr. Chen &middot; Taipei</div></div>
+<div class="quote-card"><div class="txt">&ldquo;Took clients to Singapore, four bags shipped together. They walked off the plane hands-free &mdash; instant credibility.&rdquo;</div><div class="name">Director Lin &middot; Corporate hosting</div></div>
+<div class="quote-card"><div class="txt">&ldquo;Twelve bags shipped to our training base in Thailand. All the time and energy we saved went straight into practice.&rdquo;</div><div class="name">Coach Wang &middot; Training camp</div></div>
+</div></div></section>
+<section class="corp" id="corp"><div class="corp-box">
+<div class="corp-content"><h2>Corporate teams &middot; VIP hosting &middot; <b>annual contracts.</b></h2><p>Regular friendly matches, client hosting, or team training abroad &mdash; annual contracts, batch shipping, corporate invoicing, and a dedicated account manager.</p></div>
+<div class="corp-act"><a href="#book" class="btn btn-green" style="padding:16px 34px;font-size:16px">Corporate Inquiry</a></div>
+</div></section>
+<section class="faq-sec" id="faq"><div class="faq-inner">
+<div><h2>Common <b>questions.</b></h2></div>
+<div>
+<details class="faq"><summary>How far in advance should I book?<span class="ico">＋</span></summary><div class="ans">7&ndash;10 days before departure is recommended; 10&ndash;14 days in peak season or for Southeast Asia routes. VIP rush service can go as short as 3&ndash;5 days &mdash; contact support to confirm.</div></details>
+<details class="faq"><summary>How much does it cost?<span class="ico">＋</span></summary><div class="ans">Starting prices per bag, each way: Japan USD280, Malaysia USD313, Singapore USD313, Thailand USD391. Final cost depends on dates, delivery point, and insurance &mdash; quoted within 24 hours of booking.</div></details>
+<details class="faq"><summary>How is the bag packed? Will it get damaged?<span class="ico">＋</span></summary><div class="ans">Our staff checks the packaging at pickup, adds impact protection, and photographs everything. We recommend club head covers; keep small valuables with you.</div></details>
+<details class="faq"><summary>How do I track my bag?<span class="ico">＋</span></summary><div class="ans">Join our LINE updates after booking &mdash; we message you at every checkpoint: pickup, departure, customs, delivery. You also get an official tracking code.</div></details>
+<details class="faq"><summary>What if it&rsquo;s delayed or damaged?<span class="ico">＋</span></summary><div class="ans">Our support team steps in immediately: tracking the shipment, coordinating with the carrier, filing claims, or arranging backup. Compensation follows carrier terms and any added insurance.</div></details>
+<details class="faq"><summary>Can you ship the return leg too?<span class="ico">＋</span></summary><div class="ans">Yes &mdash; just mention it when booking. When your trip ends, we ship your bag from the overseas course or hotel straight back to Taiwan.</div></details>
+<details class="faq"><summary>Can I ship multiple bags (team trips)?<span class="ico">＋</span></summary><div class="ans">Yes &mdash; 3+ bags get a volume discount. Corporate teams and training camps can discuss annual contracts and custom rates.</div></details>
+</div></div></section>
+<section class="book" id="book"><div class="container">
+<h2>Book your shipment, <b>reply within 24 hours.</b></h2>
+<p class="lead">Fill in the basics &mdash; our team will confirm the plan, pickup time, and pricing over LINE.</p>
+<div class="book-wrap">
+<div class="line-card">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://lin.ee/XOMWpls&margin=6&format=png" alt="LINE QR Code">
+<h3>Or just chat with us on LINE</h3>
+<p>Scan the QR code or tap the link below &mdash; instant replies</p>
+<a href="https://lin.ee/XOMWpls" target="_blank" class="btn btn-green" style="width:100%">Chat on LINE</a>
+</div>
+<form class="bk-grid" id="bookForm">
+<div class="field"><label>Name <span class="req">*</span></label><input type="text" name="name" required></div>
+<div class="field"><label>Mobile <span class="req">*</span></label><input type="tel" name="phone" required></div>
+<div class="field"><label>LINE ID</label><input type="text" name="line"></div>
+<div class="field"><label>Destination <span class="req">*</span></label><select name="destination" required><option value="">Select</option><option value="日本">Japan</option><option value="泰國">Thailand</option><option value="馬來西亞">Malaysia</option><option value="新加坡">Singapore</option><option value="其他">Other (see notes)</option></select></div>
+<div class="field"><label>Departure date <span class="req">*</span></label><input type="date" name="departDate" required></div>
+<div class="field"><label>Tee-off date <span class="req">*</span></label><input type="date" name="teeDate" required></div>
+<div class="field full"><label>Number of bags <span class="req">*</span></label><select name="bagCount" required><option value="">Select</option><option value="1 套">1 bag</option><option value="2 套">2 bags</option><option value="3 套">3 bags</option><option value="4 套以上（企業／球隊）">4+ (corporate/team)</option></select></div>
+<div class="field full"><p class="form-fine">Pickup address, overseas delivery point, insurance, and return arrangements will be confirmed one by one over LINE after you book &mdash; no need to enter them here.</p></div>
+<div class="form-ft">
+<p class="form-fine">We&rsquo;ll contact you within 24 hours via LINE or phone.</p>
+<button type="submit" class="btn btn-navy" style="padding:15px 36px">Send Booking Request</button>
+</div>
+</form>
+</div></div></section>
+<footer><div class="container">
+<div class="foot-grid">
+<div><div class="foot-logo">Golf Travel <span>Mobility</span></div><p class="foot-desc">Cross-border golf bag shipping for Asia&rsquo;s traveling golfers &mdash; golf-industry networks combined with international logistics.</p></div>
+<div class="foot-col"><h4>Service</h4><ul><li><a href="#how">How It Works</a></li><li><a href="#routes">Routes &amp; Pricing</a></li><li><a href="#trust">Peace of Mind</a></li></ul></div>
+<div class="foot-col"><h4>Support</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="#book">Start booking</a></li><li><a href="#corp">Corporate</a></li></ul></div>
+<div class="foot-col"><h4>Contact</h4><ul><li><a href="https://lin.ee/XOMWpls" target="_blank">LINE：lin.ee/XOMWpls</a></li><li>Mon&ndash;Sat 09:00&ndash;21:00</li></ul></div>
+</div>
+<div class="foot-bottom">
+<div>&copy; 2026 Golf Travel Mobility Service. All rights reserved.</div>
+<div>All prices, partnerships, and insurance terms subject to formal contract.</div>
+</div>
+</div></footer>
+<div class="modal-overlay" id="modal"><div class="modal-box">
+<div class="modal-check">✓</div>
+<h3>Booking request received.</h3>
+<p>We&rsquo;ll reach out within 24 hours via LINE or phone to confirm the details. In a hurry? Message us on LINE.</p>
+<div class="close-row"><button class="btn btn-outline" onclick="closeModal()">Close</button></div>
+</div></div>
 <script>
-  // 球場導流促銷條（?course=xxx）
-  (function(){
-    const p=new URLSearchParams(window.location.search),c=p.get('course');
-    if(!c)return;
-    const m={shanxidi:'Shanxidi Golf Course',meilihua:'Meilihua Golf Course',datunshan:'Datunshan Golf Course',demo:'Demo Golf Course'};
-    document.getElementById('courseName').textContent=m[c]||decodeURIComponent(c);
-    document.getElementById('promoCode').textContent=c.toUpperCase()+'2026';
-    document.getElementById('promoDefault').style.display='none';
-    document.getElementById('promoCourse').style.display='inline';
-  })();
-
-  // 手機選單
-  document.getElementById('menuBtn').addEventListener('click',function(){
-    document.getElementById('navLinks').classList.toggle('open');
-  });
-  document.querySelectorAll('#navLinks a').forEach(function(a){
-    a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')});
-  });
-
-  // 報價列：依目的地更新起價
-  const priceMap={'Japan':'280','Thailand':'391','Malaysia':'313','Singapore':'313','Other':'280'};
-  document.getElementById('qDest').addEventListener('change',function(){
-    document.getElementById('qbAmt').textContent=priceMap[this.value]||'280';
-  });
-
-  // 報價列 → 帶入表單
-  function goBook(){
-    const dest=document.getElementById('qDest').value;
-    const date=document.getElementById('qDate').value;
-    if(dest){const s=document.querySelector('[name="destination"]');if(s)s.value=dest;}
-    if(date){const s=document.querySelector('[name="departDate"]');if(s)s.value=date;}
-    document.getElementById('book').scrollIntoView({behavior:'smooth'});
-  }
-
-  // 表單送出
-  document.getElementById('bookForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const get = n => (document.querySelector('[name="' + n + '"]') || {}).value || '';
-    const departDate = get('departDate');
-    const teeDate = get('teeDate');
-    const fd = new FormData();
-    fd.append('entry.1470219353', get('name'));
-    fd.append('entry.1005606232', get('phone'));
-    fd.append('entry.1560275678', get('line'));
-    fd.append('entry.1769642179', get('destination'));
-    if (departDate) {
-      const [y, m, d] = departDate.split('-');
-      fd.append('entry.60605735_year', y);
-      fd.append('entry.60605735_month', parseInt(m, 10).toString());
-      fd.append('entry.60605735_day', parseInt(d, 10).toString());
-    }
-    if (teeDate) {
-      const [y, m, d] = teeDate.split('-');
-      fd.append('entry.663711340_year', y);
-      fd.append('entry.663711340_month', parseInt(m, 10).toString());
-      fd.append('entry.663711340_day', parseInt(d, 10).toString());
-    }
-    fd.append('entry.326336222', get('bagCount'));
-    fetch('https://docs.google.com/forms/d/18FZeZ0xJKxxXMdd6L_f23MTYMWtrA7dJFm_3Y_st4Yw/formResponse', {
-      method: 'POST', mode: 'no-cors', body: fd
-    });
-    document.getElementById('modal').classList.add('show');
-    this.reset();
-  });
-  function closeModal(){document.getElementById('modal').classList.remove('show');}
-  document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
-</script>
-
-<script>
+(function(){
+const p=new URLSearchParams(window.location.search),c=p.get('course');
+if(!c)return;
+const m={shanxidi:'Shanxidi Golf Course',meilihua:'Meilihua Golf Course',datunshan:'Datunshan Golf Course',demo:'Demo Golf Course'};
+document.getElementById('courseName').textContent=m[c]||decodeURIComponent(c);
+document.getElementById('promoCode').textContent=c.toUpperCase()+'2026';
+document.getElementById('promoDefault').style.display='none';
+document.getElementById('promoCourse').style.display='inline';
+})();
+document.getElementById('menuBtn').addEventListener('click',function(){
+document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('#navLinks a').forEach(function(a){
+a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')});
+});
+const priceMap={'Japan':'280','Thailand':'391','Malaysia':'313','Singapore':'313','Other':'280'};
+document.getElementById('qDest').addEventListener('change',function(){
+document.getElementById('qbAmt').textContent=priceMap[this.value]||'280';
+});
+function goBook(){
+const dest=document.getElementById('qDest').value;
+const date=document.getElementById('qDate').value;
+if(dest){const s=document.querySelector('[name="destination"]');if(s)s.value=dest;}
+if(date){const s=document.querySelector('[name="departDate"]');if(s)s.value=date;}
+document.getElementById('book').scrollIntoView({behavior:'smooth'});
+}
 document.getElementById('bookForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = this.querySelector('[type="submit"]');
   const orig = btn.textContent;
   btn.disabled = true;
-  btn.textContent = '送出中...';
+  btn.textContent = 'Sending...';
+  const fd = new FormData(this);
   const data = {
-    name: this.elements.name.value,
-    phone: this.elements.phone.value,
-    line: this.elements.line.value,
-    destination: this.elements.destination.value,
-    departDate: this.elements.departDate.value,
-    teeDate: this.elements.teeDate.value,
-    bagCount: this.elements.bagCount.value
+    name: fd.get('name') || '',
+    phone: fd.get('phone') || '',
+    line: fd.get('line') || '',
+    destination: fd.get('destination') || '',
+    departDate: fd.get('departDate') || '',
+    teeDate: fd.get('teeDate') || '',
+    bagCount: fd.get('bagCount') || ''
   };
   try {
-    await fetch('https://script.google.com/macros/s/AKfycbxF7BL8Kj7-Z1VTn64RK_0YaeiNsgyqmB48d71gEpNtf5Koe9qPSUW4kfKmaji-nakR/exec', {
+    await fetch('https://script.google.com/macros/s/AKfycbwor_ByLuLAbireJpxKOZQy1VFG6r4Th2Eklv2EIbKrmjZC3Tb3LMKtc6kQIXkbodTL/exec', {
       method: 'POST', mode: 'no-cors',
       headers: {'Content-Type': 'text/plain'},
       body: JSON.stringify(data)
     });
-    btn.textContent = '✓ 已收到！24 小時內客服聯絡';
-    btn.style.background = '#22c55e';
+    document.getElementById('modal').classList.add('show');
     this.reset();
+    btn.disabled = false;
+    btn.textContent = orig;
   } catch(err) {
     btn.disabled = false;
     btn.textContent = orig;
-    alert('送出失敗，請直接 LINE 客服。');
+    alert('Failed to submit. Please contact us via LINE.');
   }
 });
+function closeModal(){document.getElementById('modal').classList.remove('show');}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 </script>
 </body>
 </html>
