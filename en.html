@@ -227,6 +227,67 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 .modal-box h3{font-size:20px;font-weight:800;margin-bottom:10px}
 .modal-box p{font-size:14px;color:var(--gray);line-height:1.85;margin-bottom:22px}
 .modal-box .close-row{display:flex;justify-content:flex-end}
+/* ---- segments ---- */
+.segs{padding:88px 0 20px}
+.segs h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
+.segs h2 b{font-weight:900}
+.segs .lead{text-align:center;font-size:15.5px;color:var(--gray);max-width:560px;margin:16px auto 0}
+.seg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}
+.seg-card{border:1.5px solid var(--gray-lt);border-radius:16px;padding:32px 26px;transition:.15s;display:flex;flex-direction:column}
+.seg-card:hover{box-shadow:0 16px 42px rgba(0,0,0,.10);transform:translateY(-4px);border-color:var(--green)}
+.seg-card .ico{font-size:36px;margin-bottom:16px}
+.seg-card h3{font-size:19px;font-weight:800;margin-bottom:8px}
+.seg-card .pain{font-size:13px;color:var(--gray);line-height:1.7;margin-bottom:14px;flex:1}
+.seg-card .say{font-size:14.5px;font-weight:600;color:var(--ink);line-height:1.7;margin-bottom:20px;border-left:3px solid var(--green);padding-left:12px}
+.seg-card .seg-cta{font-size:14px;font-weight:700;color:var(--green-dk);display:inline-flex;align-items:center;gap:6px}
+.seg-card:hover .seg-cta{gap:10px}
+@media(max-width:900px){.segs h2{font-size:32px}.seg-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.seg-grid{grid-template-columns:1fr}}
+/* ---- plans ---- */
+.plans{padding:88px 0 30px}
+.plans h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
+.plans h2 b{font-weight:900}
+.plans .lead{text-align:center;font-size:15.5px;color:var(--gray);max-width:580px;margin:16px auto 0}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.plan-card{border:1.5px solid var(--gray-lt);border-radius:16px;padding:34px 30px;position:relative;display:flex;flex-direction:column}
+.plan-card.feat{border-color:var(--green);border-width:2px;box-shadow:0 18px 46px rgba(94,163,46,.14)}
+.plan-badge{position:absolute;top:-13px;left:30px;background:var(--green);color:var(--white);font-size:12px;font-weight:700;padding:4px 14px;border-radius:100px}
+.plan-card h3{font-size:22px;font-weight:800;margin-bottom:4px}
+.plan-card .who{background:none;padding:0;font-size:13px;color:var(--gray);margin-bottom:18px}
+.plan-card .amt{font-size:34px;font-weight:800;color:var(--ink);letter-spacing:-1px;line-height:1}
+.plan-card.feat .amt{color:var(--green)}
+.plan-card .amt small{font-size:14px;font-weight:600;color:var(--gray)}
+.plan-card ul{list-style:none;margin:22px 0 26px;flex:1}
+.plan-card li{font-size:14px;color:var(--ink);line-height:1.6;padding:8px 0 8px 26px;position:relative;border-top:1px solid var(--gray-lt)}
+.plan-card li:first-child{border-top:none}
+.plan-card li::before{content:'✓';position:absolute;left:0;color:var(--green-dk);font-weight:800}
+@media(max-width:900px){.plans h2{font-size:32px}.plan-grid{grid-template-columns:1fr}}
+/* ---- line flow ---- */
+.lineflow{background:var(--gray-lt);padding:88px 0}
+.lineflow h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
+.lineflow h2 b{font-weight:900}
+.lineflow .lead{text-align:center;font-size:15.5px;color:var(--gray);max-width:560px;margin:16px auto 0}
+.lf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}
+.lf-card{background:var(--white);border-radius:14px;padding:30px 24px;position:relative}
+.lf-card .n{width:34px;height:34px;border-radius:50%;background:var(--green);color:var(--white);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.lf-card h3{font-size:16px;font-weight:800;margin-bottom:8px}
+.lf-card p{font-size:13.5px;color:var(--gray);line-height:1.75}
+.lf-cta{text-align:center;margin-top:40px}
+@media(max-width:900px){.lineflow h2{font-size:32px}.lf-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.lf-grid{grid-template-columns:1fr}}
+/* ---- course partnership ---- */
+.course{padding:0 20px 90px}
+.course-box{background:var(--navy);color:var(--white);border-radius:18px;padding:80px 72px}
+.course-box h2{font-size:44px;font-weight:400;letter-spacing:-1px;line-height:1.2;text-align:center}
+.course-box h2 b{font-weight:900}
+.course-box .lead{text-align:center;font-size:15.5px;color:rgba(255,255,255,.65);max-width:620px;margin:18px auto 0;line-height:1.85}
+.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.course-card{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:28px 26px}
+.course-card .ico{font-size:28px;margin-bottom:12px}
+.course-card h3{font-size:16.5px;font-weight:700;margin-bottom:8px}
+.course-card p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.75}
+.course-cta{text-align:center;margin-top:44px}
+@media(max-width:900px){.course{padding:0 12px 56px}.course-box{padding:48px 30px}.course-box h2{font-size:30px}.course-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body id="top">
@@ -239,11 +300,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 <a href="#top" class="logo">Golf Travel <span>Mobility</span><small>G T M S</small></a>
 <div class="nav-links" id="navLinks">
 <a href="#how">How It Works</a>
-<a href="#routes">Routes &amp; Pricing</a>
-<a href="#trust">Peace of Mind</a>
-<a href="#faq">FAQ</a>
+<a href="#plans">Plans &amp; Pricing</a>
+<a href="#trust">Zero-Risk Guarantee</a>
 <a href="#corp">Corporate</a>
-<a href="#book" class="btn btn-navy" style="padding:10px 22px;font-size:14px;color:var(--white)">Book Now</a>
+<a href="#course">For Courses</a>
+<a href="#book" class="btn btn-navy" style="padding:10px 22px;font-size:14px;color:var(--white)">Get a Quote</a>
 </div>
 <select class="lang-sw" onchange="if(this.value)location.href=this.value" style="border:1px solid var(--gray-lt);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--white);cursor:pointer;margin-left:14px">
 <option value="index.html">中文</option>
@@ -260,25 +321,56 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 <div class="qb-field"><label>DEPARTURE DATE</label><input type="date" id="qDate"></div>
 <div class="qb-field"><label>TRIP</label><select id="qTrip"><option>Round trip</option><option>One way</option></select></div>
 <div class="qb-price"><span class="from">From USD</span><span class="amt" id="qbAmt">280</span><span class="per">each way</span></div>
-<button class="btn btn-navy" onclick="goBook()">Get a Quote</button>
+<button class="btn btn-navy" onclick="goBook()">Get My Quote</button>
 </div>
 </div>
 <section class="hero">
 <div class="hero-content">
-<h1>Skip the carousel<b>.</b><br><b>We&rsquo;ll take the bag.</b></h1>
-<p class="sub">Door pickup in Taiwan, straight to the course overseas. Land and play.</p>
+<h1>Travel to golf.<br><b>Never touch your bag.</b></h1>
+<p class="sub">Door pickup in Taiwan, hand-delivered to your course overseas &mdash; a dedicated concierge watching every leg: insured, on time, always reporting back. Land and play.</p>
 <div class="hero-cta">
 <a href="#book" class="btn btn-green" style="padding:16px 36px;font-size:16px">Book a Pickup</a>
-<a href="#routes" class="btn btn-white" style="padding:16px 36px;font-size:16px">See Routes &amp; Pricing</a>
+<a href="#plans" class="btn btn-white" style="padding:16px 36px;font-size:16px">See Service Plans</a>
 </div>
 </div>
 </section>
 <div class="stats"><div class="container"><div class="stats-grid">
 <div class="stat"><div class="num">60<span>+</span></div><div class="lab">Partner courses</div></div>
-<div class="stat"><div class="num">4</div><div class="lab">Top destinations</div></div>
-<div class="stat"><div class="num">24<span>H</span></div><div class="lab">Support response</div></div>
-<div class="stat"><div class="num" style="color:var(--green)">LINE</div><div class="lab">Real-time tracking</div></div>
+<div class="stat"><div class="num">100<span>%</span></div><div class="lab">Every bag insured</div></div>
+<div class="stat"><div class="num">24<span>H</span></div><div class="lab">Concierge response</div></div>
+<div class="stat"><div class="num" style="color:var(--green)">LINE</div><div class="lab">Update at every step</div></div>
 </div></div></div>
+<section class="segs" id="segs"><div class="container">
+<h2>Which golfer <b>are you?</b></h2>
+<p class="lead">Four ways to travel with your clubs, each with its own service and pricing. Pick the one that fits &mdash; we take the bag off your hands entirely.</p>
+<div class="seg-grid">
+<a href="#book" class="seg-card" data-seg="individual">
+<div class="ico">🏌️</div><h3>Individual golfers</h3>
+<p class="pain">Hauling bags through transfers, worried a club gets cracked.</p>
+<div class="say">Travel light &mdash; your clubs wait for you at the course.</div>
+<span class="seg-cta">Book a golf trip →</span>
+</a>
+<a href="#corp" class="seg-card" data-seg="corporate">
+<div class="ico">🥂</div><h3>Corporate hosting</h3>
+<p class="pain">Hosting key clients needs polish, invoicing, one point of contact.</p>
+<div class="say">Clients land hands-free &mdash; hosting score maxed out.</div>
+<span class="seg-cta">Corporate inquiry →</span>
+</a>
+<a href="#book" class="seg-card" data-seg="team">
+<div class="ico">🚩</div><h3>Team training camps</h3>
+<p class="pain">A dozen bags to move &mdash; chaotic and exhausting.</p>
+<div class="say">Bags shipped together &mdash; time goes into practice.</div>
+<span class="seg-cta">Group quote →</span>
+</a>
+<a href="#course" class="seg-card" data-seg="course">
+<div class="ico">⭐</div><h3>Club members</h3>
+<p class="pain">Every trip abroad means worrying about the bag again.</p>
+<div class="say">Partner-club members get on-call delivery.</div>
+<span class="seg-cta">Member plan →</span>
+</a>
+</div>
+</div></section>
+
 <section class="split" id="how"><div class="split-inner"><div>
 <h2>Spur-of-the-moment golf trips <b>start here.</b></h2>
 <p>Picture your next golf trip abroad &mdash; no lugging, no lines, and no &ldquo;your bag didn&rsquo;t make the flight.&rdquo; You leave light; your clubs are already waiting at the course.</p>
@@ -299,17 +391,56 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 <p>Your bag is already at the pro shop or hotel, confirmed on LINE. Enjoy the flight for once &mdash; baggage claim is no longer your problem.</p>
 <div class="step-note">Return leg arranged too &mdash; ship it straight back to Taiwan</div>
 </div><div class="split-img"><img src="imgs/step4.jpg" alt="Tee off"></div></div></section>
-<section class="who"><div class="container">
-<h2>These golfers <b>quit lugging.</b></h2>
-<div class="who-grid">
-<div class="who-card"><div class="ico">✈️</div><h3>Traveling golfers</h3><p>No more hauling bags through airports. Travel light &mdash; your clubs arrive first.</p></div>
-<div class="who-card"><div class="ico">🏢</div><h3>Corporate VIP hosting</h3><p>One coordinated shipment. Sharper hosting, lasting impressions.</p></div>
-<div class="who-card"><div class="ico">🏌️</div><h3>Training camps</h3><p>Ship the whole team&rsquo;s bags together &mdash; less chaos, zero heavy lifting.</p></div>
-<div class="who-card"><div class="ico">⭐</div><h3>Club members</h3><p>Set up a standing routine &mdash; never think about your bag again.</p></div>
-</div></div></section>
+<section class="plans" id="plans"><div class="container">
+<h2>Pick a <b>service plan.</b></h2>
+<p class="lead">You&rsquo;re not choosing a shipping fee &mdash; you&rsquo;re choosing a service level. Every plan includes full insurance and a dedicated concierge; the difference is speed and scale.</p>
+<div class="plan-grid">
+<div class="plan-card feat">
+<div class="plan-badge">Most popular</div>
+<h3>Standard</h3>
+<p class="who">Individual golfers &middot; regular trips</p>
+<div class="amt">USD280 <small>+ / per bag</small></div>
+<ul>
+<li>Doorstep pickup, packaging photographed</li>
+<li>Every bag fully insured</li>
+<li>LINE updates at every checkpoint</li>
+<li>Delivered to the pro shop or hotel</li>
+<li>Return leg can be arranged</li>
+</ul>
+<a href="#book" class="btn btn-green" style="width:100%">Book Standard</a>
+</div>
+<div class="plan-card">
+<h3>VIP Rush</h3>
+<p class="who">Tight timelines &middot; last-minute</p>
+<div class="amt">Standard + <small>/ quoted</small></div>
+<ul>
+<li>Pickup as late as 3&ndash;5 days out</li>
+<li>Priority handling &amp; delivery</li>
+<li>One-on-one dedicated concierge</li>
+<li>Everything in Standard included</li>
+<li>Top priority if issues arise</li>
+</ul>
+<a href="#book" class="btn btn-outline" style="width:100%">Ask about VIP Rush</a>
+</div>
+<div class="plan-card">
+<h3>Corporate / Team</h3>
+<p class="who">Companies &middot; teams &middot; courses</p>
+<div class="amt">Custom <small>/ volume rates</small></div>
+<ul>
+<li>Annual / quarterly contracts</li>
+<li>Batch shipping, one point of contact</li>
+<li>Corporate invoicing</li>
+<li>Dedicated concierge LINE group</li>
+<li>VIP Rush priority access</li>
+</ul>
+<a href="#corp" class="btn btn-outline" style="width:100%">Discuss a contract</a>
+</div>
+</div>
+</div></section>
+
 <section class="routes" id="routes"><div class="container">
 <h2>Four top routes across Asia, <b>transparent pricing.</b></h2>
-<p class="lead">Estimated starting price per bag, each way. Final cost depends on dates, delivery point, and insurance &mdash; confirmed within 24 hours of booking.</p>
+<p class="lead">Standard-plan starting price per bag, each way &mdash; <b>insurance and dedicated concierge included</b>. Final cost depends on dates, delivery point, and insurance, confirmed within 24 hours of booking.</p>
 <div class="route-grid">
 <div class="route-card pick"><div class="pick-badge">Most popular</div><div class="dest">🇯🇵 Japan</div><div class="area">Osaka &middot; Tokyo &middot; Hokkaido &middot; Okinawa<br>Dense flights, our most mature route</div><div class="price"><span class="from">USD</span><span class="amt">280</span><span class="from">+</span></div><div class="per">each way / per bag</div></div>
 <div class="route-card"><div class="dest">🇲🇾 Malaysia</div><div class="area">Kuala Lumpur &middot; Johor &middot; Genting<br>Great year-round, ideal for longer trips</div><div class="price"><span class="from">USD</span><span class="amt">313</span><span class="from">+</span></div><div class="per">each way / per bag</div></div>
@@ -320,14 +451,14 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 <div style="text-align:center;margin-top:32px"><a href="#book" class="btn btn-green" style="padding:15px 36px">Book a Pickup</a></div>
 </div></section>
 <section class="trust" id="trust"><div class="container">
-<h2>We don&rsquo;t just ship it &mdash; <b>we watch it all the way there.</b></h2>
-<p class="lead">From pickup in Taiwan to course-side delivery, every checkpoint comes with a proactive update. Your clubs get first-class treatment &mdash; something the cargo hold never offered.</p>
+<h2>A zero-risk guarantee &mdash; <b>so you can hand it over and forget about it.</b></h2>
+<p class="lead">Expensive clubs deserve first-class treatment. From pickup in Taiwan to course-side delivery, every leg is insured, documented, and watched by a real person &mdash; and if something goes wrong, we own it.</p>
 <div class="trust-grid">
-<div class="trust-card"><div class="ico">📱</div><h3>LINE updates, every step</h3><p>Pickup, departure, customs, arrival &mdash; proactive messages at every checkpoint. No tracking codes to chase.</p></div>
-<div class="trust-card"><div class="ico">📸</div><h3>Photo documentation</h3><p>Condition checked and photographed at pickup, verified again before shipping &mdash; fewer disputes.</p></div>
-<div class="trust-card"><div class="ico">🚚</div><h3>International express</h3><p>Official real-time tracking, with our team monitoring every leg of the journey.</p></div>
-<div class="trust-card"><div class="ico">🛠️</div><h3>Issue response</h3><p>Delays, customs holds, or address problems &mdash; support steps in immediately.</p></div>
-<div class="trust-card"><div class="ico">✅</div><h3>Delivery confirmation</h3><p>We contact the course or hotel directly to confirm your bag arrived safely.</p></div>
+<div class="trust-card"><div class="ico">🛡️</div><h3>Every bag insured</h3><p>Each shipment is insured, with higher coverage available. If a bag is damaged or lost, you&rsquo;re covered per policy &mdash; not left to absorb it.</p></div>
+<div class="trust-card"><div class="ico">📸</div><h3>Photo documentation</h3><p>Condition checked and photographed at pickup, verified again before shipping &mdash; a full record that keeps disputes to a minimum.</p></div>
+<div class="trust-card"><div class="ico">📱</div><h3>Proactive updates</h3><p>Pickup, departure, customs, arrival &mdash; LINE messages at every checkpoint. No tracking codes to chase, no &ldquo;where&rsquo;s my bag?&rdquo;</p></div>
+<div class="trust-card"><div class="ico">🛠️</div><h3>We own the problems</h3><p>Delays, customs holds, or address issues &mdash; your concierge steps in first, coordinates and arranges backup, never hands it back to you.</p></div>
+<div class="trust-card"><div class="ico">✅</div><h3>Delivery confirmation</h3><p>We contact the pro shop or hotel directly and only call it done once your bag has safely arrived &mdash; so you land ready to play.</p></div>
 <div class="trust-card"><div class="ico">🔄</div><h3>Return trip included</h3><p>Ship straight back to Taiwan when the trip ends &mdash; no lugging on the flight home.</p></div>
 </div></div></section>
 <section class="quotes"><div class="container">
@@ -337,9 +468,39 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 <div class="quote-card"><div class="txt">&ldquo;Took clients to Singapore, four bags shipped together. They walked off the plane hands-free &mdash; instant credibility.&rdquo;</div><div class="name">Director Lin &middot; Corporate hosting</div></div>
 <div class="quote-card"><div class="txt">&ldquo;Twelve bags shipped to our training base in Thailand. All the time and energy we saved went straight into practice.&rdquo;</div><div class="name">Coach Wang &middot; Training camp</div></div>
 </div></div></section>
+<section class="lineflow" id="lineflow"><div class="container">
+<h2>Add us on LINE &mdash; <b>a dedicated concierge takes over.</b></h2>
+<p class="lead">No bots, no canned replies. Once you connect, a real concierge handles you one-on-one &mdash; from quote to course-side delivery.</p>
+<div class="lf-grid">
+<div class="lf-card"><div class="n">1</div><h3>Add on LINE</h3><p>Scan or tap the link, 30 seconds. No forms to fill in first.</p></div>
+<div class="lf-card"><div class="n">2</div><h3>Tell us your trip</h3><p>Where, when, how many bags &mdash; your concierge walks you through it, no need to figure it out alone.</p></div>
+<div class="lf-card"><div class="n">3</div><h3>Get your quote</h3><p>Plan and pricing within 24 hours, faster for VIP Rush. Service starts only once you confirm.</p></div>
+<div class="lf-card"><div class="n">4</div><h3>Pickup to delivery</h3><p>Doorstep pickup, updates at every checkpoint, delivered to your course. You just play.</p></div>
+</div>
+<div class="lf-cta"><a href="https://lin.ee/XOMWpls" target="_blank" class="btn btn-green" style="padding:16px 40px;font-size:16px">Chat on LINE &mdash; free</a></div>
+</div></section>
+
 <section class="corp" id="corp"><div class="corp-box">
-<div class="corp-content"><h2>Corporate teams &middot; VIP hosting &middot; <b>annual contracts.</b></h2><p>Regular friendly matches, client hosting, or team training abroad &mdash; annual contracts, batch shipping, corporate invoicing, and a dedicated account manager.</p></div>
-<div class="corp-act"><a href="#book" class="btn btn-green" style="padding:16px 34px;font-size:16px">Corporate Inquiry</a></div>
+<div class="corp-content"><h2>Corporate teams &middot; VIP hosting &middot; <b>annual contracts.</b></h2><p>Whether it&rsquo;s regular friendly matches, hosting key clients, or team training abroad &mdash; we offer annual and quarterly contracts, so you focus on your round and leave the bags to us.</p>
+<ul style="list-style:none;margin-top:22px;display:grid;gap:10px">
+<li style="font-size:14.5px;color:rgba(255,255,255,.9)">✓ Annual / quarterly, better rates at higher volume</li>
+<li style="font-size:14.5px;color:rgba(255,255,255,.9)">✓ Batch shipping, one tracking view, one contact</li>
+<li style="font-size:14.5px;color:rgba(255,255,255,.9)">✓ Corporate invoicing</li>
+<li style="font-size:14.5px;color:rgba(255,255,255,.9)">✓ Dedicated concierge LINE group, proactive before each trip</li>
+<li style="font-size:14.5px;color:rgba(255,255,255,.9)">✓ VIP Rush priority access</li>
+</ul></div>
+<div class="corp-act"><a href="#book" class="btn btn-green" style="padding:16px 34px;font-size:16px">Book a Corporate Consult</a></div>
+</div></section>
+
+<section class="course" id="course"><div class="course-box">
+<h2>Courses &amp; channel partners, <b>bring the service to your members.</b></h2>
+<p class="lead">Turn cross-border bag delivery into a members&rsquo; perk at your course. Zero setup cost &mdash; we handle logistics and support, you give members one more reason to stay.</p>
+<div class="course-grid">
+<div class="course-card"><div class="ico">🤝</div><h3>Revenue share</h3><p>Members book through a dedicated link; you earn referral share per the partnership plan &mdash; new revenue for the course.</p></div>
+<div class="course-card"><div class="ico">🎫</div><h3>Member perks</h3><p>Partner-club members get exclusive discounts and priority pickup slots &mdash; a value-add to membership.</p></div>
+<div class="course-card"><div class="ico">🏷️</div><h3>Co-branding</h3><p>An optional booking page carrying your course name and member code &mdash; reinforcing your brand and service image.</p></div>
+</div>
+<div class="course-cta"><a href="#book" class="btn btn-green" style="padding:16px 40px;font-size:16px">Discuss a partnership</a></div>
 </div></section>
 <section class="faq-sec" id="faq"><div class="faq-inner">
 <div><h2>Common <b>questions.</b></h2></div>
@@ -348,7 +509,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 <details class="faq"><summary>How much does it cost?<span class="ico">＋</span></summary><div class="ans">Starting prices per bag, each way: Japan USD280, Malaysia USD313, Singapore USD313, Thailand USD391. Final cost depends on dates, delivery point, and insurance &mdash; quoted within 24 hours of booking.</div></details>
 <details class="faq"><summary>How is the bag packed? Will it get damaged?<span class="ico">＋</span></summary><div class="ans">Our staff checks the packaging at pickup, adds impact protection, and photographs everything. We recommend club head covers; keep small valuables with you.</div></details>
 <details class="faq"><summary>How do I track my bag?<span class="ico">＋</span></summary><div class="ans">Join our LINE updates after booking &mdash; we message you at every checkpoint: pickup, departure, customs, delivery. You also get an official tracking code.</div></details>
-<details class="faq"><summary>What if it&rsquo;s delayed or damaged?<span class="ico">＋</span></summary><div class="ans">Our support team steps in immediately: tracking the shipment, coordinating with the carrier, filing claims, or arranging backup. Compensation follows carrier terms and any added insurance.</div></details>
+<details class="faq"><summary>Is my bag insured? What if it&rsquo;s delayed or damaged?<span class="ico">＋</span></summary><div class="ans">Every shipment is insured, with higher coverage available. If a delay or damage occurs, your concierge steps in immediately: tracking the shipment, coordinating with the carrier, filing claims, or arranging backup. Compensation follows carrier terms and any added insurance, which we confirm with you before pickup.</div></details>
+<details class="faq"><summary>Are pickup slots limited each week?<span class="ico">＋</span></summary><div class="ans">To keep every bag under personal watch with quality doorstep pickup, weekly slots are limited &mdash; tighter in peak season. Book early; VIP Rush gets priority handling, and for last-minute trips just message your concierge on LINE to confirm availability.</div></details>
 <details class="faq"><summary>Can you ship the return leg too?<span class="ico">＋</span></summary><div class="ans">Yes &mdash; just mention it when booking. When your trip ends, we ship your bag from the overseas course or hotel straight back to Taiwan.</div></details>
 <details class="faq"><summary>Can I ship multiple bags (team trips)?<span class="ico">＋</span></summary><div class="ans">Yes &mdash; 3+ bags get a volume discount. Corporate teams and training camps can discuss annual contracts and custom rates.</div></details>
 </div></div></section>
@@ -363,12 +525,13 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 <a href="https://lin.ee/XOMWpls" target="_blank" class="btn btn-green" style="width:100%">Chat on LINE</a>
 </div>
 <form class="bk-grid" id="bookForm">
+<div class="field full"><label>Which golfer are you? <span class="req">*</span></label><select name="segment" id="segField" required><option value="">Select &mdash; we&rsquo;ll prep the right plan</option><option value="個人球友">Individual golfer</option><option value="企業招待">Corporate hosting</option><option value="球隊移訓">Team training camp</option><option value="球場會員">Club member</option></select></div>
 <div class="field"><label>Name <span class="req">*</span></label><input type="text" name="name" required></div>
 <div class="field"><label>Mobile <span class="req">*</span></label><input type="tel" name="phone" required></div>
-<div class="field"><label>LINE ID</label><input type="text" name="line"></div>
+<div class="field"><label>LINE ID</label><input type="text" name="line" placeholder="So your concierge can reach you"></div>
 <div class="field"><label>Destination <span class="req">*</span></label><select name="destination" required><option value="">Select</option><option value="日本">Japan</option><option value="泰國">Thailand</option><option value="馬來西亞">Malaysia</option><option value="新加坡">Singapore</option><option value="其他">Other (see notes)</option></select></div>
-<div class="field"><label>Departure date <span class="req">*</span></label><input type="date" name="departDate" required></div>
-<div class="field"><label>Tee-off date <span class="req">*</span></label><input type="date" name="teeDate" required></div>
+<div class="field"><label>Departure date <span class="req">*</span><span style="font-weight:400;color:var(--gray)"> (bag must arrive)</span></label><input type="date" name="departDate" required></div>
+<div class="field"><label>Tee-off date <span class="req">*</span><span style="font-weight:400;color:var(--gray)"> (first round)</span></label><input type="date" name="teeDate" required></div>
 <div class="field full"><label>Number of bags <span class="req">*</span></label><select name="bagCount" required><option value="">Select</option><option value="1 套">1 bag</option><option value="2 套">2 bags</option><option value="3 套">3 bags</option><option value="4 套以上（企業／球隊）">4+ (corporate/team)</option></select></div>
 <div class="field full"><p class="form-fine">Pickup address, overseas delivery point, insurance, and return arrangements will be confirmed one by one over LINE after you book &mdash; no need to enter them here.</p></div>
 <div class="form-ft">
@@ -380,8 +543,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 <footer><div class="container">
 <div class="foot-grid">
 <div><div class="foot-logo">Golf Travel <span>Mobility</span></div><p class="foot-desc">Cross-border golf bag shipping for Asia&rsquo;s traveling golfers &mdash; golf-industry networks combined with international logistics.</p></div>
-<div class="foot-col"><h4>Service</h4><ul><li><a href="#how">How It Works</a></li><li><a href="#routes">Routes &amp; Pricing</a></li><li><a href="#trust">Peace of Mind</a></li></ul></div>
-<div class="foot-col"><h4>Support</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="#book">Start booking</a></li><li><a href="#corp">Corporate</a></li></ul></div>
+<div class="foot-col"><h4>Service</h4><ul><li><a href="#how">How It Works</a></li><li><a href="#plans">Plans &amp; Pricing</a></li><li><a href="#trust">Zero-Risk Guarantee</a></li></ul></div>
+<div class="foot-col"><h4>Support</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="#book">Start booking</a></li><li><a href="#corp">Corporate</a></li><li><a href="#course">For Courses</a></li></ul></div>
 <div class="foot-col"><h4>Contact</h4><ul><li><a href="https://lin.ee/XOMWpls" target="_blank">LINE：lin.ee/XOMWpls</a></li><li>Mon&ndash;Sat 09:00&ndash;21:00</li></ul></div>
 </div>
 <div class="foot-bottom">
@@ -404,6 +567,15 @@ document.getElementById('courseName').textContent=m[c]||decodeURIComponent(c);
 document.getElementById('promoCode').textContent=c.toUpperCase()+'2026';
 document.getElementById('promoDefault').style.display='none';
 document.getElementById('promoCourse').style.display='inline';
+})();
+(function(){
+const segMap={individual:'個人球友',corporate:'企業招待',team:'球隊移訓',course:'球場會員'};
+function setSeg(v){const f=document.getElementById('segField');if(f&&segMap[v])f.value=segMap[v];}
+const sp=new URLSearchParams(window.location.search).get('seg');
+if(sp)setSeg(sp);
+document.querySelectorAll('.seg-card').forEach(function(c){
+c.addEventListener('click',function(){setSeg(c.getAttribute('data-seg'));});
+});
 })();
 document.getElementById('menuBtn').addEventListener('click',function(){
 document.getElementById('navLinks').classList.toggle('open');
@@ -430,6 +602,7 @@ document.getElementById('bookForm').addEventListener('submit', async function(e)
   btn.textContent = 'Sending...';
   const fd = new FormData(this);
   const data = {
+    segment: fd.get('segment') || '',
     name: fd.get('name') || '',
     phone: fd.get('phone') || '',
     line: fd.get('line') || '',
