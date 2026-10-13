@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>訂單追蹤 — Golf Travel Mobility</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--green:#7BC043;--green-dk:#5EA32E;--navy:#16202E;--navy-2:#1F2C3D;--ink:#1A222E;--gray:#5B6472;--gray-lt:#EEF1F4;--white:#FFFFFF;--r:10px}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Poppins','Noto Sans TC',-apple-system,sans-serif;color:var(--ink);background:var(--gray-lt);line-height:1.6;font-size:16px;min-height:100vh}
+  a{text-decoration:none;color:inherit}
+  input,button{font-family:inherit;font-size:inherit}
+  .topbar{background:var(--navy);padding:18px 28px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-size:20px;font-weight:800;color:#fff;letter-spacing:-.5px}
+  .logo span{color:var(--green)}
+  .topbar a.home{color:#fff;font-size:14px;opacity:.85}
+  .wrap{max-width:640px;margin:36px auto;padding:0 20px}
+  .card{background:#fff;border-radius:14px;padding:30px 28px;box-shadow:0 4px 24px rgba(22,32,46,.08);margin-bottom:20px}
+  h1{font-size:22px;font-weight:800;margin-bottom:6px}
+  .sub{color:var(--gray);font-size:14px;margin-bottom:18px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:13px;font-weight:600;margin-bottom:5px;color:var(--navy)}
+  .field input{width:100%;padding:13px 14px;border:1.5px solid #D7DDE4;border-radius:var(--r);font-size:15px}
+  .field input:focus{outline:none;border-color:var(--green)}
+  .btn{display:flex;align-items:center;justify-content:center;width:100%;padding:15px;border:none;border-radius:var(--r);font-size:15px;font-weight:600;cursor:pointer;background:var(--green);color:#fff;transition:.15s}
+  .btn:hover{background:var(--green-dk)}
+  .btn:disabled{opacity:.6;cursor:default}
+  .err{background:#FDECEC;color:#B23A3A;border-radius:var(--r);padding:12px 14px;font-size:14px;margin-bottom:14px;display:none}
+  /* 結果區 */
+  #result{display:none}
+  .status-hero{background:var(--navy);color:#fff;border-radius:14px;padding:26px 28px;margin-bottom:20px}
+  .status-hero .oid{font-size:13px;opacity:.7;letter-spacing:1px}
+  .status-hero .st{font-size:26px;font-weight:800;color:var(--green);margin:4px 0 6px}
+  .status-hero .next{font-size:14px;opacity:.85}
+  .flag{display:inline-block;background:#E67E22;color:#fff;font-size:12px;font-weight:700;border-radius:6px;padding:2px 10px;margin-top:8px}
+  .meta{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;font-size:14px}
+  .meta .k{color:var(--gray);font-size:12px}
+  .meta .v{font-weight:600}
+  .meta .full{grid-column:1/-1}
+  /* 時間軸 */
+  .tl{list-style:none;margin-top:6px}
+  .tl li{position:relative;padding:0 0 22px 34px}
+  .tl li::before{content:'';position:absolute;left:9px;top:22px;bottom:0;width:2px;background:#D7DDE4}
+  .tl li:last-child::before{display:none}
+  .tl .dot{position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;background:#fff;border:2.5px solid #C6CDD6}
+  .tl li.done .dot{background:var(--green);border-color:var(--green)}
+  .tl li.done .dot::after{content:'';position:absolute;left:5px;top:3px;width:5px;height:9px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+  .tl li.current .dot{border-color:var(--green);background:#fff;box-shadow:0 0 0 4px rgba(123,192,67,.25)}
+  .tl li.done::before{background:var(--green)}
+  .tl .name{font-weight:600;font-size:15px}
+  .tl li.current .name{color:var(--green-dk);font-weight:800}
+  .tl li.pending .name{color:#9AA3AE}
+  .tl .at{font-size:12px;color:var(--gray)}
+  .contact{font-size:13px;color:var(--gray);text-align:center;padding:4px 0 30px;line-height:1.9}
+  .contact a{color:var(--green-dk);font-weight:600}
+  .line-cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border-radius:var(--r);background:#06C755;color:#fff;font-size:14px;font-weight:600;margin-top:14px}
+  /* 報價／付款 */
+  .badge{display:inline-block;padding:3px 12px;border-radius:99px;font-size:13px;font-weight:700}
+  .badge.ok{background:#E4F3D4;color:#43701d}
+  .badge.wait{background:#FBE9D0;color:#9a5b12}
+  .badge.bad{background:#F8D7D3;color:#96271a}
+  .pay-cta{display:flex;align-items:center;justify-content:center;width:100%;padding:13px;border-radius:var(--r);background:var(--navy);color:#fff;font-size:14px;font-weight:600;margin-top:14px}
+  .policy{font-size:13px;color:var(--gray);background:#fff;border-radius:14px;padding:18px 22px;margin-bottom:20px;box-shadow:0 4px 24px rgba(22,32,46,.06)}
+  .policy b{color:var(--navy)}
+  /* 修改／取消申請 */
+  select,textarea{font-family:inherit}
+  .field select,.field textarea{width:100%;padding:13px 14px;border:1.5px solid #D7DDE4;border-radius:var(--r);font-size:15px;background:#fff}
+  .field textarea{resize:vertical;min-height:80px}
+  .btn-outline{display:flex;align-items:center;justify-content:center;width:100%;padding:13px;border:2px solid var(--navy);border-radius:var(--r);background:transparent;color:var(--navy);font-size:14px;font-weight:600;cursor:pointer;margin-top:6px}
+  .btn-outline:hover{background:var(--navy);color:#fff}
+  .req-ok{background:#E4F3D4;color:#43701d;border-radius:var(--r);padding:12px 14px;font-size:14px;margin-top:12px;display:none}
+</style>
+</head>
+<body>
+<div class="topbar"><a class='logo' href='/'>GOLF TRAVEL <span>MOBILITY</span></a><a class='home' href='/'>回首頁</a></div>
+<div class="wrap">
+  <div class="card" id="queryCard">
+    <h1>訂單追蹤</h1>
+    <p class="sub">輸入訂單編號＋手機末四碼查詢，或直接使用確認信 / LINE 中的專屬追蹤連結。</p>
+    <div class="err" id="err"></div>
+    <div class="field"><label>訂單編號</label><input id="qId" placeholder="GTM-XXXXXX" autocomplete="off"></div>
+    <div class="field"><label>手機末四碼</label><input id="qLast4" placeholder="例如 0276" maxlength="4" inputmode="numeric" autocomplete="off"></div>
+    <button class="btn" id="qBtn">查詢進度</button>
+  </div>
+
+  <div id="result">
+    <div class="status-hero">
+      <div class="oid" id="rOid"></div>
+      <div class="st" id="rStatus"></div>
+      <div class="next" id="rNext"></div>
+      <span class="flag" id="rFlag" style="display:none">處理中，專人將主動聯繫</span>
+    </div>
+    <div class="card">
+      <div class="meta">
+        <div><div class="k">訂購人</div><div class="v" id="rName"></div></div>
+        <div><div class="k">聯絡電話</div><div class="v" id="rPhone"></div></div>
+        <div class="full"><div class="k">路線</div><div class="v" id="rRoute"></div></div>
+        <div><div class="k">預計收件日</div><div class="v" id="rPickup"></div></div>
+        <div><div class="k">預計送達日</div><div class="v" id="rArrival"></div></div>
+        <div class="full" id="rUpsWrap" style="display:none"><div class="k">國際段追蹤號（UPS）</div><div class="v" id="rUps"></div></div>
+        <div class="full" id="rNoteWrap" style="display:none"><div class="k">給您的訊息</div><div class="v" id="rNote"></div></div>
+      </div>
+      <a class="line-cta" id="rLine" href="#" target="_blank" rel="noopener" style="display:none">加 LINE 好友，進度自動推播</a>
+    </div>
+    <div class="card" id="quoteCard" style="display:none">
+      <h1 style="font-size:18px;margin-bottom:14px">報價與付款</h1>
+      <div class="meta">
+        <div><div class="k">訂單狀態</div><div class="v"><span class="badge" id="rEstablished"></span></div></div>
+        <div><div class="k">報價狀態</div><div class="v" id="rQuoteStatus"></div></div>
+        <div><div class="k">報價金額</div><div class="v" id="rQuoteAmount"></div></div>
+        <div><div class="k">報價有效期限</div><div class="v" id="rQuoteExpiry"></div></div>
+        <div><div class="k">付款狀態</div><div class="v" id="rPayStatus"></div></div>
+        <div><div class="k">付款方式</div><div class="v" id="rPayMethod"></div></div>
+      </div>
+      <a class="pay-cta" id="rPayLink" href="#" target="_blank" rel="noopener" style="display:none">前往線上付款</a>
+      <p style="font-size:12px;color:var(--gray);margin-top:12px" id="quoteNote">報價有效期限為 48 小時。請於期限內完成確認與付款。若逾期未付款，原報價將失效，需由客服重新確認物流費用、配送日期與可承運條件。付款完成後，訂單才正式成立，並開始安排收件與配送。</p>
+    </div>
+    <div class="card">
+      <h1 style="font-size:18px;margin-bottom:14px">運送進度</h1>
+      <ul class="tl" id="rTl"></ul>
+    </div>
+    <div class="card" id="reqCard">
+      <h1 style="font-size:18px;margin-bottom:6px">修改／取消申請</h1>
+      <p class="sub">送出後由客服確認可行性與費用，不會立即生效。</p>
+      <div class="err" id="reqErr"></div>
+      <div class="field"><label>申請類型</label>
+        <select id="reqType">
+          <option>修改收件地址</option>
+          <option>修改配送地址</option>
+          <option>修改收件日期</option>
+          <option>修改球袋尺寸</option>
+          <option>修改球袋數量</option>
+          <option>修改聯絡方式</option>
+          <option>取消訂單</option>
+        </select>
+      </div>
+      <div class="field"><label>說明（新地址／新日期／取消原因等）</label><textarea id="reqContent" maxlength="500" placeholder="請填寫修改內容或取消原因"></textarea></div>
+      <button class="btn-outline" id="reqBtn">送出申請</button>
+      <div class="req-ok" id="reqOk"></div>
+    </div>
+    <div class="policy">
+      <b>取消政策</b><br>
+      尚未付款前可免費取消。已付款但尚未安排物流前，可申請全額退款。若已安排物流但尚未收件，將扣除已產生之行政、金流或物流費用後退款。球袋完成收件或進入運送流程後，恕無法直接取消，需由客服協助確認退運或改址方式與相關費用。已送達球場／飯店後，訂單視為服務完成，恕不接受取消退款。來回運送僅取消回程時，依尚未使用的服務重新計算可退款金額。
+    </div>
+  </div>
+  <div class="contact">查詢有問題？請聯絡 <a id="cEmail" href="#"></a><br>客服服務時間：週一至週五 9:00–18:00</div>
+</div>
+<script>
+  var GAS_URL='https://script.google.com/macros/s/AKfycbxhEK-VrzEQErQxylnrMBbokxYunSs6qisklu_MxQjFO1UICCTLVIfDWwrzaiBOSA9H/exec';
+
+  var err=document.getElementById('err');
+  function showErr(m){err.textContent=m;err.style.display='block';}
+  function esc(s){return String(s==null?'':s);}
+
+  function render(d){
+    document.getElementById('result').style.display='block';
+    document.getElementById('rOid').textContent='訂單編號 '+esc(d.orderId);
+    document.getElementById('rStatus').textContent=esc(d.statusText||d.status);
+    document.getElementById('rNext').textContent=d.next?('下一步：'+esc(d.next)):'';
+    document.getElementById('rFlag').style.display=d.flagged?'inline-block':'none';
+    document.getElementById('rName').textContent=esc(d.name);
+    document.getElementById('rPhone').textContent=esc(d.phone);
+    document.getElementById('rRoute').textContent=esc(d.route);
+    document.getElementById('rPickup').textContent=esc(d.estPickupDate)||'安排中';
+    document.getElementById('rArrival').textContent=esc(d.estArrivalDate)||'安排中';
+    // 報價與付款（僅在已有報價後顯示）
+    if(d.quoteStatus&&d.quoteStatus!=='未報價'){
+      document.getElementById('quoteCard').style.display='block';
+      var est=document.getElementById('rEstablished');
+      if(d.status==='已取消'){est.textContent='已取消';est.className='badge bad';}
+      else if(d.orderEstablished){est.textContent='訂單已成立';est.className='badge ok';}
+      else{est.textContent='待付款（尚未成立）';est.className='badge wait';}
+      document.getElementById('rQuoteStatus').textContent=esc(d.quoteStatus);
+      document.getElementById('rQuoteAmount').textContent=esc(d.quoteAmount)||'—';
+      document.getElementById('rQuoteExpiry').textContent=esc(d.quoteExpiry)||'—';
+      document.getElementById('rPayStatus').textContent=esc(d.paymentStatus)||'未付款';
+      document.getElementById('rPayMethod').textContent=esc(d.paymentMethod)||'銀行轉帳／線上刷卡（客服提供）';
+      if(d.paymentLink&&!d.orderEstablished){var pl=document.getElementById('rPayLink');pl.href=d.paymentLink;pl.style.display='flex';}
+      if(d.orderEstablished)document.getElementById('quoteNote').style.display='none';
+    }
+    // 已有申請進行中的提示
+    if(d.cancelStatus==='取消申請中'){var ok=document.getElementById('reqOk');ok.textContent='已收到您的取消申請，客服將確認物流狀態與已產生費用後回覆您。';ok.style.display='block';}
+    else if(d.modifyStatus==='申請中'||d.modifyStatus==='處理中'){var ok2=document.getElementById('reqOk');ok2.textContent='已收到您的修改申請，客服確認中。';ok2.style.display='block';}
+    if(d.status==='已取消')document.getElementById('reqCard').style.display='none';
+    if(d.upsTrackingNo){document.getElementById('rUpsWrap').style.display='block';document.getElementById('rUps').textContent=esc(d.upsTrackingNo);}
+    if(d.customerNote){document.getElementById('rNoteWrap').style.display='block';document.getElementById('rNote').textContent=esc(d.customerNote);}
+    if(d.lineAddUrl&&!d.lineBound){var l=document.getElementById('rLine');l.href=d.lineAddUrl;l.style.display='flex';}
+    var em=document.getElementById('cEmail');
+    if(d.serviceEmail){em.textContent=esc(d.serviceEmail);em.href='mailto:'+esc(d.serviceEmail);}
+    var ul=document.getElementById('rTl');ul.innerHTML='';
+    (d.timeline||[]).forEach(function(s){
+      var li=document.createElement('li');
+      li.className=s.current?'current':(s.done?'done':'pending');
+      var dot=document.createElement('span');dot.className='dot';li.appendChild(dot);
+      var nm=document.createElement('div');nm.className='name';nm.textContent=esc(s.customer||s.key);li.appendChild(nm);
+      if(s.at){var at=document.createElement('div');at.className='at';at.textContent=esc(s.at);li.appendChild(at);}
+      ul.appendChild(li);
+    });
+  }
+
+  var CRED=null; // 查詢成功後保存憑證（token 或 編號+末四碼），供修改／取消申請使用
+
+  function track(params){
+    var btn=document.getElementById('qBtn');btn.disabled=true;btn.textContent='查詢中…';
+    err.style.display='none';
+    fetch(GAS_URL+'?action=track&'+params)
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d&&d.ok){document.getElementById('queryCard').style.display='none';render(d);}
+        else showErr((d&&d.error)||'查詢失敗，請稍後再試。');
+      })
+      .catch(function(){showErr('連線失敗，請稍後再試。');})
+      .finally(function(){btn.disabled=false;btn.textContent='查詢進度';});
+  }
+
+  document.getElementById('qBtn').addEventListener('click',function(){
+    var id=document.getElementById('qId').value.trim().toUpperCase();
+    var l4=document.getElementById('qLast4').value.trim();
+    if(!id||!/^\d{4}$/.test(l4)){showErr('請輸入訂單編號與手機末四碼（4 位數字）。');return;}
+    CRED={id:id,last4:l4};
+    track('id='+encodeURIComponent(id)+'&last4='+encodeURIComponent(l4));
+  });
+
+  // 修改／取消申請
+  document.getElementById('reqBtn').addEventListener('click',function(){
+    var reqErr=document.getElementById('reqErr');reqErr.style.display='none';
+    var type=document.getElementById('reqType').value;
+    var content=document.getElementById('reqContent').value.trim();
+    if(!content){reqErr.textContent='請填寫說明內容。';reqErr.style.display='block';return;}
+    if(!CRED){reqErr.textContent='請重新查詢訂單後再送出申請。';reqErr.style.display='block';return;}
+    if(type==='取消訂單'&&!confirm('確定送出取消申請？\n客服將依取消政策確認物流狀態與已產生費用後回覆您。'))return;
+    var btn=this;btn.disabled=true;btn.textContent='送出中…';
+    var body={action:'request',type:type,content:content};
+    if(CRED.t)body.t=CRED.t;else{body.id=CRED.id;body.last4=CRED.last4;}
+    fetch(GAS_URL,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(body)})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d&&d.ok){var ok=document.getElementById('reqOk');ok.textContent=d.message;ok.style.display='block';document.getElementById('reqContent').value='';}
+        else{reqErr.textContent=(d&&d.error)||'送出失敗，請稍後再試。';reqErr.style.display='block';}
+      })
+      .catch(function(){reqErr.textContent='連線失敗，請稍後再試。';reqErr.style.display='block';})
+      .finally(function(){btn.disabled=false;btn.textContent='送出申請';});
+  });
+
+  // 帶 token 直接查；或從首頁帶 id 進來
+  var q=new URLSearchParams(location.search);
+  var t=q.get('t');
+  if(t){CRED={t:t};track('t='+encodeURIComponent(t));}
+  else if(q.get('id')){document.getElementById('qId').value=q.get('id');}
+</script>
+</body>
+</html>

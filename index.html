@@ -297,7 +297,7 @@ section[id]{scroll-margin-top:96px}
 <a href="#how">服務流程</a>
 <a href="#routes">路線與費用</a>
 <a href="#pay">報價與付款</a>
-<a href="#track">查詢訂單</a>
+<a href="tracking.html">查詢訂單</a>
 <a href="#faq">FAQ</a>
 <a href="#book" class="btn btn-navy" style="padding:10px 22px;font-size:14px;color:var(--white)">立即預約</a>
 </div>
@@ -341,7 +341,7 @@ section[id]{scroll-margin-top:96px}
 <p class="sub">台灣到府收件，直送海外球場。人到，就開打。</p>
 <div class="hero-cta">
 <a href="#book" class="btn btn-green" style="padding:16px 36px;font-size:16px">填寫預約需求</a>
-<a href="#track" class="btn btn-white" style="padding:16px 36px;font-size:16px">查詢訂單進度</a>
+<a href="tracking.html" class="btn btn-white" style="padding:16px 36px;font-size:16px">查詢訂單進度</a>
 </div>
 </div>
 </section>
@@ -461,39 +461,28 @@ section[id]{scroll-margin-top:96px}
 <a href="https://lin.ee/XOMWpls" target="_blank" class="btn btn-green" style="width:100%">加入 LINE 官方帳號</a>
 </div>
 <form class="bk-grid" id="bookForm">
+<div class="field full">
+<label>客戶類型 <span class="req">*</span></label>
+<select name="customerType" required><option value="">請選擇</option><option>個人球友</option><option>企業招待／公司活動</option><option>球隊／移地訓練</option><option>旅行社／行程代辦</option><option>球場／飯店合作窗口</option></select>
+</div>
 <div class="field"><label>姓名 <span class="req">*</span></label><input type="text" name="name" required></div>
 <div class="field"><label>手機 <span class="req">*</span></label><input type="tel" name="phone" required></div>
 <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
-<div class="field">
-<label>偏好通知方式 <span class="req">*</span></label>
-<select name="notify" required>
-<option value="">請選擇</option><option value="LINE">LINE</option><option value="WhatsApp">WhatsApp</option><option value="Email">Email</option><option value="SMS">SMS 簡訊</option>
-</select>
-</div>
+<div class="field"><label>偏好通知方式 <span class="req">*</span></label><select name="preferredChannel" required><option value="">請選擇</option><option>Email</option><option>LINE</option><option>WhatsApp</option><option>SMS</option><option>由客服建議</option></select></div>
+<div class="field"><label>WhatsApp</label><input type="tel" name="whatsapp" placeholder="含國碼，例如 +886..."></div>
+<div class="field"><label>LINE ID</label><input type="text" name="line"></div>
+<div class="field"><label>偏好語言 <span class="req">*</span></label><select name="language" required><option>繁體中文</option><option>English</option><option>日本語</option><option>한국어</option></select></div>
+<div class="field"><label>公司／團體／球場名稱</label><input type="text" name="organization" placeholder="公司、球隊、旅行社、球場或飯店"></div>
 <div class="field"><label>出發地 <span class="req">*</span></label><input type="text" name="origin" placeholder="例：台北市信義區" required></div>
-<div class="field">
-<label>目的地 <span class="req">*</span></label>
-<select name="destination" required>
-<option value="">請選擇</option><option value="日本">日本</option><option value="泰國">泰國</option><option value="馬來西亞">馬來西亞</option><option value="新加坡">新加坡</option><option value="其他">其他（備註說明）</option>
-</select>
-</div>
+<div class="field"><label>目的地 <span class="req">*</span></label><select name="destination" required><option value="">請選擇</option><option>日本</option><option>泰國</option><option>馬來西亞</option><option>新加坡</option><option>其他（備註說明）</option></select></div>
 <div class="field"><label>出發日期 <span class="req">*</span></label><input type="date" name="departDate" required></div>
 <div class="field"><label>開球日期 <span class="req">*</span></label><input type="date" name="teeDate" required></div>
-<div class="field">
-<label>球袋數量 <span class="req">*</span></label>
-<select name="bagCount" required>
-<option value="">請選擇</option><option value="1 套">1 套</option><option value="2 套">2 套</option><option value="3 套">3 套</option><option value="4 套以上（企業／球隊）">4 套以上（企業／球隊）</option>
-</select>
-</div>
-<div class="field">
-<label>單程／來回 <span class="req">*</span></label>
-<select name="trip" required>
-<option value="">請選擇</option><option value="來回">來回</option><option value="單程">單程（去程）</option>
-</select>
-</div>
-<div class="field full"><label>備註</label><textarea name="note" placeholder="例：目的地球場名稱、優惠碼、其他需求"></textarea></div>
+<div class="field"><label>球袋數量 <span class="req">*</span></label><select name="bagCount" required><option value="">請選擇</option><option>1 套</option><option>2 套</option><option>3 套</option><option>4 套以上（企業／球隊）</option></select></div>
+<div class="field"><label>單程／來回 <span class="req">*</span></label><select name="returnShipment" required><option value="">請選擇</option><option value="需要回程寄送">來回（需要回程寄送）</option><option value="不需要回程寄送">單程（不需要回程寄送）</option><option>尚未確定</option></select></div>
+<div class="field full"><label>備註</label><textarea name="notes" placeholder="可填寫球場／飯店、收件時間、優惠碼或其他需求"></textarea></div>
 <div class="field full">
 <p class="form-fine">收件地址、海外配送地點、球袋尺寸與重量，客服確認後會再請您補齊（見下方「報價前需補齊的資料」），無需在此填寫。</p>
+<p class="form-fine" style="margin-top:8px"><strong>隱私權聲明：</strong>您提供的資料僅用於報價、預約、配送安排與客服聯繫，不會公開於網站，也不會提供給無關第三方。訂單追蹤頁只顯示必要配送資訊。</p>
 </div>
 <div class="form-ft">
 <p class="form-fine">送出後不代表訂單成立。客服服務時間：週一至週五 9:00–18:00。</p>
@@ -540,67 +529,17 @@ section[id]{scroll-margin-top:96px}
 <section class="sec alt" id="track">
 <div class="container">
 <h2>查詢<b>訂單進度。</b></h2>
-<p class="lead">輸入預約編號，以及預約時填寫的手機末 4 碼，即可查看訂單狀態、報價、付款與物流進度。也可直接點確認信中的追蹤連結。</p>
-<div class="tool-wrap">
-<form class="bk-grid" id="trackForm">
-<div class="field"><label>預約編號 <span class="req">*</span></label><input type="text" name="order" placeholder="例：GTM-A7K2QX" required></div>
-<div class="field"><label>手機末 4 碼 <span class="req">*</span></label><input type="text" name="last4" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required></div>
-<div class="form-ft" style="justify-content:flex-end"><button type="submit" class="btn btn-navy" style="padding:15px 36px">查詢訂單進度</button></div>
-</form>
-<p class="msg-err" id="trackErr"></p>
-<div class="result" id="trackResult">
-<p style="font-size:13px;color:var(--gray)">預約編號 <strong id="rOrder" style="color:var(--ink)"></strong>｜預約人 <span id="rName"></span></p>
-<p style="margin:10px 0 4px"><span class="status" id="rStatus"></span></p>
-<p id="rStatusText" style="font-size:16px;font-weight:700;margin-top:8px"></p>
-<p id="rNext" style="font-size:14px;color:var(--gray);margin-top:4px"></p>
-<p id="rFlag" style="display:none;font-size:14px;color:#B3261E;margin-top:8px"></p>
-<dl style="margin-top:18px">
-<dt>訂單是否成立</dt><dd id="rEst"></dd>
-<dt>報價金額</dt><dd id="rQuote"></dd>
-<dt>報價有效期限</dt><dd id="rExpiry"></dd>
-<dt>付款狀態</dt><dd id="rPay"></dd>
-<dt>預計收件日</dt><dd id="rPickup"></dd>
-<dt>預計送達日</dt><dd id="rDeliver"></dd>
-<dt>物流追蹤碼</dt><dd id="rTracking"></dd>
-<dt>取消／修改申請</dt><dd id="rReq"></dd>
-</dl>
-<div id="rPayLink" style="display:none;margin-top:18px"><a class="btn btn-green" target="_blank" rel="noopener" id="rPayBtn">前往線上付款</a></div>
-<p id="rNote" style="display:none;font-size:14px;margin-top:16px;padding:12px 14px;background:var(--gray-lt);border-radius:10px"></p>
-<ol id="rTimeline" style="margin-top:20px;padding-left:20px;font-size:13.5px;line-height:2;color:var(--gray)"></ol>
-<p class="fine">如有疑問請聯絡客服（週一至週五 9:00–18:00）：<a href="https://lin.ee/XOMWpls" target="_blank" style="text-decoration:underline">LINE 官方帳號</a></p>
-</div>
-</div>
+<p class="lead">輸入訂單編號＋預約時填寫的手機末 4 碼，即可查看訂單狀態、報價、付款與物流進度。也可直接點確認信或 LINE 中的專屬追蹤連結。</p>
+<div style="text-align:center;margin-top:32px"><a href="tracking.html" class="btn btn-navy" style="padding:15px 40px">查詢訂單進度</a></div>
 </div>
 </section>
 
 <section class="sec" id="change">
 <div class="container">
 <h2>修改／取消<b>訂單申請。</b></h2>
-<p class="lead">送出申請後，由客服確認訂單與物流狀態再回覆您。訂單資料不會因送出申請而自動變更。</p>
-<div class="tool-wrap">
-<form class="bk-grid" id="changeForm">
-<div class="field"><label>預約編號 <span class="req">*</span></label><input type="text" name="order" required></div>
-<div class="field"><label>手機末 4 碼 <span class="req">*</span></label><input type="text" name="last4" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" required></div>
-<div class="field full">
-<label>申請項目 <span class="req">*</span></label>
-<select name="item" required>
-<option value="">請選擇</option>
-<option value="修改收件地址">修改收件地址</option>
-<option value="修改配送地址">修改配送地址</option>
-<option value="修改收件日期">修改收件日期</option>
-<option value="修改球袋尺寸">修改球袋尺寸</option>
-<option value="修改球袋數量">修改球袋數量</option>
-<option value="修改聯絡方式">修改聯絡方式</option>
-<option value="取消訂單">取消訂單</option>
-</select>
-</div>
-<div class="field full"><label>說明 <span class="req">*</span></label><textarea name="content" placeholder="請說明要修改的內容，或取消原因" required></textarea></div>
-<div class="form-ft">
-<p class="form-fine">若已安排物流或進入運送流程，可能產生改址、退運或其他費用，詳見下方取消政策。</p>
-<button type="submit" class="btn btn-navy" style="padding:15px 36px">送出申請</button>
-</div>
-</form>
-</div>
+<p class="lead">可申請修改收件地址、配送地址、收件日期、球袋尺寸、球袋數量、聯絡方式，或取消訂單。請先查詢訂單，在追蹤頁下方送出申請。</p>
+<p class="lead" style="margin-top:8px">送出後由客服確認訂單與物流狀態再回覆您，訂單資料不會因送出申請而自動變更。若已安排物流或進入運送流程，可能產生改址、退運或其他費用。</p>
+<div style="text-align:center;margin-top:32px"><a href="tracking.html" class="btn btn-outline" style="padding:15px 40px">修改／取消訂單</a></div>
 </div>
 </section>
 
@@ -659,7 +598,7 @@ section[id]{scroll-margin-top:96px}
 <p class="foot-desc">結合高爾夫產業通路與國際物流，為亞洲高爾夫旅客打造的跨國球袋運送服務。</p>
 </div>
 <div class="foot-col"><h4>Service</h4><ul><li><a href="#how">服務流程</a></li><li><a href="#routes">路線與費用</a></li><li><a href="#pay">報價與付款</a></li><li><a href="#policy">取消政策</a></li></ul></div>
-<div class="foot-col"><h4>Support</h4><ul><li><a href="#book">填寫預約</a></li><li><a href="#track">查詢訂單進度</a></li><li><a href="#change">修改／取消申請</a></li><li><a href="#faq">常見問題</a></li></ul></div>
+<div class="foot-col"><h4>Support</h4><ul><li><a href="#book">填寫預約</a></li><li><a href="tracking.html">查詢訂單進度</a></li><li><a href="tracking.html">修改／取消申請</a></li><li><a href="#faq">常見問題</a></li></ul></div>
 <div class="foot-col"><h4>Contact</h4><ul><li><a href="https://lin.ee/XOMWpls" target="_blank">LINE：lin.ee/XOMWpls</a></li><li>客服服務時間：週一至週五 9:00–18:00</li><li>客服將於服務時間內回覆您的預約、報價與訂單問題。</li></ul></div>
 </div>
 <div class="foot-bottom">
@@ -679,14 +618,12 @@ section[id]{scroll-margin-top:96px}
 </div>
 
 <script>
-// 訂單系統 API（GolfTravelMobility 訂單系統，部署為「任何人」可存取的網頁應用程式）
-const API='__ORDER_API_URL__';
-let currentToken='';
+// 訂單系統 API（GolfTravelMobility 訂單系統）
+const API='https://script.google.com/macros/s/AKfycbxhEK-VrzEQErQxylnrMBbokxYunSs6qisklu_MxQjFO1UICCTLVIfDWwrzaiBOSA9H/exec';
 
 (function(){
-const p=new URLSearchParams(window.location.search),c=p.get('course'),o=p.get('order'),t=p.get('t');
-if(o){const f=document.querySelector('#trackForm [name="order"]');if(f)f.value=o;}
-if(t){currentToken=t;trackByParams({t:t});setTimeout(()=>document.getElementById('track').scrollIntoView(),300);}
+const p=new URLSearchParams(window.location.search),c=p.get('course'),t=p.get('t');
+if(t){location.replace('tracking.html?t='+encodeURIComponent(t));return;}
 if(!c)return;
 const m={shanxidi:'山溪地高爾夫球場',meilihua:'美麗華球場',datunshan:'大屯球場',demo:'示範球場'};
 document.getElementById('courseName').textContent=m[c]||decodeURIComponent(c);
@@ -711,139 +648,41 @@ function goBook(){
 const dest=document.getElementById('qDest').value;
 const date=document.getElementById('qDate').value;
 const trip=document.getElementById('qTrip').value;
-if(dest){const s=document.querySelector('#bookForm [name="destination"]');if(s)s.value=dest;}
-if(date){const s=document.querySelector('#bookForm [name="departDate"]');if(s)s.value=date;}
-if(trip){const s=document.querySelector('#bookForm [name="trip"]');if(s)s.value=trip;}
+const f=document.getElementById('bookForm');
+if(dest){const s=f.querySelector('[name="destination"]');for(const o of s.options){if(o.value===dest||o.value.startsWith(dest)){s.value=o.value;break;}}}
+if(date){f.querySelector('[name="departDate"]').value=date;}
+if(trip){f.querySelector('[name="returnShipment"]').value=(trip==='單程')?'不需要回程寄送':'需要回程寄送';}
 document.getElementById('book').scrollIntoView({behavior:'smooth'});
 }
 
-function showModal(title,html){
-document.getElementById('modalTitle').textContent=title;
-document.getElementById('modalBody').innerHTML=html;
-document.getElementById('modal').classList.add('show');
-}
 function closeModal(){document.getElementById('modal').classList.remove('show');}
 document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
-function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
-async function postApi(body){
-const res=await fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)});
-return res.json();
-}
-
-// 送出預約需求
-document.getElementById('bookForm').addEventListener('submit', async function(e){
+// 送出預約需求 → 訂單系統建單 → 預約完成頁
+document.getElementById('bookForm').addEventListener('submit',function(e){
 e.preventDefault();
-const btn=this.querySelector('[type="submit"]'),orig=btn.textContent;
-btn.disabled=true;btn.textContent='送出中...';
-const fd=new FormData(this),g=k=>(fd.get(k)||'').toString().trim();
-const trip=g('trip');
-const data={
-  action:'create',
-  name:g('name'),phone:g('phone'),email:g('email'),
-  preferredChannel:g('notify'),
-  origin:g('origin'),destination:g('destination'),
-  departDate:g('departDate'),teeDate:g('teeDate'),bagCount:g('bagCount'),
-  returnShipment: trip==='單程'?'單程（不需回程）':'來回（需回程）',
-  notes:g('note'),
-  language:'繁體中文',source:'website',pageLanguage:'zh-TW'
-};
-try{
-  const r=await postApi(data);
-  if(!r.ok)throw new Error(r.error||'error');
-  const trackUrl=location.origin+location.pathname+'?t='+encodeURIComponent(r.token)+'#track';
-  let html='您的預約編號：<strong style="color:var(--ink);font-size:16px">'+esc(r.orderId)+'</strong><br>'+
-    '確認信已寄到您的 Email，請保存預約編號。<br><br>'+
-    '客服將於週一至週五 9:00–18:00 確認資料，並與您聯繫後續報價與付款方式。<br>'+
-    '提醒：送出預約需求不代表訂單成立，完成付款後訂單才正式成立。<br><br>'+
-    '<a href="'+esc(trackUrl)+'" style="text-decoration:underline;color:var(--green-dk);font-weight:600">查看訂單進度</a>';
-  if(data.preferredChannel==='LINE'&&r.bindCode){
-    html+='<br><br><strong style="color:var(--ink)">LINE 通知綁定碼：'+esc(r.bindCode)+'</strong><br>加入 LINE 官方帳號後，把綁定碼傳給我們，即可用 LINE 接收進度通知（72 小時內有效）。';
-  }
-  showModal('已收到您的預約需求。',html);
-  this.reset();
-}catch(err){
-  alert('送出失敗，請稍後再試，或直接 LINE 客服（週一至週五 9:00–18:00）。');
-}
-btn.disabled=false;btn.textContent=orig;
-});
-
-// 查詢訂單進度
-async function trackByParams(params){
-const err=document.getElementById('trackErr'),box=document.getElementById('trackResult');
-err.classList.remove('show');box.classList.remove('show');
-try{
-  const res=await fetch(API+'?action=track&'+new URLSearchParams(params).toString());
-  const r=await res.json();
-  if(!r.ok){err.textContent=r.error||'查無資料，請確認輸入是否正確。';err.classList.add('show');return false;}
-  renderTrack(r);return true;
-}catch(ex){
-  err.textContent='查詢暫時無法使用，請稍後再試或聯絡客服。';err.classList.add('show');return false;
-}
-}
-function setText(id,v){document.getElementById(id).textContent=v||'尚未提供';}
-function renderTrack(r){
-document.getElementById('rOrder').textContent=r.orderId;
-document.getElementById('rName').textContent=r.name;
-document.getElementById('rStatus').textContent=r.status;
-document.getElementById('rStatusText').textContent=r.statusText||'';
-document.getElementById('rNext').textContent=r.next?('下一步：'+r.next):'';
-const flag=document.getElementById('rFlag');
-flag.style.display=r.flagged?'block':'none';
-flag.textContent=r.flagged?'專人處理中，客服將於服務時間內主動與您聯繫。':'';
-document.getElementById('rEst').textContent=r.orderEstablished?'已成立（已付款）':'尚未成立（付款完成後才成立）';
-setText('rQuote',r.quoteAmount?(/^\s*(NT|\$)/i.test(r.quoteAmount)?r.quoteAmount:'NT$ '+r.quoteAmount):(r.quoteStatus==='未報價'?'客服確認後提供':r.quoteStatus));
-setText('rExpiry',r.quoteExpiry?(r.quoteExpiry+(r.quoteStatus==='已失效'?'（已失效，請聯絡客服重新報價）':'')):'');
-setText('rPay',r.paymentStatus);
-setText('rPickup',r.estPickupDate);
-setText('rDeliver',r.estArrivalDate);
-setText('rTracking',r.upsTrackingNo);
-const req=[r.cancelStatus&&('取消：'+r.cancelStatus),r.modifyStatus&&('修改：'+r.modifyStatus)].filter(Boolean).join('｜');
-document.getElementById('rReq').textContent=req||'無';
-const pl=document.getElementById('rPayLink');
-if(r.paymentLink){pl.style.display='block';document.getElementById('rPayBtn').href=r.paymentLink;}else pl.style.display='none';
-const note=document.getElementById('rNote');
-if(r.customerNote){note.style.display='block';note.textContent='客服說明：'+r.customerNote;}else note.style.display='none';
-const ol=document.getElementById('rTimeline');ol.innerHTML='';
-(r.timeline||[]).forEach(s=>{
-  const li=document.createElement('li');
-  li.textContent=s.key+(s.at?'　'+s.at:'');
-  if(s.current){li.style.color='var(--green-dk)';li.style.fontWeight='700';}
-  else if(s.done){li.style.color='var(--ink)';}
-  ol.appendChild(li);
-});
-document.getElementById('trackResult').classList.add('show');
-// 讓修改／取消表單帶入預約編號
-const co=document.querySelector('#changeForm [name="order"]');if(co&&!co.value)co.value=r.orderId;
-}
-document.getElementById('trackForm').addEventListener('submit', async function(e){
-e.preventDefault();
-const btn=this.querySelector('[type="submit"]'),orig=btn.textContent;
-btn.disabled=true;btn.textContent='查詢中...';
-const fd=new FormData(this);
-currentToken='';
-await trackByParams({id:(fd.get('order')||'').toString().trim().toUpperCase(),last4:(fd.get('last4')||'').toString().trim()});
-btn.disabled=false;btn.textContent=orig;
-});
-
-// 修改／取消申請
-document.getElementById('changeForm').addEventListener('submit', async function(e){
-e.preventDefault();
-const btn=this.querySelector('[type="submit"]'),orig=btn.textContent;
-btn.disabled=true;btn.textContent='送出中...';
-const fd=new FormData(this),g=k=>(fd.get(k)||'').toString().trim();
-const data={action:'request',id:g('order').toUpperCase(),last4:g('last4'),type:g('item'),content:g('content')};
-try{
-  const r=await postApi(data);
-  if(!r.ok){alert(r.error||'送出失敗，請確認預約編號與手機末 4 碼。');}
-  else{
-    showModal('已收到您的修改／取消申請。',esc(r.message||'客服將確認訂單與物流狀態後回覆您。')+'<br>客服服務時間：週一至週五 9:00–18:00。');
-    this.reset();
-  }
-}catch(ex){
-  alert('送出失敗，請稍後再試，或直接 LINE 客服。');
-}
-btn.disabled=false;btn.textContent=orig;
+const form=this,btn=form.querySelector('button[type="submit"]');
+const payload=Object.fromEntries(new FormData(form).entries());
+payload.action='create';
+payload.source='website';
+payload.pageLanguage='zh-TW';
+payload.submittedAt=new Date().toISOString();
+btn.disabled=true;btn.textContent='送出中…';
+fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+  .then(function(r){return r.json();})
+  .then(function(d){
+    if(d&&d.ok){
+      let q='id='+encodeURIComponent(d.orderId)+'&t='+encodeURIComponent(d.token)+'&bind='+encodeURIComponent(d.bindCode||'');
+      if(d.lineAddUrl)q+='&line='+encodeURIComponent(d.lineAddUrl);
+      location.href='success.html?'+q;
+    }else{
+      document.getElementById('modalTitle').textContent='送出時發生問題';
+      document.getElementById('modalBody').textContent='請稍後再試，或直接 LINE 客服（週一至週五 9:00–18:00）。';
+      document.getElementById('modal').classList.add('show');
+    }
+  })
+  .catch(function(){alert('送出失敗，請稍後再試，或直接 LINE 客服。');})
+  .finally(function(){btn.disabled=false;btn.textContent='送出預約需求';});
 });
 </script>
 </body>

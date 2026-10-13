@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>預約完成 — Golf Travel Mobility</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--green:#7BC043;--green-dk:#5EA32E;--navy:#16202E;--navy-2:#1F2C3D;--ink:#1A222E;--gray:#5B6472;--gray-lt:#EEF1F4;--white:#FFFFFF;--r:10px}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Poppins','Noto Sans TC',-apple-system,sans-serif;color:var(--ink);background:var(--gray-lt);line-height:1.6;font-size:16px;min-height:100vh}
+  a{text-decoration:none;color:inherit}
+  .topbar{background:var(--navy);padding:18px 28px}
+  .logo{font-size:20px;font-weight:800;color:#fff;letter-spacing:-.5px}
+  .logo span{color:var(--green)}
+  .wrap{max-width:640px;margin:40px auto;padding:0 20px}
+  .card{background:#fff;border-radius:14px;padding:36px 32px;box-shadow:0 4px 24px rgba(22,32,46,.08);margin-bottom:20px}
+  .check{width:64px;height:64px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+  .check svg{width:32px;height:32px;stroke:#fff;stroke-width:3;fill:none}
+  h1{font-size:24px;font-weight:800;text-align:center;margin-bottom:8px}
+  .sub{text-align:center;color:var(--gray);font-size:15px;margin-bottom:24px}
+  .notice{background:#F6FBF1;border:1.5px solid var(--green);border-radius:var(--r);padding:14px 16px;font-size:14px;line-height:1.8;margin-bottom:20px}
+  .oid-box{background:var(--gray-lt);border-radius:var(--r);padding:16px;text-align:center;margin-bottom:20px}
+  .oid-box .lbl{font-size:13px;color:var(--gray);margin-bottom:2px}
+  .oid-box .val{font-size:26px;font-weight:800;letter-spacing:1px;color:var(--navy)}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;border:none;border-radius:var(--r);font-size:15px;font-weight:600;cursor:pointer;transition:.15s;margin-bottom:12px}
+  .btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green-dk)}
+  .btn-line{background:#06C755;color:#fff}.btn-line:hover{background:#05a648}
+  .btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}.btn-outline:hover{background:var(--navy);color:#fff}
+  h2{font-size:17px;font-weight:700;margin-bottom:10px}
+  .steps{font-size:14px;color:var(--gray)}
+  .steps li{margin:0 0 8px 20px}
+  .bind-box{background:#F0FAF0;border:1px dashed var(--green);border-radius:var(--r);padding:14px 16px;margin:14px 0}
+  .bind-box .code{font-size:20px;font-weight:800;letter-spacing:1px;color:var(--green-dk);word-break:break-all}
+  .copy-btn{margin-top:8px;padding:8px 18px;border:none;border-radius:8px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;cursor:pointer}
+  .note{font-size:13px;color:var(--gray);margin-top:10px}
+  .footer{text-align:center;font-size:13px;color:var(--gray);padding:20px 0 40px}
+</style>
+</head>
+<body>
+<div class="topbar"><a class='logo' href='/'>GOLF TRAVEL <span>MOBILITY</span></a></div>
+<div class="wrap">
+  <div class="card">
+    <div class="check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+    <h1>預約需求已送出！</h1>
+    <p class="sub">已收到您的預約需求，確認信已寄至您的 Email。<br>此階段尚無需付款。</p>
+    <div class="notice"><strong>填寫預約表單不代表訂單成立。</strong>客服將於週一至週五 9:00–18:00 確認配送條件並提供正式報價（有效 48 小時），您完成付款後，訂單才正式成立並安排收件。</div>
+    <div class="oid-box"><div class="lbl">您的訂單編號</div><div class="val" id="oid">—</div></div>
+    <a class="btn btn-green" id="trackBtn" href="#">查看訂單即時進度</a>
+  </div>
+
+  <div class="card" id="lineCard">
+    <h2>加 LINE，進度自動通知您</h2>
+    <ol class="steps">
+      <li>點下方按鈕加入官方 LINE 好友</li>
+      <li>把下面這組「綁定碼」直接傳給我們的 LINE</li>
+      <li>完成！之後每次進度更新都會自動推播給您</li>
+    </ol>
+    <div class="bind-box">
+      <div style="font-size:13px;color:var(--gray)">您的專屬綁定碼（72 小時內有效）</div>
+      <div class="code" id="bindCode">—</div>
+      <button class="copy-btn" id="copyBtn">複製綁定碼</button>
+    </div>
+    <a class="btn btn-line" id="lineBtn" href="#" target="_blank" rel="noopener">加入官方 LINE 好友</a>
+    <p class="note">不加 LINE 也沒關係——所有進度更新都會同步以 Email 通知您。</p>
+  </div>
+
+  <div class="card">
+    <a class='btn btn-outline' href='/'>回到首頁</a>
+  </div>
+</div>
+<div class="footer">Golf Travel Mobility · 客服服務時間：週一至週五 9:00–18:00</div>
+<script>
+  var q=new URLSearchParams(location.search);
+  var id=q.get('id')||'',t=q.get('t')||'',bind=q.get('bind')||'',line=q.get('line')||'';
+  document.getElementById('oid').textContent=id||'（請查看確認信）';
+  var trackBtn=document.getElementById('trackBtn');
+  trackBtn.href=t?('tracking.html?t='+encodeURIComponent(t)):'tracking.html';
+  if(bind){document.getElementById('bindCode').textContent=bind;}
+  else{document.getElementById('lineCard').style.display='none';}
+  var lineBtn=document.getElementById('lineBtn');
+  if(line){lineBtn.href=line;}else{lineBtn.style.display='none';}
+  document.getElementById('copyBtn').addEventListener('click',function(){
+    var b=this;
+    navigator.clipboard.writeText(bind).then(function(){b.textContent='已複製 ✓';setTimeout(function(){b.textContent='複製綁定碼';},2000);});
+  });
+</script>
+</body>
+</html>
