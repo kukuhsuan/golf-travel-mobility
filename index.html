@@ -336,6 +336,10 @@
   .privacy-box{grid-column:1 / -1}
   @media(max-width:900px){.privacy-box{grid-column:1 / -1}}
   @media(max-width:900px){.quote-bar{position:static}}
+  /* iPhone：日期欄位不撐寬、整頁不左右滑 */
+  html,body{overflow-x:clip;max-width:100%}
+  .qb-field{min-width:0}
+  input[type="date"]{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;display:block}
 </style>
 </head>
 <body id="top">

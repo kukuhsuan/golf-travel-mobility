@@ -38,6 +38,10 @@
   .copy-btn{margin-top:8px;padding:8px 18px;border:none;border-radius:8px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;cursor:pointer}
   .note{font-size:13px;color:var(--gray);margin-top:10px}
   .footer{text-align:center;font-size:13px;color:var(--gray);padding:20px 0 40px}
+  /* iPhone：日期欄位不撐寬、整頁不左右滑 */
+  html,body{overflow-x:clip;max-width:100%}
+  .qb-field{min-width:0}
+  input[type="date"]{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;display:block}
 </style>
 </head>
 <body>

@@ -73,6 +73,10 @@
   .btn-outline{display:flex;align-items:center;justify-content:center;width:100%;padding:13px;border:2px solid var(--navy);border-radius:var(--r);background:transparent;color:var(--navy);font-size:14px;font-weight:600;cursor:pointer;margin-top:6px}
   .btn-outline:hover{background:var(--navy);color:#fff}
   .req-ok{background:#E4F3D4;color:#43701d;border-radius:var(--r);padding:12px 14px;font-size:14px;margin-top:12px;display:none}
+  /* iPhone：日期欄位不撐寬、整頁不左右滑 */
+  html,body{overflow-x:clip;max-width:100%}
+  .qb-field{min-width:0}
+  input[type="date"]{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;display:block}
 </style>
 </head>
 <body>
