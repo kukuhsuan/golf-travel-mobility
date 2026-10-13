@@ -330,6 +330,12 @@
   .field-type label{font-size:15px;font-weight:700}
   @media(max-width:900px){.plan-grid{grid-template-columns:repeat(2,1fr)}.tracking-cols{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:560px){.plan-grid{grid-template-columns:1fr}.tracking-cols{grid-template-columns:1fr}}
+  /* 手機版：避免左右滑動 */
+  .field{min-width:0}
+  .field input,.field select,.field textarea{width:100%;min-width:0;max-width:100%;box-sizing:border-box}
+  .privacy-box{grid-column:1 / -1}
+  @media(max-width:900px){.privacy-box{grid-column:1 / -1}}
+  @media(max-width:900px){.quote-bar{position:static}}
 </style>
 </head>
 <body id="top">
