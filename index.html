@@ -3,687 +3,696 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Golf Travel Mobility — 跳過行李轉盤，球袋直送球場</title>
-<meta name="description" content="高爾夫球袋從台灣到府收件，直送海外球場、飯店或訓練基地。客服確認報價、付款後安排收件，可線上查詢訂單進度。">
+<title>Golf Travel Mobility — 高爾夫球旅 VIP 球袋禮賓服務</title>
+<meta name="description" content="高爾夫球袋跨國禮賓服務，從台灣到府收件，直送海外球場、飯店或訓練基地。提供客戶追蹤頁、Email、LINE、WhatsApp 與 SMS 多管道通知規劃。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{
---green:#7BC043;
---green-dk:#5EA32E;
---navy:#16202E;
---navy-2:#1F2C3D;
---ink:#1A222E;
---gray:#5B6472;
---gray-lt:#EEF1F4;
---blue-lt:#A9CDEE;
---white:#FFFFFF;
---r:10px;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Poppins','Noto Sans TC',-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:16px}
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
-.container{max-width:1240px;margin:0 auto;padding:0 28px}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;font-size:15px;font-weight:600;border:none;cursor:pointer;border-radius:var(--r);transition:.15s;white-space:nowrap;gap:8px}
-.btn:active{transform:scale(.97)}
-.btn-navy{background:var(--navy);color:var(--white)}
-.btn-navy:hover{background:var(--navy-2)}
-.btn-green{background:var(--green);color:var(--white)}
-.btn-green:hover{background:var(--green-dk)}
-.btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}
-.btn-outline:hover{background:var(--navy);color:var(--white)}
-.btn-white{background:var(--white);color:var(--navy)}
-.promo{background:var(--green);color:var(--white);text-align:center;padding:11px 16px;font-size:14px;font-weight:500}
-.promo strong{font-weight:700}
-.promo u{text-decoration:underline;cursor:pointer}
-nav.top{background:var(--white);border-bottom:1px solid var(--gray-lt)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px;max-width:1240px;margin:0 auto;padding:0 28px}
-.logo{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.5px;line-height:1.1}
-.logo span{color:var(--green)}
-.logo small{display:block;font-size:9px;font-weight:500;color:var(--gray);letter-spacing:4px}
-.nav-links{display:flex;gap:34px;align-items:center;font-size:15px;font-weight:500}
-.nav-links a{color:var(--ink)}
-.nav-links a:hover{color:var(--green-dk)}
-.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:26px;color:var(--ink)}
-@media(max-width:900px){
-.nav-links{display:none}
-.menu-btn{display:block}
-.nav-links.open{display:flex;flex-direction:column;gap:18px;position:absolute;top:100%;left:0;right:0;background:var(--white);padding:26px;border-bottom:1px solid var(--gray-lt);box-shadow:0 12px 30px rgba(0,0,0,.10);z-index:300}
-}
-nav.top{position:relative}
-.quote-bar{position:sticky;top:0;z-index:400;background:var(--white);box-shadow:0 6px 24px rgba(0,0,0,.08);border-bottom:1px solid var(--gray-lt)}
-.qb-inner{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:0}
-.qb-field{flex:1;padding:4px 20px;border-right:1px solid var(--gray-lt)}
-.qb-field label{display:block;font-size:11px;font-weight:600;color:var(--gray);letter-spacing:.5px;margin-bottom:1px}
-.qb-field select,.qb-field input{width:100%;border:none;background:none;font-size:15px;font-weight:500;color:var(--ink);padding:2px 0;cursor:pointer}
-.qb-field select:focus,.qb-field input:focus{outline:none}
-.qb-price{display:flex;align-items:baseline;gap:8px;padding:0 26px;white-space:nowrap}
-.qb-price .from{font-size:14px;color:var(--ink);font-weight:500}
-.qb-price .amt{font-size:34px;font-weight:800;color:var(--green);letter-spacing:-1px}
-.qb-price .per{font-size:13px;color:var(--gray)}
-@media(max-width:900px){
-.qb-inner{flex-wrap:wrap;gap:10px;padding:12px 16px}
-.qb-field{flex:1 1 44%;border-right:none;border:1px solid var(--gray-lt);border-radius:8px;padding:8px 14px}
-.qb-price{padding:0 4px;margin-left:auto}
-.qb-price .amt{font-size:26px}
-}
-.hero{position:relative;margin:0 20px;border-radius:18px;overflow:hidden;min-height:560px;display:flex;align-items:center}
-.hero::before{content:'';position:absolute;inset:0;background:url('imgs/hero.jpg') center/cover;z-index:0}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,20,30,.45) 0%,rgba(10,20,30,.08) 65%);z-index:1}
-.hero-content{position:relative;z-index:2;padding:80px 72px;color:var(--white)}
-.hero h1{font-size:74px;font-weight:400;line-height:1.12;letter-spacing:-1px;text-shadow:0 2px 24px rgba(0,0,0,.25)}
-.hero h1 b{font-weight:900}
-.hero .sub{font-size:26px;font-weight:400;margin-top:34px;text-shadow:0 1px 12px rgba(0,0,0,.3)}
-.hero .hero-cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
-@media(max-width:900px){
-.hero{margin:0 12px;min-height:420px}
-.hero-content{padding:48px 28px}
-.hero h1{font-size:40px}
-.hero .sub{font-size:18px;margin-top:20px}
-}
-.stats{padding:56px 0 30px}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
-.stat .num{font-size:44px;font-weight:800;color:var(--ink);letter-spacing:-1px;line-height:1}
-.stat .num span{color:var(--green)}
-.stat .lab{font-size:14px;color:var(--gray);margin-top:8px}
-@media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:28px}}
-.split{padding:90px 0}
-.split-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;max-width:1240px;margin:0 auto;padding:0 28px}
-.split-inner.rev .split-img{order:2}
-.split h2{font-size:58px;font-weight:400;line-height:1.12;letter-spacing:-1px;color:var(--ink)}
-.split h2 b{font-weight:900;display:block}
-.split p{font-size:17px;color:var(--gray);line-height:1.9;margin-top:26px;max-width:480px}
-.split .act{margin-top:30px}
-.split-img img{width:100%;height:520px;object-fit:cover;border-radius:16px}
-@media(max-width:900px){
-.split{padding:52px 0}
-.split-inner{grid-template-columns:1fr;gap:32px}
-.split-inner.rev .split-img{order:0}
-.split h2{font-size:36px}
-.split-img img{height:300px}
-}
-.step-num{font-size:58px;font-weight:400;line-height:1.15;letter-spacing:-1px}
-.step-num b{font-weight:900}
-.step-note{display:inline-block;margin-top:22px;background:#F1F8E9;border:1px solid var(--green);color:var(--green-dk);font-size:13.5px;font-weight:600;padding:6px 16px;border-radius:100px}
-.who{background:var(--gray-lt);padding:90px 0}
-.who h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
-.who h2 b{font-weight:900}
-.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}
-.who-card{background:var(--white);border-radius:14px;padding:34px 26px}
-.who-card .ico{font-size:34px;margin-bottom:14px}
-.who-card h3{font-size:17px;font-weight:700;margin-bottom:8px}
-.who-card p{font-size:14px;color:var(--gray);line-height:1.75}
-@media(max-width:900px){.who h2{font-size:32px}.who-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.who-grid{grid-template-columns:1fr}}
-.routes{padding:90px 0}
-.routes h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
-.routes h2 b{font-weight:900}
-.routes .lead{text-align:center;font-size:15.5px;color:var(--gray);max-width:560px;margin:16px auto 0}
-.route-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}
-.route-card{border:1.5px solid var(--gray-lt);border-radius:14px;padding:30px 24px;position:relative;transition:.15s}
-.route-card:hover{box-shadow:0 14px 40px rgba(0,0,0,.10);transform:translateY(-3px)}
-.route-card.pick{border-color:var(--green);border-width:2px}
-.pick-badge{position:absolute;top:-13px;left:24px;background:var(--green);color:var(--white);font-size:12px;font-weight:700;padding:4px 14px;border-radius:100px}
-.route-card .dest{font-size:19px;font-weight:800;margin-bottom:4px}
-.route-card .area{font-size:13px;color:var(--gray);line-height:1.7;min-height:44px}
-.route-card .price{margin-top:18px;display:flex;align-items:baseline;gap:6px}
-.route-card .price .from{font-size:13px;color:var(--gray)}
-.route-card .price .amt{font-size:32px;font-weight:800;color:var(--green);letter-spacing:-1px}
-.route-card .per{font-size:12px;color:var(--gray);margin-top:2px}
-.routes .fine{text-align:center;font-size:13px;color:var(--gray);margin-top:28px}
-@media(max-width:900px){.routes h2{font-size:32px}.route-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.route-grid{grid-template-columns:1fr}}
-.trust{background:var(--navy);color:var(--white);padding:96px 0}
-.trust h2{font-size:52px;font-weight:400;letter-spacing:-1px;line-height:1.2}
-.trust h2 b{font-weight:900;display:block}
-.trust .lead{font-size:16px;color:rgba(255,255,255,.65);margin-top:20px;max-width:520px}
-.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
-.trust-card{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:30px 26px}
-.trust-card .ico{width:48px;height:48px;border-radius:12px;background:rgba(123,192,67,.15);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
-.trust-card h3{font-size:16.5px;font-weight:700;margin-bottom:8px}
-.trust-card p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.75}
-@media(max-width:900px){.trust h2{font-size:34px}.trust-grid{grid-template-columns:1fr;gap:12px}}
-.quotes{padding:90px 0}
-.quotes h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
-.quotes h2 b{font-weight:900}
-.quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
-.quote-card{border:1.5px solid var(--gray-lt);border-radius:14px;padding:32px 28px;display:flex;flex-direction:column}
-.quote-card .txt{font-size:15.5px;line-height:1.9;color:var(--ink);flex:1}
-.quote-card .name{margin-top:22px;font-weight:800;font-size:15px;display:flex;align-items:center;gap:8px}
-.quote-card .name::before{content:'⛳'}
-@media(max-width:900px){.quotes h2{font-size:32px}.quote-grid{grid-template-columns:1fr}}
-.faq-sec{margin:0 20px 90px;background:var(--blue-lt);border-radius:18px;padding:80px 0}
-.faq-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;max-width:1240px;margin:0 auto;padding:0 48px}
-.faq-sec h2{font-size:52px;font-weight:400;line-height:1.15;letter-spacing:-1px;color:var(--navy)}
-.faq-sec h2 b{font-weight:900;display:block}
-details.faq{border-bottom:1.5px solid rgba(22,32,46,.18)}
-details.faq summary{padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:16.5px;font-weight:700;color:var(--navy)}
-details.faq summary::-webkit-details-marker{display:none}
-details.faq summary .ico{font-size:22px;font-weight:400;transition:transform .2s}
-details.faq[open] summary .ico{transform:rotate(45deg)}
-details.faq .ans{padding:0 0 20px;font-size:14.5px;color:var(--navy);opacity:.85;line-height:1.9}
-@media(max-width:900px){
-.faq-sec{margin:0 12px 56px;padding:48px 0}
-.faq-inner{grid-template-columns:1fr;gap:24px;padding:0 26px}
-.faq-sec h2{font-size:32px}
-}
-.corp{padding:0 20px 90px}
-.corp-box{position:relative;border-radius:18px;overflow:hidden;padding:88px 72px;display:flex;justify-content:space-between;align-items:center;gap:40px}
-.corp-box::before{content:'';position:absolute;inset:0;background:url('imgs/corp.jpg') center/cover}
-.corp-box::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,32,46,.82),rgba(22,32,46,.35))}
-.corp-content{position:relative;z-index:2;color:var(--white)}
-.corp-content h2{font-size:44px;font-weight:400;line-height:1.25;letter-spacing:-1px}
-.corp-content h2 b{font-weight:900}
-.corp-content p{font-size:15.5px;color:rgba(255,255,255,.75);margin-top:16px;max-width:520px;line-height:1.85}
-.corp-act{position:relative;z-index:2}
-@media(max-width:900px){
-.corp{padding:0 12px 56px}
-.corp-box{flex-direction:column;align-items:flex-start;padding:48px 30px}
-.corp-content h2{font-size:30px}
-}
-.book{padding:0 0 100px}
-.book h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
-.book h2 b{font-weight:900}
-.book .lead{text-align:center;font-size:15.5px;color:var(--gray);margin:14px auto 0;max-width:520px}
-.book-wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:56px;margin-top:56px;align-items:start}
-.line-card{background:var(--gray-lt);border-radius:16px;padding:38px 32px;text-align:center}
-.line-card img{width:180px;height:180px;margin:0 auto 18px;border-radius:12px;background:var(--white);padding:10px}
-.line-card h3{font-size:18px;font-weight:800;margin-bottom:6px}
-.line-card p{font-size:13.5px;color:var(--gray);margin-bottom:18px}
-.bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.field{display:flex;flex-direction:column}
-.field.full{grid-column:span 2}
-.field label{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:7px}
-.field label .req{color:var(--green-dk)}
-.field input,.field select,.field textarea{padding:12px 14px;border:1.5px solid #D6DBE1;border-radius:10px;background:var(--white);font-size:14.5px;transition:border .15s}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
-.form-fine{font-size:12.5px;color:var(--gray)}
-.form-ft{grid-column:span 2;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
-@media(max-width:900px){
-.book h2{font-size:32px}
-.book-wrap{grid-template-columns:1fr;gap:28px}
-.bk-grid{grid-template-columns:1fr}
-.field.full,.form-ft{grid-column:span 1}
-}
-footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
-.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
-.foot-logo{font-size:20px;font-weight:800;color:var(--white)}
-.foot-logo span{color:var(--green)}
-.foot-desc{font-size:13.5px;line-height:1.8;max-width:280px;margin-top:12px}
-.foot-col h4{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--white);text-transform:uppercase;margin-bottom:16px}
-.foot-col ul{list-style:none}
-.foot-col li{margin-bottom:10px;font-size:13.5px}
-.foot-col a:hover{color:var(--white)}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px}
-@media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:28px}}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center;padding:20px}
-.modal-overlay.show{display:flex}
-.modal-box{background:var(--white);max-width:430px;width:100%;padding:38px;border-radius:16px}
-.modal-check{width:54px;height:54px;border-radius:50%;background:#F1F8E9;border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--green-dk);margin-bottom:16px}
-.modal-box h3{font-size:20px;font-weight:800;margin-bottom:10px}
-.modal-box p{font-size:14px;color:var(--gray);line-height:1.85;margin-bottom:22px}
-.modal-box .close-row{display:flex;justify-content:flex-end}
-/* ===== 試營運流程新增區塊 ===== */
-section[id]{scroll-margin-top:96px}
-.notice{padding:32px 0 0}
-.notice-box{border:1.5px solid var(--green);background:#F6FBF1;border-radius:14px;padding:20px 26px;font-size:15.5px;line-height:1.8;color:var(--ink)}
-.notice-box strong{font-weight:800}
-.notice-box .hrs{display:block;font-size:13.5px;color:var(--gray);margin-top:4px}
-.sec{padding:90px 0}
-.sec.alt{background:var(--gray-lt)}
-.sec h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px;line-height:1.2}
-.sec h2 b{font-weight:900}
-.sec .lead{text-align:center;font-size:15.5px;color:var(--gray);max-width:640px;margin:16px auto 0;line-height:1.85}
-.flow-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:52px}
-.flow-card{background:var(--white);border:1.5px solid #DDE2E7;border-radius:14px;padding:22px 20px;position:relative}
-.flow-card .n{font-size:13px;font-weight:700;color:var(--green-dk)}
-.flow-card h3{font-size:16px;font-weight:700;margin:6px 0 6px;line-height:1.4}
-.flow-card p{font-size:13px;color:var(--gray);line-height:1.75}
-.flow-card.key{border:2px solid var(--green)}
-.flow-tag{position:absolute;top:-12px;right:16px;background:var(--green);color:var(--white);font-size:11.5px;font-weight:700;padding:3px 12px;border-radius:100px}
-.flow-legend{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:28px;font-size:13.5px;color:var(--gray)}
-.flow-legend b{color:var(--ink)}
-.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
-.info-card{background:var(--white);border-radius:14px;padding:30px 26px;border:1.5px solid #DDE2E7}
-.info-card h3{font-size:17px;font-weight:800;margin-bottom:12px}
-.info-card ul{padding-left:18px;font-size:14px;color:var(--gray);line-height:1.95}
-.info-card p{font-size:14.5px;color:var(--gray);line-height:1.9}
-.pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:48px}
-.tool-wrap{max-width:760px;margin:44px auto 0}
-.result{margin-top:24px;border:1.5px solid #DDE2E7;border-radius:14px;padding:24px 26px;display:none;background:var(--white)}
-.result.show{display:block}
-.result dl{display:grid;grid-template-columns:140px 1fr;gap:10px 16px;font-size:14.5px}
-.result dt{color:var(--gray)}
-.result dd{font-weight:600;word-break:break-all}
-.result .status{display:inline-block;background:#F1F8E9;border:1px solid var(--green);color:var(--green-dk);padding:2px 12px;border-radius:100px;font-size:13.5px}
-.result .fine{font-size:13px;color:var(--gray);margin-top:16px}
-.msg-err{color:#B3261E;font-size:14px;margin-top:14px;display:none}
-.msg-err.show{display:block}
-.field textarea{min-height:110px;resize:vertical}
-.field .hint{font-size:12.5px;color:var(--gray);margin-top:6px}
-.policy{width:100%;border-collapse:collapse;margin-top:44px;font-size:14.5px;background:var(--white);border-radius:14px;overflow:hidden}
-.policy th,.policy td{text-align:left;padding:18px 22px;border-bottom:1px solid var(--gray-lt);vertical-align:top;line-height:1.8}
-.policy th{width:34%;font-weight:700;color:var(--ink)}
-.policy td{color:var(--gray)}
-.policy tr:last-child th,.policy tr:last-child td{border-bottom:none}
-.policy-note{text-align:center;font-size:13px;color:var(--gray);margin-top:18px}
-@media(max-width:900px){
-.sec{padding:56px 0}
-.sec h2{font-size:30px}
-.flow-grid{grid-template-columns:repeat(2,1fr)}
-.info-grid,.pay-grid{grid-template-columns:1fr}
-.policy th,.policy td{display:block;width:100%;padding:12px 18px}
-.policy th{padding-bottom:0;border-bottom:none}
-.result dl{grid-template-columns:110px 1fr}
-}
-@media(max-width:560px){.flow-grid{grid-template-columns:1fr}}
+  :root{
+    --green:#7BC043;        /* Ship Sticks 亮綠 */
+    --green-dk:#5EA32E;
+    --navy:#16202E;         /* 深藍海軍 */
+    --navy-2:#1F2C3D;
+    --ink:#1A222E;
+    --gray:#5B6472;
+    --gray-lt:#EEF1F4;
+    --blue-lt:#A9CDEE;      /* FAQ 淺藍 */
+    --white:#FFFFFF;
+    --r:10px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Poppins','Noto Sans TC',-apple-system,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:16px}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+  .container{max-width:1240px;margin:0 auto;padding:0 28px}
+
+  /* ── 按鈕 ── */
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 30px;font-size:15px;font-weight:600;border:none;cursor:pointer;border-radius:var(--r);transition:.15s;white-space:nowrap;gap:8px}
+  .btn:active{transform:scale(.97)}
+  .btn-navy{background:var(--navy);color:var(--white)}
+  .btn-navy:hover{background:var(--navy-2)}
+  .btn-green{background:var(--green);color:var(--white)}
+  .btn-green:hover{background:var(--green-dk)}
+  .btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+  .btn-outline:hover{background:var(--navy);color:var(--white)}
+  .btn-white{background:var(--white);color:var(--navy)}
+
+  /* ── 綠色促銷條 ── */
+  .promo{background:var(--green);color:var(--white);text-align:center;padding:11px 16px;font-size:14px;font-weight:500}
+  .promo strong{font-weight:700}
+  .promo u{text-decoration:underline;cursor:pointer}
+
+  /* ── Nav ── */
+  nav.top{background:var(--white);border-bottom:1px solid var(--gray-lt)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px;max-width:1240px;margin:0 auto;padding:0 28px}
+  .logo{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.5px;line-height:1.1}
+  .logo span{color:var(--green)}
+  .logo small{display:block;font-size:9px;font-weight:500;color:var(--gray);letter-spacing:4px}
+  .nav-links{display:flex;gap:34px;align-items:center;font-size:15px;font-weight:500}
+  .nav-links a{color:var(--ink)}
+  .nav-links a:hover{color:var(--green-dk)}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:26px;color:var(--ink)}
+  @media(max-width:900px){
+    .nav-links{display:none}
+    .menu-btn{display:block}
+    .nav-links.open{display:flex;flex-direction:column;gap:18px;position:absolute;top:100%;left:0;right:0;background:var(--white);padding:26px;border-bottom:1px solid var(--gray-lt);box-shadow:0 12px 30px rgba(0,0,0,.10);z-index:300}
+  }
+  nav.top{position:relative}
+
+  /* ── 常駐報價列（Ship Sticks 招牌）── */
+  .quote-bar{position:sticky;top:0;z-index:400;background:var(--white);box-shadow:0 6px 24px rgba(0,0,0,.08);border-bottom:1px solid var(--gray-lt)}
+  .qb-inner{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:0}
+  .qb-field{flex:1;padding:4px 20px;border-right:1px solid var(--gray-lt)}
+  .qb-field label{display:block;font-size:11px;font-weight:600;color:var(--gray);letter-spacing:.5px;margin-bottom:1px}
+  .qb-field select,.qb-field input{width:100%;border:none;background:none;font-size:15px;font-weight:500;color:var(--ink);padding:2px 0;cursor:pointer}
+  .qb-field select:focus,.qb-field input:focus{outline:none}
+  .qb-price{display:flex;align-items:baseline;gap:8px;padding:0 26px;white-space:nowrap}
+  .qb-price .from{font-size:14px;color:var(--ink);font-weight:500}
+  .qb-price .amt{font-size:34px;font-weight:800;color:var(--green);letter-spacing:-1px}
+  .qb-price .per{font-size:13px;color:var(--gray)}
+  @media(max-width:900px){
+    .qb-inner{flex-wrap:wrap;gap:10px;padding:12px 16px}
+    .qb-field{flex:1 1 44%;border-right:none;border:1px solid var(--gray-lt);border-radius:8px;padding:8px 14px}
+    .qb-price{padding:0 4px;margin-left:auto}
+    .qb-price .amt{font-size:26px}
+  }
+
+  /* ── Hero：滿版照片 + 極簡大字 ── */
+  .hero{position:relative;margin:0 20px;border-radius:18px;overflow:hidden;min-height:560px;display:flex;align-items:center}
+  .hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1800&q=82') center/cover;z-index:0}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,20,30,.45) 0%,rgba(10,20,30,.08) 65%);z-index:1}
+  .hero-content{position:relative;z-index:2;padding:80px 72px;color:var(--white)}
+  .hero h1{font-size:74px;font-weight:400;line-height:1.12;letter-spacing:-1px;text-shadow:0 2px 24px rgba(0,0,0,.25)}
+  .hero h1 b{font-weight:900}
+  .hero .sub{font-size:26px;font-weight:400;margin-top:34px;text-shadow:0 1px 12px rgba(0,0,0,.3)}
+  .hero .hero-cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap}
+  @media(max-width:900px){
+    .hero{margin:0 12px;min-height:420px}
+    .hero-content{padding:48px 28px}
+    .hero h1{font-size:40px}
+    .hero .sub{font-size:18px;margin-top:20px}
+  }
+
+  /* ── 數據信任條 ── */
+  .stats{padding:56px 0 30px}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
+  .stat .num{font-size:44px;font-weight:800;color:var(--ink);letter-spacing:-1px;line-height:1}
+  .stat .num span{color:var(--green)}
+  .stat .lab{font-size:14px;color:var(--gray);margin-top:8px}
+  @media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:28px}}
+
+  /* ── 大字左右交錯區塊（Ship Sticks 核心版式）── */
+  .split{padding:90px 0}
+  .split-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;max-width:1240px;margin:0 auto;padding:0 28px}
+  .split-inner.rev .split-img{order:2}
+  .split h2{font-size:58px;font-weight:400;line-height:1.12;letter-spacing:-1px;color:var(--ink)}
+  .split h2 b{font-weight:900;display:block}
+  .split p{font-size:17px;color:var(--gray);line-height:1.9;margin-top:26px;max-width:480px}
+  .split .act{margin-top:30px}
+  .split-img img{width:100%;height:520px;object-fit:cover;border-radius:16px}
+  @media(max-width:900px){
+    .split{padding:52px 0}
+    .split-inner{grid-template-columns:1fr;gap:32px}
+    .split-inner.rev .split-img{order:0}
+    .split h2{font-size:36px}
+    .split-img img{height:300px}
+  }
+
+  /* ── 步驟 1/2/3 ── */
+  .step-num{font-size:58px;font-weight:400;line-height:1.15;letter-spacing:-1px}
+  .step-num b{font-weight:900}
+  .step-note{display:inline-block;margin-top:22px;background:#F1F8E9;border:1px solid var(--green);color:var(--green-dk);font-size:13.5px;font-weight:600;padding:6px 16px;border-radius:100px}
+
+  /* ── 適合對象 ── */
+  .who{background:var(--gray-lt);padding:90px 0}
+  .who h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
+  .who h2 b{font-weight:900}
+  .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}
+  .who-card{background:var(--white);border-radius:14px;padding:34px 26px}
+  .who-card .ico{display:none}
+  .who-card h3{font-size:18px;font-weight:800;margin-bottom:10px;color:var(--navy)}
+  .who-card p{font-size:14px;color:var(--gray);line-height:1.75}
+  @media(max-width:900px){.who h2{font-size:32px}.who-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.who-grid{grid-template-columns:1fr}}
+
+  /* ── 路線與價格 ── */
+  .routes{padding:90px 0}
+  .routes h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
+  .routes h2 b{font-weight:900}
+  .routes .lead{text-align:center;font-size:15.5px;color:var(--gray);max-width:560px;margin:16px auto 0}
+  .route-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}
+  .route-card{border:1.5px solid var(--gray-lt);border-radius:14px;padding:30px 24px;position:relative;transition:.15s}
+  .route-card:hover{box-shadow:0 14px 40px rgba(0,0,0,.10);transform:translateY(-3px)}
+  .route-card.pick{border-color:var(--green);border-width:2px}
+  .pick-badge{position:absolute;top:-13px;left:24px;background:var(--green);color:var(--white);font-size:12px;font-weight:700;padding:4px 14px;border-radius:100px}
+  .route-card .dest{font-size:19px;font-weight:800;margin-bottom:4px}
+  .route-card .area{font-size:13px;color:var(--gray);line-height:1.7;min-height:44px}
+  .route-card .price{margin-top:18px;display:flex;align-items:baseline;gap:6px}
+  .route-card .price .from{font-size:13px;color:var(--gray)}
+  .route-card .price .amt{font-size:32px;font-weight:800;color:var(--green);letter-spacing:-1px}
+  .route-card .per{font-size:12px;color:var(--gray);margin-top:2px}
+  .routes .fine{text-align:center;font-size:13px;color:var(--gray);margin-top:28px}
+  @media(max-width:900px){.routes h2{font-size:32px}.route-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.route-grid{grid-template-columns:1fr}}
+
+  /* ── 安心機制 ── */
+  .trust{background:var(--navy);color:var(--white);padding:96px 0}
+  .trust h2{font-size:52px;font-weight:400;letter-spacing:-1px;line-height:1.2}
+  .trust h2 b{font-weight:900;display:block}
+  .trust .lead{font-size:16px;color:rgba(255,255,255,.65);margin-top:20px;max-width:520px}
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+  .trust-card{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:30px 26px}
+  .trust-card .ico{display:none}
+  .trust-card h3{font-size:17px;font-weight:800;margin-bottom:10px}
+  .trust-card p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.75}
+  @media(max-width:900px){.trust h2{font-size:34px}.trust-grid{grid-template-columns:1fr;gap:12px}}
+
+  /* ── 追蹤頁展示 ── */
+  .tracking{padding:90px 0;background:#F8FAFC}
+  .tracking h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
+  .tracking h2 b{font-weight:900}
+  .tracking .lead{text-align:center;font-size:15.5px;color:var(--gray);max-width:680px;margin:16px auto 0}
+  .tracking-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;margin-top:48px;align-items:start}
+  .online-booking{grid-column:1 / -1;text-align:center;background:var(--white);border:1px solid var(--gray-lt);border-radius:12px;padding:42px 30px}
+  .online-booking p{color:var(--gray);line-height:1.8;margin:0 auto 22px;max-width:560px}
+  .privacy-box{grid-column:span 2;border:1px solid #DDE4EA;border-radius:10px;background:#F8FAFC;padding:14px 16px}
+  .privacy-box p{font-size:12.5px;color:var(--gray);line-height:1.7;margin:0}
+  .track-panel{background:var(--white);border:1px solid #DDE4EA;border-radius:16px;padding:30px;box-shadow:0 18px 45px rgba(22,32,46,.08)}
+  .track-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;border-bottom:1px solid var(--gray-lt);padding-bottom:20px;margin-bottom:22px}
+  .track-id{font-size:13px;color:var(--gray);font-weight:600}
+  .track-status{font-size:30px;font-weight:800;color:var(--navy);line-height:1.2;margin-top:4px}
+  .secure-badge{display:inline-flex;align-items:center;justify-content:center;background:#F1F8E9;color:var(--green-dk);font-size:12px;font-weight:700;border-radius:999px;padding:6px 12px;white-space:nowrap}
+  .timeline{display:grid;gap:16px}
+  .time-row{display:grid;grid-template-columns:28px 1fr;gap:12px}
+  .dot{width:14px;height:14px;border-radius:50%;background:var(--green);margin-top:6px;box-shadow:0 0 0 6px #EDF8E7}
+  .dot.pending{background:#CBD5DF;box-shadow:0 0 0 6px #F0F3F6}
+  .time-row h3{font-size:15px;font-weight:800;color:var(--ink)}
+  .time-row p{font-size:13.5px;color:var(--gray);line-height:1.7;margin-top:2px}
+  .track-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+  .mini-card{border:1px solid var(--gray-lt);border-radius:12px;padding:16px}
+  .mini-card .lab{font-size:12px;color:var(--gray);font-weight:600;margin-bottom:4px}
+  .mini-card .val{font-size:15px;font-weight:800;color:var(--navy)}
+  .channel-list{display:grid;gap:12px;margin-top:22px}
+  .channel{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--gray-lt);border-radius:12px;padding:14px 16px;font-size:14px}
+  .channel strong{color:var(--navy)}
+  .channel span{font-size:12px;color:var(--gray)}
+  @media(max-width:900px){
+    .tracking h2{font-size:32px}
+    .tracking-wrap{grid-template-columns:1fr}
+    .track-head{flex-direction:column}
+    .track-card-grid{grid-template-columns:1fr}
+  }
+
+  /* ── 見證 ── */
+  .quotes{padding:90px 0}
+  .quotes h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
+  .quotes h2 b{font-weight:900}
+  .quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
+  .quote-card{border:1.5px solid var(--gray-lt);border-radius:14px;padding:32px 28px;display:flex;flex-direction:column}
+  .quote-card .txt{font-size:15.5px;line-height:1.9;color:var(--ink);flex:1}
+  .quote-card .name{margin-top:22px;font-weight:800;font-size:15px;display:flex;align-items:center;gap:8px}
+  .quote-card .name::before{content:'';display:none}
+  @media(max-width:900px){.quotes h2{font-size:32px}.quote-grid{grid-template-columns:1fr}}
+
+  /* ── FAQ（淺藍區塊）── */
+  .faq-sec{margin:0 20px 90px;background:var(--blue-lt);border-radius:18px;padding:80px 0}
+  .faq-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;max-width:1240px;margin:0 auto;padding:0 48px}
+  .faq-sec h2{font-size:52px;font-weight:400;line-height:1.15;letter-spacing:-1px;color:var(--navy)}
+  .faq-sec h2 b{font-weight:900;display:block}
+  details.faq{border-bottom:1.5px solid rgba(22,32,46,.18)}
+  details.faq summary{padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:16.5px;font-weight:700;color:var(--navy)}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary .ico{font-size:22px;font-weight:400;transition:transform .2s}
+  details.faq[open] summary .ico{transform:rotate(45deg)}
+  details.faq .ans{padding:0 0 20px;font-size:14.5px;color:var(--navy);opacity:.85;line-height:1.9}
+  @media(max-width:900px){
+    .faq-sec{margin:0 12px 56px;padding:48px 0}
+    .faq-inner{grid-template-columns:1fr;gap:24px;padding:0 26px}
+    .faq-sec h2{font-size:32px}
+  }
+
+  /* ── 企業方案 ── */
+  .corp{padding:0 20px 90px}
+  .corp-box{position:relative;border-radius:18px;overflow:hidden;padding:88px 72px;display:flex;justify-content:space-between;align-items:center;gap:40px}
+  .corp-box::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1600&q=80') center/cover}
+  .corp-box::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,32,46,.82),rgba(22,32,46,.35))}
+  .corp-content{position:relative;z-index:2;color:var(--white)}
+  .corp-content h2{font-size:44px;font-weight:400;line-height:1.25;letter-spacing:-1px}
+  .corp-content h2 b{font-weight:900}
+  .corp-content p{font-size:15.5px;color:rgba(255,255,255,.75);margin-top:16px;max-width:520px;line-height:1.85}
+  .corp-act{position:relative;z-index:2}
+  @media(max-width:900px){
+    .corp{padding:0 12px 56px}
+    .corp-box{flex-direction:column;align-items:flex-start;padding:48px 30px}
+    .corp-content h2{font-size:30px}
+  }
+
+  /* ── 預約表單 ── */
+  .book{padding:0 0 100px}
+  .book h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
+  .book h2 b{font-weight:900}
+  .book .lead{text-align:center;font-size:15.5px;color:var(--gray);margin:14px auto 0;max-width:520px}
+  .book-wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:56px;margin-top:56px;align-items:start}
+  .line-card{background:var(--gray-lt);border-radius:16px;padding:38px 32px;text-align:center}
+  .line-card img{width:180px;height:180px;margin:0 auto 18px;border-radius:12px;background:var(--white);padding:10px}
+  .line-card h3{font-size:18px;font-weight:800;margin-bottom:6px}
+  .line-card p{font-size:13.5px;color:var(--gray);margin-bottom:18px}
+  .bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .field{display:flex;flex-direction:column}
+  .field.full{grid-column:span 2}
+  .field label{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:7px}
+  .field label .req{color:var(--green-dk)}
+  .field input,.field select,.field textarea{padding:12px 14px;border:1.5px solid #D6DBE1;border-radius:10px;background:var(--white);font-size:14.5px;transition:border .15s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+  .form-fine{font-size:12.5px;color:var(--gray)}
+  .form-ft{grid-column:span 2;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
+  @media(max-width:900px){
+    .book h2{font-size:32px}
+    .book-wrap{grid-template-columns:1fr;gap:28px}
+    .bk-grid{grid-template-columns:1fr}
+    .field.full,.form-ft{grid-column:span 1}
+  }
+
+  /* ── Footer（深藍）── */
+  footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
+  .foot-logo{font-size:20px;font-weight:800;color:var(--white)}
+  .foot-logo span{color:var(--green)}
+  .foot-desc{font-size:13.5px;line-height:1.8;max-width:280px;margin-top:12px}
+  .foot-col h4{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--white);text-transform:uppercase;margin-bottom:16px}
+  .foot-col ul{list-style:none}
+  .foot-col li{margin-bottom:10px;font-size:13.5px}
+  .foot-col a:hover{color:var(--white)}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px}
+  @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:28px}}
+
+  /* ── Modal ── */
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center;padding:20px}
+  .modal-overlay.show{display:flex}
+  .modal-box{background:var(--white);max-width:430px;width:100%;padding:38px;border-radius:16px}
+  .modal-check{width:54px;height:54px;border-radius:50%;background:#F1F8E9;border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--green-dk);margin-bottom:16px}
+  .modal-box h3{font-size:20px;font-weight:800;margin-bottom:10px}
+  .modal-box p{font-size:14px;color:var(--gray);line-height:1.85;margin-bottom:22px}
+  .modal-box .close-row{display:flex;justify-content:flex-end}
+
+  /* ── VIP 質感強化 ── */
+  .who .lead2{text-align:center;font-size:15.5px;color:var(--gray);max-width:640px;margin:16px auto 0}
+  .who-grid{margin-top:44px;gap:16px}
+  .who-card{border:1px solid #DCE3E9;border-top:3px solid var(--navy);border-radius:6px;padding:0;display:flex;flex-direction:column}
+  .wc-top{display:flex;justify-content:space-between;align-items:center;padding:22px 26px 0}
+  .wc-tag{font-size:10.5px;font-weight:700;letter-spacing:2.5px;color:var(--green-dk)}
+  .wc-num{font-size:12px;font-weight:600;color:#AEB9C4;letter-spacing:1px}
+  .who-card h3{font-size:19px;padding:10px 26px 16px;margin:0;border-bottom:1px solid var(--gray-lt)}
+  .wc-row{padding:13px 26px;border-bottom:1px solid var(--gray-lt)}
+  .wc-lab{display:block;font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--gray);margin-bottom:4px;text-transform:uppercase}
+  .wc-row p{font-size:13.5px;color:var(--ink);line-height:1.7}
+  .wc-cta{margin-top:auto;padding:18px 26px 22px}
+  .wc-cta a{font-size:14px;font-weight:700;color:var(--navy);display:inline-flex;align-items:center;gap:8px;padding-bottom:4px;border-bottom:2px solid var(--green)}
+  .wc-cta a:hover{color:var(--green-dk)}
+  .plan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+  .plan{border:1px solid #DCE3E9;border-top:3px solid var(--green);border-radius:6px;padding:24px 24px 26px;background:var(--white)}
+  .plan .plan-tag{font-size:10.5px;font-weight:700;letter-spacing:2.5px;color:var(--gray)}
+  .plan h3{font-size:17px;font-weight:800;color:var(--navy);margin:10px 0}
+  .plan p{font-size:13.5px;color:var(--gray);line-height:1.75}
+  .tracking-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+  .track-block{background:var(--white);border:1px solid #DCE3E9;border-top:3px solid var(--navy);border-radius:6px;padding:24px}
+  .tb-tag{font-size:10.5px;font-weight:700;letter-spacing:2.5px;color:var(--green-dk)}
+  .track-block h3{font-size:17px;font-weight:800;color:var(--navy);margin:10px 0 4px}
+  .tb-list{list-style:none;margin:0;padding:0}
+  .tb-list li{padding:9px 0;border-bottom:1px solid var(--gray-lt);font-size:13px;color:var(--ink);line-height:1.65}
+  .tb-list li:last-child{border-bottom:none}
+  .tracking .fine2{text-align:center;font-size:13px;color:var(--gray);margin-top:26px}
+  .book-wrap{display:block;max-width:880px;margin:56px auto 0}
+  .field-type{border:1px solid var(--green);border-left:4px solid var(--green);border-radius:6px;padding:18px 20px;background:#FBFDF9}
+  .field-type label{font-size:15px;font-weight:700}
+  @media(max-width:900px){.plan-grid{grid-template-columns:repeat(2,1fr)}.tracking-cols{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.plan-grid{grid-template-columns:1fr}.tracking-cols{grid-template-columns:1fr}}
 </style>
 </head>
 <body id="top">
 
+<!-- 綠色促銷條 -->
 <div class="promo" id="promoBar">
-<span id="promoDefault"><strong>早鳥優惠</strong>：出發前 14 天完成預約，享 <strong>9 折</strong>優惠｜優惠碼 <strong>GOLF2026</strong></span>
-<span id="promoCourse" style="display:none">從 <strong id="courseName">合作球場</strong> 推薦而來｜會員優惠碼 <strong id="promoCode">GOLF2026</strong>，正式報價時套用</span>
+  <span id="promoDefault"><strong>早鳥優惠</strong>：出發前 14 天完成預約，享 <strong>9 折</strong>優惠｜優惠碼 <strong>GOLF2026</strong></span>
+  <span id="promoCourse" style="display:none">從 <strong id="courseName">合作球場</strong> 推薦而來｜會員優惠碼 <strong id="promoCode">GOLF2026</strong> 已套用</span>
 </div>
 
+<!-- Nav -->
 <nav class="top">
-<div class="nav-inner">
-<a href="#top" class="logo">Golf Travel <span>Mobility</span><small>G T M S</small></a>
-<div class="nav-links" id="navLinks">
-<a href="#how">服務流程</a>
-<a href="#routes">路線與費用</a>
-<a href="#pay">報價與付款</a>
-<a href="tracking.html">查詢訂單</a>
-<a href="#faq">FAQ</a>
-<a href="#book" class="btn btn-navy" style="padding:10px 22px;font-size:14px;color:var(--white)">立即預約</a>
-</div>
-<select class="lang-sw" onchange="if(this.value)location.href=this.value" style="border:1px solid var(--gray-lt);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--white);cursor:pointer;margin-left:14px">
-<option value="index.html" selected>中文</option>
-<option value="en.html">English</option>
-<option value="ja.html">日本語</option>
-<option value="ko.html">한국어</option>
-</select>
-<button class="menu-btn" id="menuBtn">☰</button>
-</div>
+  <div class="nav-inner">
+    <a href="#top" class="logo">Golf Travel <span>Mobility</span><small>G T M S</small></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#how">服務流程</a>
+      <a href="#routes">路線與費用</a>
+      <a href="#trust">安心機制</a>
+      <a href="#faq">FAQ</a>
+      <a href="#corp">企業方案</a>
+      <a href="#book" class="btn btn-navy" style="padding:10px 22px;font-size:14px;color:var(--white)">立即預約</a>
+    </div>
+    <select class="lang-sw" onchange="if(this.value)location.href=this.value" style="border:1px solid var(--gray-lt);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--white);cursor:pointer;margin-left:14px">
+      <option value="index.html" selected>中文</option>
+      <option value="en.html">English</option>
+      <option value="ja.html">日本語</option>
+      <option value="ko.html">한국어</option>
+    </select>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
 </nav>
 
+<!-- 常駐報價列 -->
 <div class="quote-bar">
-<div class="qb-inner">
-<div class="qb-field">
-<label>目的地</label>
-<select id="qDest">
-<option value="">要去哪裡打球？</option>
-<option>日本</option><option>泰國</option><option>馬來西亞</option><option>新加坡</option><option>其他</option>
-</select>
-</div>
-<div class="qb-field">
-<label>出發日期</label>
-<input type="date" id="qDate">
-</div>
-<div class="qb-field">
-<label>行程</label>
-<select id="qTrip"><option>來回</option><option>單程</option></select>
-</div>
-<div class="qb-price">
-<span class="from">NT$</span><span class="amt" id="qbAmt">8,800</span><span class="per">起／單趟</span>
-</div>
-<button class="btn btn-navy" onclick="goBook()">開始預約</button>
-</div>
+  <div class="qb-inner">
+    <div class="qb-field">
+      <label>目的地</label>
+      <select id="qDest">
+        <option value="">要去哪裡打球？</option>
+        <option>日本</option><option>泰國</option><option>馬來西亞</option><option>新加坡</option><option>其他</option>
+      </select>
+    </div>
+    <div class="qb-field">
+      <label>出發日期</label>
+      <input type="date" id="qDate">
+    </div>
+    <div class="qb-field">
+      <label>服務類型</label>
+      <select id="qTrip"><option>個人球旅</option><option>企業招待</option><option>球隊／團體</option><option>球場／飯店合作</option></select>
+    </div>
+    <div class="qb-price">
+      <span class="from">NT$</span><span class="amt" id="qbAmt">8,800</span><span class="per">起／單趟</span>
+    </div>
+    <button class="btn btn-navy" onclick="goBook()">取得報價</button>
+  </div>
 </div>
 
+<!-- Hero -->
 <section class="hero">
-<div class="hero-content">
-<h1>跳過行李轉盤<b>。</b><br><b>球袋交給我們。</b></h1>
-<p class="sub">台灣到府收件，直送海外球場。人到，就開打。</p>
-<div class="hero-cta">
-<a href="#book" class="btn btn-green" style="padding:16px 36px;font-size:16px">填寫預約需求</a>
-<a href="tracking.html" class="btn btn-white" style="padding:16px 36px;font-size:16px">查詢訂單進度</a>
-</div>
-</div>
+  <div class="hero-content">
+    <h1>球袋先到球場<b>。</b><br><b>你只管抵達開球。</b></h1>
+    <p class="sub">跨國球袋禮賓服務：到府收件、球場簽收確認、專人追蹤與多管道通知。</p>
+    <div class="hero-cta">
+      <a href="#book" class="btn btn-green" style="padding:16px 36px;font-size:16px">預約 VIP 球旅服務</a>
+      <a href="#how" class="btn btn-white" style="padding:16px 36px;font-size:16px">了解服務流程</a>
+    </div>
+  </div>
 </section>
 
-<div class="notice">
-<div class="container">
-<div class="notice-box">
-<strong>填寫預約表單不代表訂單成立。</strong>客服確認配送條件並提供正式報價後，客戶完成付款，才會正式安排收件與配送。
-<span class="hrs">客服服務時間：週一至週五 9:00–18:00｜非上班時間收到的預約，將於下一個工作時間處理。</span>
-</div>
-</div>
-</div>
-
+<!-- 數據信任條 -->
 <div class="stats">
-<div class="container">
-<div class="stats-grid">
-<div class="stat"><div class="num">60<span>+</span></div><div class="lab">合作球場</div></div>
-<div class="stat"><div class="num">4</div><div class="lab">熱門目的地</div></div>
-<div class="stat"><div class="num">9<span>–</span>18</div><div class="lab">週一至週五 中文客服</div></div>
-<div class="stat"><div class="num" style="color:var(--green)">線上</div><div class="lab">訂單進度查詢</div></div>
-</div>
-</div>
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat"><div class="num">60<span>+</span></div><div class="lab">合作球場</div></div>
+      <div class="stat"><div class="num">4</div><div class="lab">熱門目的地</div></div>
+      <div class="stat"><div class="num">9<span>–</span>18</div><div class="lab">週一至週五 中文客服</div></div>
+      <div class="stat"><div class="num" style="color:var(--green)">48H</div><div class="lab">正式報價有效期限</div></div>
+    </div>
+  </div>
 </div>
 
-<section class="sec" id="how">
-<div class="container">
-<h2>從預約到開打，<b>10 個步驟。</b></h2>
-<p class="lead">填寫預約後，客服將於服務時間內確認配送條件，並提供正式報價。客戶完成付款後，訂單才正式成立，並開始安排收件與配送。</p>
-<div class="flow-grid">
-<div class="flow-card"><div class="n">STEP 1</div><h3>填寫預約表單</h3><p>填寫出發地、目的地、日期與球袋數量，取得預約編號與確認信。</p></div>
-<div class="flow-card"><div class="n">STEP 2</div><h3>客服確認配送需求</h3><p>服務時間內確認目的地、日期是否可承運。</p></div>
-<div class="flow-card"><div class="n">STEP 3</div><h3>補齊地址、尺寸與重量</h3><p>補充收件地址、海外配送地點與球袋資料。</p></div>
-<div class="flow-card"><div class="n">STEP 4</div><h3>提供正式報價</h3><p>含路線、收件日、預計送達日與金額，有效 48 小時。</p></div>
-<div class="flow-card"><div class="n">STEP 5</div><h3>客戶確認報價</h3><p>確認報價內容、付款方式與取消規則。</p></div>
-<div class="flow-card key"><span class="flow-tag">訂單成立</span><div class="n">STEP 6</div><h3>完成付款</h3><p>銀行轉帳或線上刷卡。付款完成，訂單才正式成立。</p></div>
-<div class="flow-card"><div class="n">STEP 7</div><h3>安排物流收件</h3><p>客服安排到府收件，提供物流追蹤碼。</p></div>
-<div class="flow-card"><div class="n">STEP 8</div><h3>運送至球場／飯店</h3><p>國際快遞配送、清關，送達指定球場或飯店。</p></div>
-<div class="flow-card"><div class="n">STEP 9</div><h3>查詢訂單進度</h3><p>以預約編號＋手機末 4 碼，隨時查詢狀態。</p></div>
-<div class="flow-card"><div class="n">STEP 10</div><h3>服務完成</h3><p>球場／飯店簽收，抵達後直接開打。</p></div>
-</div>
-<div class="flow-legend"><span><b>STEP 1–5</b>　預約與報價階段，可免費取消</span><span><b>STEP 6 起</b>　訂單成立，開始安排物流</span></div>
-<div style="text-align:center;margin-top:32px"><a href="#book" class="btn btn-green" style="padding:15px 36px">填寫預約需求</a></div>
-</div>
+<!-- 大字區塊：開場 -->
+<section class="split" id="how">
+  <div class="split-inner">
+    <div>
+      <h2>不是單純寄球袋，<b>是把球旅風險交給專人管理。</b></h2>
+      <p>我們協助個人球友、企業招待、球隊移訓與球場會員，處理收件、包裝確認、國際配送、清關追蹤、球場或飯店簽收與回程安排。</p>
+      <div class="act"><a href="#book" class="btn btn-outline">預約專人諮詢</a></div>
+    </div>
+    <div class="split-img">
+      <img src="https://images.unsplash.com/photo-1592919505780-303950717480?auto=format&fit=crop&w=1000&q=80" alt="高爾夫揮桿">
+    </div>
+  </div>
 </section>
 
-<section class="who">
-<div class="container">
-<h2>適合這樣<b>出國打球的你。</b></h2>
-<div class="who-grid">
-<div class="who-card"><div class="ico">✈️</div><h3>海外旅行客</h3><p>不再扛球袋轉機。人輕鬆出發，球具先到球場等你。</p></div>
-<div class="who-card"><div class="ico">🏢</div><h3>企業 VIP 接待</h3><p>統一安排配送，提升接待品質，給客戶留下專業印象。</p></div>
-<div class="who-card"><div class="ico">🏌️</div><h3>移地訓練團隊</h3><p>多人球袋集中配送，降低行程混亂，省去搬運麻煩。</p></div>
-<div class="who-card"><div class="ico">⭐</div><h3>高端球場會員</h3><p>建立固定配送流程，每次出國打球不再為球袋煩心。</p></div>
-</div>
-</div>
+<!-- 步驟 1 -->
+<section class="split" style="padding-top:20px">
+  <div class="split-inner rev">
+    <div>
+      <div class="step-num">1. 線上預約<b>收件。</b></div>
+      <p>選擇個人、企業、球隊或球場合作需求，填入目的地、出發日與球袋數量。客服於服務時間（週一至週五 9:00–18:00）內回覆方案、報價與收件建議。</p>
+      <div class="step-note">建議出發前 7–10 天預約</div>
+    </div>
+    <div class="split-img">
+      <img src="https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?auto=format&fit=crop&w=1000&q=80" alt="線上預約">
+    </div>
+  </div>
 </section>
 
+<!-- 步驟 2 -->
+<section class="split" style="padding-top:20px">
+  <div class="split-inner">
+    <div>
+      <div class="step-num">2. 到府收件，<b>球袋出發。</b></div>
+      <p>專人到府或於合作球場收件，確認包裝狀態並拍照存證。後台建立訂單後，客戶會收到專屬追蹤頁。</p>
+      <div class="step-note">台灣端全程由本團隊負責</div>
+    </div>
+    <div class="split-img">
+      <img src="https://images.unsplash.com/photo-1530028828-25e8270793c5?auto=format&fit=crop&w=1000&q=80" alt="球袋收件">
+    </div>
+  </div>
+</section>
+
+<!-- 步驟 3 -->
+<section class="split" style="padding-top:20px">
+  <div class="split-inner rev">
+    <div>
+      <div class="step-num">3. 抵達，<b>直接開打。</b></div>
+      <p>球袋送達球場 Pro Shop、飯店或訓練基地後，完成簽收確認。客戶可在追蹤頁查看狀態，並依偏好收到 Email、LINE、WhatsApp 或 SMS 通知。</p>
+      <div class="step-note">回程可一併安排，打完直接寄回台灣</div>
+    </div>
+    <div class="split-img">
+      <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1000&q=80" alt="球場開打">
+    </div>
+  </div>
+</section>
+
+<!-- 適合對象 -->
+
+<!-- 路線與價格 -->
 <section class="routes" id="routes">
-<div class="container">
-<h2>亞洲四大熱門路線，<b>參考起價。</b></h2>
-<p class="lead">以下為單趟參考起價（單套）。實際費用依出發日、配送地點、球袋尺寸與重量確認，以客服提供之正式報價為準。</p>
-<div class="route-grid">
-<div class="route-card pick">
-<div class="pick-badge">試營運首選</div>
-<div class="dest">🇯🇵 日本</div>
-<div class="area">大阪・東京・北海道・沖繩<br>航班密集，配送最成熟</div>
-<div class="price"><span class="from">NT$</span><span class="amt">8,800</span><span class="from">起</span></div>
-<div class="per">單趟／單套</div>
-</div>
-<div class="route-card">
-<div class="dest">🇲🇾 馬來西亞</div>
-<div class="area">吉隆坡・柔佛・雲頂<br>全年適合，長程行程首選</div>
-<div class="price"><span class="from">NT$</span><span class="amt">10,000</span><span class="from">起</span></div>
-<div class="per">單趟／單套</div>
-</div>
-<div class="route-card">
-<div class="dest">🇸🇬 新加坡</div>
-<div class="area">全島配送<br>商務招待・企業 VIP 行程</div>
-<div class="price"><span class="from">NT$</span><span class="amt">10,000</span><span class="from">起</span></div>
-<div class="per">單趟／單套</div>
-</div>
-<div class="route-card">
-<div class="dest">🇹🇭 泰國</div>
-<div class="area">曼谷・清邁・華欣・芭達雅<br>移地訓練與長期球旅</div>
-<div class="price"><span class="from">NT$</span><span class="amt">12,500</span><span class="from">起</span></div>
-<div class="per">單趟／單套</div>
-</div>
-</div>
-<p class="fine">VIP 快速件、企業合約與年費方案另有專屬報價。以上為參考起價，非最終確認金額。</p>
-</div>
+  <div class="container">
+    <h2>參考起價與<b>服務方案。</b></h2>
+    <p class="lead">以下為各路線單趟／單套參考起價。最終價格依配送地點、出發日期、保險與回程安排確認，以客服於服務時間內提供的正式報價為準。</p>
+    <div class="route-grid">
+      <div class="route-card pick">
+        <div class="pick-badge">最多人選擇</div>
+        <div class="dest">日本</div>
+        <div class="area">大阪・東京・北海道・沖繩<br>航班密集，配送最成熟</div>
+        <div class="price"><span class="from">NT$</span><span class="amt">8,800</span><span class="from">起</span></div>
+        <div class="per">單趟／單套</div>
+      </div>
+      <div class="route-card">
+        <div class="dest">馬來西亞</div>
+        <div class="area">吉隆坡・柔佛・雲頂<br>全年適合，長程行程首選</div>
+        <div class="price"><span class="from">NT$</span><span class="amt">10,000</span><span class="from">起</span></div>
+        <div class="per">單趟／單套</div>
+      </div>
+      <div class="route-card">
+        <div class="dest">新加坡</div>
+        <div class="area">全島配送<br>商務招待・企業 VIP 行程</div>
+        <div class="price"><span class="from">NT$</span><span class="amt">10,000</span><span class="from">起</span></div>
+        <div class="per">單趟／單套</div>
+      </div>
+      <div class="route-card">
+        <div class="dest">泰國</div>
+        <div class="area">曼谷・清邁・華欣・芭達雅<br>移地訓練與長期球旅</div>
+        <div class="price"><span class="from">NT$</span><span class="amt">12,500</span><span class="from">起</span></div>
+        <div class="per">單趟／單套</div>
+      </div>
+    </div>
+    <div class="plan-grid">
+      <div class="plan"><div class="plan-tag">STANDARD</div><h3>參考起價</h3><p>上列為各路線參考起價，適合出發前 7–10 天預約的一般行程。</p></div>
+      <div class="plan"><div class="plan-tag">VIP EXPRESS</div><h3>VIP 快速件</h3><p>最短 3–5 天完成安排，優先處理與專人盯關，適合臨時成行的貴賓行程。</p></div>
+      <div class="plan"><div class="plan-tag">GROUP / CORPORATE</div><h3>團體／企業報價</h3><p>3 套以上批量優惠。企業招待與球隊移訓提供整批規劃與專屬窗口。</p></div>
+      <div class="plan"><div class="plan-tag">ANNUAL</div><h3>年度合作方案</h3><p>球場、飯店、旅行社與企業年度合約，固定流程、推薦碼與對帳機制。</p></div>
+    </div>
+    <p class="fine">最終價格依配送地點、出發日期、保險方案與回程安排確認後報價；網頁金額為參考起價，非最終金額。</p>
+    <div style="text-align:center;margin-top:32px"><a href="#book" class="btn btn-green" style="padding:15px 36px">立即預約收件</a></div>
+  </div>
 </section>
 
+<!-- 客戶追蹤頁 -->
+
+<!-- 安心機制（深藍區塊）-->
 <section class="trust" id="trust">
-<div class="container">
-<h2>不只是寄出去，<b>是有人幫你盯到抵達。</b></h2>
-<p class="lead">付款完成、訂單成立後，從台灣收件到海外球場送達，客服依物流進度更新訂單狀態並通知您。</p>
-<div class="trust-grid">
-<div class="trust-card"><div class="ico">📱</div><h3>進度主動通知</h3><p>依您選擇的通知方式（LINE、Email 等），通知收件、出發、清關、抵達等節點。</p></div>
-<div class="trust-card"><div class="ico">🔎</div><h3>線上查詢訂單</h3><p>以預約編號＋手機末 4 碼，或確認信中的追蹤連結，隨時查詢狀態。</p></div>
-<div class="trust-card"><div class="ico">🚚</div><h3>國際快遞正式配送</h3><p>官方追蹤碼可查詢，客服同步掌握每一段運送。</p></div>
-<div class="trust-card"><div class="ico">🛠️</div><h3>異常協助處理</h3><p>延誤、清關或地址問題，客服於服務時間內介入協助。</p></div>
-<div class="trust-card"><div class="ico">✅</div><h3>球場送達確認</h3><p>協助聯繫球場或飯店窗口，確認球袋已安全抵達。</p></div>
-<div class="trust-card"><div class="ico">🔄</div><h3>回程一起安排</h3><p>預約時選擇「來回」，行程結束從海外直接寄回台灣。</p></div>
-</div>
-</div>
+  <div class="container">
+    <h2>不只是寄出去，<b>是有人幫你盯到簽收。</b></h2>
+    <p class="lead">從台灣收件到海外球場送達，每個節點都有紀錄。網站追蹤頁是狀態中心，通知依客戶偏好發送。</p>
+    <div class="trust-grid">
+      <div class="trust-card"><h3>客戶追蹤頁</h3><p>每筆訂單建立安全追蹤頁，客戶查詢狀態不依賴單一通訊軟體。</p></div>
+      <div class="trust-card"><h3>包裝拍照存證</h3><p>收件時確認狀態並拍照，寄出前再次確認，降低爭議風險。</p></div>
+      <div class="trust-card"><h3>國際配送監控</h3><p>承運商追蹤碼與內部狀態同步管理，客服監控每一段運送。</p></div>
+      <div class="trust-card"><h3>異常協助處理</h3><p>延誤、清關卡關或地址問題，客服第一時間介入協助。</p></div>
+      <div class="trust-card"><h3>球場送達確認</h3><p>協助聯繫球場或飯店窗口，確認球袋已安全抵達。</p></div>
+      <div class="trust-card"><h3>回程一起安排</h3><p>行程結束從海外直接寄回台灣，不必再扛球袋搭機。</p></div>
+    </div>
+  </div>
 </section>
 
-<section class="book sec" id="book">
-<div class="container">
-<h2>填寫預約需求，<b>客服服務時間內回覆。</b></h2>
-<p class="lead">此表單為初步預約需求，送出後不代表訂單成立。客服將於服務時間內確認配送條件，並提供正式報價。</p>
-<div class="book-wrap">
-<div class="line-card">
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://lin.ee/XOMWpls&margin=6&format=png" alt="LINE QR Code">
-<h3>選擇 LINE 通知？</h3>
-<p>請先加入官方帳號，客服才能傳送報價與進度通知。<br>客服服務時間：週一至週五 9:00–18:00</p>
-<a href="https://lin.ee/XOMWpls" target="_blank" class="btn btn-green" style="width:100%">加入 LINE 官方帳號</a>
-</div>
-<form class="bk-grid" id="bookForm">
-<div class="field full">
-<label>客戶類型 <span class="req">*</span></label>
-<select name="customerType" required><option value="">請選擇</option><option>個人球友</option><option>企業招待／公司活動</option><option>球隊／移地訓練</option><option>旅行社／行程代辦</option><option>球場／飯店合作窗口</option></select>
-</div>
-<div class="field"><label>姓名 <span class="req">*</span></label><input type="text" name="name" required></div>
-<div class="field"><label>手機 <span class="req">*</span></label><input type="tel" name="phone" required></div>
-<div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
-<div class="field"><label>偏好通知方式 <span class="req">*</span></label><select name="preferredChannel" required><option value="">請選擇</option><option>Email</option><option>LINE</option><option>WhatsApp</option><option>SMS</option><option>由客服建議</option></select></div>
-<div class="field"><label>WhatsApp</label><input type="tel" name="whatsapp" placeholder="含國碼，例如 +886..."></div>
-<div class="field"><label>LINE ID</label><input type="text" name="line"></div>
-<div class="field"><label>偏好語言 <span class="req">*</span></label><select name="language" required><option>繁體中文</option><option>English</option><option>日本語</option><option>한국어</option></select></div>
-<div class="field"><label>公司／團體／球場名稱</label><input type="text" name="organization" placeholder="公司、球隊、旅行社、球場或飯店"></div>
-<div class="field"><label>出發地 <span class="req">*</span></label><input type="text" name="origin" placeholder="例：台北市信義區" required></div>
-<div class="field"><label>目的地 <span class="req">*</span></label><select name="destination" required><option value="">請選擇</option><option>日本</option><option>泰國</option><option>馬來西亞</option><option>新加坡</option><option>其他（備註說明）</option></select></div>
-<div class="field"><label>出發日期 <span class="req">*</span></label><input type="date" name="departDate" required></div>
-<div class="field"><label>開球日期 <span class="req">*</span></label><input type="date" name="teeDate" required></div>
-<div class="field"><label>球袋數量 <span class="req">*</span></label><select name="bagCount" required><option value="">請選擇</option><option>1 套</option><option>2 套</option><option>3 套</option><option>4 套以上（企業／球隊）</option></select></div>
-<div class="field"><label>單程／來回 <span class="req">*</span></label><select name="returnShipment" required><option value="">請選擇</option><option value="需要回程寄送">來回（需要回程寄送）</option><option value="不需要回程寄送">單程（不需要回程寄送）</option><option>尚未確定</option></select></div>
-<div class="field full"><label>備註</label><textarea name="notes" placeholder="可填寫球場／飯店、收件時間、優惠碼或其他需求"></textarea></div>
-<div class="field full">
-<p class="form-fine">收件地址、海外配送地點、球袋尺寸與重量，客服確認後會再請您補齊（見下方「報價前需補齊的資料」），無需在此填寫。</p>
-<p class="form-fine" style="margin-top:8px"><strong>隱私權聲明：</strong>您提供的資料僅用於報價、預約、配送安排與客服聯繫，不會公開於網站，也不會提供給無關第三方。訂單追蹤頁只顯示必要配送資訊。</p>
-</div>
-<div class="form-ft">
-<p class="form-fine">送出後不代表訂單成立。客服服務時間：週一至週五 9:00–18:00。</p>
-<button type="submit" class="btn btn-navy" style="padding:15px 36px">送出預約需求</button>
-</div>
-</form>
-</div>
-</div>
-</section>
-
-<section class="sec alt" id="prepare">
-<div class="container">
-<h2>報價前，<b>需補齊的資料。</b></h2>
-<p class="lead">正式報價前，客服可能會請您補充以下資料。可先準備好，加快報價速度。</p>
-<div class="info-grid">
-<div class="info-card"><h3>📦 收件資料</h3><ul>
-<li>到府收件地址</li><li>郵遞區號</li><li>收件聯絡人</li><li>聯絡電話</li><li>希望收件日期</li><li>收件地點類型：住家／公司／球場／指定地點</li>
-</ul></div>
-<div class="info-card"><h3>⛳ 海外配送資料</h3><ul>
-<li>球場／飯店名稱</li><li>完整英文地址</li><li>海外收件人</li><li>海外聯絡電話</li><li>入住日期或開球日期</li>
-</ul></div>
-<div class="info-card"><h3>🏌️ 球袋資料</h3><ul>
-<li>球袋數量</li><li>球袋類型：一般球袋／大型球袋</li><li>包裝方式：軟式旅行袋／硬殼箱／紙箱</li><li>重量</li><li>長、寬、高</li><li>是否包含鞋子或其他用品</li>
-</ul></div>
-</div>
-</div>
-</section>
-
-<section class="sec" id="pay">
-<div class="container">
-<h2>報價與付款，<b>付款完成才成立訂單。</b></h2>
-<div class="pay-grid">
-<div class="info-card"><h3>⏱ 報價有效期限：48 小時</h3>
-<p>報價有效期限為 48 小時。請於期限內確認並完成付款。若逾期未付款，原報價將失效，需由客服重新確認物流費用、配送日期與可承運條件。</p>
-</div>
-<div class="info-card"><h3>💳 付款方式</h3>
-<p>報價確認後，客服將提供銀行轉帳或線上刷卡付款連結。付款完成後，訂單才正式成立，並開始安排收件與配送。</p>
-<ul style="margin-top:10px"><li>銀行轉帳</li><li>線上刷卡（第三方金流付款連結）</li></ul>
-</div>
-</div>
-</div>
-</section>
-
-<section class="sec alt" id="track">
-<div class="container">
-<h2>查詢<b>訂單進度。</b></h2>
-<p class="lead">輸入訂單編號＋預約時填寫的手機末 4 碼，即可查看訂單狀態、報價、付款與物流進度。也可直接點確認信或 LINE 中的專屬追蹤連結。</p>
-<div style="text-align:center;margin-top:32px"><a href="tracking.html" class="btn btn-navy" style="padding:15px 40px">查詢訂單進度</a></div>
-</div>
-</section>
-
-<section class="sec" id="change">
-<div class="container">
-<h2>修改／取消<b>訂單申請。</b></h2>
-<p class="lead">可申請修改收件地址、配送地址、收件日期、球袋尺寸、球袋數量、聯絡方式，或取消訂單。請先查詢訂單，在追蹤頁下方送出申請。</p>
-<p class="lead" style="margin-top:8px">送出後由客服確認訂單與物流狀態再回覆您，訂單資料不會因送出申請而自動變更。若已安排物流或進入運送流程，可能產生改址、退運或其他費用。</p>
-<div style="text-align:center;margin-top:32px"><a href="tracking.html" class="btn btn-outline" style="padding:15px 40px">修改／取消訂單</a></div>
-</div>
-</section>
-
-<section class="sec alt" id="policy">
-<div class="container">
-<h2>取消<b>政策。</b></h2>
-<table class="policy">
-<tr><th>尚未付款</th><td>可免費取消。</td></tr>
-<tr><th>已付款，尚未安排物流</th><td>可申請全額退款。</td></tr>
-<tr><th>已安排物流，尚未收件</th><td>扣除已產生之行政、金流或物流費用後退款。</td></tr>
-<tr><th>已完成收件或運送中</th><td>恕無法直接取消，需由客服協助確認退運或改址方式與相關費用。</td></tr>
-<tr><th>已送達球場或飯店</th><td>訂單視為服務完成，恕不接受取消退款。</td></tr>
-</table>
-<p class="policy-note">來回件僅取消回程者，依尚未使用的服務重新計算可退款金額。取消與退款皆由客服確認後處理。</p>
-</div>
-</section>
-
-<section class="faq-sec" id="faq" style="margin-top:90px">
-<div class="faq-inner">
-<div>
-<h2>常見<b>問題。</b></h2>
-</div>
-<div>
-<details class="faq"><summary>填寫預約表單後，訂單就成立了嗎？<span class="ico">＋</span></summary><div class="ans">不是。填寫表單只是送出預約需求，客服需確認配送條件並提供正式報價。付款完成後，訂單才正式成立。</div></details>
-<details class="faq"><summary>多久會有人聯繫我？<span class="ico">＋</span></summary><div class="ans">客服服務時間為週一至週五 9:00–18:00。非上班時間送出的預約，將於下一個工作時間處理。</div></details>
-<details class="faq"><summary>報價有效多久？<span class="ico">＋</span></summary><div class="ans">報價有效期限為 48 小時。逾期未付款需重新確認費用與配送條件。</div></details>
-<details class="faq"><summary>可以取消訂單嗎？<span class="ico">＋</span></summary><div class="ans">可以，但會依訂單進度判斷。尚未付款可免費取消；已付款或已安排物流後，需由客服確認是否產生相關費用。詳見<a href="#policy" style="text-decoration:underline">取消政策</a>。</div></details>
-<details class="faq"><summary>我可以查詢球袋配送進度嗎？<span class="ico">＋</span></summary><div class="ans">可以。使用預約編號加手機末 4 碼（或確認信中的追蹤連結），即可在<a href="#track" style="text-decoration:underline">訂單查詢</a>查看訂單狀態與物流進度。</div></details>
-<details class="faq"><summary>可以修改收件地址或配送地址嗎？<span class="ico">＋</span></summary><div class="ans">可以<a href="#change" style="text-decoration:underline">申請修改</a>，但需由客服確認是否已安排物流。若已進入運送流程，可能會產生改址或退運費用。</div></details>
-<details class="faq"><summary>出發前幾天要預約？<span class="ico">＋</span></summary><div class="ans">建議出發前 7–10 天預約，旺季或東南亞線路建議提前 10–14 天。報價後需於 48 小時內付款，才能確保收件與配送時程。急件請直接聯絡客服確認。</div></details>
-<details class="faq"><summary>費用大概多少？<span class="ico">＋</span></summary><div class="ans">單趟參考起價：日本 NT$8,800、馬來西亞 NT$10,000、新加坡 NT$10,000、泰國 NT$12,500（單套）。實際費用依出發日、配送地點、球袋尺寸與重量確認，以客服正式報價為準。</div></details>
-<details class="faq"><summary>球袋怎麼包裝？會不會撞壞？<span class="ico">＋</span></summary><div class="ans">請於收件日前完成包裝並拍照留存，球桿建議套上保護套，貴重物品請自行取出。收件時會確認包裝狀態。</div></details>
-<details class="faq"><summary>如果延誤或損壞怎麼辦？<span class="ico">＋</span></summary><div class="ans">客服於服務時間內協助追蹤貨件、與物流方協調、申請理賠。理賠金額依承運條款及加購保險而定。</div></details>
-<details class="faq"><summary>可以一次寄多套嗎（球隊出遊）？<span class="ico">＋</span></summary><div class="ans">可以，3 套以上享有批量優惠，企業球隊或移地訓練可洽談年度合約與專屬報價。</div></details>
-</div>
-</div>
-</section>
-
+<!-- 企業方案 -->
 <section class="corp" id="corp">
-<div class="corp-box">
-<div class="corp-content">
-<h2>企業球隊・商務招待・<b>年度合約方案。</b></h2>
-<p>定期交流賽、招待客戶或企業球隊外訓——提供年度合約、整批配送、企業發票與專屬客服窗口。</p>
-</div>
-<div class="corp-act">
-<a href="#book" class="btn btn-green" style="padding:16px 34px;font-size:16px">企業方案諮詢</a>
-</div>
-</div>
+  <div class="corp-box">
+    <div class="corp-content">
+      <h2>企業招待・球隊移訓・<b>球場會員導入。</b></h2>
+      <p>為企業球敘、VIP 招待與海外交流賽提供整批球袋運送、專屬窗口、團體追蹤頁、球場／飯店簽收確認與回程安排。讓接待流程更像禮賓服務，而不是讓客戶自己處理行李問題。</p>
+    </div>
+    <div class="corp-act">
+      <a href="#book" class="btn btn-green" style="padding:16px 34px;font-size:16px">企業方案諮詢</a>
+    </div>
+  </div>
 </section>
 
+<!-- FAQ（淺藍區塊）-->
+<section class="faq-sec" id="faq">
+  <div class="faq-inner">
+    <div>
+      <h2>常見<b>問題。</b></h2>
+    </div>
+    <div>
+      <details class="faq"><summary>出發前幾天要預約？<span class="ico">＋</span></summary><div class="ans">建議出發前 7–10 天預約，旺季或東南亞線路建議提前 10–14 天。VIP 快速件最短可縮至 3–5 天，請直接聯絡客服確認。</div></details>
+      <details class="faq"><summary>費用大概多少？<span class="ico">＋</span></summary><div class="ans">單趟參考起價：日本 NT$8,800、馬來西亞 NT$10,000、新加坡 NT$10,000、泰國 NT$12,500（單套）。實際費用依出發日、配送地點與保險需求確認，以客服於服務時間內提供的正式報價為準。</div></details>
+      <details class="faq"><summary>怎麼付款？什麼時候付款？<span class="ico">＋</span></summary><div class="ans">預約送出後不需先付款。客服確認可承運條件後提供正式報價；報價確認後，客服將提供銀行轉帳或線上刷卡付款連結。付款完成後，訂單才正式成立，並開始安排收件與配送。</div></details>
+      <details class="faq"><summary>報價可以保留多久？<span class="ico">＋</span></summary><div class="ans">報價有效期限為 48 小時。請於期限內完成確認與付款。若逾期未付款，原報價將失效，需由客服重新確認物流費用、配送日期與可承運條件。</div></details>
+      <details class="faq"><summary>可以取消或修改嗎？<span class="ico">＋</span></summary><div class="ans">尚未付款前可免費取消。已付款但尚未安排物流前，可申請全額退款。若已安排物流但尚未收件，將扣除已產生之行政、金流或物流費用後退款。球袋完成收件或進入運送流程後，恕無法直接取消，需由客服協助確認退運或改址方式與相關費用。已送達球場／飯店後，訂單視為服務完成，恕不接受取消退款。修改收件地址、日期、袋數等，可在訂單追蹤頁送出申請，由客服確認後處理。</div></details>
+      <details class="faq"><summary>球袋怎麼包裝？會不會撞壞？<span class="ico">＋</span></summary><div class="ans">到府收件時由專人協助確認包裝狀態，提供防撞保護，並拍照存證。球桿建議套上保護套，細小貴重品自行攜帶。</div></details>
+      <details class="faq"><summary>如何追蹤球袋在哪裡？<span class="ico">＋</span></summary><div class="ans">每筆訂單會建立專屬網站追蹤頁，客戶可用安全連結或訂單編號搭配驗證資訊查詢。LINE、Email、WhatsApp 與 SMS 只是通知管道，核心狀態以追蹤頁為準。</div></details>
+      <details class="faq"><summary>追蹤頁會不會洩漏個資？<span class="ico">＋</span></summary><div class="ans">追蹤頁只顯示必要資訊，姓名、手機、Email 與地址會遮罩。團體訂單中，個別球友不能看到其他人的完整個資；球場、飯店與企業窗口也只看與角色相關的資訊。</div></details>
+      <details class="faq"><summary>如果延誤或損壞怎麼辦？<span class="ico">＋</span></summary><div class="ans">中文客服第一時間介入：協助追蹤貨件、與物流方協調、申請理賠或安排備援。理賠金額依承運條款及加購保險而定。</div></details>
+      <details class="faq"><summary>可以寄回程嗎？<span class="ico">＋</span></summary><div class="ans">可以，預約時告知需要回程安排，行程結束後從海外球場或飯店直接寄回台灣，不必再扛著球袋搭機回國。</div></details>
+      <details class="faq"><summary>可以一次寄多套嗎（球隊出遊）？<span class="ico">＋</span></summary><div class="ans">可以，3 套以上享有批量優惠，企業球隊或移地訓練可洽談年度合約與專屬報價。</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- 預約表單 -->
+<section class="book" id="book">
+  <div class="container">
+    <h2>預約 VIP 球旅服務，<b>服務時間內回覆。</b></h2>
+    <p class="lead">填寫需求後，專人將於服務時間（週一至週五 9:00–18:00）內依您偏好的通知方式聯絡，確認方案、報價與收件安排。<br><strong>填寫預約表單不代表訂單成立。</strong>客服確認配送條件並提供正式報價（有效 48 小時）後，客戶完成付款，才會正式安排收件與配送。</p>
+    <div class="book-wrap">
+      <form class="bk-grid" id="bookForm">
+        <div class="field full field-type">
+          <label>客戶類型 <span class="req">*</span></label>
+          <select name="customerType" required><option value="">請選擇</option><option>個人球友</option><option>企業招待／公司活動</option><option>球隊／移地訓練</option><option>旅行社／行程代辦</option><option>球場／飯店合作窗口</option></select>
+        </div>
+        <div class="field"><label>姓名 <span class="req">*</span></label><input type="text" name="name" required></div>
+        <div class="field"><label>手機 <span class="req">*</span></label><input type="tel" name="phone" required></div>
+        <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
+        <div class="field"><label>通知偏好 <span class="req">*</span></label><select name="preferredChannel" required><option value="">請選擇</option><option>Email</option><option>LINE</option><option>WhatsApp</option><option>SMS</option><option>由客服建議</option></select></div>
+        <div class="field"><label>WhatsApp</label><input type="tel" name="whatsapp" placeholder="含國碼，例如 +886..."></div>
+        <div class="field"><label>LINE ID</label><input type="text" name="line"></div>
+        <div class="field"><label>偏好語言 <span class="req">*</span></label><select name="language" required><option>繁體中文</option><option>English</option><option>日本語</option><option>한국어</option></select></div>
+        <div class="field"><label>公司／團體／球場名稱</label><input type="text" name="organization" placeholder="公司、球隊、旅行社、球場或飯店"></div>
+        <div class="field"><label>出發地 <span class="req">*</span></label><input type="text" name="origin" placeholder="城市／地址區域" required></div>
+        <div class="field"><label>目的地 <span class="req">*</span></label><select name="destination" required><option value="">請選擇</option><option>日本</option><option>泰國</option><option>馬來西亞</option><option>新加坡</option><option>其他（備註說明）</option></select></div>
+        <div class="field"><label>出發日期 <span class="req">*</span></label><input type="date" name="departDate" required></div>
+        <div class="field"><label>開球日期 <span class="req">*</span></label><input type="date" name="teeDate" required></div>
+        <div class="field"><label>球袋數量 <span class="req">*</span></label><select name="bagCount" required><option value="">請選擇</option><option>1 套</option><option>2 套</option><option>3 套</option><option>4 套以上（企業／球隊）</option></select></div>
+        <div class="field"><label>是否回程寄送 <span class="req">*</span></label><select name="returnShipment" required><option value="">請選擇</option><option>需要回程寄送</option><option>不需要回程寄送</option><option>尚未確定</option></select></div>
+        <div class="field full"><label>備註</label><textarea name="notes" rows="4" placeholder="可填寫球場／飯店、收件時間或其他需求"></textarea></div>
+        <div class="privacy-box"><p><strong>隱私權聲明</strong><br>您提供的資料僅用於報價、預約、配送安排與客服聯繫。試營運期間資料由客服與管理者存放於內部管理表單，不會公開於網站，也不會向無關第三方提供。正式訂單的追蹤頁只顯示必要配送資訊。</p></div>
+        <div class="form-ft">
+          <p class="form-fine">送出後，專人將依您選擇的通知偏好，於服務時間（週一至週五 9:00–18:00）內與您聯絡。送出後不代表訂單成立。</p>
+          <button type="submit" class="btn btn-navy" style="padding:15px 36px">送出預約需求</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer>
-<div class="container">
-<div class="foot-grid">
-<div>
-<div class="foot-logo">Golf Travel <span>Mobility</span></div>
-<p class="foot-desc">結合高爾夫產業通路與國際物流，為亞洲高爾夫旅客打造的跨國球袋運送服務。</p>
-</div>
-<div class="foot-col"><h4>Service</h4><ul><li><a href="#how">服務流程</a></li><li><a href="#routes">路線與費用</a></li><li><a href="#pay">報價與付款</a></li><li><a href="#policy">取消政策</a></li></ul></div>
-<div class="foot-col"><h4>Support</h4><ul><li><a href="#book">填寫預約</a></li><li><a href="tracking.html">查詢訂單進度</a></li><li><a href="tracking.html">修改／取消申請</a></li><li><a href="#faq">常見問題</a></li></ul></div>
-<div class="foot-col"><h4>Contact</h4><ul><li><a href="https://lin.ee/XOMWpls" target="_blank">LINE：lin.ee/XOMWpls</a></li><li>客服服務時間：週一至週五 9:00–18:00</li><li>客服將於服務時間內回覆您的預約、報價與訂單問題。</li></ul></div>
-</div>
-<div class="foot-bottom">
-<div>© 2026 Golf Travel Mobility Service. All rights reserved.</div>
-<div>所有價格、合作關係與保險條件依正式報價與合約為準。</div>
-</div>
-</div>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Golf Travel <span>Mobility</span></div>
+        <p class="foot-desc">結合高爾夫產業通路與國際物流，為亞洲高爾夫旅客打造的跨國球袋運送服務。</p>
+      </div>
+      <div class="foot-col"><h4>Service</h4><ul><li><a href="#how">服務流程</a></li><li><a href="#routes">路線與費用</a></li><li><a href="#trust">安心機制</a></li></ul></div>
+      <div class="foot-col"><h4>Support</h4><ul><li><a href="tracking.html">查詢訂單進度</a></li><li><a href="#faq">常見問題</a></li><li><a href="#book">開始預約</a></li><li><a href="#corp">企業方案</a></li></ul></div>
+      <div class="foot-col"><h4>Contact</h4><ul><li><a href="https://lin.ee/XOMWpls" target="_blank">LINE：lin.ee/XOMWpls</a></li><li>WhatsApp：規劃中</li><li>客服服務時間：週一至週五 9:00–18:00</li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Golf Travel Mobility Service. All rights reserved.</div>
+      <div>所有價格、合作關係與保險條件依正式合約為準。</div>
+    </div>
+  </div>
 </footer>
 
+<!-- Modal -->
 <div class="modal-overlay" id="modal">
-<div class="modal-box">
-<div class="modal-check">✓</div>
-<h3 id="modalTitle"></h3>
-<p id="modalBody"></p>
-<div class="close-row"><button class="btn btn-outline" onclick="closeModal()">關閉</button></div>
-</div>
+  <div class="modal-box">
+    <div class="modal-check">✓</div>
+    <h3>已收到您的預約需求。</h3>
+    <p>客服將於服務時間（週一至週五 9:00–18:00）內依您選擇的通知方式聯絡，確認服務方案、報價與配送細節。正式訂單成立後會提供專屬追蹤頁。</p>
+    <div class="close-row"><button class="btn btn-outline" onclick="closeModal()">關閉</button></div>
+  </div>
 </div>
 
 <script>
-// 訂單系統 API（GolfTravelMobility 訂單系統）
-const API='https://script.google.com/macros/s/AKfycbxhEK-VrzEQErQxylnrMBbokxYunSs6qisklu_MxQjFO1UICCTLVIfDWwrzaiBOSA9H/exec';
+  // 球場導流促銷條（?course=xxx）
+  (function(){
+    const p=new URLSearchParams(window.location.search),c=p.get('course');
+    if(!c)return;
+    const m={shanxidi:'山溪地高爾夫球場',meilihua:'美麗華球場',datunshan:'大屯球場',demo:'示範球場'};
+    document.getElementById('courseName').textContent=m[c]||decodeURIComponent(c);
+    document.getElementById('promoCode').textContent=c.toUpperCase()+'2026';
+    document.getElementById('promoDefault').style.display='none';
+    document.getElementById('promoCourse').style.display='inline';
+  })();
 
-(function(){
-const p=new URLSearchParams(window.location.search),c=p.get('course'),t=p.get('t');
-if(t){location.replace('tracking.html?t='+encodeURIComponent(t));return;}
-if(!c)return;
-const m={shanxidi:'山溪地高爾夫球場',meilihua:'美麗華球場',datunshan:'大屯球場',demo:'示範球場'};
-document.getElementById('courseName').textContent=m[c]||decodeURIComponent(c);
-document.getElementById('promoCode').textContent=c.toUpperCase()+'2026';
-document.getElementById('promoDefault').style.display='none';
-document.getElementById('promoCourse').style.display='inline';
-})();
+  // 手機選單
+  document.getElementById('menuBtn').addEventListener('click',function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks a').forEach(function(a){
+    a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')});
+  });
 
-document.getElementById('menuBtn').addEventListener('click',function(){
-document.getElementById('navLinks').classList.toggle('open');
-});
-document.querySelectorAll('#navLinks a').forEach(function(a){
-a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')});
-});
+  // 報價列：依目的地更新起價
+  const priceMap={'日本':'8,800','泰國':'12,500','馬來西亞':'10,000','新加坡':'10,000','其他':'8,800'};
+  document.getElementById('qDest').addEventListener('change',function(){
+    document.getElementById('qbAmt').textContent=priceMap[this.value]||'8,800';
+  });
 
-const priceMap={'日本':'8,800','泰國':'12,500','馬來西亞':'10,000','新加坡':'10,000','其他':'8,800'};
-document.getElementById('qDest').addEventListener('change',function(){
-document.getElementById('qbAmt').textContent=priceMap[this.value]||'8,800';
-});
+  // 報價列 → 帶入表單
+  function goBook(){
+    const dest=document.getElementById('qDest').value;
+    const date=document.getElementById('qDate').value;
+    if(dest){const s=document.querySelector('[name="destination"]');if(s){for(const o of s.options){if(o.value===dest||o.value.startsWith(dest)){s.value=o.value;break;}}}}
+    if(date){const s=document.querySelector('[name="departDate"]');if(s)s.value=date;}
+    document.getElementById('book').scrollIntoView({behavior:'smooth'});
+  }
 
-function goBook(){
-const dest=document.getElementById('qDest').value;
-const date=document.getElementById('qDate').value;
-const trip=document.getElementById('qTrip').value;
-const f=document.getElementById('bookForm');
-if(dest){const s=f.querySelector('[name="destination"]');for(const o of s.options){if(o.value===dest||o.value.startsWith(dest)){s.value=o.value;break;}}}
-if(date){f.querySelector('[name="departDate"]').value=date;}
-if(trip){f.querySelector('[name="returnShipment"]').value=(trip==='單程')?'不需要回程寄送':'需要回程寄送';}
-document.getElementById('book').scrollIntoView({behavior:'smooth'});
-}
-
-function closeModal(){document.getElementById('modal').classList.remove('show');}
-document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
-
-// 送出預約需求 → 訂單系統建單 → 預約完成頁
-document.getElementById('bookForm').addEventListener('submit',function(e){
-e.preventDefault();
-const form=this,btn=form.querySelector('button[type="submit"]');
-const payload=Object.fromEntries(new FormData(form).entries());
-payload.action='create';
-payload.source='website';
-payload.pageLanguage='zh-TW';
-payload.submittedAt=new Date().toISOString();
-btn.disabled=true;btn.textContent='送出中…';
-fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
-  .then(function(r){return r.json();})
-  .then(function(d){
-    if(d&&d.ok){
-      let q='id='+encodeURIComponent(d.orderId)+'&t='+encodeURIComponent(d.token)+'&bind='+encodeURIComponent(d.bindCode||'');
-      if(d.lineAddUrl)q+='&line='+encodeURIComponent(d.lineAddUrl);
-      location.href='success.html?'+q;
-    }else{
-      document.getElementById('modalTitle').textContent='送出時發生問題';
-      document.getElementById('modalBody').textContent='請稍後再試，或直接 LINE 客服（週一至週五 9:00–18:00）。';
-      document.getElementById('modal').classList.add('show');
+  // 預約表單送出（Google Apps Script 端點設定後自動改為送到後台）
+  const GOOGLE_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxhEK-VrzEQErQxylnrMBbokxYunSs6qisklu_MxQjFO1UICCTLVIfDWwrzaiBOSA9H/exec';
+  document.getElementById('bookForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    const form=this,button=form.querySelector('button[type="submit"]');
+    const payload=Object.fromEntries(new FormData(form).entries());
+    payload.action='create';
+    payload.source='website';
+    payload.pageLanguage='zh-TW';
+    payload.submittedAt=new Date().toISOString();
+    if(GOOGLE_SCRIPT_URL.indexOf('PASTE_')===0){
+      document.getElementById('modal').classList.add('show');form.reset();return;
     }
-  })
-  .catch(function(){alert('送出失敗，請稍後再試，或直接 LINE 客服。');})
-  .finally(function(){btn.disabled=false;btn.textContent='送出預約需求';});
-});
+    button.disabled=true;button.textContent='送出中…';
+    fetch(GOOGLE_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d&&d.ok){
+          var q='id='+encodeURIComponent(d.orderId)+'&t='+encodeURIComponent(d.token)+'&bind='+encodeURIComponent(d.bindCode||'');
+          if(d.lineAddUrl)q+='&line='+encodeURIComponent(d.lineAddUrl);
+          location.href='success.html?'+q;
+        }else{document.getElementById('modal').classList.add('show');form.reset();}
+      })
+      .catch(function(){alert('送出失敗，請稍後再試或直接聯絡客服。');})
+      .finally(function(){button.disabled=false;button.textContent='送出預約需求';});
+  });
+  function closeModal(){document.getElementById('modal').classList.remove('show');}
+  document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 </script>
 </body>
 </html>
