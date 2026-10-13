@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Golf Travel Mobility — 跳過行李轉盤，球袋直送球場</title>
-<meta name="description" content="高爾夫球袋從台灣到府收件，直送海外球場、飯店或訓練基地。LINE 中文客服全程追蹤，出國打球不必再扛球袋。">
+<meta name="description" content="高爾夫球袋從台灣到府收件，直送海外球場、飯店或訓練基地。客服確認報價、付款後安排收件，可線上查詢訂單進度。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -227,13 +227,67 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 .modal-box h3{font-size:20px;font-weight:800;margin-bottom:10px}
 .modal-box p{font-size:14px;color:var(--gray);line-height:1.85;margin-bottom:22px}
 .modal-box .close-row{display:flex;justify-content:flex-end}
+/* ===== 試營運流程新增區塊 ===== */
+section[id]{scroll-margin-top:96px}
+.notice{padding:32px 0 0}
+.notice-box{border:1.5px solid var(--green);background:#F6FBF1;border-radius:14px;padding:20px 26px;font-size:15.5px;line-height:1.8;color:var(--ink)}
+.notice-box strong{font-weight:800}
+.notice-box .hrs{display:block;font-size:13.5px;color:var(--gray);margin-top:4px}
+.sec{padding:90px 0}
+.sec.alt{background:var(--gray-lt)}
+.sec h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px;line-height:1.2}
+.sec h2 b{font-weight:900}
+.sec .lead{text-align:center;font-size:15.5px;color:var(--gray);max-width:640px;margin:16px auto 0;line-height:1.85}
+.flow-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:52px}
+.flow-card{background:var(--white);border:1.5px solid #DDE2E7;border-radius:14px;padding:22px 20px;position:relative}
+.flow-card .n{font-size:13px;font-weight:700;color:var(--green-dk)}
+.flow-card h3{font-size:16px;font-weight:700;margin:6px 0 6px;line-height:1.4}
+.flow-card p{font-size:13px;color:var(--gray);line-height:1.75}
+.flow-card.key{border:2px solid var(--green)}
+.flow-tag{position:absolute;top:-12px;right:16px;background:var(--green);color:var(--white);font-size:11.5px;font-weight:700;padding:3px 12px;border-radius:100px}
+.flow-legend{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:28px;font-size:13.5px;color:var(--gray)}
+.flow-legend b{color:var(--ink)}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.info-card{background:var(--white);border-radius:14px;padding:30px 26px;border:1.5px solid #DDE2E7}
+.info-card h3{font-size:17px;font-weight:800;margin-bottom:12px}
+.info-card ul{padding-left:18px;font-size:14px;color:var(--gray);line-height:1.95}
+.info-card p{font-size:14.5px;color:var(--gray);line-height:1.9}
+.pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:48px}
+.tool-wrap{max-width:760px;margin:44px auto 0}
+.result{margin-top:24px;border:1.5px solid #DDE2E7;border-radius:14px;padding:24px 26px;display:none;background:var(--white)}
+.result.show{display:block}
+.result dl{display:grid;grid-template-columns:140px 1fr;gap:10px 16px;font-size:14.5px}
+.result dt{color:var(--gray)}
+.result dd{font-weight:600;word-break:break-all}
+.result .status{display:inline-block;background:#F1F8E9;border:1px solid var(--green);color:var(--green-dk);padding:2px 12px;border-radius:100px;font-size:13.5px}
+.result .fine{font-size:13px;color:var(--gray);margin-top:16px}
+.msg-err{color:#B3261E;font-size:14px;margin-top:14px;display:none}
+.msg-err.show{display:block}
+.field textarea{min-height:110px;resize:vertical}
+.field .hint{font-size:12.5px;color:var(--gray);margin-top:6px}
+.policy{width:100%;border-collapse:collapse;margin-top:44px;font-size:14.5px;background:var(--white);border-radius:14px;overflow:hidden}
+.policy th,.policy td{text-align:left;padding:18px 22px;border-bottom:1px solid var(--gray-lt);vertical-align:top;line-height:1.8}
+.policy th{width:34%;font-weight:700;color:var(--ink)}
+.policy td{color:var(--gray)}
+.policy tr:last-child th,.policy tr:last-child td{border-bottom:none}
+.policy-note{text-align:center;font-size:13px;color:var(--gray);margin-top:18px}
+@media(max-width:900px){
+.sec{padding:56px 0}
+.sec h2{font-size:30px}
+.flow-grid{grid-template-columns:repeat(2,1fr)}
+.info-grid,.pay-grid{grid-template-columns:1fr}
+.policy th,.policy td{display:block;width:100%;padding:12px 18px}
+.policy th{padding-bottom:0;border-bottom:none}
+.result dl{grid-template-columns:110px 1fr}
+}
+@media(max-width:560px){.flow-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body id="top">
 
 <div class="promo" id="promoBar">
 <span id="promoDefault"><strong>早鳥優惠</strong>：出發前 14 天完成預約，享 <strong>9 折</strong>優惠｜優惠碼 <strong>GOLF2026</strong></span>
-<span id="promoCourse" style="display:none">從 <strong id="courseName">合作球場</strong> 推薦而來｜會員優惠碼 <strong id="promoCode">GOLF2026</strong> 已套用</span>
+<span id="promoCourse" style="display:none">從 <strong id="courseName">合作球場</strong> 推薦而來｜會員優惠碼 <strong id="promoCode">GOLF2026</strong>，正式報價時套用</span>
 </div>
 
 <nav class="top">
@@ -242,9 +296,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 <div class="nav-links" id="navLinks">
 <a href="#how">服務流程</a>
 <a href="#routes">路線與費用</a>
-<a href="#trust">安心機制</a>
+<a href="#pay">報價與付款</a>
+<a href="#track">查詢訂單</a>
 <a href="#faq">FAQ</a>
-<a href="#corp">企業方案</a>
 <a href="#book" class="btn btn-navy" style="padding:10px 22px;font-size:14px;color:var(--white)">立即預約</a>
 </div>
 <select class="lang-sw" onchange="if(this.value)location.href=this.value" style="border:1px solid var(--gray-lt);border-radius:8px;padding:6px 10px;font-size:13px;background:var(--white);cursor:pointer;margin-left:14px">
@@ -272,12 +326,12 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 </div>
 <div class="qb-field">
 <label>行程</label>
-<select id="qTrip"><option>來回寄送</option><option>單程</option></select>
+<select id="qTrip"><option>來回</option><option>單程</option></select>
 </div>
 <div class="qb-price">
 <span class="from">NT$</span><span class="amt" id="qbAmt">8,800</span><span class="per">起／單趟</span>
 </div>
-<button class="btn btn-navy" onclick="goBook()">取得報價</button>
+<button class="btn btn-navy" onclick="goBook()">開始預約</button>
 </div>
 </div>
 
@@ -286,78 +340,56 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 <h1>跳過行李轉盤<b>。</b><br><b>球袋交給我們。</b></h1>
 <p class="sub">台灣到府收件，直送海外球場。人到，就開打。</p>
 <div class="hero-cta">
-<a href="#book" class="btn btn-green" style="padding:16px 36px;font-size:16px">立即預約收件</a>
-<a href="#routes" class="btn btn-white" style="padding:16px 36px;font-size:16px">查看路線費用</a>
+<a href="#book" class="btn btn-green" style="padding:16px 36px;font-size:16px">填寫預約需求</a>
+<a href="#track" class="btn btn-white" style="padding:16px 36px;font-size:16px">查詢訂單進度</a>
 </div>
 </div>
 </section>
+
+<div class="notice">
+<div class="container">
+<div class="notice-box">
+<strong>填寫預約表單不代表訂單成立。</strong>客服確認配送條件並提供正式報價後，客戶完成付款，才會正式安排收件與配送。
+<span class="hrs">客服服務時間：週一至週五 9:00–18:00｜非上班時間收到的預約，將於下一個工作時間處理。</span>
+</div>
+</div>
+</div>
 
 <div class="stats">
 <div class="container">
 <div class="stats-grid">
 <div class="stat"><div class="num">60<span>+</span></div><div class="lab">合作球場</div></div>
 <div class="stat"><div class="num">4</div><div class="lab">熱門目的地</div></div>
-<div class="stat"><div class="num">24<span>H</span></div><div class="lab">中文客服回覆</div></div>
-<div class="stat"><div class="num" style="color:var(--green)">LINE</div><div class="lab">全程即時追蹤</div></div>
+<div class="stat"><div class="num">9<span>–</span>18</div><div class="lab">週一至週五 中文客服</div></div>
+<div class="stat"><div class="num" style="color:var(--green)">線上</div><div class="lab">訂單進度查詢</div></div>
 </div>
 </div>
 </div>
 
-<section class="split" id="how">
-<div class="split-inner">
-<div>
-<h2>說走就走的球旅，<b>從這裡開始。</b></h2>
-<p>想像一趟出國打球的行程——沒有扛袋、沒有排隊、也沒有「你的球袋沒跟上飛機」。你人輕鬆出發，球袋已經在球場等你。</p>
-<div class="act"><a href="#book" class="btn btn-outline">立即預約收件</a></div>
+<section class="sec" id="how">
+<div class="container">
+<h2>從預約到開打，<b>10 個步驟。</b></h2>
+<p class="lead">填寫預約後，客服將於服務時間內確認配送條件，並提供正式報價。客戶完成付款後，訂單才正式成立，並開始安排收件與配送。</p>
+<div class="flow-grid">
+<div class="flow-card"><div class="n">STEP 1</div><h3>填寫預約表單</h3><p>填寫出發地、目的地、日期與球袋數量，取得預約編號。</p></div>
+<div class="flow-card"><div class="n">STEP 2</div><h3>客服確認配送需求</h3><p>服務時間內確認目的地、日期是否可承運。</p></div>
+<div class="flow-card"><div class="n">STEP 3</div><h3>補齊地址、尺寸與重量</h3><p>補充收件地址、海外配送地點與球袋資料。</p></div>
+<div class="flow-card"><div class="n">STEP 4</div><h3>提供正式報價</h3><p>含路線、收件日、預計送達日與金額，有效 48 小時。</p></div>
+<div class="flow-card"><div class="n">STEP 5</div><h3>客戶確認報價</h3><p>確認報價內容、付款方式與取消規則。</p></div>
+<div class="flow-card key"><span class="flow-tag">訂單成立</span><div class="n">STEP 6</div><h3>完成付款</h3><p>銀行轉帳或線上刷卡。付款完成，訂單才正式成立。</p></div>
+<div class="flow-card"><div class="n">STEP 7</div><h3>安排物流收件</h3><p>客服安排到府收件，提供物流追蹤碼。</p></div>
+<div class="flow-card"><div class="n">STEP 8</div><h3>運送至球場／飯店</h3><p>國際快遞配送、清關，送達指定球場或飯店。</p></div>
+<div class="flow-card"><div class="n">STEP 9</div><h3>查詢訂單進度</h3><p>以預約編號＋Email 或手機，隨時查詢狀態。</p></div>
+<div class="flow-card"><div class="n">STEP 10</div><h3>服務完成</h3><p>球場／飯店簽收，抵達後直接開打。</p></div>
 </div>
-<div class="split-img">
-<img src="imgs/step1.jpg" alt="高爾夫揮桿">
-</div>
-</div>
-</section>
-
-<section class="split" style="padding-top:20px">
-<div class="split-inner rev">
-<div>
-<div class="step-num">1. 線上預約<b>收件。</b></div>
-<p>填目的地、出發日、球袋數量，或直接 LINE 客服。24 小時內回覆報價與收件時間。</p>
-<div class="step-note">建議出發前 7–10 天預約</div>
-</div>
-<div class="split-img">
-<img src="imgs/step2.jpg" alt="線上預約">
-</div>
-</div>
-</section>
-
-<section class="split" style="padding-top:20px">
-<div class="split-inner">
-<div>
-<div class="step-num">2. 到府收件，<b>球袋出發。</b></div>
-<p>像平常出國一樣把球桿裝袋就好。專人到府收件、包裝拍照存證，國際快遞正式啟運，追蹤碼即時傳給你。</p>
-<div class="step-note">台灣端全程由本團隊負責</div>
-</div>
-<div class="split-img">
-<img src="imgs/step3.jpg" alt="球袋收件">
-</div>
-</div>
-</section>
-
-<section class="split" style="padding-top:20px">
-<div class="split-inner rev">
-<div>
-<div class="step-num">3. 抵達，<b>直接開打。</b></div>
-<p>球袋已送達球場 Pro Shop 或飯店，LINE 通知確認。享受飛行（難得一次），行李轉盤跟你沒關係。</p>
-<div class="step-note">回程可一併安排，打完直接寄回台灣</div>
-</div>
-<div class="split-img">
-<img src="imgs/step4.jpg" alt="球場開打">
-</div>
+<div class="flow-legend"><span><b>STEP 1–5</b>　預約與報價階段，可免費取消</span><span><b>STEP 6 起</b>　訂單成立，開始安排物流</span></div>
+<div style="text-align:center;margin-top:32px"><a href="#book" class="btn btn-green" style="padding:15px 36px">填寫預約需求</a></div>
 </div>
 </section>
 
 <section class="who">
 <div class="container">
-<h2>這些人，<b>已經不扛球袋了。</b></h2>
+<h2>適合這樣<b>出國打球的你。</b></h2>
 <div class="who-grid">
 <div class="who-card"><div class="ico">✈️</div><h3>海外旅行客</h3><p>不再扛球袋轉機。人輕鬆出發，球具先到球場等你。</p></div>
 <div class="who-card"><div class="ico">🏢</div><h3>企業 VIP 接待</h3><p>統一安排配送，提升接待品質，給客戶留下專業印象。</p></div>
@@ -369,11 +401,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 
 <section class="routes" id="routes">
 <div class="container">
-<h2>亞洲四大熱門路線，<b>透明起價。</b></h2>
-<p class="lead">以下為單趟預估起價（單套）。實際費用依出發日、配送地點與保險方案確認，預約後 24 小時內回覆。</p>
+<h2>亞洲四大熱門路線，<b>參考起價。</b></h2>
+<p class="lead">以下為單趟參考起價（單套）。實際費用依出發日、配送地點、球袋尺寸與重量確認，以客服提供之正式報價為準。</p>
 <div class="route-grid">
 <div class="route-card pick">
-<div class="pick-badge">最多人選擇</div>
+<div class="pick-badge">試營運首選</div>
 <div class="dest">🇯🇵 日本</div>
 <div class="area">大阪・東京・北海道・沖繩<br>航班密集，配送最成熟</div>
 <div class="price"><span class="from">NT$</span><span class="amt">8,800</span><span class="from">起</span></div>
@@ -398,33 +430,204 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 <div class="per">單趟／單套</div>
 </div>
 </div>
-<p class="fine">VIP 快速件、企業合約與年費方案另有專屬報價。以上為試算起價，非最終確認金額。</p>
-<div style="text-align:center;margin-top:32px"><a href="#book" class="btn btn-green" style="padding:15px 36px">立即預約收件</a></div>
+<p class="fine">VIP 快速件、企業合約與年費方案另有專屬報價。以上為參考起價，非最終確認金額。</p>
 </div>
 </section>
 
 <section class="trust" id="trust">
 <div class="container">
 <h2>不只是寄出去，<b>是有人幫你盯到抵達。</b></h2>
-<p class="lead">從台灣收件到海外球場送達，每個節點主動通知。你的球桿得到的是頭等艙待遇——這在行李艙可看不到。</p>
+<p class="lead">付款完成、訂單成立後，從台灣收件到海外球場送達，客服依物流進度更新訂單狀態並通知您。</p>
 <div class="trust-grid">
-<div class="trust-card"><div class="ico">📱</div><h3>LINE 全程通知</h3><p>收件、出發、清關、抵達，每個節點主動傳訊，不必自己查追蹤碼。</p></div>
-<div class="trust-card"><div class="ico">📸</div><h3>包裝拍照存證</h3><p>收件時確認狀態並拍照，寄出前再次確認，降低爭議風險。</p></div>
-<div class="trust-card"><div class="ico">🚚</div><h3>國際快遞正式配送</h3><p>官方追蹤碼即時查詢，客服同步監控每一段運送。</p></div>
-<div class="trust-card"><div class="ico">🛠️</div><h3>異常協助處理</h3><p>延誤、清關卡關或地址問題，客服第一時間介入協助。</p></div>
+<div class="trust-card"><div class="ico">📱</div><h3>進度主動通知</h3><p>依您選擇的通知方式（LINE、Email 等），通知收件、出發、清關、抵達等節點。</p></div>
+<div class="trust-card"><div class="ico">🔎</div><h3>線上查詢訂單</h3><p>以預約編號＋Email 或手機，隨時查詢訂單狀態與物流追蹤碼。</p></div>
+<div class="trust-card"><div class="ico">🚚</div><h3>國際快遞正式配送</h3><p>官方追蹤碼可查詢，客服同步掌握每一段運送。</p></div>
+<div class="trust-card"><div class="ico">🛠️</div><h3>異常協助處理</h3><p>延誤、清關或地址問題，客服於服務時間內介入協助。</p></div>
 <div class="trust-card"><div class="ico">✅</div><h3>球場送達確認</h3><p>協助聯繫球場或飯店窗口，確認球袋已安全抵達。</p></div>
-<div class="trust-card"><div class="ico">🔄</div><h3>回程一起安排</h3><p>行程結束從海外直接寄回台灣，不必再扛球袋搭機。</p></div>
+<div class="trust-card"><div class="ico">🔄</div><h3>回程一起安排</h3><p>預約時選擇「來回」，行程結束從海外直接寄回台灣。</p></div>
 </div>
 </div>
 </section>
 
-<section class="quotes">
+<section class="book sec" id="book">
 <div class="container">
-<h2>球友們<b>怎麼說。</b></h2>
-<div class="quote-grid">
-<div class="quote-card"><div class="txt">「第一次人比球袋輕鬆到日本。落地直接去吃拉麵，球袋已經在球場等我了。」</div><div class="name">陳先生・台北</div></div>
-<div class="quote-card"><div class="txt">「帶客戶去新加坡打球，四套球袋統一寄送。客戶下飛機兩手空空，印象分數直接拉滿。」</div><div class="name">林協理・企業接待</div></div>
-<div class="quote-card"><div class="txt">「學員 12 套球袋一起寄到泰國訓練基地，省下的搬運時間跟力氣，全部拿去練球。」</div><div class="name">王教練・移地訓練</div></div>
+<h2>填寫預約需求，<b>客服服務時間內回覆。</b></h2>
+<p class="lead">此表單為初步預約需求，送出後不代表訂單成立。客服將於服務時間內確認配送條件，並提供正式報價。</p>
+<div class="book-wrap">
+<div class="line-card">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://lin.ee/XOMWpls&margin=6&format=png" alt="LINE QR Code">
+<h3>選擇 LINE 通知？</h3>
+<p>請先加入官方帳號，客服才能傳送報價與進度通知。<br>客服服務時間：週一至週五 9:00–18:00</p>
+<a href="https://lin.ee/XOMWpls" target="_blank" class="btn btn-green" style="width:100%">加入 LINE 官方帳號</a>
+</div>
+<form class="bk-grid" id="bookForm">
+<div class="field"><label>姓名 <span class="req">*</span></label><input type="text" name="name" required></div>
+<div class="field"><label>手機 <span class="req">*</span></label><input type="tel" name="phone" required></div>
+<div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
+<div class="field">
+<label>偏好通知方式 <span class="req">*</span></label>
+<select name="notify" required>
+<option value="">請選擇</option><option value="LINE">LINE</option><option value="WhatsApp">WhatsApp</option><option value="Email">Email</option><option value="SMS">SMS 簡訊</option>
+</select>
+</div>
+<div class="field"><label>出發地 <span class="req">*</span></label><input type="text" name="origin" placeholder="例：台北市信義區" required></div>
+<div class="field">
+<label>目的地 <span class="req">*</span></label>
+<select name="destination" required>
+<option value="">請選擇</option><option value="日本">日本</option><option value="泰國">泰國</option><option value="馬來西亞">馬來西亞</option><option value="新加坡">新加坡</option><option value="其他">其他（備註說明）</option>
+</select>
+</div>
+<div class="field"><label>出發日期 <span class="req">*</span></label><input type="date" name="departDate" required></div>
+<div class="field"><label>開球日期 <span class="req">*</span></label><input type="date" name="teeDate" required></div>
+<div class="field">
+<label>球袋數量 <span class="req">*</span></label>
+<select name="bagCount" required>
+<option value="">請選擇</option><option value="1 套">1 套</option><option value="2 套">2 套</option><option value="3 套">3 套</option><option value="4 套以上（企業／球隊）">4 套以上（企業／球隊）</option>
+</select>
+</div>
+<div class="field">
+<label>單程／來回 <span class="req">*</span></label>
+<select name="trip" required>
+<option value="">請選擇</option><option value="來回">來回</option><option value="單程">單程（去程）</option>
+</select>
+</div>
+<div class="field full"><label>備註</label><textarea name="note" placeholder="例：目的地球場名稱、優惠碼、其他需求"></textarea></div>
+<div class="field full">
+<p class="form-fine">收件地址、海外配送地點、球袋尺寸與重量，客服確認後會再請您補齊（見下方「報價前需補齊的資料」），無需在此填寫。</p>
+</div>
+<div class="form-ft">
+<p class="form-fine">送出後不代表訂單成立。客服服務時間：週一至週五 9:00–18:00。</p>
+<button type="submit" class="btn btn-navy" style="padding:15px 36px">送出預約需求</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+
+<section class="sec alt" id="prepare">
+<div class="container">
+<h2>報價前，<b>需補齊的資料。</b></h2>
+<p class="lead">正式報價前，客服可能會請您補充以下資料。可先準備好，加快報價速度。</p>
+<div class="info-grid">
+<div class="info-card"><h3>📦 收件資料</h3><ul>
+<li>到府收件地址</li><li>郵遞區號</li><li>收件聯絡人</li><li>聯絡電話</li><li>希望收件日期</li><li>收件地點類型：住家／公司／球場／指定地點</li>
+</ul></div>
+<div class="info-card"><h3>⛳ 海外配送資料</h3><ul>
+<li>球場／飯店名稱</li><li>完整英文地址</li><li>海外收件人</li><li>海外聯絡電話</li><li>入住日期或開球日期</li>
+</ul></div>
+<div class="info-card"><h3>🏌️ 球袋資料</h3><ul>
+<li>球袋數量</li><li>球袋類型：一般球袋／大型球袋</li><li>包裝方式：軟式旅行袋／硬殼箱／紙箱</li><li>重量</li><li>長、寬、高</li><li>是否包含鞋子或其他用品</li>
+</ul></div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="pay">
+<div class="container">
+<h2>報價與付款，<b>付款完成才成立訂單。</b></h2>
+<div class="pay-grid">
+<div class="info-card"><h3>⏱ 報價有效期限：48 小時</h3>
+<p>報價有效期限為 48 小時。請於期限內確認並完成付款。若逾期未付款，原報價將失效，需由客服重新確認物流費用、配送日期與可承運條件。</p>
+</div>
+<div class="info-card"><h3>💳 付款方式</h3>
+<p>報價確認後，客服將提供銀行轉帳或線上刷卡付款連結。付款完成後，訂單才正式成立，並開始安排收件與配送。</p>
+<ul style="margin-top:10px"><li>銀行轉帳</li><li>線上刷卡（第三方金流付款連結）</li></ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec alt" id="track">
+<div class="container">
+<h2>查詢<b>訂單進度。</b></h2>
+<p class="lead">輸入預約編號，以及預約時填寫的 Email 或手機，即可查看訂單狀態與物流進度。</p>
+<div class="tool-wrap">
+<form class="bk-grid" id="trackForm">
+<div class="field"><label>預約編號 <span class="req">*</span></label><input type="text" name="order" placeholder="例：GTM261013-A7K2" required></div>
+<div class="field"><label>Email 或手機 <span class="req">*</span></label><input type="text" name="contact" required></div>
+<div class="form-ft" style="justify-content:flex-end"><button type="submit" class="btn btn-navy" style="padding:15px 36px">查詢訂單進度</button></div>
+</form>
+<p class="msg-err" id="trackErr"></p>
+<div class="result" id="trackResult">
+<dl>
+<dt>預約編號</dt><dd id="rOrder"></dd>
+<dt>預約人</dt><dd id="rName"></dd>
+<dt>目前狀態</dt><dd><span class="status" id="rStatus"></span></dd>
+<dt>付款狀態</dt><dd id="rPay"></dd>
+<dt>預計收件日</dt><dd id="rPickup"></dd>
+<dt>預計送達日</dt><dd id="rDeliver"></dd>
+<dt>物流公司</dt><dd id="rCarrier"></dd>
+<dt>物流追蹤碼</dt><dd id="rTracking"></dd>
+<dt>送達球場／飯店</dt><dd id="rDelivered"></dd>
+</dl>
+<p class="fine">如有疑問請聯絡客服（週一至週五 9:00–18:00）：<a href="https://lin.ee/XOMWpls" target="_blank" style="text-decoration:underline">LINE 官方帳號</a></p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="change">
+<div class="container">
+<h2>修改／取消<b>訂單申請。</b></h2>
+<p class="lead">送出申請後，由客服確認訂單與物流狀態再回覆您。訂單資料不會因送出申請而自動變更。</p>
+<div class="tool-wrap">
+<form class="bk-grid" id="changeForm">
+<div class="field"><label>預約編號 <span class="req">*</span></label><input type="text" name="order" required></div>
+<div class="field"><label>Email 或手機 <span class="req">*</span></label><input type="text" name="contact" required></div>
+<div class="field full">
+<label>申請項目 <span class="req">*</span></label>
+<select name="item" required>
+<option value="">請選擇</option>
+<option value="修改收件地址">修改收件地址</option>
+<option value="修改配送地址">修改配送地址</option>
+<option value="修改收件日期">修改收件日期</option>
+<option value="修改球袋尺寸">修改球袋尺寸</option>
+<option value="修改球袋數量">修改球袋數量</option>
+<option value="修改聯絡方式">修改聯絡方式</option>
+<option value="取消訂單">取消訂單</option>
+</select>
+</div>
+<div class="field full"><label>說明 <span class="req">*</span></label><textarea name="detail" placeholder="請說明要修改的內容，或取消原因" required></textarea></div>
+<div class="form-ft">
+<p class="form-fine">若已安排物流或進入運送流程，可能產生改址、退運或其他費用，詳見下方取消政策。</p>
+<button type="submit" class="btn btn-navy" style="padding:15px 36px">送出申請</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+
+<section class="sec alt" id="policy">
+<div class="container">
+<h2>取消<b>政策。</b></h2>
+<table class="policy">
+<tr><th>尚未付款</th><td>可免費取消。</td></tr>
+<tr><th>已付款，尚未安排物流</th><td>可申請全額退款。</td></tr>
+<tr><th>已安排物流，尚未收件</th><td>扣除已產生之行政、金流或物流費用後退款。</td></tr>
+<tr><th>已完成收件或運送中</th><td>恕無法直接取消，需由客服協助確認退運或改址方式與相關費用。</td></tr>
+<tr><th>已送達球場或飯店</th><td>訂單視為服務完成，恕不接受取消退款。</td></tr>
+</table>
+<p class="policy-note">來回件僅取消回程者，依尚未使用的服務重新計算可退款金額。取消與退款皆由客服確認後處理。</p>
+</div>
+</section>
+
+<section class="faq-sec" id="faq" style="margin-top:90px">
+<div class="faq-inner">
+<div>
+<h2>常見<b>問題。</b></h2>
+</div>
+<div>
+<details class="faq"><summary>填寫預約表單後，訂單就成立了嗎？<span class="ico">＋</span></summary><div class="ans">不是。填寫表單只是送出預約需求，客服需確認配送條件並提供正式報價。付款完成後，訂單才正式成立。</div></details>
+<details class="faq"><summary>多久會有人聯繫我？<span class="ico">＋</span></summary><div class="ans">客服服務時間為週一至週五 9:00–18:00。非上班時間送出的預約，將於下一個工作時間處理。</div></details>
+<details class="faq"><summary>報價有效多久？<span class="ico">＋</span></summary><div class="ans">報價有效期限為 48 小時。逾期未付款需重新確認費用與配送條件。</div></details>
+<details class="faq"><summary>可以取消訂單嗎？<span class="ico">＋</span></summary><div class="ans">可以，但會依訂單進度判斷。尚未付款可免費取消；已付款或已安排物流後，需由客服確認是否產生相關費用。詳見<a href="#policy" style="text-decoration:underline">取消政策</a>。</div></details>
+<details class="faq"><summary>我可以查詢球袋配送進度嗎？<span class="ico">＋</span></summary><div class="ans">可以。使用預約編號加 Email 或手機，即可在<a href="#track" style="text-decoration:underline">訂單查詢</a>查看訂單狀態與物流進度。</div></details>
+<details class="faq"><summary>可以修改收件地址或配送地址嗎？<span class="ico">＋</span></summary><div class="ans">可以<a href="#change" style="text-decoration:underline">申請修改</a>，但需由客服確認是否已安排物流。若已進入運送流程，可能會產生改址或退運費用。</div></details>
+<details class="faq"><summary>出發前幾天要預約？<span class="ico">＋</span></summary><div class="ans">建議出發前 7–10 天預約，旺季或東南亞線路建議提前 10–14 天。報價後需於 48 小時內付款，才能確保收件與配送時程。急件請直接聯絡客服確認。</div></details>
+<details class="faq"><summary>費用大概多少？<span class="ico">＋</span></summary><div class="ans">單趟參考起價：日本 NT$8,800、馬來西亞 NT$10,000、新加坡 NT$10,000、泰國 NT$12,500（單套）。實際費用依出發日、配送地點、球袋尺寸與重量確認，以客服正式報價為準。</div></details>
+<details class="faq"><summary>球袋怎麼包裝？會不會撞壞？<span class="ico">＋</span></summary><div class="ans">請於收件日前完成包裝並拍照留存，球桿建議套上保護套，貴重物品請自行取出。收件時會確認包裝狀態。</div></details>
+<details class="faq"><summary>如果延誤或損壞怎麼辦？<span class="ico">＋</span></summary><div class="ans">客服於服務時間內協助追蹤貨件、與物流方協調、申請理賠。理賠金額依承運條款及加購保險而定。</div></details>
+<details class="faq"><summary>可以一次寄多套嗎（球隊出遊）？<span class="ico">＋</span></summary><div class="ans">可以，3 套以上享有批量優惠，企業球隊或移地訓練可洽談年度合約與專屬報價。</div></details>
 </div>
 </div>
 </section>
@@ -441,64 +644,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 </div>
 </section>
 
-<section class="faq-sec" id="faq">
-<div class="faq-inner">
-<div>
-<h2>常見<b>問題。</b></h2>
-</div>
-<div>
-<details class="faq"><summary>出發前幾天要預約？<span class="ico">＋</span></summary><div class="ans">建議出發前 7–10 天預約，旺季或東南亞線路建議提前 10–14 天。VIP 快速件最短可縮至 3–5 天，請直接聯絡客服確認。</div></details>
-<details class="faq"><summary>費用大概多少？<span class="ico">＋</span></summary><div class="ans">單趟參考起價：日本 NT$8,800、馬來西亞 NT$10,000、新加坡 NT$10,000、泰國 NT$12,500（單套）。實際費用依出發日、配送地點與保險需求確認，預約後 24 小時內提供。</div></details>
-<details class="faq"><summary>球袋怎麼包裝？會不會撞壞？<span class="ico">＋</span></summary><div class="ans">到府收件時由專人協助確認包裝狀態，提供防撞保護，並拍照存證。球桿建議套上保護套，細小貴重品自行攜帶。</div></details>
-<details class="faq"><summary>如何追蹤球袋在哪裡？<span class="ico">＋</span></summary><div class="ans">預約後加入 LINE 通知，收件、出發、清關、送達每個節點主動傳訊，也提供官方追蹤碼可自行查詢。</div></details>
-<details class="faq"><summary>如果延誤或損壞怎麼辦？<span class="ico">＋</span></summary><div class="ans">中文客服第一時間介入：協助追蹤貨件、與物流方協調、申請理賠或安排備援。理賠金額依承運條款及加購保險而定。</div></details>
-<details class="faq"><summary>可以寄回程嗎？<span class="ico">＋</span></summary><div class="ans">可以，預約時告知需要回程安排，行程結束後從海外球場或飯店直接寄回台灣，不必再扛著球袋搭機回國。</div></details>
-<details class="faq"><summary>可以一次寄多套嗎（球隊出遊）？<span class="ico">＋</span></summary><div class="ans">可以，3 套以上享有批量優惠，企業球隊或移地訓練可洽談年度合約與專屬報價。</div></details>
-</div>
-</div>
-</section>
-
-<section class="book" id="book">
-<div class="container">
-<h2>預約球袋運送，<b>24 小時內回覆。</b></h2>
-<p class="lead">填寫基本資訊，客服將透過 LINE 確認服務方案、收件時間與費用細節。</p>
-<div class="book-wrap">
-<div class="line-card">
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://lin.ee/XOMWpls&margin=6&format=png" alt="LINE QR Code">
-<h3>也可以直接加 LINE 諮詢</h3>
-<p>掃描 QR Code 或點選下方連結，客服即時回覆</p>
-<a href="https://lin.ee/XOMWpls" target="_blank" class="btn btn-green" style="width:100%">加 LINE 諮詢</a>
-</div>
-<form class="bk-grid" id="bookForm">
-<div class="field"><label>姓名 <span class="req">*</span></label><input type="text" name="name" required></div>
-<div class="field"><label>手機 <span class="req">*</span></label><input type="tel" name="phone" required></div>
-<div class="field"><label>LINE ID</label><input type="text" name="line"></div>
-<div class="field">
-<label>目的地 <span class="req">*</span></label>
-<select name="destination" required>
-<option value="">請選擇</option><option value="日本">日本</option><option value="泰國">泰國</option><option value="馬來西亞">馬來西亞</option><option value="新加坡">新加坡</option><option value="其他">其他（備註說明）</option>
-</select>
-</div>
-<div class="field"><label>出發日期 <span class="req">*</span></label><input type="date" name="departDate" required></div>
-<div class="field"><label>開球日期 <span class="req">*</span></label><input type="date" name="teeDate" required></div>
-<div class="field full">
-<label>球袋數量 <span class="req">*</span></label>
-<select name="bagCount" required>
-<option value="">請選擇</option><option value="1 套">1 套</option><option value="2 套">2 套</option><option value="3 套">3 套</option><option value="4 套以上（企業／球隊）">4 套以上（企業／球隊）</option>
-</select>
-</div>
-<div class="field full">
-<p class="form-fine">收件地址、海外配送地點、保險需求、回程安排等細節，收到預約需求後，客服將透過 LINE 逐一確認，無需在此填寫。</p>
-</div>
-<div class="form-ft">
-<p class="form-fine">客服將於 24 小時內以 LINE 或電話聯絡。</p>
-<button type="submit" class="btn btn-navy" style="padding:15px 36px">送出預約需求</button>
-</div>
-</form>
-</div>
-</div>
-</section>
-
 <footer>
 <div class="container">
 <div class="foot-grid">
@@ -506,13 +651,13 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 <div class="foot-logo">Golf Travel <span>Mobility</span></div>
 <p class="foot-desc">結合高爾夫產業通路與國際物流，為亞洲高爾夫旅客打造的跨國球袋運送服務。</p>
 </div>
-<div class="foot-col"><h4>Service</h4><ul><li><a href="#how">服務流程</a></li><li><a href="#routes">路線與費用</a></li><li><a href="#trust">安心機制</a></li></ul></div>
-<div class="foot-col"><h4>Support</h4><ul><li><a href="#faq">常見問題</a></li><li><a href="#book">開始預約</a></li><li><a href="#corp">企業方案</a></li></ul></div>
-<div class="foot-col"><h4>Contact</h4><ul><li><a href="https://lin.ee/XOMWpls" target="_blank">LINE：lin.ee/XOMWpls</a></li><li>週一至週六 09:00–21:00</li></ul></div>
+<div class="foot-col"><h4>Service</h4><ul><li><a href="#how">服務流程</a></li><li><a href="#routes">路線與費用</a></li><li><a href="#pay">報價與付款</a></li><li><a href="#policy">取消政策</a></li></ul></div>
+<div class="foot-col"><h4>Support</h4><ul><li><a href="#book">填寫預約</a></li><li><a href="#track">查詢訂單進度</a></li><li><a href="#change">修改／取消申請</a></li><li><a href="#faq">常見問題</a></li></ul></div>
+<div class="foot-col"><h4>Contact</h4><ul><li><a href="https://lin.ee/XOMWpls" target="_blank">LINE：lin.ee/XOMWpls</a></li><li>客服服務時間：週一至週五 9:00–18:00</li><li>客服將於服務時間內回覆您的預約、報價與訂單問題。</li></ul></div>
 </div>
 <div class="foot-bottom">
 <div>© 2026 Golf Travel Mobility Service. All rights reserved.</div>
-<div>所有價格、合作關係與保險條件依正式合約為準。</div>
+<div>所有價格、合作關係與保險條件依正式報價與合約為準。</div>
 </div>
 </div>
 </footer>
@@ -520,15 +665,18 @@ footer{background:var(--navy);color:rgba(255,255,255,.65);padding:64px 0 30px}
 <div class="modal-overlay" id="modal">
 <div class="modal-box">
 <div class="modal-check">✓</div>
-<h3>已收到您的預約需求。</h3>
-<p>客服將於 24 小時內透過 LINE 或電話聯絡，確認服務方案與配送細節。如為急件，歡迎直接 LINE 客服。</p>
+<h3 id="modalTitle"></h3>
+<p id="modalBody"></p>
 <div class="close-row"><button class="btn btn-outline" onclick="closeModal()">關閉</button></div>
 </div>
 </div>
 
 <script>
+const API='https://script.google.com/macros/s/AKfycbwor_ByLuLAbireJpxKOZQy1VFG6r4Th2Eklv2EIbKrmjZC3Tb3LMKtc6kQIXkbodTL/exec';
+
 (function(){
-const p=new URLSearchParams(window.location.search),c=p.get('course');
+const p=new URLSearchParams(window.location.search),c=p.get('course'),o=p.get('order');
+if(o){const f=document.querySelector('#trackForm [name="order"]');if(f)f.value=o;}
 if(!c)return;
 const m={shanxidi:'山溪地高爾夫球場',meilihua:'美麗華球場',datunshan:'大屯球場',demo:'示範球場'};
 document.getElementById('courseName').textContent=m[c]||decodeURIComponent(c);
@@ -552,46 +700,101 @@ document.getElementById('qbAmt').textContent=priceMap[this.value]||'8,800';
 function goBook(){
 const dest=document.getElementById('qDest').value;
 const date=document.getElementById('qDate').value;
-if(dest){const s=document.querySelector('[name="destination"]');if(s)s.value=dest;}
-if(date){const s=document.querySelector('[name="departDate"]');if(s)s.value=date;}
+const trip=document.getElementById('qTrip').value;
+if(dest){const s=document.querySelector('#bookForm [name="destination"]');if(s)s.value=dest;}
+if(date){const s=document.querySelector('#bookForm [name="departDate"]');if(s)s.value=date;}
+if(trip){const s=document.querySelector('#bookForm [name="trip"]');if(s)s.value=trip;}
 document.getElementById('book').scrollIntoView({behavior:'smooth'});
 }
 
-// 表單送出
-document.getElementById('bookForm').addEventListener('submit', async function(e) {
-e.preventDefault();
-const btn = this.querySelector('[type="submit"]');
-const orig = btn.textContent;
-btn.disabled = true;
-btn.textContent = '送出中...';
-const fd = new FormData(this);
-const data = {
-  name: fd.get('name') || '',
-  phone: fd.get('phone') || '',
-  line: fd.get('line') || '',
-  destination: fd.get('destination') || '',
-  departDate: fd.get('departDate') || '',
-  teeDate: fd.get('teeDate') || '',
-  bagCount: fd.get('bagCount') || ''
-};
-try {
-  await fetch('https://script.google.com/macros/s/AKfycbwor_ByLuLAbireJpxKOZQy1VFG6r4Th2Eklv2EIbKrmjZC3Tb3LMKtc6kQIXkbodTL/exec', {
-    method: 'POST', mode: 'no-cors',
-    headers: {'Content-Type': 'text/plain'},
-    body: JSON.stringify(data)
-  });
-  document.getElementById('modal').classList.add('show');
-  this.reset();
-  btn.disabled = false;
-  btn.textContent = orig;
-} catch(err) {
-  btn.disabled = false;
-  btn.textContent = orig;
-  alert('送出失敗，請直接 LINE 客服。');
+function showModal(title,html){
+document.getElementById('modalTitle').textContent=title;
+document.getElementById('modalBody').innerHTML=html;
+document.getElementById('modal').classList.add('show');
 }
-});
 function closeModal(){document.getElementById('modal').classList.remove('show');}
 document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+function newOrderId(){
+const d=new Date(),pad=n=>String(n).padStart(2,'0');
+const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+let r='';for(let i=0;i<4;i++)r+=chars[Math.floor(Math.random()*chars.length)];
+return 'GTM'+String(d.getFullYear()).slice(2)+pad(d.getMonth()+1)+pad(d.getDate())+'-'+r;
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+// 送出預約需求
+document.getElementById('bookForm').addEventListener('submit', async function(e){
+e.preventDefault();
+const btn=this.querySelector('[type="submit"]'),orig=btn.textContent;
+btn.disabled=true;btn.textContent='送出中...';
+const fd=new FormData(this),orderId=newOrderId();
+const data={type:'booking',orderId:orderId};
+['name','phone','email','notify','origin','destination','departDate','teeDate','bagCount','trip','note'].forEach(k=>data[k]=fd.get(k)||'');
+try{
+  await fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data)});
+  showModal('已收到您的預約需求。',
+    '您的預約編號：<strong style="color:var(--ink);font-size:16px">'+esc(orderId)+'</strong><br>'+
+    '請保存此編號，可用於查詢訂單進度。<br><br>'+
+    '客服將於週一至週五 9:00–18:00 確認資料，並與您聯繫後續報價與付款方式。<br>'+
+    '提醒：送出預約需求不代表訂單成立，完成付款後訂單才正式成立。');
+  this.reset();
+}catch(err){
+  alert('送出失敗，請稍後再試，或直接 LINE 客服。');
+}
+btn.disabled=false;btn.textContent=orig;
+});
+
+// 查詢訂單進度
+document.getElementById('trackForm').addEventListener('submit', async function(e){
+e.preventDefault();
+const btn=this.querySelector('[type="submit"]'),orig=btn.textContent;
+const err=document.getElementById('trackErr'),box=document.getElementById('trackResult');
+err.classList.remove('show');box.classList.remove('show');
+btn.disabled=true;btn.textContent='查詢中...';
+const fd=new FormData(this);
+try{
+  const res=await fetch(API,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({type:'lookup',order:fd.get('order'),contact:fd.get('contact')})});
+  const r=await res.json();
+  if(!r.ok){
+    err.textContent=r.error==='not_found'?'查無此訂單，請確認預約編號與 Email／手機是否與預約時相同。':'查詢暫時無法使用，請稍後再試或聯絡客服。';
+    err.classList.add('show');
+  }else{
+    const o=r.order,dash=v=>v?v:'尚未提供';
+    document.getElementById('rOrder').textContent=o.orderId;
+    document.getElementById('rName').textContent=o.name;
+    document.getElementById('rStatus').textContent=o.status;
+    document.getElementById('rPay').textContent=dash(o.payStatus);
+    document.getElementById('rPickup').textContent=dash(o.pickupDate);
+    document.getElementById('rDeliver').textContent=dash(o.deliveryDate);
+    document.getElementById('rCarrier').textContent=dash(o.carrier);
+    document.getElementById('rTracking').textContent=dash(o.tracking);
+    document.getElementById('rDelivered').textContent=o.delivered?'已送達':'尚未送達';
+    box.classList.add('show');
+  }
+}catch(ex){
+  err.textContent='查詢暫時無法使用，請稍後再試或聯絡客服。';
+  err.classList.add('show');
+}
+btn.disabled=false;btn.textContent=orig;
+});
+
+// 修改／取消申請
+document.getElementById('changeForm').addEventListener('submit', async function(e){
+e.preventDefault();
+const btn=this.querySelector('[type="submit"]'),orig=btn.textContent;
+btn.disabled=true;btn.textContent='送出中...';
+const fd=new FormData(this);
+const data={type:'change',order:fd.get('order')||'',contact:fd.get('contact')||'',item:fd.get('item')||'',detail:fd.get('detail')||''};
+try{
+  await fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(data)});
+  showModal('已收到您的修改／取消申請。','客服將確認訂單與物流狀態後回覆您。<br>客服服務時間：週一至週五 9:00–18:00。');
+  this.reset();
+}catch(ex){
+  alert('送出失敗，請稍後再試，或直接 LINE 客服。');
+}
+btn.disabled=false;btn.textContent=orig;
+});
 </script>
 </body>
 </html>
