@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Golf Travel Mobility — 수하물 찾기는 건너뛰고, 골프백은 골프장으로 직송</title>
-<meta name="description" content="대만 자택에서 골프백을 픽업해 해외 골프장·호텔·훈련 기지로 직송. LINE으로 전 과정 추적. 이제 골프백을 메고 여행하지 마세요.">
+<title>Golf Travel Mobility — VIP 골프 여행 백 컨시어지</title>
+<meta name="description" content="VIP 골프 여행 백 컨시어지. 대만 픽업부터 해외 골프장·호텔·훈련 기지 배송, 고객 추적 페이지, Email, LINE, WhatsApp, SMS 알림 설계까지 지원합니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -82,7 +82,7 @@
 
   /* ── Hero：滿版照片 + 極簡大字 ── */
   .hero{position:relative;margin:0 20px;border-radius:18px;overflow:hidden;min-height:560px;display:flex;align-items:center}
-  .hero::before{content:'';position:absolute;inset:0;background:url('imgs/hero.jpg') center/cover;z-index:0}
+  .hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1800&q=82') center/cover;z-index:0}
   .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,20,30,.45) 0%,rgba(10,20,30,.08) 65%);z-index:1}
   .hero-content{position:relative;z-index:2;padding:80px 72px;color:var(--white)}
   .hero h1{font-size:74px;font-weight:400;line-height:1.12;letter-spacing:-1px;text-shadow:0 2px 24px rgba(0,0,0,.25)}
@@ -132,8 +132,8 @@
   .who h2 b{font-weight:900}
   .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}
   .who-card{background:var(--white);border-radius:14px;padding:34px 26px}
-  .who-card .ico{font-size:34px;margin-bottom:14px}
-  .who-card h3{font-size:17px;font-weight:700;margin-bottom:8px}
+  .who-card .ico{display:none}
+  .who-card h3{font-size:18px;font-weight:800;margin-bottom:10px;color:var(--navy)}
   .who-card p{font-size:14px;color:var(--gray);line-height:1.75}
   @media(max-width:900px){.who h2{font-size:32px}.who-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:560px){.who-grid{grid-template-columns:1fr}}
@@ -165,10 +165,44 @@
   .trust .lead{font-size:16px;color:rgba(255,255,255,.65);margin-top:20px;max-width:520px}
   .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
   .trust-card{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:30px 26px}
-  .trust-card .ico{width:48px;height:48px;border-radius:12px;background:rgba(123,192,67,.15);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
-  .trust-card h3{font-size:16.5px;font-weight:700;margin-bottom:8px}
+  .trust-card .ico{display:none}
+  .trust-card h3{font-size:17px;font-weight:800;margin-bottom:10px}
   .trust-card p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.75}
   @media(max-width:900px){.trust h2{font-size:34px}.trust-grid{grid-template-columns:1fr;gap:12px}}
+
+  /* ── 追蹤頁展示 ── */
+  .tracking{padding:90px 0;background:#F8FAFC}
+  .tracking h2{font-size:46px;font-weight:400;text-align:center;letter-spacing:-1px}
+  .tracking h2 b{font-weight:900}
+  .tracking .lead{text-align:center;font-size:15.5px;color:var(--gray);max-width:680px;margin:16px auto 0}
+  .tracking-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;margin-top:48px;align-items:start}
+  .online-booking{grid-column:1 / -1;text-align:center;background:var(--white);border:1px solid var(--gray-lt);border-radius:12px;padding:42px 30px}
+  .online-booking p{color:var(--gray);line-height:1.8;margin:0 auto 22px;max-width:560px}
+  .track-panel{background:var(--white);border:1px solid #DDE4EA;border-radius:16px;padding:30px;box-shadow:0 18px 45px rgba(22,32,46,.08)}
+  .track-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;border-bottom:1px solid var(--gray-lt);padding-bottom:20px;margin-bottom:22px}
+  .track-id{font-size:13px;color:var(--gray);font-weight:600}
+  .track-status{font-size:30px;font-weight:800;color:var(--navy);line-height:1.2;margin-top:4px}
+  .secure-badge{display:inline-flex;align-items:center;justify-content:center;background:#F1F8E9;color:var(--green-dk);font-size:12px;font-weight:700;border-radius:999px;padding:6px 12px;white-space:nowrap}
+  .timeline{display:grid;gap:16px}
+  .time-row{display:grid;grid-template-columns:28px 1fr;gap:12px}
+  .dot{width:14px;height:14px;border-radius:50%;background:var(--green);margin-top:6px;box-shadow:0 0 0 6px #EDF8E7}
+  .dot.pending{background:#CBD5DF;box-shadow:0 0 0 6px #F0F3F6}
+  .time-row h3{font-size:15px;font-weight:800;color:var(--ink)}
+  .time-row p{font-size:13.5px;color:var(--gray);line-height:1.7;margin-top:2px}
+  .track-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+  .mini-card{border:1px solid var(--gray-lt);border-radius:12px;padding:16px}
+  .mini-card .lab{font-size:12px;color:var(--gray);font-weight:600;margin-bottom:4px}
+  .mini-card .val{font-size:15px;font-weight:800;color:var(--navy)}
+  .channel-list{display:grid;gap:12px;margin-top:22px}
+  .channel{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--gray-lt);border-radius:12px;padding:14px 16px;font-size:14px}
+  .channel strong{color:var(--navy)}
+  .channel span{font-size:12px;color:var(--gray)}
+  @media(max-width:900px){
+    .tracking h2{font-size:32px}
+    .tracking-wrap{grid-template-columns:1fr}
+    .track-head{flex-direction:column}
+    .track-card-grid{grid-template-columns:1fr}
+  }
 
   /* ── 見證 ── */
   .quotes{padding:90px 0}
@@ -178,7 +212,7 @@
   .quote-card{border:1.5px solid var(--gray-lt);border-radius:14px;padding:32px 28px;display:flex;flex-direction:column}
   .quote-card .txt{font-size:15.5px;line-height:1.9;color:var(--ink);flex:1}
   .quote-card .name{margin-top:22px;font-weight:800;font-size:15px;display:flex;align-items:center;gap:8px}
-  .quote-card .name::before{content:'⛳'}
+  .quote-card .name::before{content:'';display:none}
   @media(max-width:900px){.quotes h2{font-size:32px}.quote-grid{grid-template-columns:1fr}}
 
   /* ── FAQ（淺藍區塊）── */
@@ -201,7 +235,7 @@
   /* ── 企業方案 ── */
   .corp{padding:0 20px 90px}
   .corp-box{position:relative;border-radius:18px;overflow:hidden;padding:88px 72px;display:flex;justify-content:space-between;align-items:center;gap:40px}
-  .corp-box::before{content:'';position:absolute;inset:0;background:url('imgs/corp.jpg') center/cover}
+  .corp-box::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1600&q=80') center/cover}
   .corp-box::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,32,46,.82),rgba(22,32,46,.35))}
   .corp-content{position:relative;z-index:2;color:var(--white)}
   .corp-content h2{font-size:44px;font-weight:400;line-height:1.25;letter-spacing:-1px}
@@ -261,6 +295,39 @@
   .modal-box h3{font-size:20px;font-weight:800;margin-bottom:10px}
   .modal-box p{font-size:14px;color:var(--gray);line-height:1.85;margin-bottom:22px}
   .modal-box .close-row{display:flex;justify-content:flex-end}
+
+  /* ── VIP 質感強化 ── */
+  .who .lead2{text-align:center;font-size:15.5px;color:var(--gray);max-width:640px;margin:16px auto 0}
+  .who-grid{margin-top:44px;gap:16px}
+  .who-card{border:1px solid #DCE3E9;border-top:3px solid var(--navy);border-radius:6px;padding:0;display:flex;flex-direction:column}
+  .wc-top{display:flex;justify-content:space-between;align-items:center;padding:22px 26px 0}
+  .wc-tag{font-size:10.5px;font-weight:700;letter-spacing:2.5px;color:var(--green-dk)}
+  .wc-num{font-size:12px;font-weight:600;color:#AEB9C4;letter-spacing:1px}
+  .who-card h3{font-size:19px;padding:10px 26px 16px;margin:0;border-bottom:1px solid var(--gray-lt)}
+  .wc-row{padding:13px 26px;border-bottom:1px solid var(--gray-lt)}
+  .wc-lab{display:block;font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--gray);margin-bottom:4px;text-transform:uppercase}
+  .wc-row p{font-size:13.5px;color:var(--ink);line-height:1.7}
+  .wc-cta{margin-top:auto;padding:18px 26px 22px}
+  .wc-cta a{font-size:14px;font-weight:700;color:var(--navy);display:inline-flex;align-items:center;gap:8px;padding-bottom:4px;border-bottom:2px solid var(--green)}
+  .wc-cta a:hover{color:var(--green-dk)}
+  .plan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+  .plan{border:1px solid #DCE3E9;border-top:3px solid var(--green);border-radius:6px;padding:24px 24px 26px;background:var(--white)}
+  .plan .plan-tag{font-size:10.5px;font-weight:700;letter-spacing:2.5px;color:var(--gray)}
+  .plan h3{font-size:17px;font-weight:800;color:var(--navy);margin:10px 0}
+  .plan p{font-size:13.5px;color:var(--gray);line-height:1.75}
+  .tracking-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+  .track-block{background:var(--white);border:1px solid #DCE3E9;border-top:3px solid var(--navy);border-radius:6px;padding:24px}
+  .tb-tag{font-size:10.5px;font-weight:700;letter-spacing:2.5px;color:var(--green-dk)}
+  .track-block h3{font-size:17px;font-weight:800;color:var(--navy);margin:10px 0 4px}
+  .tb-list{list-style:none;margin:0;padding:0}
+  .tb-list li{padding:9px 0;border-bottom:1px solid var(--gray-lt);font-size:13px;color:var(--ink);line-height:1.65}
+  .tb-list li:last-child{border-bottom:none}
+  .tracking .fine2{text-align:center;font-size:13px;color:var(--gray);margin-top:26px}
+  .book-wrap{display:block;max-width:880px;margin:56px auto 0}
+  .field-type{border:1px solid var(--green);border-left:4px solid var(--green);border-radius:6px;padding:18px 20px;background:#FBFDF9}
+  .field-type label{font-size:15px;font-weight:700}
+  @media(max-width:900px){.plan-grid{grid-template-columns:repeat(2,1fr)}.tracking-cols{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.plan-grid{grid-template-columns:1fr}.tracking-cols{grid-template-columns:1fr}}
 </style>
 </head>
 <body id="top">
@@ -308,11 +375,11 @@
       <input type="date" id="qDate">
     </div>
     <div class="qb-field">
-      <label>배송 유형</label>
-      <select id="qTrip"><option>왕복</option><option>편도</option></select>
+      <label>서비스 유형</label>
+      <select id="qTrip"><option>개인 골프 여행</option><option>기업 접대</option><option>팀／단체</option><option>골프장／호텔 제휴</option></select>
     </div>
     <div class="qb-price">
-      <span class="from">₩</span><span class="amt" id="qbAmt">427,000</span><span class="per">부터／편도</span>
+      <span class="from">약 ₩</span><span class="amt" id="qbAmt">380,000</span><span class="per">부터／편도</span>
     </div>
     <button class="btn btn-navy" onclick="goBook()">견적 받기</button>
   </div>
@@ -321,11 +388,10 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-content">
-    <h1>짐 찾는 줄은 <b>건너뛰세요.</b><br><b>골프백은 저희가.</b></h1>
-    <p class="sub">대만에서 픽업, 해외 골프장으로 직송. 도착하면 바로 라운드.</p>
+    <h1>골프백은 먼저 골프장에<b>.</b><br><b>당신은 도착해 바로 라운드.</b></h1>
+    <p class="sub">국제 골프백 컨시어지: 픽업, 골프장 수령 확인, 전담 추적, 다채널 알림까지.</p>
     <div class="hero-cta">
-      <a href="#book" class="btn btn-green" style="padding:16px 36px;font-size:16px">픽업 예약하기</a>
-      <a href="#routes" class="btn btn-white" style="padding:16px 36px;font-size:16px">노선·요금 보기</a>
+      <a href="#book" class="btn btn-green" style="padding:16px 36px;font-size:16px">VIP 골프 여행 예약</a>
     </div>
   </div>
 </section>
@@ -336,8 +402,8 @@
     <div class="stats-grid">
       <div class="stat"><div class="num">60<span>+</span></div><div class="lab">제휴 골프장</div></div>
       <div class="stat"><div class="num">4</div><div class="lab">인기 목적지</div></div>
-      <div class="stat"><div class="num">24<span>H</span></div><div class="lab">고객센터 응답</div></div>
-      <div class="stat"><div class="num" style="color:var(--green)">LINE</div><div class="lab">실시간 추적</div></div>
+      <div class="stat"><div class="num">9<span>–</span>18</div><div class="lab">평일 고객센터</div></div>
+      <div class="stat"><div class="num" style="color:var(--green)">TRACK</div><div class="lab">웹 추적 페이지 중심</div></div>
     </div>
   </div>
 </div>
@@ -346,12 +412,12 @@
 <section class="split" id="how">
   <div class="split-inner">
     <div>
-      <h2>훌쩍 떠나는 골프 여행, <b>여기서 시작.</b></h2>
-      <p>해외 골프 여행을 상상해 보세요 — 무거운 골프백도, 긴 줄도, '골프백이 비행기를 놓쳤습니다'도 없습니다. 몸만 가볍게 출발하세요. 클럽은 이미 골프장에서 기다리고 있습니다.</p>
-      <div class="act"><a href="#book" class="btn btn-outline">픽업 예약하기</a></div>
+      <h2>단순 배송이 아니라, <b>골프 여행 리스크를 관리합니다.</b></h2>
+      <p>개인 골퍼, 기업 접대, 팀 전지훈련, 골프장 회원을 위해 픽업, 포장 기록, 국제 배송, 통관 추적, 골프장／호텔 수령 확인, 귀국편 예약까지 지원합니다.</p>
+      <div class="act"><a href="#book" class="btn btn-outline">전담 상담 예약</a></div>
     </div>
     <div class="split-img">
-      <img src="imgs/step1.jpg" alt="골프 스윙">
+      <img src="https://images.unsplash.com/photo-1592919505780-303950717480?auto=format&fit=crop&w=1000&q=80" alt="골프 스윙">
     </div>
   </div>
 </section>
@@ -361,11 +427,11 @@
   <div class="split-inner rev">
     <div>
       <div class="step-num">1. 온라인으로 <b>예약.</b></div>
-      <p>목적지, 출발일, 골프백 수량만 입력하거나 LINE으로 문의하세요. 24시간 이내 견적과 픽업 시간을 안내합니다.</p>
+      <p>개인, 기업, 팀, 제휴 고객 유형을 선택하고 목적지, 출발일, 골프백 수량을 입력하세요. 영업시간(평일 9:00–18:00, 대만 시간) 내에 적합한 플랜, 견적, 픽업 시간을 안내합니다.</p>
       <div class="step-note">출발 7–10일 전 예약 권장</div>
     </div>
     <div class="split-img">
-      <img src="imgs/step2.jpg" alt="온라인 예약">
+      <img src="https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?auto=format&fit=crop&w=1000&q=80" alt="온라인 예약">
     </div>
   </div>
 </section>
@@ -375,11 +441,11 @@
   <div class="split-inner">
     <div>
       <div class="step-num">2. 자택 픽업, <b>골프백 출발.</b></div>
-      <p>평소처럼 클럽을 가방에 넣기만 하면 됩니다. 전담 직원이 방문 픽업하고 포장 상태를 사진으로 기록, 국제 특송으로 발송하며 추적 번호를 바로 보내드립니다.</p>
+      <p>자택 또는 제휴 골프장에서 픽업하고 포장 상태를 확인해 사진으로 기록합니다. 주문 생성 후 고객에게 전용 추적 페이지를 제공합니다.</p>
       <div class="step-note">대만 구간은 저희 팀이 전담</div>
     </div>
     <div class="split-img">
-      <img src="imgs/step3.jpg" alt="골프백 픽업">
+      <img src="https://images.unsplash.com/photo-1530028828-25e8270793c5?auto=format&fit=crop&w=1000&q=80" alt="골프백 픽업">
     </div>
   </div>
 </section>
@@ -389,89 +455,74 @@
   <div class="split-inner rev">
     <div>
       <div class="step-num">3. 도착, <b>바로 라운드.</b></div>
-      <p>골프백은 이미 프로샵이나 호텔에 도착해 있고 LINE으로 알림을 드립니다. 모처럼 비행을 즐기세요 — 수하물 찾기는 남의 일입니다.</p>
+      <p>골프백이 프로샵, 호텔, 훈련 기지에 도착하면 수령 확인까지 완료합니다. 고객은 추적 페이지에서 상태를 확인하고 Email, LINE, WhatsApp, SMS 중 선호 채널로 알림을 받습니다.</p>
       <div class="step-note">귀국편도 함께 예약, 라운드 후 바로 대만으로 반송</div>
     </div>
     <div class="split-img">
-      <img src="imgs/step4.jpg" alt="라운드 시작">
+      <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1000&q=80" alt="라운드 시작">
     </div>
   </div>
 </section>
 
 <!-- 適合對象 -->
-<section class="who">
-  <div class="container">
-    <h2>이분들은 이미 <b>골프백을 내려놨습니다.</b></h2>
-    <div class="who-grid">
-      <div class="who-card"><div class="ico">✈️</div><h3>해외 골프 여행자</h3><p>더 이상 골프백 메고 환승하지 마세요. 몸은 가볍게, 클럽이 먼저 도착합니다.</p></div>
-      <div class="who-card"><div class="ico">🏢</div><h3>기업 VIP 접대</h3><p>배송 일괄 예약으로 접대 품질 상승, 고객에게 전문적인 인상을 남깁니다.</p></div>
-      <div class="who-card"><div class="ico">🏌️</div><h3>전지훈련 팀</h3><p>여러 명의 골프백을 한 번에 배송. 일정 혼란과 운반 수고를 줄입니다.</p></div>
-      <div class="who-card"><div class="ico">⭐</div><h3>프리미엄 골프장 회원</h3><p>고정 배송 루틴을 만들어 두면, 골프백 걱정은 끝.</p></div>
-    </div>
-  </div>
-</section>
 
 <!-- 路線與價格 -->
 <section class="routes" id="routes">
   <div class="container">
-    <h2>아시아 4대 인기 노선, <b>투명한 요금.</b></h2>
-    <p class="lead">아래는 편도·1백 기준 예상 시작가입니다. 실제 요금은 출발일·배송지·보험에 따라 확정되며 예약 후 24시간 이내 안내드립니다.</p>
+    <h2>참고 가격과 <b>서비스 플랜.</b></h2>
+    <p class="lead">노선별 편도·1백 기준 참고 시작 가격입니다. 최종 가격은 배송지·일정·보험·왕복 일정에 따라 확정되며 예약 후 영업시간(평일 9:00–18:00, 대만 시간) 내에 안내됩니다.</p>
     <div class="route-grid">
       <div class="route-card pick">
         <div class="pick-badge">최다 선택</div>
-        <div class="dest">🇯🇵 일본</div>
+        <div class="dest">일본</div>
         <div class="area">오사카·도쿄·홋카이도·오키나와<br>항공편이 많고 가장 성숙한 노선</div>
-        <div class="price"><span class="from">₩</span><span class="amt">427,000</span><span class="from">~</span></div>
+        <div class="price"><span class="from">약 ₩</span><span class="amt">380,000</span><span class="from">~</span></div>
         <div class="per">편도／1백</div>
       </div>
       <div class="route-card">
-        <div class="dest">🇲🇾 말레이시아</div>
+        <div class="dest">말레이시아</div>
         <div class="area">쿠알라룸푸르·조호르·겐팅<br>연중 라운드 가능, 장기 여행에 최적</div>
-        <div class="price"><span class="from">₩</span><span class="amt">485,000</span><span class="from">~</span></div>
+        <div class="price"><span class="from">약 ₩</span><span class="amt">430,000</span><span class="from">~</span></div>
         <div class="per">편도／1백</div>
       </div>
       <div class="route-card">
-        <div class="dest">🇸🇬 싱가포르</div>
+        <div class="dest">싱가포르</div>
         <div class="area">전 지역 배송<br>비즈니스 접대·기업 VIP 일정</div>
-        <div class="price"><span class="from">₩</span><span class="amt">485,000</span><span class="from">~</span></div>
+        <div class="price"><span class="from">약 ₩</span><span class="amt">430,000</span><span class="from">~</span></div>
         <div class="per">편도／1백</div>
       </div>
       <div class="route-card">
-        <div class="dest">🇹🇭 태국</div>
+        <div class="dest">태국</div>
         <div class="area">방콕·치앙마이·후아힌·파타야<br>전지훈련과 장기 골프 여행</div>
-        <div class="price"><span class="from">₩</span><span class="amt">607,000</span><span class="from">~</span></div>
+        <div class="price"><span class="from">약 ₩</span><span class="amt">540,000</span><span class="from">~</span></div>
         <div class="per">편도／1백</div>
       </div>
     </div>
-    <p class="fine">VIP 특급, 기업 계약, 연간 플랜은 별도 견적. 위 금액은 예상 시작가이며 최종 확정가가 아닙니다.</p>
+    <div class="plan-grid">
+      <div class="plan"><div class="plan-tag">STANDARD</div><h3>참고 가격</h3><p>위 가격은 노선별 참고 시작가로, 출발 7–10일 전 예약에 적합합니다.</p></div>
+      <div class="plan"><div class="plan-tag">VIP EXPRESS</div><h3>VIP 특급</h3><p>최소 3–5일 내 준비. 우선 처리와 전담 모니터링으로 임박한 VIP 일정에 대응합니다.</p></div>
+      <div class="plan"><div class="plan-tag">GROUP / CORPORATE</div><h3>단체／기업 견적</h3><p>3백 이상 단체 할인. 접대·전지훈련은 일괄 플랜과 전담 창구를 제공합니다.</p></div>
+      <div class="plan"><div class="plan-tag">ANNUAL</div><h3>연간 제휴 플랜</h3><p>골프장·호텔·여행사·기업 연간 계약. 정형 절차, 추천 코드, 정산을 지원합니다.</p></div>
+    </div>
+    <p class="fine">최종 가격은 배송지·일정·보험·왕복 일정 확정 후 안내됩니다. 표시 가격은 참고 시작가이며 확정 금액이 아닙니다.</p>
     <div style="text-align:center;margin-top:32px"><a href="#book" class="btn btn-green" style="padding:15px 36px">픽업 예약하기</a></div>
   </div>
 </section>
 
+<!-- 고객 추적 페이지 -->
+
 <!-- 安心機制（深藍區塊）-->
 <section class="trust" id="trust">
   <div class="container">
-    <h2>보내기만 하지 않습니다. <b>도착까지 지켜봅니다.</b></h2>
-    <p class="lead">대만 픽업부터 해외 골프장 도착까지 모든 구간을 먼저 알려드립니다. 클럽이 받는 건 퍼스트클래스 대우 — 수하물칸에선 없던 일이죠.</p>
+    <h2>보내기만 하지 않습니다. <b>수령 확인까지 지켜봅니다.</b></h2>
+    <p class="lead">대만 픽업부터 해외 골프장 도착까지 모든 단계를 기록합니다. 추적 페이지가 상태 중심이며, 알림은 고객 선호 채널로 발송됩니다.</p>
     <div class="trust-grid">
-      <div class="trust-card"><div class="ico">📱</div><h3>LINE 전 과정 알림</h3><p>픽업·출발·통관·도착, 모든 구간을 먼저 메시지로 알려드립니다. 추적 번호를 직접 조회할 필요가 없습니다.</p></div>
-      <div class="trust-card"><div class="ico">📸</div><h3>포장 사진 기록</h3><p>픽업 시 상태를 확인하고 촬영, 발송 전 재확인해 분쟁 위험을 줄입니다.</p></div>
-      <div class="trust-card"><div class="ico">🚚</div><h3>국제 특송 정식 배송</h3><p>공식 추적 번호로 실시간 조회, 상담팀도 전 구간을 함께 모니터링합니다.</p></div>
-      <div class="trust-card"><div class="ico">🛠️</div><h3>이상 상황 즉시 대응</h3><p>지연, 통관 문제, 주소 오류 발생 시 상담팀이 즉시 개입해 처리합니다.</p></div>
-      <div class="trust-card"><div class="ico">✅</div><h3>골프장 도착 확인</h3><p>골프장·호텔 담당자에게 연락해 골프백이 안전하게 도착했는지 확인합니다.</p></div>
-      <div class="trust-card"><div class="ico">🔄</div><h3>귀국편도 함께</h3><p>여행이 끝나면 해외에서 바로 대만으로 반송. 골프백 메고 비행기 탈 일이 없습니다.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 見證 -->
-<section class="quotes">
-  <div class="container">
-    <h2>골퍼들의 <b>후기.</b></h2>
-    <div class="quote-grid">
-      <div class="quote-card"><div class="txt">"처음으로 골프백보다 가볍게 일본에 도착했어요. 내려서 바로 라멘 먹으러 갔는데, 골프백은 이미 골프장에 와 있더군요."</div><div class="name">천 님 · 타이베이</div></div>
-      <div class="quote-card"><div class="txt">"고객과 싱가포르 라운드, 골프백 4개를 한 번에 보냈습니다. 고객이 빈손으로 입국하니 신뢰도가 확 올라가더군요."</div><div class="name">린 팀장 · 기업 접대</div></div>
-      <div class="quote-card"><div class="txt">"수강생 골프백 12개를 태국 훈련 기지로 한 번에 배송. 아낀 시간과 체력은 전부 연습에 썼습니다."</div><div class="name">왕 코치 · 전지훈련</div></div>
+      <div class="trust-card"><h3>고객 추적 페이지</h3><p>모든 주문에 안전한 추적 페이지를 생성해 특정 메신저에 의존하지 않고 상태를 확인합니다.</p></div>
+      <div class="trust-card"><h3>포장 사진 기록</h3><p>픽업 시 상태를 확인하고 촬영, 발송 전 재확인해 분쟁 위험을 줄입니다.</p></div>
+      <div class="trust-card"><h3>국제 배송 모니터링</h3><p>운송사 추적 번호와 내부 상태를 함께 관리하며 전 구간을 모니터링합니다.</p></div>
+      <div class="trust-card"><h3>이상 상황 즉시 대응</h3><p>지연, 통관 문제, 주소 오류 발생 시 상담팀이 즉시 개입해 처리합니다.</p></div>
+      <div class="trust-card"><h3>골프장 도착 확인</h3><p>골프장·호텔 담당자에게 연락해 골프백이 안전하게 도착했는지 확인합니다.</p></div>
+      <div class="trust-card"><h3>귀국편도 함께</h3><p>여행이 끝나면 해외에서 바로 대만으로 반송. 골프백 메고 비행기 탈 일이 없습니다.</p></div>
     </div>
   </div>
 </section>
@@ -480,8 +531,8 @@
 <section class="corp" id="corp">
   <div class="corp-box">
     <div class="corp-content">
-      <h2>기업 팀·비즈니스 접대·<b>연간 계약 플랜.</b></h2>
-      <p>정기 교류전, 고객 접대, 팀 해외 훈련 — 연간 계약, 일괄 배송, 세금계산서 발행, 전담 상담 창구를 제공합니다.</p>
+      <h2>기업 접대·팀 전지훈련·<b>골프장 회원 도입.</b></h2>
+      <p>기업 라운드, VIP 접대, 해외 대회에 일괄 배송, 전담 창구, 단체 추적 페이지, 골프장／호텔 수령 확인, 귀국편 예약을 제공합니다. 단순 짐 처리가 아니라 컨시어지 경험으로 만듭니다.</p>
     </div>
     <div class="corp-act">
       <a href="#book" class="btn btn-green" style="padding:16px 34px;font-size:16px">기업 플랜 문의</a>
@@ -497,9 +548,10 @@
     </div>
     <div>
       <details class="faq"><summary>며칠 전에 예약해야 하나요?<span class="ico">＋</span></summary><div class="ans">출발 7–10일 전 예약을 권장하며, 성수기나 동남아 노선은 10–14일 전이 좋습니다. VIP 특급은 최단 3–5일도 가능하니 상담팀에 문의하세요.</div></details>
-      <details class="faq"><summary>비용은 얼마인가요?<span class="ico">＋</span></summary><div class="ans">편도·1백 기준 시작가: 일본 ₩427,000, 말레이시아 ₩485,000, 싱가포르 ₩485,000, 태국 ₩607,000. 실제 요금은 출발일·배송지·보험에 따라 확정되며 예약 후 24시간 이내 안내드립니다.</div></details>
+      <details class="faq"><summary>비용은 얼마인가요?<span class="ico">＋</span></summary><div class="ans">편도·1백 기준 현지 통화 참고 시작가: 일본 약 ₩380,000, 말레이시아 약 ₩430,000, 싱가포르 약 ₩430,000, 태국 약 ₩540,000입니다. 실제 요금은 출발일·배송지·보험에 따라 확정되며 예약 후 영업시간(평일 9:00–18:00, 대만 시간) 내에 안내드립니다.</div></details>
       <details class="faq"><summary>포장은 어떻게 하나요? 파손되지 않나요?<span class="ico">＋</span></summary><div class="ans">픽업 시 전담 직원이 포장 상태를 확인하고 충격 보호 후 사진으로 기록합니다. 헤드 커버 사용을 권장하며, 작은 귀중품은 직접 휴대하세요.</div></details>
-      <details class="faq"><summary>골프백 위치는 어떻게 확인하나요?<span class="ico">＋</span></summary><div class="ans">예약 후 LINE 알림에 등록하면 픽업·출발·통관·도착 모든 구간을 먼저 알려드립니다. 공식 추적 번호로 직접 조회도 가능합니다.</div></details>
+      <details class="faq"><summary>골프백 위치는 어떻게 확인하나요?<span class="ico">＋</span></summary><div class="ans">각 주문에는 전용 웹 추적 페이지가 생성됩니다. 안전 링크 또는 주문 번호와 인증 정보로 확인할 수 있습니다. LINE, Email, WhatsApp, SMS는 알림 채널이며 공식 상태는 추적 페이지를 기준으로 합니다.</div></details>
+      <details class="faq"><summary>추적 페이지에서 개인정보가 노출되나요?<span class="ico">＋</span></summary><div class="ans">성명, 전화번호, Email, 주소는 마스킹됩니다. 단체 주문에서는 다른 구성원의 전체 개인정보를 볼 수 없고, 골프장, 호텔, 기업 담당자는 역할에 필요한 정보만 확인합니다.</div></details>
       <details class="faq"><summary>지연되거나 파손되면 어떻게 하나요?<span class="ico">＋</span></summary><div class="ans">상담팀이 즉시 개입합니다: 화물 추적, 물류사 협의, 보험 청구, 대체 방안 마련까지 지원합니다. 보상액은 운송 약관과 추가 보험에 따릅니다.</div></details>
       <details class="faq"><summary>귀국편 배송도 가능한가요?<span class="ico">＋</span></summary><div class="ans">가능합니다. 예약 시 말씀해 주시면 여행이 끝난 뒤 해외 골프장이나 호텔에서 바로 대만으로 반송해 드립니다.</div></details>
       <details class="faq"><summary>여러 개를 한 번에 보낼 수 있나요? (팀 여행)<span class="ico">＋</span></summary><div class="ans">가능합니다. 3개 이상은 수량 할인이 적용되며, 기업 팀·전지훈련은 연간 계약과 전용 견적 상담이 가능합니다.</div></details>
@@ -510,38 +562,32 @@
 <!-- 預約表單 -->
 <section class="book" id="book">
   <div class="container">
-    <h2>골프백 배송 예약, <b>24시간 내 회신.</b></h2>
-    <p class="lead">기본 정보만 입력하세요. 서비스 플랜·픽업 시간·요금 상세는 LINE으로 확인해 드립니다.</p>
+    <h2>VIP 골프 여행 서비스 예약, <b>영업시간 내 회신.</b></h2>
+    <p class="lead">기본 정보를 입력하시면 선호하시는 알림 방식으로 영업시간(평일 9:00–18:00, 대만 시간) 내에 플랜·견적·수거 일정을 안내해 드립니다. 양식 제출만으로는 주문이 성립되지 않습니다. 정식 견적(48시간 유효)을 확인하고 결제를 완료하신 후 주문이 확정됩니다.</p>
     <div class="book-wrap">
-      <div class="line-card">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://lin.ee/XOMWpls&margin=6&format=png" alt="LINE QR Code">
-        <h3>LINE으로 바로 상담도 가능합니다</h3>
-        <p>QR 코드를 스캔하거나 아래 링크를 누르세요. 즉시 답변드립니다</p>
-        <a href="https://lin.ee/XOMWpls" target="_blank" class="btn btn-green" style="width:100%">LINE 상담하기</a>
-      </div>
       <form class="bk-grid" id="bookForm">
+        <div class="field full field-type">
+          <label>고객 유형 <span class="req">*</span></label>
+          <select name="customerType" required><option value="">선택하세요</option><option>개인 골퍼</option><option>기업 접대／회사 행사</option><option>팀／전지훈련</option><option>여행사／투어 대행</option><option>골프장／호텔 담당자</option></select>
+        </div>
         <div class="field"><label>성함 <span class="req">*</span></label><input type="text" name="name" required></div>
         <div class="field"><label>휴대전화 <span class="req">*</span></label><input type="tel" name="phone" required></div>
+        <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
+        <div class="field"><label>선호 알림 방식 <span class="req">*</span></label><select name="preferredChannel" required><option value="">선택하세요</option><option>Email</option><option>LINE</option><option>WhatsApp</option><option>SMS</option><option>상담팀 추천</option></select></div>
+        <div class="field"><label>WhatsApp</label><input type="tel" name="whatsapp" placeholder="국가번호 포함"></div>
         <div class="field"><label>LINE ID</label><input type="text" name="line"></div>
-        <div class="field">
-          <label>목적지 <span class="req">*</span></label>
-          <select name="destination" required>
-            <option value="">선택하세요</option><option value="日本">일본</option><option value="泰國">태국</option><option value="馬來西亞">말레이시아</option><option value="新加坡">싱가포르</option><option value="其他">기타 (비고 기재)</option>
-          </select>
-        </div>
+        <div class="field"><label>언어 <span class="req">*</span></label><select name="language" required><option>한국어</option><option>繁體中文</option><option>English</option><option>日本語</option></select></div>
+        <div class="field"><label>회사／단체／골프장명</label><input type="text" name="organization" placeholder="회사, 팀, 여행사, 골프장, 호텔"></div>
+        <div class="field"><label>수거 지역 <span class="req">*</span></label><input type="text" name="origin" placeholder="도시／지역" required></div>
+        <div class="field"><label>목적지 <span class="req">*</span></label><select name="destination" required><option value="">선택하세요</option><option>일본</option><option>태국</option><option>말레이시아</option><option>싱가포르</option><option>기타 (비고 기재)</option></select></div>
         <div class="field"><label>출발일 <span class="req">*</span></label><input type="date" name="departDate" required></div>
         <div class="field"><label>티오프 날짜 <span class="req">*</span></label><input type="date" name="teeDate" required></div>
-        <div class="field full">
-          <label>골프백 수량 <span class="req">*</span></label>
-          <select name="bagCount" required>
-            <option value="">선택하세요</option><option value="1 套">1개</option><option value="2 套">2개</option><option value="3 套">3개</option><option value="4 套以上（企業／球隊）">4개 이상 (기업·팀)</option>
-          </select>
-        </div>
-        <div class="field full">
-          <p class="form-fine">픽업 주소, 해외 배송지, 보험, 귀국편 배송 등 세부 사항은 예약 접수 후 LINE으로 하나씩 확인하므로 여기 입력하지 않으셔도 됩니다.</p>
-        </div>
+        <div class="field"><label>골프백 수량 <span class="req">*</span></label><select name="bagCount" required><option value="">선택하세요</option><option>1개</option><option>2개</option><option>3개</option><option>4개 이상 (기업·팀)</option></select></div>
+        <div class="field"><label>왕복 배송 여부 <span class="req">*</span></label><select name="returnShipment" required><option value="">선택하세요</option><option>왕복 배송 필요</option><option value="不需要回程寄送">필요 없음</option><option>미정</option></select></div>
+        <div class="field full"><label>비고</label><textarea name="notes" rows="4" placeholder="골프장·호텔, 수거 시간, 기타 요청 사항"></textarea></div>
+        <div class="privacy-box"><p><strong>개인정보 안내</strong><br>입력하신 정보는 견적, 예약, 배송 준비, 고객 지원 연락에만 사용됩니다. 시범 운영 기간 동안 내부 관리 시트에 보관되며, 웹사이트에 공개되거나 무관한 제3자에게 제공되지 않습니다. 정식 주문의 추적 페이지에는 필요한 배송 정보만 표시됩니다.</p></div>
         <div class="form-ft">
-          <p class="form-fine">24시간 이내에 LINE 또는 전화로 연락드립니다.</p>
+          <p class="form-fine">제출 후 선호하시는 알림 방식으로 영업시간(평일 9:00–18:00, 대만 시간) 내에 연락드립니다.</p>
           <button type="submit" class="btn btn-navy" style="padding:15px 36px">예약 요청 보내기</button>
         </div>
       </form>
@@ -558,8 +604,8 @@
         <p class="foot-desc">골프 산업 네트워크와 국제 물류를 결합해 아시아 골프 여행자를 위해 만든 국제 골프백 배송 서비스입니다.</p>
       </div>
       <div class="foot-col"><h4>Service</h4><ul><li><a href="#how">서비스 절차</a></li><li><a href="#routes">노선·요금</a></li><li><a href="#trust">안심 시스템</a></li></ul></div>
-      <div class="foot-col"><h4>Support</h4><ul><li><a href="#faq">자주 묻는 질문</a></li><li><a href="#book">예약하기</a></li><li><a href="#corp">기업 플랜</a></li></ul></div>
-      <div class="foot-col"><h4>Contact</h4><ul><li><a href="https://lin.ee/XOMWpls" target="_blank">LINE：lin.ee/XOMWpls</a></li><li>월–토 09:00–21:00</li></ul></div>
+      <div class="foot-col"><h4>Support</h4><ul><li><a href="tracking.html">주문 조회</a></li><li><a href="#faq">자주 묻는 질문</a></li><li><a href="#book">예약하기</a></li><li><a href="#corp">기업 플랜</a></li></ul></div>
+      <div class="foot-col"><h4>Contact</h4><ul><li><a href="https://lin.ee/XOMWpls" target="_blank">LINE：lin.ee/XOMWpls</a></li><li>WhatsApp: 준비 중</li><li>평일 9:00–18:00 (대만 시간)</li></ul></div>
     </div>
     <div class="foot-bottom">
       <div>© 2026 Golf Travel Mobility Service. All rights reserved.</div>
@@ -573,7 +619,7 @@
   <div class="modal-box">
     <div class="modal-check">✓</div>
     <h3>예약 요청이 접수되었습니다.</h3>
-    <p>24시간 이내 LINE 또는 전화로 세부 사항을 확인해 드립니다. 급하신 경우 LINE으로 문의하세요.</p>
+    <p>영업시간(평일 9:00–18:00, 대만 시간) 내에 선호 알림 방식으로 플랜, 견적, 배송 세부 사항을 확인해 드립니다. 공식 주문 후 전용 추적 페이지가 제공됩니다.</p>
     <div class="close-row"><button class="btn btn-outline" onclick="closeModal()">닫기</button></div>
   </div>
 </div>
@@ -599,85 +645,48 @@
   });
 
   // 報價列：依目的地更新起價
-  const priceMap={'일본':'427,000','태국':'607,000','말레이시아':'485,000','싱가포르':'485,000','기타':'427,000'};
+  const priceMap={'일본':'380,000','태국':'540,000','말레이시아':'430,000','싱가포르':'430,000','기타':'380,000'};
   document.getElementById('qDest').addEventListener('change',function(){
-    document.getElementById('qbAmt').textContent=priceMap[this.value]||'427,000';
+    document.getElementById('qbAmt').textContent=priceMap[this.value]||'380,000';
   });
 
   // 報價列 → 帶入表單
   function goBook(){
     const dest=document.getElementById('qDest').value;
     const date=document.getElementById('qDate').value;
-    if(dest){const s=document.querySelector('[name="destination"]');if(s)s.value=dest;}
+    if(dest){const s=document.querySelector('[name="destination"]');if(s){for(const o of s.options){if(o.value===dest||o.value.startsWith(dest)){s.value=o.value;break;}}}}
     if(date){const s=document.querySelector('[name="departDate"]');if(s)s.value=date;}
     document.getElementById('book').scrollIntoView({behavior:'smooth'});
   }
 
-  // 表單送出
-  document.getElementById('bookForm').addEventListener('submit', function(e) {
+  // 預約表單送出（Google Apps Script 端點設定後自動改為送到後台）
+  const GOOGLE_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxhEK-VrzEQErQxylnrMBbokxYunSs6qisklu_MxQjFO1UICCTLVIfDWwrzaiBOSA9H/exec';
+  document.getElementById('bookForm').addEventListener('submit',function(e){
     e.preventDefault();
-    const get = n => (document.querySelector('[name="' + n + '"]') || {}).value || '';
-    const departDate = get('departDate');
-    const teeDate = get('teeDate');
-    const fd = new FormData();
-    fd.append('entry.1470219353', get('name'));
-    fd.append('entry.1005606232', get('phone'));
-    fd.append('entry.1560275678', get('line'));
-    fd.append('entry.1769642179', get('destination'));
-    if (departDate) {
-      const [y, m, d] = departDate.split('-');
-      fd.append('entry.60605735_year', y);
-      fd.append('entry.60605735_month', parseInt(m, 10).toString());
-      fd.append('entry.60605735_day', parseInt(d, 10).toString());
+    const form=this,button=form.querySelector('button[type="submit"]');
+    const payload=Object.fromEntries(new FormData(form).entries());
+    payload.action='create';
+    payload.source='website';
+    payload.pageLanguage='ko';
+    payload.submittedAt=new Date().toISOString();
+    if(GOOGLE_SCRIPT_URL.indexOf('PASTE_')===0){
+      document.getElementById('modal').classList.add('show');form.reset();return;
     }
-    if (teeDate) {
-      const [y, m, d] = teeDate.split('-');
-      fd.append('entry.663711340_year', y);
-      fd.append('entry.663711340_month', parseInt(m, 10).toString());
-      fd.append('entry.663711340_day', parseInt(d, 10).toString());
-    }
-    fd.append('entry.326336222', get('bagCount'));
-    fetch('https://docs.google.com/forms/d/18FZeZ0xJKxxXMdd6L_f23MTYMWtrA7dJFm_3Y_st4Yw/formResponse', {
-      method: 'POST', mode: 'no-cors', body: fd
-    });
-    document.getElementById('modal').classList.add('show');
-    this.reset();
+    button.disabled=true;button.textContent='전송 중…';
+    fetch(GOOGLE_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d&&d.ok){
+          var q='id='+encodeURIComponent(d.orderId)+'&t='+encodeURIComponent(d.token)+'&bind='+encodeURIComponent(d.bindCode||'');
+          if(d.lineAddUrl)q+='&line='+encodeURIComponent(d.lineAddUrl);
+          location.href='success.html?'+q;
+        }else{document.getElementById('modal').classList.add('show');form.reset();}
+      })
+      .catch(function(){alert('전송에 실패했습니다. 잠시 후 다시 시도하거나 상담팀에 문의해 주세요.');})
+      .finally(function(){button.disabled=false;button.textContent='예약 요청 보내기';});
   });
   function closeModal(){document.getElementById('modal').classList.remove('show');}
   document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
-</script>
-
-<script>
-document.getElementById('bookForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const btn = this.querySelector('[type="submit"]');
-  const orig = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = '送出中...';
-  const data = {
-    name: this.elements.name.value,
-    phone: this.elements.phone.value,
-    line: this.elements.line.value,
-    destination: this.elements.destination.value,
-    departDate: this.elements.departDate.value,
-    teeDate: this.elements.teeDate.value,
-    bagCount: this.elements.bagCount.value
-  };
-  try {
-    await fetch('https://script.google.com/macros/s/AKfycbxF7BL8Kj7-Z1VTn64RK_0YaeiNsgyqmB48d71gEpNtf5Koe9qPSUW4kfKmaji-nakR/exec', {
-      method: 'POST', mode: 'no-cors',
-      headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify(data)
-    });
-    btn.textContent = '✓ 已收到！24 小時內客服聯絡';
-    btn.style.background = '#22c55e';
-    this.reset();
-  } catch(err) {
-    btn.disabled = false;
-    btn.textContent = orig;
-    alert('送出失敗，請直接 LINE 客服。');
-  }
-});
 </script>
 </body>
 </html>
