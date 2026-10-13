@@ -1,10 +1,11 @@
 /**
  * Golf Travel Mobility — 預約／訂單查詢／修改取消申請 後端
- * 使用方式：貼到 Google 試算表「擴充功能 → Apps Script」，取代原本全部程式碼。
+ * 使用方式：貼到 script.google.com 網站用的那個獨立專案，取代原本全部程式碼。
  * 部署：部署 → 管理部署作業 → 編輯（鉛筆）→ 版本選「新版本」→ 部署（網址不變）。
  * 第一次使用請在編輯器上方選 setupSheet 並按「執行」一次，建立欄位與下拉選單。
  */
 
+const SPREADSHEET_ID = '1s8RUfOF4ysXqsoI5WY5gI8fnAPAg8o4Ua6ubcJ_JBng'; // Golf Travel Mobility 預約
 const SHEET_BOOKING = '預約';
 const SHEET_CHANGE = '修改取消申請';
 const TZ = 'Asia/Taipei';
@@ -192,7 +193,7 @@ function setupSheet() {
 /* ---------- 工具 ---------- */
 
 function getSheet_(name) {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   return ss.getSheetByName(name) || ss.insertSheet(name);
 }
 
