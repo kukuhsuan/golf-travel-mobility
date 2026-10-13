@@ -12,7 +12,7 @@ const SITE_URL = 'https://golf-travel-mobility-gylb.vercel.app/';
 const SEND_CONFIRM_EMAIL = true; // 不想寄確認信改成 false
 
 const BOOKING_HEADERS = [
-  '預約編號', '送出時間', '姓名', '手機', 'Email', '通知方式', '出發地', '目的地',
+  '預約編號', '時間', '姓名', '手機', 'Email', '通知方式', '出發地', '目的地',
   '出發日期', '開球日期', '球袋數量', '單程/來回', '備註',
   '訂單狀態', '付款狀態', '預計收件日', '預計送達日', '物流公司', '物流追蹤碼', '客服備註'
 ];
@@ -59,7 +59,7 @@ function saveBooking_(d) {
     const orderId = cleanId_(d.orderId) || genId_();
     const row = {
       '預約編號': orderId,
-      '送出時間': Utilities.formatDate(new Date(), TZ, 'yyyy/MM/dd HH:mm'),
+      '時間': Utilities.formatDate(new Date(), TZ, 'yyyy/MM/dd HH:mm'),
       '姓名': d.name,
       '手機': d.phone ? "'" + d.phone : '',
       'Email': d.email,
