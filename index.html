@@ -340,6 +340,62 @@
   html,body{overflow-x:clip;max-width:100%}
   .qb-field{min-width:0}
   input[type="date"]{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;display:block}
+  /* ── 分步驟預約表單 ── */
+  .book-wrap{grid-template-columns:1fr;max-width:900px;margin-left:auto;margin-right:auto}
+  #bookForm{scroll-margin-top:110px;background:var(--white);border:1px solid #E3E8EE;border-radius:16px;padding:30px 32px;box-shadow:0 10px 36px rgba(22,32,46,.06)}
+  .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:26px}
+  .steps li{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:#9AA3AE;border-bottom:3px solid #E3E8EE;padding-bottom:10px}
+  .steps li span{width:24px;height:24px;border-radius:50%;background:#E3E8EE;color:var(--gray);display:inline-flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+  .steps li.on{color:var(--navy);border-color:var(--green)}
+  .steps li.on span{background:var(--green);color:var(--white)}
+  .steps li.done{color:var(--navy);border-color:var(--green)}
+  .steps li.done span{background:var(--navy);color:var(--white)}
+  .step{border:none;display:none;min-width:0}
+  .step.on{display:block}
+  .step legend{font-size:20px;font-weight:800;margin-bottom:16px;color:var(--navy)}
+  .sub-h{grid-column:1 / -1;font-size:13px;font-weight:700;color:var(--green-dk);letter-spacing:.5px;margin-top:6px;padding-top:12px;border-top:1px dashed #E3E8EE}
+  .field[hidden]{display:none}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{position:relative;cursor:pointer;margin:0 !important}
+  .chip input{position:absolute;opacity:0;pointer-events:none}
+  .chip span{display:inline-block;padding:10px 16px;border:1.5px solid #D6DBE1;border-radius:99px;font-size:14px;font-weight:500;color:var(--ink);background:var(--white);transition:.15s}
+  .chip input:checked + span{border-color:var(--green);background:#EEF7E5;color:#3F7A1F;font-weight:700}
+  .chip input:focus-visible + span{outline:2px solid var(--green);outline-offset:2px}
+  .check{display:flex !important;align-items:center;gap:8px;font-weight:500 !important;font-size:14px !important;cursor:pointer;margin-bottom:8px}
+  .check input{width:18px;height:18px;accent-color:var(--green-dk)}
+  .warn{background:#FFF6E5;border:1px solid #F2D8A6;color:#8A5A10;border-radius:10px;padding:10px 14px;font-size:13.5px;margin:4px 0 10px}
+  .pkg{display:grid;grid-template-columns:70px repeat(4,minmax(0,1fr));gap:8px;align-items:end;margin-bottom:8px}
+  .pkg .no{font-size:13px;font-weight:700;color:var(--navy);padding-bottom:12px}
+  .pkg label{font-size:11.5px !important;color:var(--gray) !important;margin-bottom:3px !important;font-weight:500 !important}
+  .pkg input{width:100%;min-width:0}
+  .pkg.off input{background:#F3F5F7;color:#9AA3AE}
+  .thumbs{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .thumb{position:relative;width:88px;height:88px;border-radius:10px;overflow:hidden;border:1px solid #E3E8EE}
+  .thumb img{width:100%;height:100%;object-fit:cover}
+  .thumb button{position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:50%;border:none;background:rgba(22,32,46,.75);color:#fff;font-size:13px;line-height:22px;cursor:pointer;padding:0}
+  input[type="file"]{padding:10px;border:1.5px dashed #C9D0D8;border-radius:10px;background:#FAFBFC;font-size:14px;width:100%;max-width:100%}
+  .summary{display:grid;grid-template-columns:150px 1fr;gap:8px 16px;font-size:14.5px;background:#F8FAFC;border:1px solid #E3E8EE;border-radius:12px;padding:18px 20px;margin-bottom:16px}
+  .summary dt{color:var(--gray);font-size:13px}
+  .summary dd{margin:0;font-weight:500;word-break:break-word}
+  .summary .grp{grid-column:1 / -1;font-size:12.5px;font-weight:700;color:var(--green-dk);margin-top:6px}
+  .notice-box{border:1.5px solid var(--green);border-radius:12px;padding:14px 18px;margin-bottom:14px;background:#F6FBF1}
+  .notice-box p{font-size:14px;margin-bottom:4px}
+  .notice-box ul{padding-left:18px;font-size:13.5px;color:var(--ink);line-height:1.8}
+  .step-ft [hidden],#bookForm [hidden]{display:none !important}
+  .step-ft{display:flex;align-items:center;gap:12px;margin-top:24px;padding-top:18px;border-top:1px solid #E3E8EE}
+  .step-ft #nextBtn,.step-ft #submitBtn{margin-left:auto}
+  .step-err{color:#B23A3A;font-size:13.5px;flex:1;text-align:right}
+  .field.bad input,.field.bad select,.pkg input.bad{border-color:#D64545 !important}
+  @media(max-width:700px){
+    #bookForm{padding:22px 16px;border-radius:14px}
+    .steps{gap:4px}
+    .steps li{flex-direction:column;align-items:flex-start;gap:4px;font-size:11.5px}
+    .pkg{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .pkg .no{grid-column:1 / -1;padding-bottom:0}
+    .summary{grid-template-columns:110px 1fr;padding:14px}
+    .step-ft{flex-wrap:wrap}
+    .step-err{order:-1;width:100%;flex-basis:100%;text-align:left}
+  }
 </style>
 </head>
 <body id="top">
@@ -391,7 +447,7 @@
       <select id="qTrip"><option>個人球旅</option><option>企業招待</option><option>球隊／團體</option><option>球場／飯店合作</option></select>
     </div>
     <div class="qb-price">
-      <span class="from">NT$</span><span class="amt" id="qbAmt">8,800</span><span class="per">起／單趟</span>
+      <span class="from">NT$</span><span class="amt" id="qbAmt">8,800</span><span class="per">起／單趟・參考價</span>
     </div>
     <button class="btn btn-navy" onclick="goBook()">取得報價</button>
   </div>
@@ -575,36 +631,130 @@
   </div>
 </section>
 
-<!-- 預約表單 -->
+<!-- 預約表單（分步驟） -->
 <section class="book" id="book">
   <div class="container">
-    <h2>預約 VIP 球旅服務，<b>服務時間內回覆。</b></h2>
-    <p class="lead">填寫需求後，專人將於服務時間（週一至週五 9:00–18:00）內依您偏好的通知方式聯絡，確認方案、報價與收件安排。<br><strong>填寫預約表單不代表訂單成立。</strong>客服確認配送條件並提供正式報價（有效 48 小時）後，客戶完成付款，才會正式安排收件與配送。</p>
+    <h2>國際運送預約詢價，<b>服務時間內回覆。</b></h2>
+    <p class="lead">高爾夫球袋、雙板／單板滑雪裝備及其他大型運動器材，單程或來回國際運送都可以詢價。<br><strong>填寫表單僅代表提出運送需求，不代表訂單成立。</strong>所有需求須經客服確認、正式報價（有效 48 小時）、付款完成及寄件條件確認後，才會安排收件與配送。</p>
     <div class="book-wrap">
-      <form class="bk-grid" id="bookForm">
-        <div class="field full field-type">
-          <label>客戶類型 <span class="req">*</span></label>
-          <select name="customerType" required><option value="">請選擇</option><option>個人球友</option><option>企業招待／公司活動</option><option>球隊／移地訓練</option><option>旅行社／行程代辦</option><option>球場／飯店合作窗口</option></select>
-        </div>
-        <div class="field"><label>姓名 <span class="req">*</span></label><input type="text" name="name" required></div>
-        <div class="field"><label>手機 <span class="req">*</span></label><input type="tel" name="phone" required></div>
-        <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required></div>
-        <div class="field"><label>通知偏好 <span class="req">*</span></label><select name="preferredChannel" required><option value="">請選擇</option><option>Email</option><option>LINE</option><option>WhatsApp</option><option>SMS</option><option>由客服建議</option></select></div>
-        <div class="field"><label>WhatsApp</label><input type="tel" name="whatsapp" placeholder="含國碼，例如 +886..."></div>
-        <div class="field"><label>LINE ID</label><input type="text" name="line"></div>
-        <div class="field"><label>偏好語言 <span class="req">*</span></label><select name="language" required><option>繁體中文</option><option>English</option><option>日本語</option><option>한국어</option></select></div>
-        <div class="field"><label>公司／團體／球場名稱</label><input type="text" name="organization" placeholder="公司、球隊、旅行社、球場或飯店"></div>
-        <div class="field"><label>出發地 <span class="req">*</span></label><input type="text" name="origin" placeholder="城市／地址區域" required></div>
-        <div class="field"><label>目的地 <span class="req">*</span></label><select name="destination" required><option value="">請選擇</option><option>日本</option><option>泰國</option><option>馬來西亞</option><option>新加坡</option><option>其他（備註說明）</option></select></div>
-        <div class="field"><label>出發日期 <span class="req">*</span></label><input type="date" name="departDate" required></div>
-        <div class="field"><label>開球日期 <span class="req">*</span></label><input type="date" name="teeDate" required></div>
-        <div class="field"><label>球袋數量 <span class="req">*</span></label><select name="bagCount" required><option value="">請選擇</option><option>1 套</option><option>2 套</option><option>3 套</option><option>4 套以上（企業／球隊）</option></select></div>
-        <div class="field"><label>是否回程寄送 <span class="req">*</span></label><select name="returnShipment" required><option value="">請選擇</option><option>需要回程寄送</option><option>不需要回程寄送</option><option>尚未確定</option></select></div>
-        <div class="field full"><label>備註</label><textarea name="notes" rows="4" placeholder="可填寫球場／飯店、收件時間或其他需求"></textarea></div>
-        <div class="privacy-box"><p><strong>隱私權聲明</strong><br>您提供的資料僅用於報價、預約、配送安排與客服聯繫。試營運期間資料由客服與管理者存放於內部管理表單，不會公開於網站，也不會向無關第三方提供。正式訂單的追蹤頁只顯示必要配送資訊。</p></div>
-        <div class="form-ft">
-          <p class="form-fine">送出後，專人將依您選擇的通知偏好，於服務時間（週一至週五 9:00–18:00）內與您聯絡。送出後不代表訂單成立。</p>
-          <button type="submit" class="btn btn-navy" style="padding:15px 36px">送出預約需求</button>
+      <form id="bookForm" novalidate>
+        <ol class="steps" id="stepNav">
+          <li class="on"><span>1</span>運送路線</li>
+          <li><span>2</span>運送物品</li>
+          <li><span>3</span>聯絡資訊</li>
+          <li><span>4</span>確認送出</li>
+        </ol>
+
+        <!-- 步驟 1：運送路線 -->
+        <fieldset class="step on" data-step="1">
+          <legend>運送路線</legend>
+          <div class="bk-grid">
+            <div class="field full"><label>運送物品類型 <span class="req">*</span></label>
+              <div class="chips" role="radiogroup">
+                <label class="chip"><input type="radio" name="serviceType" value="高爾夫球袋／球桿" required checked><span>高爾夫球袋／球桿</span></label>
+                <label class="chip"><input type="radio" name="serviceType" value="雙板滑雪裝備（Ski）"><span>雙板滑雪（Ski）</span></label>
+                <label class="chip"><input type="radio" name="serviceType" value="單板滑雪裝備（Snowboard）"><span>單板滑雪（Snowboard）</span></label>
+                <label class="chip"><input type="radio" name="serviceType" value="其他大型運動器材"><span>其他大型運動器材</span></label>
+              </div>
+            </div>
+            <div class="field full"><label>單程／來回 <span class="req">*</span></label>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="tripType" value="單程" required checked><span>單程</span></label>
+                <label class="chip"><input type="radio" name="tripType" value="來回"><span>來回（含回程寄送）</span></label>
+              </div>
+            </div>
+            <div class="sub-h full">寄件地（從哪裡寄出）</div>
+            <div class="field"><label>寄件國家 <span class="req">*</span></label><input type="text" name="originCountry" value="台灣" required></div>
+            <div class="field"><label>寄件城市 <span class="req">*</span></label><input type="text" name="originCity" placeholder="例如 台北市" required></div>
+            <div class="field"><label>寄件郵遞區號 <span class="req">*</span></label><input type="text" name="originZip" inputmode="numeric" placeholder="例如 110" required></div>
+            <div class="sub-h full">收件地（寄到哪裡）</div>
+            <div class="field"><label>收件國家 <span class="req">*</span></label>
+              <select name="destCountry" required><option value="">請選擇</option><option>日本</option><option>韓國</option><option>泰國</option><option>馬來西亞</option><option>新加坡</option><option>越南</option><option>其他</option></select>
+            </div>
+            <div class="field" id="destOtherWrap" hidden><label>其他國家 <span class="req">*</span></label><input type="text" name="destCountryOther" placeholder="請填國家名稱"></div>
+            <div class="field"><label>收件城市 <span class="req">*</span></label><input type="text" name="destCity" placeholder="例如 札幌、清邁" required></div>
+            <div class="field"><label>收件郵遞區號</label><input type="text" name="destZip" placeholder="不確定可空白"></div>
+            <div class="sub-h full">日期</div>
+            <div class="field"><label>預計寄件日期 <span class="req">*</span></label><input type="date" name="shipDate" required></div>
+            <div class="field"><label>希望送達日期（選填）</label><input type="date" name="wishDeliveryDate"></div>
+            <div class="field" id="returnWrap" hidden><label>預計回程寄件日期 <span class="req">*</span></label><input type="date" name="returnShipDate"></div>
+            <div class="field"><label>開球／上雪日期（選填）</label><input type="date" name="teeDate"></div>
+          </div>
+        </fieldset>
+
+        <!-- 步驟 2：運送物品 -->
+        <fieldset class="step" data-step="2">
+          <legend>運送物品</legend>
+          <div class="bk-grid">
+            <div class="field"><label>包裹件數 <span class="req">*</span></label>
+              <select name="packageCount" id="pkgCount" required><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select>
+            </div>
+            <div class="field"><label>包裝方式 <span class="req">*</span></label>
+              <select name="packing" required><option value="">請選擇</option><option>自備球袋／雪板袋</option><option>硬殼箱</option><option>紙箱</option><option>需要協助包裝</option></select>
+            </div>
+            <div class="field full">
+              <label>每件包裹的重量與包裝後尺寸</label>
+              <label class="check"><input type="checkbox" name="sizeUnknown" id="sizeUnknown"> 不清楚，需客服協助確認</label>
+              <p class="warn" id="sizeWarn" hidden>未確認實際重量與尺寸前，無法提供最終運費。客服會先與您確認，再提供正式報價。</p>
+              <div id="pkgRows"></div>
+              <p class="form-fine">尺寸請量包裝後的最長、最寬、最高處。國際物流會比較實際重量與材積重量，以較大者計費。</p>
+            </div>
+            <div class="field"><label>物品預估申報價值 <span class="req">*</span></label><input type="number" name="declaredValue" min="0" step="1" inputmode="numeric" placeholder="例如 30000" required></div>
+            <div class="field"><label>幣別 <span class="req">*</span></label><select name="declaredCurrency" required><option>TWD</option><option>USD</option><option>JPY</option><option>KRW</option><option>THB</option><option>MYR</option><option>SGD</option><option>VND</option></select></div>
+            <div class="field full"><label>是否為自用舊品 <span class="req">*</span></label>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="usedPersonal" value="是" required checked><span>是，自用舊品</span></label>
+                <label class="chip"><input type="radio" name="usedPersonal" value="否"><span>否（新品或其他）</span></label>
+              </div>
+            </div>
+            <div class="field full"><label>上傳球袋、滑雪板或包裝照片（選填，最多 3 張）</label>
+              <input type="file" id="photoInput" accept="image/*" multiple>
+              <div class="thumbs" id="thumbs"></div>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- 步驟 3：聯絡資訊 -->
+        <fieldset class="step" data-step="3">
+          <legend>聯絡資訊</legend>
+          <div class="bk-grid">
+            <div class="field"><label>聯絡人姓名 <span class="req">*</span></label><input type="text" name="name" autocomplete="name" required></div>
+            <div class="field"><label>電話 <span class="req">*</span></label><input type="tel" name="phone" autocomplete="tel" required></div>
+            <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" autocomplete="email" required></div>
+            <div class="field"><label>LINE ID（選填）</label><input type="text" name="line"></div>
+            <div class="field"><label>客戶類型 <span class="req">*</span></label>
+              <select name="customerType" required><option value="">請選擇</option><option>個人</option><option>企業招待／公司活動</option><option>球隊／移地訓練</option><option>旅行社／行程代辦</option><option>球場／飯店／雪場合作窗口</option></select>
+            </div>
+            <div class="field"><label>通知偏好 <span class="req">*</span></label><select name="preferredChannel" required><option value="">請選擇</option><option>Email</option><option>LINE</option><option>WhatsApp</option><option>SMS</option><option>由客服建議</option></select></div>
+            <div class="field"><label>偏好語言</label><select name="language"><option>繁體中文</option><option>English</option><option>日本語</option><option>한국어</option></select></div>
+            <div class="field"><label>公司／團體名稱（選填）</label><input type="text" name="organization"></div>
+            <div class="field full"><label>備註及特殊需求</label><textarea name="notes" rows="4" placeholder="例如：收件時段、送達飯店或球場名稱、需要協助包裝的物品等"></textarea></div>
+          </div>
+        </fieldset>
+
+        <!-- 步驟 4：確認送出 -->
+        <fieldset class="step" data-step="4">
+          <legend>確認送出</legend>
+          <div class="summary" id="summary"></div>
+          <div class="notice-box">
+            <p><strong>請注意</strong></p>
+            <ul>
+              <li>填寫表單僅代表提出運送需求，<b>不代表訂單成立</b>。</li>
+              <li>客服服務時間：週一至週五 9:00–18:00。非上班時間收到的預約，將於下一個工作時間處理。</li>
+              <li>客服確認後會提供正式報價，<b>有效期限 48 小時</b>；逾期須重新確認價格。</li>
+              <li>接受報價並完成付款、補齊正式寄件資料並經確認後，才會安排收件與配送。</li>
+              <li>此階段不需要填寫完整報關資料，接受報價後再於訂單頁補齊即可。</li>
+            </ul>
+          </div>
+          <div class="privacy-box"><p><strong>隱私權聲明</strong><br>您提供的資料僅用於報價、預約、配送安排與客服聯繫，由客服與管理者存放於內部管理系統，不會公開於網站，也不會向無關第三方提供。訂單頁只顯示必要的配送資訊。</p></div>
+          <label class="check" style="margin-top:14px"><input type="checkbox" id="agree"> 我已閱讀並了解以上說明</label>
+        </fieldset>
+
+        <div class="step-ft">
+          <button type="button" class="btn btn-outline" id="prevBtn" hidden>上一步</button>
+          <span class="step-err" id="stepErr"></span>
+          <button type="button" class="btn btn-navy" id="nextBtn">下一步</button>
+          <button type="submit" class="btn btn-navy" id="submitBtn" hidden>送出運送需求</button>
         </div>
       </form>
     </div>
@@ -670,37 +820,178 @@
   function goBook(){
     const dest=document.getElementById('qDest').value;
     const date=document.getElementById('qDate').value;
-    if(dest){const s=document.querySelector('[name="destination"]');if(s){for(const o of s.options){if(o.value===dest||o.value.startsWith(dest)){s.value=o.value;break;}}}}
-    if(date){const s=document.querySelector('[name="departDate"]');if(s)s.value=date;}
+    if(dest){const s=document.querySelector('[name="destCountry"]');if(s){for(const o of s.options){if(o.value===dest||o.value.startsWith(dest)){s.value=o.value;break;}}s.dispatchEvent(new Event('change'));}}
+    if(date){const s=document.querySelector('[name="shipDate"]');if(s)s.value=date;}
     document.getElementById('book').scrollIntoView({behavior:'smooth'});
   }
 
-  // 預約表單送出（Google Apps Script 端點設定後自動改為送到後台）
+  // ── 分步驟預約表單 ──
   const GOOGLE_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxhEK-VrzEQErQxylnrMBbokxYunSs6qisklu_MxQjFO1UICCTLVIfDWwrzaiBOSA9H/exec';
-  document.getElementById('bookForm').addEventListener('submit',function(e){
-    e.preventDefault();
-    const form=this,button=form.querySelector('button[type="submit"]');
-    const payload=Object.fromEntries(new FormData(form).entries());
-    payload.action='create';
-    payload.source='website';
-    payload.pageLanguage='zh-TW';
-    payload.submittedAt=new Date().toISOString();
-    if(GOOGLE_SCRIPT_URL.indexOf('PASTE_')===0){
-      document.getElementById('modal').classList.add('show');form.reset();return;
+  const bookForm=document.getElementById('bookForm');
+  const stepEls=[...bookForm.querySelectorAll('.step')];
+  const navEls=[...document.querySelectorAll('#stepNav li')];
+  const prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn'),submitBtn=document.getElementById('submitBtn');
+  const stepErr=document.getElementById('stepErr');
+  let curStep=1;const PHOTOS=[];
+  const todayStr=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
+  bookForm.querySelectorAll('input[type="date"]').forEach(function(i){i.min=todayStr;});
+
+  function showStep(n){
+    curStep=n;
+    stepEls.forEach(function(s){s.classList.toggle('on',Number(s.dataset.step)===n);});
+    navEls.forEach(function(li,i){li.classList.toggle('on',i+1===n);li.classList.toggle('done',i+1<n);});
+    prevBtn.hidden=n===1;nextBtn.hidden=n===4;submitBtn.hidden=n!==4;
+    stepErr.textContent='';
+    if(n===4)buildSummary();
+    bookForm.scrollIntoView({behavior:'smooth'});
+  }
+  const val=function(n){const el=bookForm.elements[n];if(!el)return '';if(el instanceof RadioNodeList)return el.value;return (el.value||'').trim();};
+
+  // 來回 → 顯示回程日期；其他國家 → 顯示輸入框
+  bookForm.querySelectorAll('[name="tripType"]').forEach(function(r){r.addEventListener('change',function(){document.getElementById('returnWrap').hidden=val('tripType')!=='來回';});});
+  bookForm.elements.destCountry.addEventListener('change',function(){document.getElementById('destOtherWrap').hidden=this.value!=='其他';});
+
+  // 包裹列
+  function renderPkgs(){
+    const box=document.getElementById('pkgRows'),n=Number(val('packageCount'))||1;
+    const old=[...box.querySelectorAll('.pkg')].map(function(r){return [...r.querySelectorAll('input')].map(function(i){return i.value;});});
+    const off=document.getElementById('sizeUnknown').checked;
+    let h='';
+    for(let i=0;i<n;i++){
+      const o=old[i]||['','','',''];
+      h+='<div class="pkg'+(off?' off':'')+'"><div class="no">第 '+(i+1)+' 件</div>'+
+        ['重量 kg','長 cm','寬 cm','高 cm'].map(function(l,j){
+          return '<div><label>'+l+'</label><input type="number" min="0" step="0.1" inputmode="decimal" data-k="'+['weight','length','width','height'][j]+'" value="'+o[j]+'"'+(off?' disabled':'')+'></div>';
+        }).join('')+'</div>';
     }
-    button.disabled=true;button.textContent='送出中…';
+    box.innerHTML=h;
+  }
+  document.getElementById('pkgCount').addEventListener('change',renderPkgs);
+  document.getElementById('sizeUnknown').addEventListener('change',function(){document.getElementById('sizeWarn').hidden=!this.checked;renderPkgs();});
+  renderPkgs();
+  function getPkgs(){
+    return [...document.querySelectorAll('#pkgRows .pkg')].map(function(r){
+      const o={};r.querySelectorAll('input').forEach(function(i){o[i.dataset.k]=i.value;});return o;
+    });
+  }
+
+  // 照片：瀏覽器端縮圖後再上傳（最多 3 張）
+  function resizeImage(file){
+    return new Promise(function(res,rej){
+      const fr=new FileReader();
+      fr.onload=function(){
+        const img=new Image();
+        img.onload=function(){
+          const max=1600,s=Math.min(1,max/Math.max(img.width,img.height));
+          const c=document.createElement('canvas');c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);
+          c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+          res(c.toDataURL('image/jpeg',0.82));
+        };
+        img.onerror=function(){rej(new Error('無法讀取圖片'));};
+        img.src=fr.result;
+      };
+      fr.onerror=function(){rej(new Error('無法讀取圖片'));};
+      fr.readAsDataURL(file);
+    });
+  }
+  function renderThumbs(){
+    document.getElementById('thumbs').innerHTML=PHOTOS.map(function(p,i){
+      return '<div class="thumb"><img src="'+p+'" alt="照片 '+(i+1)+'"><button type="button" aria-label="移除" onclick="removePhoto('+i+')">×</button></div>';
+    }).join('');
+  }
+  window.removePhoto=function(i){PHOTOS.splice(i,1);renderThumbs();};
+  document.getElementById('photoInput').addEventListener('change',async function(){
+    const files=[...this.files];this.value='';
+    for(const f of files){
+      if(PHOTOS.length>=3){alert('最多上傳 3 張照片');break;}
+      if(!/^image\//.test(f.type))continue;
+      try{PHOTOS.push(await resizeImage(f));}catch(e){alert('有一張照片無法讀取，請換一張');}
+    }
+    renderThumbs();
+  });
+
+  // 每一步驗證
+  function validateStep(n){
+    const step=stepEls[n-1];let msg='';
+    step.querySelectorAll('.field.bad').forEach(function(f){f.classList.remove('bad');});
+    step.querySelectorAll('input.bad').forEach(function(i){i.classList.remove('bad');});
+    step.querySelectorAll('[required]').forEach(function(el){
+      if(el.closest('[hidden]'))return;
+      const empty=el.type==='radio'?!bookForm.elements[el.name].value:!String(el.value).trim();
+      const invalid=!empty&&el.type==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value);
+      if(empty||invalid){const f=el.closest('.field');if(f)f.classList.add('bad');if(!msg)msg=invalid?'Email 格式不正確':'請填寫標示 * 的欄位';}
+    });
+    if(n===1){
+      if(val('destCountry')==='其他'&&!val('destCountryOther')){document.getElementById('destOtherWrap').classList.add('bad');msg=msg||'請填寫收件國家';}
+      if(val('tripType')==='來回'){
+        if(!val('returnShipDate')){document.getElementById('returnWrap').classList.add('bad');msg=msg||'來回運送請填寫預計回程寄件日期';}
+        else if(val('shipDate')&&val('returnShipDate')<val('shipDate')){document.getElementById('returnWrap').classList.add('bad');msg=msg||'回程寄件日期不能早於寄件日期';}
+      }
+      if(val('wishDeliveryDate')&&val('shipDate')&&val('wishDeliveryDate')<val('shipDate'))msg=msg||'希望送達日期不能早於寄件日期';
+    }
+    if(n===2&&!document.getElementById('sizeUnknown').checked){
+      let bad=false;
+      document.querySelectorAll('#pkgRows input').forEach(function(i){if(!(Number(i.value)>0)){i.classList.add('bad');bad=true;}});
+      if(bad)msg=msg||'請填寫每件包裹的重量與尺寸，或勾選「不清楚，需客服協助確認」';
+    }
+    if(n===4&&!document.getElementById('agree').checked)msg='請勾選「我已閱讀並了解以上說明」';
+    stepErr.textContent=msg;
+    return !msg;
+  }
+  bookForm.addEventListener('input',function(e){const f=e.target.closest('.field');if(f)f.classList.remove('bad');e.target.classList.remove('bad');});
+  bookForm.addEventListener('change',function(e){const f=e.target.closest('.field');if(f)f.classList.remove('bad');});
+  nextBtn.addEventListener('click',function(){if(validateStep(curStep))showStep(curStep+1);});
+  prevBtn.addEventListener('click',function(){showStep(curStep-1);});
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function buildSummary(){
+    const dest=val('destCountry')==='其他'?val('destCountryOther'):val('destCountry');
+    const pk=document.getElementById('sizeUnknown').checked?'不清楚，需客服協助確認':getPkgs().map(function(p,i){return '第'+(i+1)+'件 '+p.weight+'kg・'+p.length+'×'+p.width+'×'+p.height+'cm';}).join('<br>');
+    const rows=[
+      ['grp','運送路線'],['物品類型',val('serviceType')],['單程／來回',val('tripType')],
+      ['寄件地',[val('originCountry'),val('originCity'),val('originZip')].filter(Boolean).join(' ')],
+      ['收件地',[dest,val('destCity'),val('destZip')].filter(Boolean).join(' ')],
+      ['預計寄件日',val('shipDate')],['希望送達日',val('wishDeliveryDate')||'未填'],
+      val('tripType')==='來回'?['回程寄件日',val('returnShipDate')]:null,
+      ['grp','運送物品'],['包裹件數',val('packageCount')+' 件'],['重量／尺寸',pk,true],['包裝方式',val('packing')],
+      ['申報價值',val('declaredValue')+' '+val('declaredCurrency')],['自用舊品',val('usedPersonal')],['照片',PHOTOS.length?PHOTOS.length+' 張':'未上傳'],
+      ['grp','聯絡資訊'],['聯絡人',val('name')],['電話',val('phone')],['Email',val('email')],['LINE ID',val('line')||'未填'],['備註',val('notes')||'無']
+    ];
+    document.getElementById('summary').innerHTML=rows.filter(Boolean).map(function(r){
+      if(r[0]==='grp')return '<div class="grp">'+r[1]+'</div>';
+      return '<dt>'+r[0]+'</dt><dd>'+(r[2]?r[1]:esc(r[1]))+'</dd>';
+    }).join('');
+  }
+
+  bookForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(curStep!==4){if(validateStep(curStep))showStep(curStep+1);return;}
+    for(let i=1;i<=4;i++){if(!validateStep(i)){showStep(i);validateStep(i);return;}}
+    const payload=Object.fromEntries(new FormData(bookForm).entries());
+    payload.sizeUnknown=document.getElementById('sizeUnknown').checked;
+    payload.packages=payload.sizeUnknown?[]:getPkgs();
+    payload.photos=PHOTOS.map(function(d,i){return {name:'photo'+(i+1)+'.jpg',type:'image/jpeg',data:d.split(',')[1]};});
+    // 舊欄位（相容舊版後台）
+    const destC=payload.destCountry==='其他'?(payload.destCountryOther||'其他'):payload.destCountry;
+    payload.origin=[payload.originCountry,payload.originCity,payload.originZip].filter(Boolean).join(' ');
+    payload.destination=[destC,payload.destCity].filter(Boolean).join(' ');
+    payload.departDate=payload.shipDate;payload.bagCount=payload.packageCount+' 件';
+    payload.returnShipment=payload.tripType==='來回'?'需要回程寄送':'不需要回程寄送';
+    payload.action='create';payload.source='website';payload.pageLanguage='zh-TW';payload.submittedAt=new Date().toISOString();
+    submitBtn.disabled=true;submitBtn.textContent='送出中…';
     fetch(GOOGLE_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
       .then(function(r){return r.json();})
       .then(function(d){
         if(d&&d.ok){
-          var q='id='+encodeURIComponent(d.orderId)+'&t='+encodeURIComponent(d.token)+'&bind='+encodeURIComponent(d.bindCode||'');
+          let q='id='+encodeURIComponent(d.orderId)+'&t='+encodeURIComponent(d.token)+'&bind='+encodeURIComponent(d.bindCode||'');
           if(d.lineAddUrl)q+='&line='+encodeURIComponent(d.lineAddUrl);
           location.href='success.html?'+q;
-        }else{document.getElementById('modal').classList.add('show');form.reset();}
+        }else{stepErr.textContent=(d&&d.error)||'送出失敗，請稍後再試或直接聯絡客服。';}
       })
-      .catch(function(){alert('送出失敗，請稍後再試或直接聯絡客服。');})
-      .finally(function(){button.disabled=false;button.textContent='送出預約需求';});
+      .catch(function(){stepErr.textContent='送出失敗，請稍後再試或直接聯絡客服。';})
+      .finally(function(){submitBtn.disabled=false;submitBtn.textContent='送出運送需求';});
   });
+
   function closeModal(){document.getElementById('modal').classList.remove('show');}
   document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 </script>
