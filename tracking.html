@@ -73,6 +73,17 @@
   .total{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;font-weight:700;padding:12px 0 4px}
   .total b{font-size:24px;color:var(--navy)}
   .fine{font-size:12px;color:var(--gray);margin-top:8px}
+  #liveBox{margin-top:14px;border-top:1px solid #DCE1E8;padding-top:12px}
+  .live-hd{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .live-dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+  .live-st{background:#FCEFE6;color:var(--green-dk);border-radius:10px;padding:1px 10px;font-size:13px}
+  .live-ev{list-style:none;margin:10px 0 0;padding:0 0 0 14px;border-left:2px solid #DCE1E8;font-size:14px}
+  .live-ev li{display:flex;flex-wrap:wrap;gap:2px 12px;padding:6px 0;position:relative}
+  .live-ev li:before{content:"";position:absolute;left:-19px;top:12px;width:8px;height:8px;border-radius:50%;background:#DCE1E8}
+  .live-ev li:first-child:before{background:var(--green)}
+  .live-ev li:first-child{font-weight:700}
+  .live-ev .t{color:var(--gray);min-width:128px;font-variant-numeric:tabular-nums;font-weight:400}
+  .live-ev em{display:block;font-style:normal;color:var(--gray);font-size:12px;font-weight:400}
   .pay{border:2px solid var(--navy);border-radius:12px;padding:16px;margin-top:14px}
   .pay-cta{display:flex;align-items:center;justify-content:center;width:100%;padding:13px;border-radius:var(--r);background:var(--navy);color:#fff;font-size:14px;font-weight:600;margin-top:10px}
   /* 時間軸 */
@@ -262,8 +273,13 @@
         <div><div class="k">預計取件日</div><div class="v" id="sPickup"></div></div>
         <div><div class="k">預計送達日</div><div class="v" id="sArrival"></div></div>
       </div>
+      <div id="liveBox" style="display:none">
+        <div class="live-hd"><span class="live-dot"></span><b>最新物流動態</b><span class="live-st" id="liveSt"></span></div>
+        <ol class="live-ev" id="liveEv"></ol>
+        <p class="fine" id="liveMeta"></p>
+      </div>
       <a class="pay-cta" id="sLink" href="#" target="_blank" rel="noopener" style="display:none">到物流公司官網查詢</a>
-      <p class="fine">物流動態以物流公司官網為準。</p>
+      <p class="fine" id="sFine">物流動態以物流公司官網為準。</p>
     </div>
 
     <div class="card">
@@ -342,6 +358,21 @@
       txt('sCarrier',d.carrier);txt('sTrack',d.trackingNo);
       txt('sPickup',d.estPickupDate||'安排中');txt('sArrival',d.estArrivalDate||'安排中');
       if(d.trackingUrl&&/^https?:\/\//i.test(d.trackingUrl)){$('sLink').href=d.trackingUrl;show('sLink',true);}
+      var lt=d.liveTracking;
+      if(lt&&((lt.events&&lt.events.length)||lt.status)){
+        show('liveBox',true);txt('liveSt',lt.status||'');
+        if(lt.eta&&!d.estArrivalDate)txt('sArrival',lt.eta);
+        var ol=$('liveEv');ol.innerHTML='';
+        (lt.events||[]).slice(0,15).forEach(function(e){
+          var li=document.createElement('li');
+          var t=document.createElement('span');t.className='t';t.textContent=e.at||'';
+          var b=document.createElement('span');b.textContent=e.text||'';
+          if(e.place){var em=document.createElement('em');em.textContent=e.place;b.appendChild(em);}
+          li.appendChild(t);li.appendChild(b);ol.appendChild(li);
+        });
+        txt('liveMeta','資料來源：UPS，系統每小時自動更新'+(lt.checkedAt?'（最後更新 '+lt.checkedAt+'）':'')+'。時間為當地時間，實際動態以 UPS 官網為準。');
+        show('sFine',false);
+      }
     }
 
     // 時間軸
@@ -550,7 +581,7 @@
     },600);
   }
   function resetView(){
-    ['noteCard','quoteCard','docsCard','shipCard','qActions','qRequoteOnly','payBox','requoteBox','cancelBox','dNoteBox','dReqBox','dHint','qOk','dOk'].forEach(function(id){show(id,false);});
+    ['noteCard','quoteCard','docsCard','shipCard','liveBox','qActions','qRequoteOnly','payBox','requoteBox','cancelBox','dNoteBox','dReqBox','dHint','qOk','dOk'].forEach(function(id){show(id,false);});
   }
   $('qBtn').addEventListener('click',function(){
     var id=$('qId').value.trim().toUpperCase(),l4=$('qLast4').value.trim();
