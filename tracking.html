@@ -10,15 +10,16 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root{--green:#7BC043;--green-dk:#5EA32E;--navy:#16202E;--navy-2:#1F2C3D;--ink:#1A222E;--gray:#5B6472;--gray-lt:#EEF1F4;--white:#FFFFFF;--r:10px}
+  :root{--green:#D9560F;--green-dk:#B34509;--navy:#1D2433;--navy-2:#2C3549;--ink:#1D2433;--gray:#4A5468;--gray-lt:#F1F4F7;--white:#FFFFFF;--r:10px}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Poppins','Noto Sans TC',-apple-system,sans-serif;color:var(--ink);background:var(--gray-lt);line-height:1.6;font-size:16px;min-height:100vh}
+  body{font-family:'Noto Sans TC',-apple-system,'PingFang TC',sans-serif;color:var(--ink);background:var(--gray-lt);line-height:1.6;font-size:16px;min-height:100vh}
   a{text-decoration:none;color:inherit}
   input,button,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
   .topbar{background:var(--navy);padding:18px 28px;display:flex;justify-content:space-between;align-items:center}
-  .logo{font-size:20px;font-weight:800;color:#fff;letter-spacing:-.5px}
+  .logo{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:700;color:#fff}
+  .logo svg{width:28px;height:28px}
   .logo span{color:var(--green)}
   .topbar a.home{color:#fff;font-size:14px;opacity:.85}
   .wrap{max-width:680px;margin:36px auto;padding:0 20px}
@@ -82,7 +83,7 @@
   .tl .dot{position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;background:#fff;border:2.5px solid #C6CDD6}
   .tl li.done .dot{background:var(--green);border-color:var(--green)}
   .tl li.done .dot::after{content:'';position:absolute;left:5px;top:3px;width:5px;height:9px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
-  .tl li.current .dot{border-color:var(--green);background:#fff;box-shadow:0 0 0 4px rgba(123,192,67,.25)}
+  .tl li.current .dot{border-color:var(--green);background:#fff;box-shadow:0 0 0 4px rgba(217,86,15,.2)}
   .tl li.done::before{background:var(--green)}
   .tl .name{font-weight:600;font-size:15px}
   .tl li.current .name{color:var(--green-dk);font-weight:800}
@@ -113,7 +114,7 @@
 </style>
 </head>
 <body>
-<div class="topbar"><a class='logo' href='/'>GOLF TRAVEL <span>MOBILITY</span></a><a class='home' href='/'>回首頁</a></div>
+<div class="topbar"><a class="logo" href="/"><svg viewBox="0 0 120 120" aria-hidden="true"><rect width="120" height="120" rx="28" fill="#fff"/><path fill-rule="evenodd" d="M44 18H76L94 36V96a6 6 0 0 1-6 6H32a6 6 0 0 1-6-6V36Z M53 36a7 7 0 1 0 14 0a7 7 0 1 0-14 0Z" fill="#1D2433"/><circle cx="60" cy="72" r="17" fill="#D9560F"/></svg>Golf Travel Mobility</a><a class='home' href='/'>回首頁</a></div>
 <div class="wrap">
   <div class="card" id="queryCard">
     <h1>訂單查詢</h1>
