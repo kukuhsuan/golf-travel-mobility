@@ -294,14 +294,14 @@
     .foot-grid{grid-template-columns:1fr}
   }
   /* ── v2：圖片與重點資訊 ── */
-  .hero2{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:48px 0 8px}
+  .hero2{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center;padding:48px 0 8px}
   .hero2 h1{font-size:46px;line-height:1.22;font-weight:700;letter-spacing:-.01em}
   .hero2 .lead{color:var(--slate);font-size:17px;margin-top:14px;max-width:30em}
   .hero2 .cta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
-  .photo-stack{position:relative;height:420px}
+  .photo-stack{position:relative;height:560px}
   .photo-stack img{position:absolute;object-fit:cover;border-radius:16px;background:#C9D2DC}
-  .photo-stack .p1{right:0;top:0;width:78%;height:300px}
-  .photo-stack .p2{left:0;bottom:0;width:52%;height:220px;border:6px solid var(--white)}
+  .photo-stack .p1{right:0;top:0;width:86%;height:420px}
+  .photo-stack .p2{left:0;bottom:0;width:56%;height:290px;border:6px solid var(--white)}
   .photo-stack .route{position:absolute;right:18px;bottom:28px;background:var(--white);border-radius:12px;padding:10px 16px;box-shadow:0 6px 20px rgba(29,36,51,.15);display:flex;align-items:center;gap:10px;font-weight:700}
   .photo-stack .route .num{font-size:24px;color:var(--sky)}
   .photo-stack .route i{font-style:normal;color:var(--gate);font-size:18px}
@@ -314,25 +314,25 @@
   .facts .num em{font-style:normal;font-size:22px;color:var(--gate);margin-left:4px}
   .facts p{font-size:14.5px;color:var(--slate);margin-top:6px}
   /* 裝備圖卡 */
-  .gear{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
-  .gear figure{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4;background:#C9D2DC}
+  .gear{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+  .gear figure{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:2/3;background:#C9D2DC}
   .gear img{width:100%;height:100%;object-fit:cover}
   .gear figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 14px;background:linear-gradient(transparent,rgba(17,22,32,.82));color:#fff}
-  .gear figcaption b{display:block;font-size:17px}
+  .gear figcaption b{display:block;font-size:19px}
   .gear figcaption span{font-size:13px;color:#DDE3EA}
   /* 比價展示 */
   .compare{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
   .compare .fares{margin-top:0}
   @media(min-width:901px){.compare .fare{grid-template-columns:96px 1fr 84px 120px}}
   /* 安心機制配圖 */
-  .trust2{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
-  .trust2 img{border-radius:16px;width:100%;aspect-ratio:4/5;object-fit:cover;background:#C9D2DC}
+  .trust2{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .trust2 img{border-radius:16px;width:100%;aspect-ratio:1/1;object-fit:cover;background:#C9D2DC}
   .ticks{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;margin-top:24px}
   .ticks li b{display:block;font-size:16.5px}
   .ticks li span{font-size:14px;color:var(--slate)}
   .ticks li{border-top:2px solid var(--gate);padding-top:10px}
   /* 企業合作：背景圖 */
-  .corp2{position:relative;color:#E3E7EE;background:var(--ink) center/cover no-repeat}
+  .corp2{position:relative;color:#E3E7EE;background:var(--ink) center/cover no-repeat;padding:120px 0}
   .corp2::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,22,32,.92) 0%,rgba(17,22,32,.75) 55%,rgba(17,22,32,.35) 100%)}
   .corp2 .container{position:relative;max-width:1180px}
   .corp2 h2{color:#fff;max-width:14em}
@@ -342,14 +342,16 @@
   @media(max-width:900px){
     .hero2{grid-template-columns:1fr;gap:26px;padding-top:30px}
     .hero2 h1{font-size:31px}
-    .photo-stack{height:300px}
-    .photo-stack .p1{height:220px}
-    .photo-stack .p2{height:150px}
+    .photo-stack{height:400px}
+    .photo-stack .p1{height:300px;width:90%}
+    .photo-stack .p2{height:200px;width:58%}
     .facts{grid-template-columns:1fr 1fr}
     .facts .num{font-size:38px}
-    .gear{grid-template-columns:1fr 1fr}
+    .gear{grid-template-columns:1fr}
+    .gear figure{aspect-ratio:4/3}
+    .corp2{padding:80px 0}
     .compare,.trust2{grid-template-columns:1fr;gap:26px}
-    .trust2 img{aspect-ratio:16/10}
+    .trust2 img{aspect-ratio:4/3}
   }
   @media(max-width:520px){.ticks{grid-template-columns:1fr}}
 </style>
