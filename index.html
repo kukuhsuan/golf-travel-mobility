@@ -275,6 +275,10 @@
   }
   @media(max-width:700px){
     .container,.nav-inner{padding:0 16px}
+    .nav-inner{gap:10px}
+    .brand{font-size:15px;gap:8px}
+    .brand svg{width:26px;height:26px}
+    .lang-sw{padding:5px 4px;font-size:12.5px}
     .items{grid-template-columns:1fr}
     #bookForm{padding:22px 16px;border-radius:14px}
     .steps{gap:4px}
@@ -289,6 +293,65 @@
     .plan-opt .pp b{display:inline;font-size:24px;margin-right:6px}
     .foot-grid{grid-template-columns:1fr}
   }
+  /* ── v2：圖片與重點資訊 ── */
+  .hero2{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:48px 0 8px}
+  .hero2 h1{font-size:46px;line-height:1.22;font-weight:700;letter-spacing:-.01em}
+  .hero2 .lead{color:var(--slate);font-size:17px;margin-top:14px;max-width:30em}
+  .hero2 .cta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+  .photo-stack{position:relative;height:420px}
+  .photo-stack img{position:absolute;object-fit:cover;border-radius:16px;background:#C9D2DC}
+  .photo-stack .p1{right:0;top:0;width:78%;height:300px}
+  .photo-stack .p2{left:0;bottom:0;width:52%;height:220px;border:6px solid var(--white)}
+  .photo-stack .route{position:absolute;right:18px;bottom:28px;background:var(--white);border-radius:12px;padding:10px 16px;box-shadow:0 6px 20px rgba(29,36,51,.15);display:flex;align-items:center;gap:10px;font-weight:700}
+  .photo-stack .route .num{font-size:24px;color:var(--sky)}
+  .photo-stack .route i{font-style:normal;color:var(--gate);font-size:18px}
+  .search-wrap{padding:28px 0 8px}
+  .search-wrap .search{margin-top:0}
+  /* 重點資訊 */
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);border-bottom:1px solid var(--line);margin-top:40px}
+  .facts div{padding:20px 18px 18px 0}
+  .facts .num{display:block;font-size:46px;font-weight:700;line-height:1;color:var(--ink)}
+  .facts .num em{font-style:normal;font-size:22px;color:var(--gate);margin-left:4px}
+  .facts p{font-size:14.5px;color:var(--slate);margin-top:6px}
+  /* 裝備圖卡 */
+  .gear{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+  .gear figure{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4;background:#C9D2DC}
+  .gear img{width:100%;height:100%;object-fit:cover}
+  .gear figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 14px;background:linear-gradient(transparent,rgba(17,22,32,.82));color:#fff}
+  .gear figcaption b{display:block;font-size:17px}
+  .gear figcaption span{font-size:13px;color:#DDE3EA}
+  /* 比價展示 */
+  .compare{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
+  .compare .fares{margin-top:0}
+  @media(min-width:901px){.compare .fare{grid-template-columns:96px 1fr 84px 120px}}
+  /* 安心機制配圖 */
+  .trust2{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+  .trust2 img{border-radius:16px;width:100%;aspect-ratio:4/5;object-fit:cover;background:#C9D2DC}
+  .ticks{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;margin-top:24px}
+  .ticks li b{display:block;font-size:16.5px}
+  .ticks li span{font-size:14px;color:var(--slate)}
+  .ticks li{border-top:2px solid var(--gate);padding-top:10px}
+  /* 企業合作：背景圖 */
+  .corp2{position:relative;color:#E3E7EE;background:var(--ink) center/cover no-repeat}
+  .corp2::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,22,32,.92) 0%,rgba(17,22,32,.75) 55%,rgba(17,22,32,.35) 100%)}
+  .corp2 .container{position:relative;max-width:1180px}
+  .corp2 h2{color:#fff;max-width:14em}
+  .corp2 p{max-width:32em;margin-top:12px;font-size:16px}
+  .corp2 ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .corp2 li{border:1px solid rgba(255,255,255,.4);border-radius:99px;padding:5px 14px;font-size:14px;color:#fff}
+  @media(max-width:900px){
+    .hero2{grid-template-columns:1fr;gap:26px;padding-top:30px}
+    .hero2 h1{font-size:31px}
+    .photo-stack{height:300px}
+    .photo-stack .p1{height:220px}
+    .photo-stack .p2{height:150px}
+    .facts{grid-template-columns:1fr 1fr}
+    .facts .num{font-size:38px}
+    .gear{grid-template-columns:1fr 1fr}
+    .compare,.trust2{grid-template-columns:1fr;gap:26px}
+    .trust2 img{aspect-ratio:16/10}
+  }
+  @media(max-width:520px){.ticks{grid-template-columns:1fr}}
 </style>
 </head>
 <body id="top">
@@ -300,9 +363,9 @@
       Golf Travel Mobility
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#about">服務介紹</a>
+      <a href="#about">可寄裝備</a>
       <a href="#how">寄送流程</a>
-      <a href="#routes">寄送地區</a>
+      <a href="#compare">比價</a>
       <a href="#faq">常見問題</a>
       <a href="tracking.html">查詢訂單</a>
       <a href="#book" class="btn btn-gate">開始比價</a>
@@ -317,16 +380,26 @@
   </div>
 </nav>
 
-<!-- Hero：介紹＋比價搜尋 -->
-<section class="hero">
-  <div class="container">
-    <h1>球具、雪具寄國外，先比價再決定</h1>
-    <p class="lead">高爾夫球袋、雙板與單板滑雪裝備，從台灣到府收件，寄往日本、韓國與東南亞。填好路線和包裹尺寸，UPS 與 FedEx 的方案和參考運費一次列出，選好後由專人確認報價與報關。</p>
-    <p class="promo" id="promoBar">
-      <span id="promoDefault">早鳥優惠：出發前 14 天完成預約，享 9 折，優惠碼 GOLF2026。</span>
-      <span id="promoCourse" style="display:none">由 <strong id="courseName">合作球場</strong> 推薦，會員優惠碼 <strong id="promoCode">GOLF2026</strong> 已套用。</span>
-    </p>
+<!-- Hero -->
+<section class="container">
+  <div class="hero2">
+    <div>
+      <h1>球具、雪具寄國外，先比價再決定</h1>
+      <p class="lead">高爾夫球袋、滑雪板從台灣到府收件，寄到海外球場、飯店與雪場。UPS、FedEx 方案一次比較，專人確認報價與報關。</p>
+      <p class="promo" id="promoBar">
+        <span id="promoDefault">早鳥優惠：出發前 14 天完成預約享 9 折，優惠碼 GOLF2026。</span>
+        <span id="promoCourse" style="display:none">由 <strong id="courseName">合作球場</strong> 推薦，會員優惠碼 <strong id="promoCode">GOLF2026</strong> 已套用。</span>
+      </p>
+      <div class="cta"><a href="#book" class="btn btn-gate">開始比價</a><a href="tracking.html" class="btn btn-outline">查詢訂單</a></div>
+    </div>
+    <div class="photo-stack" aria-hidden="true">
+      <img class="p1" src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1100&q=75" alt="">
+      <img class="p2" src="https://images.unsplash.com/photo-1612451472791-53635c82286c?auto=format&fit=crop&w=800&q=75" alt="">
+      <div class="route"><span class="num">TPE</span><i>→</i><span class="num">CTS</span></div>
+    </div>
+  </div>
 
+  <div class="search-wrap">
     <form class="search" id="quickSearch" onsubmit="goBook();return false;">
       <div class="f"><label>出發地</label><div class="fixed">台灣 <span class="num">TPE</span></div></div>
       <div class="f"><label for="qDest">目的地</label>
@@ -341,102 +414,100 @@
       </div>
       <button type="submit" class="go">比價</button>
     </form>
+  </div>
 
-    <div class="fares">
-      <p class="cap">範例：台北寄到札幌，高爾夫球袋 1 件（130×35×35 cm，計費 32 kg），單程參考運費</p>
-      <div class="fare best"><div class="car">FedEx<span class="badge">最便宜</span></div><div class="svc">國際經濟（IE）・運費較省</div><div class="kg">計費 32 kg</div><div class="price num"><small>NT$</small>3,488</div></div>
-      <div class="fare"><div class="car">FedEx</div><div class="svc">國際優先（IP）・送達較快</div><div class="kg">計費 32 kg</div><div class="price num"><small>NT$</small>3,616</div></div>
-      <div class="fare"><div class="car">UPS</div><div class="svc">快捷（Express Saver）</div><div class="kg">計費 32 kg</div><div class="price num"><small>NT$</small>4,307</div></div>
-      <p class="fine">參考運費依公司對外報價表計算。國際運費為基本運費，不含燃油附加費、其他附加費，以及進口報關、清關所產生的相關費用與稅金，正式金額以客服報價為準。</p>
+  <div class="facts">
+    <div><span class="num">2<em>家</em></span><p>國際快遞一次比價：UPS・FedEx</p></div>
+    <div><span class="num">16<em>個</em></span><p>國家與地區可線上比價</p></div>
+    <div><span class="num">48<em>小時</em></span><p>正式報價有效，價格先講清楚</p></div>
+    <div><span class="num">9–18</span><p>週一至週五中文客服</p></div>
+  </div>
+</section>
+
+<!-- 可以寄什麼 -->
+<section class="sec" id="about">
+  <div class="container">
+    <h2>可以幫你寄的裝備</h2>
+    <p class="intro">單程或來回都能安排，到府收件時會確認包裝並拍照。</p>
+    <div class="gear">
+      <figure><img src="https://images.unsplash.com/photo-1592919505780-303950717480?auto=format&fit=crop&w=700&q=75" alt="高爾夫球友揮桿" loading="lazy"><figcaption><b>高爾夫球袋</b><span>球袋、硬殼箱、整套球具</span></figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1673994841893-d9e8e976d674?auto=format&fit=crop&w=700&q=75" alt="雙板滑雪" loading="lazy"><figcaption><b>雙板滑雪</b><span>雪板、雪杖、雪鞋</span></figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1478700485868-972b69dc3fc4?auto=format&fit=crop&w=700&q=75" alt="單板滑雪" loading="lazy"><figcaption><b>單板滑雪</b><span>單板、固定器、雪鞋</span></figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1530028828-25e8270793c5?auto=format&fit=crop&w=700&q=75" alt="包裝好的大型裝備" loading="lazy"><figcaption><b>其他大型器材</b><span>先填尺寸，客服確認</span></figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- 服務介紹 -->
-<section class="sec bg-panel" id="about">
-  <div class="container about">
+<!-- 比價展示 -->
+<section class="sec bg-panel" id="compare">
+  <div class="container compare">
     <div>
-      <h2>把裝備送到球場和雪場，中間的事交給我們</h2>
-      <p class="intro">不只是代寄包裹。從尺寸重量確認、包裝檢查、報關資料，到球場、飯店或雪場簽收，都有專人負責，你只要專心安排行程。</p>
-      <div class="items">
-        <div class="item"><h3>高爾夫球袋／球桿</h3><p>個人球袋、旅行硬殼箱、整套球具</p></div>
-        <div class="item"><h3>雙板滑雪裝備</h3><p>雪板、雪杖、雪鞋與雪板袋</p></div>
-        <div class="item"><h3>單板滑雪裝備</h3><p>單板、固定器、雪鞋與板袋</p></div>
-        <div class="item"><h3>其他大型運動器材</h3><p>先填尺寸，客服確認可否承運</p></div>
-      </div>
-      <ul class="points">
-        <li>台灣到府收件，收件時確認包裝並拍照存證</li>
-        <li>單程或來回都能安排，打完球、滑完雪直接寄回台灣</li>
-        <li>訂單頁、Email 與 LINE 同步通知每一段進度</li>
-      </ul>
+      <h2>價格攤開來，自己挑</h2>
+      <p class="intro">填好路線和包裹尺寸，系統依各家計費規則算出參考運費，像訂機票一樣排好給你選。</p>
+      <div style="margin-top:22px"><a href="#book" class="btn btn-gate">我也來比價</a></div>
     </div>
-    <img src="https://images.unsplash.com/photo-1592919505780-303950717480?auto=format&fit=crop&w=1000&q=80" alt="球場上揮桿的球友" loading="lazy">
+    <div class="fares">
+      <p class="cap">範例：台北寄札幌，高爾夫球袋 1 件（130×35×35 cm），單程</p>
+      <div class="fare best"><div class="car">FedEx<span class="badge">最便宜</span></div><div class="svc">國際經濟・運費較省</div><div class="kg">計費 32 kg</div><div class="price num"><small>NT$</small>3,488</div></div>
+      <div class="fare"><div class="car">FedEx</div><div class="svc">國際優先・送達較快</div><div class="kg">計費 32 kg</div><div class="price num"><small>NT$</small>3,616</div></div>
+      <div class="fare"><div class="car">UPS</div><div class="svc">快捷 Express Saver</div><div class="kg">計費 32 kg</div><div class="price num"><small>NT$</small>4,307</div></div>
+      <p class="fine">參考運費為基本運費，不含燃油附加費、其他附加費，以及進口報關、清關費用與稅金，以客服正式報價為準。</p>
+    </div>
   </div>
 </section>
 
 <!-- 寄送流程 -->
 <section class="sec" id="how">
   <div class="container">
-    <h2>從比價到送達，四個步驟</h2>
-    <p class="intro">填寫表單只是提出需求，不代表訂單成立。客服服務時間為週一至週五 9:00–18:00，非上班時間收到的需求，會在下一個工作時間處理。</p>
+    <h2>四個步驟，送到球場和雪場</h2>
     <div class="steps4">
-      <div><span class="num">1</span><h3>線上比價</h3><p>填寫路線與包裹重量尺寸，比較各方案參考運費，選一個送出。</p></div>
-      <div><span class="num">2</span><h3>確認正式報價</h3><p>客服確認可承運條件後寄出正式報價，48 小時內有效。</p></div>
-      <div><span class="num">3</span><h3>付款與寄件資料</h3><p>接受報價、完成付款，並在訂單頁補齊英文地址與報關資料。</p></div>
-      <div><span class="num">4</span><h3>到府收件，追蹤到簽收</h3><p>收件後在訂單頁查看物流進度，直到送達球場、飯店或雪場。</p></div>
+      <div><span class="num">1</span><h3>線上比價</h3><p>選好方案送出需求</p></div>
+      <div><span class="num">2</span><h3>確認報價</h3><p>正式報價 48 小時有效</p></div>
+      <div><span class="num">3</span><h3>付款、補寄件資料</h3><p>在訂單頁一次完成</p></div>
+      <div><span class="num">4</span><h3>到府收件</h3><p>追蹤進度直到簽收</p></div>
+    </div>
+    <p class="fine" style="margin-top:18px">送出表單不代表訂單成立；非上班時間收到的需求，於下一個工作時間處理。</p>
+  </div>
+</section>
+
+<!-- 安心機制 -->
+<section class="sec bg-panel" id="trust">
+  <div class="container trust2">
+    <img src="https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?auto=format&fit=crop&w=900&q=75" alt="球場與球袋" loading="lazy">
+    <div>
+      <h2>寄出之後，我們繼續盯著</h2>
+      <ul class="ticks">
+        <li><b>專屬訂單頁</b><span>隨時查進度與報價</span></li>
+        <li><b>拍照存證</b><span>收件時確認包裝狀態</span></li>
+        <li><b>物流追蹤</b><span>追蹤編號同步更新</span></li>
+        <li><b>異常協助</b><span>延誤、清關問題即時處理</span></li>
+        <li><b>送達確認</b><span>球場、飯店、雪場簽收</span></li>
+        <li><b>回程安排</b><span>行程結束直接寄回台灣</span></li>
+      </ul>
     </div>
   </div>
 </section>
 
 <!-- 寄送地區 -->
-<section class="sec bg-panel" id="routes">
+<section class="sec" id="routes">
   <div class="container">
-    <h2>可寄送的國家與地區</h2>
-    <p class="intro">以下地區可在預約表單直接比價。其他國家也可以送出需求，由客服提供報價。</p>
+    <h2>可線上比價的國家與地區</h2>
     <div class="routes-grid">
       <div class="region"><h3>東北亞</h3><ul><li>日本</li><li>韓國</li><li>香港</li><li>澳門</li><li>中國（華南）</li><li>中國（華南以外）</li></ul></div>
       <div class="region"><h3>東南亞</h3><ul><li>泰國</li><li>馬來西亞</li><li>新加坡</li><li>越南</li><li>印尼</li><li>菲律賓</li></ul></div>
       <div class="region"><h3>其他地區</h3><ul><li>澳洲</li><li>紐西蘭</li><li>印度</li><li>加拿大</li></ul></div>
     </div>
-    <div class="plans">
-      <div class="plan"><h3>急件安排</h3><p>臨時成行的行程，最短 3–5 天完成安排，優先處理與專人追蹤，請先洽客服確認。</p></div>
-      <div class="plan"><h3>團體與企業</h3><p>3 套以上可整批規劃，企業招待與球隊移訓提供專屬窗口與團體報價。</p></div>
-      <div class="plan"><h3>年度合作</h3><p>球場、飯店、雪場、旅行社與企業的年度合約，固定流程、推薦碼與對帳機制。</p></div>
-    </div>
-    <p class="fine">國際快遞以實際重量與材積重量較大者計費。國際運費為基本運費，不含燃油附加費、其他附加費，以及進口報關、清關所產生的相關費用與稅金。</p>
-  </div>
-</section>
-
-<!-- 安心機制 -->
-<section class="sec" id="trust">
-  <div class="container">
-    <h2>寄出之後，我們繼續盯著</h2>
-    <p class="intro">從台灣收件到海外送達，每個節點都有紀錄。訂單頁是狀態中心，通知依你選擇的管道發送。</p>
-    <div class="trust-list">
-      <div><h3>專屬訂單頁</h3><p>每筆訂單都有安全連結，查詢進度不依賴單一通訊軟體。</p></div>
-      <div><h3>包裝拍照存證</h3><p>收件時確認狀態並拍照，寄出前再確認一次，降低爭議。</p></div>
-      <div><h3>物流進度追蹤</h3><p>物流追蹤編號與訂單狀態同步，客服留意每一段運送。</p></div>
-      <div><h3>異常協助處理</h3><p>延誤、清關卡關或地址問題，客服第一時間協助。</p></div>
-      <div><h3>送達確認</h3><p>協助聯繫球場、飯店或雪場窗口，確認裝備已安全抵達。</p></div>
-      <div><h3>回程一起安排</h3><p>行程結束從海外直接寄回台灣，不必再扛著裝備搭機。</p></div>
-    </div>
+    <p class="fine" style="margin-top:16px">其他國家也可以送出需求，由客服報價。</p>
   </div>
 </section>
 
 <!-- 企業合作 -->
-<section class="sec corp" id="corp">
+<section class="sec corp2" id="corp" style="background-image:url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1600&q=70')">
   <div class="container">
-    <div>
-      <h2>企業招待、球隊移訓與球場合作</h2>
-      <p>企業球敘、VIP 招待、海外交流賽與滑雪團，整批裝備由我們統一規劃寄送，讓接待流程更從容，不必讓客人自己處理行李。</p>
-      <div style="margin-top:22px"><a href="#book" class="btn btn-gate">洽詢企業方案</a></div>
-    </div>
-    <ul>
-      <li>整批寄送與專屬窗口</li>
-      <li>團體訂單統一追蹤</li>
-      <li>球場、飯店、雪場簽收確認</li>
-      <li>回程一併安排</li>
-    </ul>
+    <h2>企業招待、球隊移訓、滑雪團</h2>
+    <p>整批裝備統一規劃寄送，專屬窗口與團體報價。急件最短 3–5 天可完成安排。</p>
+    <ul><li>整批寄送</li><li>團體訂單追蹤</li><li>簽收確認</li><li>年度合作</li></ul>
+    <div style="margin-top:24px"><a href="#book" class="btn btn-gate">洽詢企業方案</a></div>
   </div>
 </section>
 
@@ -611,7 +682,7 @@
         <div class="foot-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><rect width="120" height="120" rx="28" fill="#fff"/><path fill-rule="evenodd" d="M44 18H76L94 36V96a6 6 0 0 1-6 6H32a6 6 0 0 1-6-6V36Z M53 36a7 7 0 1 0 14 0a7 7 0 1 0-14 0Z" fill="#1D2433"/><circle cx="60" cy="72" r="17" fill="#D9560F"/></svg>Golf Travel Mobility</div>
         <p style="margin-top:12px;max-width:26em">高爾夫與滑雪裝備的國際運送服務。先比價、再由專人確認報價與報關，從台灣到府收件，送到海外球場、飯店與雪場。</p>
       </div>
-      <div><h4>服務</h4><ul><li><a href="#about">服務介紹</a></li><li><a href="#how">寄送流程</a></li><li><a href="#routes">寄送地區</a></li><li><a href="#corp">企業合作</a></li></ul></div>
+      <div><h4>服務</h4><ul><li><a href="#about">可寄裝備</a></li><li><a href="#how">寄送流程</a></li><li><a href="#compare">比價</a></li><li><a href="#corp">企業合作</a></li></ul></div>
       <div><h4>客服</h4><ul><li><a href="#book">開始比價</a></li><li><a href="tracking.html">查詢訂單</a></li><li><a href="#faq">常見問題</a></li></ul></div>
       <div><h4>聯絡我們</h4><ul><li><a href="https://lin.ee/XOMWpls" target="_blank" rel="noopener">LINE：lin.ee/XOMWpls</a></li><li>客服服務時間：週一至週五 9:00–18:00</li></ul></div>
     </div>
