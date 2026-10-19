@@ -346,7 +346,7 @@
   /* ── 分步驟預約表單 ── */
   .book-wrap{grid-template-columns:1fr;max-width:900px;margin-left:auto;margin-right:auto}
   #bookForm{scroll-margin-top:110px;background:var(--white);border:1px solid #E3E8EE;border-radius:16px;padding:30px 32px;box-shadow:0 10px 36px rgba(22,32,46,.06)}
-  .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:26px}
+  .steps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:26px}
   .steps li{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:#9AA3AE;border-bottom:3px solid #E3E8EE;padding-bottom:10px}
   .steps li span{width:24px;height:24px;border-radius:50%;background:#E3E8EE;color:var(--gray);display:inline-flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
   .steps li.on{color:var(--navy);border-color:var(--green)}
@@ -385,6 +385,23 @@
   .notice-box p{font-size:14px;margin-bottom:4px}
   .notice-box ul{padding-left:18px;font-size:13.5px;color:var(--ink);line-height:1.8}
   .step-ft [hidden],#bookForm [hidden]{display:none !important}
+  .est-box{display:grid;gap:12px}
+  .est-msg{background:#F4F7FA;border-radius:12px;padding:16px 18px;font-size:14.5px;color:var(--gray)}
+  .plan-opt{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;border:1.5px solid #D6DBE1;border-radius:14px;padding:16px 18px;cursor:pointer;background:var(--white);transition:.15s}
+  .plan-opt:hover{border-color:#B9C2CC}
+  .plan-opt input{width:20px;height:20px;accent-color:var(--green-dk);margin:0}
+  .plan-opt:has(input:checked){border-color:var(--green);background:#F6FBF1;box-shadow:0 0 0 3px rgba(123,192,67,.18)}
+  .plan-opt .pn{font-weight:800;font-size:16px;color:var(--navy)}
+  .plan-opt .ps{font-size:13px;color:var(--gray);margin-top:2px}
+  .plan-opt .pp{text-align:right;white-space:nowrap}
+  .plan-opt .pp b{display:block;font-size:24px;font-weight:800;color:var(--navy);letter-spacing:-.5px}
+  .plan-opt .pp small{font-size:12px;color:var(--gray)}
+  .plan-opt .tag{display:inline-block;font-size:11.5px;font-weight:700;border-radius:99px;padding:2px 9px;margin-left:6px;vertical-align:2px;background:var(--green);color:#fff}
+  .plan-opt.off{cursor:default;background:#F7F8FA;color:#9AA3AE}
+  .plan-opt.off .pn{color:#7A8490}
+  .plan-opt.ask .pn{font-size:15px}
+  .est-note{font-size:12.5px;color:#8A5A10;background:#FFF8EA;border-radius:10px;padding:10px 14px;margin-top:14px;line-height:1.7}
+  @media(max-width:700px){.plan-opt{grid-template-columns:auto 1fr;padding:14px}.plan-opt .pp{grid-column:2;text-align:left}.plan-opt .pp b{display:inline;font-size:21px;margin-right:6px}}
   .step-ft{display:flex;align-items:center;gap:12px;margin-top:24px;padding-top:18px;border-top:1px solid #E3E8EE}
   .step-ft #nextBtn,.step-ft #submitBtn{margin-left:auto}
   .step-err{color:#B23A3A;font-size:13.5px;flex:1;text-align:right}
@@ -644,8 +661,9 @@
         <ol class="steps" id="stepNav">
           <li class="on"><span>1</span>運送路線</li>
           <li><span>2</span>運送物品</li>
-          <li><span>3</span>聯絡資訊</li>
-          <li><span>4</span>確認送出</li>
+          <li><span>3</span>比價選方案</li>
+          <li><span>4</span>聯絡資訊</li>
+          <li><span>5</span>確認送出</li>
         </ol>
 
         <!-- 步驟 1：運送路線 -->
@@ -672,7 +690,7 @@
             <div class="field"><label>寄件郵遞區號 <span class="req">*</span></label><input type="text" name="originZip" inputmode="numeric" placeholder="例如 110" required></div>
             <div class="sub-h full">收件地（寄到哪裡）</div>
             <div class="field"><label>收件國家 <span class="req">*</span></label>
-              <select name="destCountry" required><option value="">請選擇</option><option>日本</option><option>韓國</option><option>泰國</option><option>馬來西亞</option><option>新加坡</option><option>越南</option><option>其他</option></select>
+              <select name="destCountry" required><option value="">請選擇</option><option>日本</option><option>韓國</option><option>泰國</option><option>馬來西亞</option><option>新加坡</option><option>越南</option><option>香港</option><option>澳門</option><option value="中國（華南）">中國（華南：廣東、福建、廣西、雲南、海南等）</option><option value="中國（華南以外）">中國（華南以外地區）</option><option>印尼</option><option>菲律賓</option><option>澳洲</option><option>紐西蘭</option><option>印度</option><option>加拿大</option><option>其他</option></select>
             </div>
             <div class="field" id="destOtherWrap" hidden><label>其他國家 <span class="req">*</span></label><input type="text" name="destCountryOther" placeholder="請填國家名稱"></div>
             <div class="field"><label>收件城市 <span class="req">*</span></label><input type="text" name="destCity" placeholder="例如 札幌、清邁" required></div>
@@ -717,8 +735,16 @@
           </div>
         </fieldset>
 
-        <!-- 步驟 3：聯絡資訊 -->
+        <!-- 步驟 3：比價選方案 -->
         <fieldset class="step" data-step="3">
+          <legend>比價選方案</legend>
+          <p class="form-fine" style="margin:-6px 0 14px">依您填寫的路線與包裹重量尺寸，比較各物流方案的參考運費。選好方案後，客服會再確認並提供正式報價。</p>
+          <div id="estBox" class="est-box"><p class="est-msg">計算中…</p></div>
+          <p class="est-note">參考運費依公司對外報價表計算，僅供比較；國際運費為基本運費，不含燃油附加費、其他附加費，以及進口報關、清關所產生的相關費用與稅金。正式金額以客服提供的正式報價為準（有效 48 小時）。</p>
+        </fieldset>
+
+        <!-- 步驟 4：聯絡資訊 -->
+        <fieldset class="step" data-step="4">
           <legend>聯絡資訊</legend>
           <div class="bk-grid">
             <div class="field"><label>聯絡人姓名 <span class="req">*</span></label><input type="text" name="name" autocomplete="name" required></div>
@@ -735,8 +761,8 @@
           </div>
         </fieldset>
 
-        <!-- 步驟 4：確認送出 -->
-        <fieldset class="step" data-step="4">
+        <!-- 步驟 5：確認送出 -->
+        <fieldset class="step" data-step="5">
           <legend>確認送出</legend>
           <div class="summary" id="summary"></div>
           <div class="notice-box">
@@ -824,7 +850,7 @@
   function goBook(){
     const dest=document.getElementById('qDest').value;
     const date=document.getElementById('qDate').value;
-    if(dest){const s=document.querySelector('[name="destCountry"]');if(s){for(const o of s.options){if(o.value===dest||o.value.startsWith(dest)){s.value=o.value;break;}}s.dispatchEvent(new Event('change'));}}
+    if(dest){const s=document.querySelector('[name="destCountry"]');if(s){const hit=[...s.options].find(function(o){return o.value===dest;});s.value=hit?hit.value:'其他';if(!hit){const t=bookForm.elements.destCountryOther;if(t)t.value=dest==='其他'?'':dest;}s.dispatchEvent(new Event('change'));}}
     if(date){const s=document.querySelector('[name="shipDate"]');if(s)s.value=date;}
     document.getElementById('book').scrollIntoView({behavior:'smooth'});
   }
@@ -836,7 +862,7 @@
   const navEls=[...document.querySelectorAll('#stepNav li')];
   const prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn'),submitBtn=document.getElementById('submitBtn');
   const stepErr=document.getElementById('stepErr');
-  let curStep=1;const PHOTOS=[];
+  let curStep=1;const PHOTOS=[];const LAST=5;
   const todayStr=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
   bookForm.querySelectorAll('input[type="date"]').forEach(function(i){i.min=todayStr;});
 
@@ -844,12 +870,13 @@
     curStep=n;
     stepEls.forEach(function(s){s.classList.toggle('on',Number(s.dataset.step)===n);});
     navEls.forEach(function(li,i){li.classList.toggle('on',i+1===n);li.classList.toggle('done',i+1<n);});
-    prevBtn.hidden=n===1;nextBtn.hidden=n===4;submitBtn.hidden=n!==4;
+    prevBtn.hidden=n===1;nextBtn.hidden=n===LAST;submitBtn.hidden=n!==LAST;
     stepErr.textContent='';
-    if(n===4)buildSummary();
+    if(n===3)loadEstimate();
+    if(n===LAST)buildSummary();
     bookForm.scrollIntoView({behavior:'smooth'});
   }
-  const val=function(n){const el=bookForm.elements[n];if(!el)return '';if(el instanceof RadioNodeList)return el.value;return (el.value||'').trim();};
+  const val=function(n){const el=bookForm.elements[n];if(!el)return '';if(el instanceof RadioNodeList)return el.value;if(el.type==='radio')return el.checked?el.value:'';return (el.value||'').trim();};
 
   // 來回 → 顯示回程日期；其他國家 → 顯示輸入框
   bookForm.querySelectorAll('[name="tripType"]').forEach(function(r){r.addEventListener('change',function(){document.getElementById('returnWrap').hidden=val('tripType')!=='來回';});});
@@ -938,7 +965,8 @@
       document.querySelectorAll('#pkgRows input').forEach(function(i){if(!(Number(i.value)>0)){i.classList.add('bad');bad=true;}});
       if(bad)msg=msg||'請填寫每件包裹的重量與尺寸，或勾選「不清楚，需客服協助確認」';
     }
-    if(n===4&&!document.getElementById('agree').checked)msg='請勾選「我已閱讀並了解以上說明」';
+    if(n===3&&!val('preferredService'))msg=EST_LOADING?'參考運費計算中，請稍候':'請選擇一個方案，或選「請客服建議」';
+    if(n===LAST&&!document.getElementById('agree').checked)msg='請勾選「我已閱讀並了解以上說明」';
     stepErr.textContent=msg;
     return !msg;
   }
@@ -946,6 +974,55 @@
   bookForm.addEventListener('change',function(e){const f=e.target.closest('.field');if(f)f.classList.remove('bad');});
   nextBtn.addEventListener('click',function(){if(validateStep(curStep))showStep(curStep+1);});
   prevBtn.addEventListener('click',function(){showStep(curStep-1);});
+
+  // ── 比價選方案 ──
+  const PLAN_NAMES={'UPS Express Saver':['UPS 快捷（Express Saver）','門到門國際快遞'],'FedEx IP 國際優先':['FedEx 國際優先（IP）','送達較快'],'FedEx IE 國際經濟':['FedEx 國際經濟（IE）','運費較省']};
+  let EST_KEY='',EST_DATA=null,EST_LOADING=false;
+  const nt=function(n){return 'NT$ '+Math.round(n).toLocaleString('en-US');};
+  function estPayload(){
+    return {action:'estimate',originCountry:val('originCountry'),destCountry:val('destCountry'),destCountryOther:val('destCountryOther'),
+      tripType:val('tripType'),sizeUnknown:document.getElementById('sizeUnknown').checked,packages:getPkgs()};
+  }
+  function loadEstimate(){
+    const p=estPayload(),key=JSON.stringify(p),box=document.getElementById('estBox');
+    if(key===EST_KEY&&EST_DATA){renderEstimate(EST_DATA);return;}
+    EST_KEY=key;EST_DATA=null;EST_LOADING=true;
+    box.innerHTML='<p class="est-msg">正在比較各物流方案的參考運費…</p>';
+    fetch(GOOGLE_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:key})
+      .then(function(r){return r.json();})
+      .then(function(d){if(key!==EST_KEY)return;EST_DATA=d;renderEstimate(d);})
+      .catch(function(){if(key!==EST_KEY)return;EST_DATA={available:false,reason:'暫時無法取得參考運費，送出後客服會提供正式報價',options:[]};renderEstimate(EST_DATA);})
+      .finally(function(){if(key===EST_KEY)EST_LOADING=false;});
+  }
+  function askOpt(checked){
+    return '<label class="plan-opt ask"><input type="radio" name="preferredService" value="請客服建議"'+(checked?' checked':'')+'><div><div class="pn">還不確定，請客服建議</div><div class="ps">送出後由客服依您的行程推薦合適方案</div></div></label>';
+  }
+  function renderEstimate(d){
+    const box=document.getElementById('estBox'),prev=val('preferredService');
+    let h='';
+    if(!d||!d.available){
+      h='<p class="est-msg">'+esc((d&&d.reason)||'目前無法線上估價')+'</p>'+askOpt(true);
+      box.innerHTML=h;return;
+    }
+    const trip=d.trip;
+    h=d.options.map(function(o){
+      const nm=PLAN_NAMES[o.card]||[o.card,''];
+      if(!o.available){
+        return '<div class="plan-opt off"><span></span><div><div class="pn">'+esc(nm[0])+'</div><div class="ps">'+esc(o.reason||'此方案需由客服報價')+'</div></div><div class="pp"><small>由客服報價</small></div></div>';
+      }
+      const detail=trip?('去程 '+nt(o.outPrice)+' ＋ 回程 '+nt(o.retPrice)):('計費重量 '+o.chargeKg+' kg');
+      return '<label class="plan-opt"><input type="radio" name="preferredService" value="'+esc(o.card)+'"'+(prev===o.card?' checked':'')+'>'+
+        '<div><div class="pn">'+esc(nm[0])+(o.cheapest?'<span class="tag">最便宜</span>':'')+'</div><div class="ps">'+esc(nm[1])+'・'+esc(detail)+(trip?'・計費 '+o.chargeKg+' kg':'')+'</div></div>'+
+        '<div class="pp"><b>'+nt(o.total)+'</b><small>'+(trip?'來回參考運費':'單程參考運費')+'</small></div></label>';
+    }).join('')+askOpt(prev==='請客服建議');
+    box.innerHTML=h;
+  }
+  function planSummary(){
+    const v=val('preferredService');
+    if(!v||v==='請客服建議')return '請客服建議';
+    const o=(EST_DATA&&EST_DATA.options||[]).filter(function(x){return x.card===v;})[0];
+    return (PLAN_NAMES[v]||[v])[0]+(o&&o.available?'　參考運費 '+nt(o.total)+'（以正式報價為準）':'');
+  }
 
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function buildSummary(){
@@ -959,6 +1036,7 @@
       val('tripType')==='來回'?['回程寄件日',val('returnShipDate')]:null,
       ['grp','運送物品'],['包裹件數',val('packageCount')+' 件'],['重量／尺寸',pk,true],['包裝方式',val('packing')],
       ['申報價值',val('declaredValue')+' '+val('declaredCurrency')],['自用舊品',val('usedPersonal')],['照片',PHOTOS.length?PHOTOS.length+' 張':'未上傳'],
+      ['grp','選擇方案'],['物流方案',planSummary()],
       ['grp','聯絡資訊'],['聯絡人',val('name')],['電話',val('phone')],['Email',val('email')],['LINE ID',val('line')||'未填'],['備註',val('notes')||'無']
     ];
     document.getElementById('summary').innerHTML=rows.filter(Boolean).map(function(r){
@@ -969,8 +1047,8 @@
 
   bookForm.addEventListener('submit',function(e){
     e.preventDefault();
-    if(curStep!==4){if(validateStep(curStep))showStep(curStep+1);return;}
-    for(let i=1;i<=4;i++){if(!validateStep(i)){showStep(i);validateStep(i);return;}}
+    if(curStep!==LAST){if(validateStep(curStep))showStep(curStep+1);return;}
+    for(let i=1;i<=LAST;i++){if(!validateStep(i)){showStep(i);validateStep(i);return;}}
     const payload=Object.fromEntries(new FormData(bookForm).entries());
     payload.sizeUnknown=document.getElementById('sizeUnknown').checked;
     payload.packages=payload.sizeUnknown?[]:getPkgs();

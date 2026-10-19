@@ -147,6 +147,7 @@
         <div><div class="k">預計寄件日</div><div class="v" id="rShip"></div></div>
         <div><div class="k">包裹件數</div><div class="v" id="rPkg"></div></div>
         <div id="rReturnWrap" style="display:none"><div class="k">回程寄件日</div><div class="v" id="rReturn"></div></div>
+        <div class="full" id="rPlanWrap" style="display:none"><div class="k">您選擇的方案</div><div class="v" id="rPlan"></div></div>
       </div>
       <a class="line-cta" id="rLine" href="#" target="_blank" rel="noopener" style="display:none">加 LINE 好友，進度自動推播</a>
     </div>
@@ -322,6 +323,11 @@
     txt('rService',d.serviceType);txt('rTrip',d.tripType||'—');
     txt('rRoute',d.route);txt('rShip',d.shipDate);txt('rPkg',d.packageCount?(String(d.packageCount).replace(/\s*件$/,'')+' 件'):'');
     if(d.tripType==='來回'){show('rReturnWrap',true);txt('rReturn',d.returnShipDate);}
+    if(d.preferredService){
+      var PN={'UPS Express Saver':'UPS 快捷（Express Saver）','FedEx IP 國際優先':'FedEx 國際優先（IP）','FedEx IE 國際經濟':'FedEx 國際經濟（IE）'};
+      show('rPlanWrap',true);
+      txt('rPlan',(PN[d.preferredService]||d.preferredService)+(d.estimateAmount&&!d.quote?'　網站參考運費 '+d.estimateAmount.replace('TWD','NT$')+'（以正式報價為準）':''));
+    }
     if(d.customerNote){show('noteCard',true);$('rNote').textContent=d.customerNote;}
     if(d.lineAddUrl&&!d.lineBound){$('rLine').href=d.lineAddUrl;show('rLine',true);}
     if(d.serviceEmail){$('cEmailLink').textContent=d.serviceEmail;$('cEmailLink').href='mailto:'+d.serviceEmail;}
