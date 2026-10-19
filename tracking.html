@@ -370,7 +370,7 @@
           if(e.place){var em=document.createElement('em');em.textContent=e.place;b.appendChild(em);}
           li.appendChild(t);li.appendChild(b);ol.appendChild(li);
         });
-        txt('liveMeta','資料來源：UPS，系統每小時自動更新'+(lt.checkedAt?'（最後更新 '+lt.checkedAt+'）':'')+'。時間為當地時間，實際動態以 UPS 官網為準。');
+        var src=lt.carrier||d.carrier||'物流公司';txt('liveMeta','資料來源：'+src+'，系統每小時自動更新'+(lt.checkedAt?'（最後更新 '+lt.checkedAt+'）':'')+'。時間為當地時間，實際動態以 '+src+' 官網為準。');
         show('sFine',false);
       }
     }
